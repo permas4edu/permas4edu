@@ -1,0 +1,64 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = nidish_model.dat
+RETURN
+
+TASK
+EXEC
+   ACT SIT = STEP_0
+   VIBRATION ANALYSIS MODES = 10
+SELECT
+   ACTIVE NSET = ROD
+   XYDATA ITEM DISP COOR = X RESULT = MODE DCOMP = 1
+EXPORT
+   ITEM CLEAR XYDATA
+   ITEM MODL
+   GO PERMAS BINARY FILE = normal_modes
+   ITEM CLEAR
+   ITEM XYDATA NAME = MODE
+   GO SPREADSHEET FILE = normal_modes
+EXEC
+   ACT SIT = STEP_1
+   ACTIVE NSET = RESULTS
+   DIRECT HARMONIC BALANCE FFTSIZE      = 512        &
+                           ACCURACY     =   5.       &
+                           NOFHARMONICS =   5        &
+                           MODES        =  30        &
+                           MODE         = FOLLOWPATH &
+                           DIRECTION    = ASCENDING  &
+                           STARTFREQ    =  6549.2259 &
+                           RESULTS      = ALL
+SELECT
+    ACTIVE NSET = RESULTS
+!   ACTIVE NSET = N92
+    XYDATA ITEM DISP BOOK = USR.DISP  RESULT = MAG   DCOMP = 1
+    XYDATA ITEM DISP BOOK = USRF.DISP RESULT = PHASE DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = MAG
+    GO SPREADSHEET FILE = hbm_mag_response        
+    ITEM CLEAR
+    ITEM XYDATA NAME = PHASE
+    GO SPREADSHEET FILE = hbm_phase_response 
+EXEC
+    ACT SIT = STEP_2
+    ACTIVE NSET = RESULTS
+    DIRECT FREQUENCY
+SELECT
+    ACTIVE NSET = RESULTS
+!   ACTIVE NSET = N92
+    XYDATA ITEM DISP BOOK = USR.DISP  RESULT = MAG   DCOMP = 1
+    XYDATA ITEM DISP BOOK = USRF.DISP RESULT = PHASE DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = MAG
+    GO SPREADSHEET FILE = mag_response        
+    ITEM CLEAR
+    ITEM XYDATA NAME = PHASE
+    GO SPREADSHEET FILE = phase_response 
+TASK END
+USER
+    CALL TOOL6 P1 ='pyINTES nidish1.py' ! Mode shapes
+    CALL TOOL6 P1 ='pyINTES nidish2.py' ! Nonlinear FRFs
+STOP
