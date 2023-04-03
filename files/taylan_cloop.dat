@@ -1,0 +1,135 @@
+$DEFVAR SITNAME TYPE = NAME GEN = HBM_,1,1
+$DEFVAR LOADVAR TYPE = NAME GEN = L_STEP_,1,1
+$DEFVAR AMPLITUDE TYPE = REAL GEN = 10.0, 5.0
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $LOOP I = 1, 9
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = BAS CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_1
+        $END SITUATION
+    $ENDLOOP
+
+    $STRUCTURE
+
+       $BASVAR 
+         1 TYPE = LOADFAC PDF = 100
+ 
+       $PDFUNCTION PDF = 100 TYPE = RECT DATA = MOMENTS
+          25.0 0.1
+
+       $COOR NSET = GROUND
+         101 0.0 0.0 0.0
+         102 6.0 0.0 0.0
+
+       $COOR NSET = LOCALS 
+           1 1.0 0.0 0.0
+           2 2.0 0.0 0.0
+           3 3.0 0.0 0.0
+           4 4.0 0.0 0.0
+           5 5.0 0.0 0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+           1 1
+           2 2
+           3 3
+           4 4
+           5 5
+
+       $ELEMENT TYPE = SPRING1 ESET = K
+         101 101    1
+         102   1    2
+         103   2    3
+         104   3    4
+         105   4    5
+         106   5  102
+
+       $ELEMENT TYPE = DAMP1 ESET = C
+         201 101    1
+         202   1    2
+         203   2    3
+         204   3    4
+         205   4    5
+         206   5  102 
+        
+       $ELEMENT TYPE = NLSTIFF ESET = K_NL
+         301   1    2
+         302   2    3
+         303   3    4
+         304   4    5
+         305   5  102
+  
+    $END STRUCTURE
+
+    $SYSTEM NAME = BAS
+
+        $GEODAT MASS CONT = MASS 
+          GD_MASS 1.0
+        $GEODAT SPRING CONT = STIFF 
+          GD_SPRING 1.0E4
+        $GEODAT DAMPER CONT = DAMP 
+          GD_DAMPER 5.0
+        $GEODAT SPRING CONT = FUNCTION
+          GD_NL_SPRING 100 
+
+        $FUNCTION FORMULA FID = 100 
+          f(x) = 1.E7*x**3
+
+        $ELPROP
+          M    GEODAT = GD_MASS
+          K    GEODAT = GD_SPRING
+          C    GEODAT = GD_DAMPER
+          K_NL GEODAT = GD_NL_SPRING
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+ 
+        $SUPPRESS DOFS = 1,2,3
+           GROUND
+
+        $SUPPRESS DOFS = 2,3
+           LOCALS
+
+    $END CONSTRAINTS
+
+    $LOOP I = 1, 9 
+
+        $LOADING NAME = LOADVAR(I)
+
+           $CONLOAD LPAT = 1
+               1 1 : AMPLITUDE(I)
+
+           $FREQLOAD 
+              LPAT = 1    TYPE = COSINE
+
+        $END LOADING
+
+    $ENDLOOP
+
+ 
+    $END LOADING
+
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI
+          6.0 12.0 0.1
+
+    $END RESULTS
+
+    $RESULTS NAME = R_STEP_2
+
+        $VPARVAL TYPE = BASVAR INPUT = LIST
+           1  10.0 15.0 20.0 25.0 30. 35. 40. 45. 50.
+
+        $RSLITEM WEIGHT TYPE = GLOBAL
+           WGT
+
+        $RESEXT ITEM
+           WGT : WGT 1
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$FIN

@@ -1,0 +1,47 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = taghipour.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_2
+    DIRECT HARMONIC BALANCE FFTSIZE = 512      &
+                            ACC=6              &
+                            NOFHARMONICS = 7   &
+                            MODE = FOLLOWPATH  &
+                            DIRECTION = RIGHT  &
+                            STARTFREQ = 0. 
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR XYDATA
+    CURRENT HARMONIC = 1
+    ITEM MODL
+    GO PERMAS BINARY    
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = hbm_xy
+EXEC
+    ACT SIT = STEP_3
+    DIRECT TIMEHISTORY  LOOPS  = 1000   &
+                        DELTAT = 0.0002617993877991494  &
+                        HBSIT  = STEP_2 &
+                        HBFREQ = 3.819718634205488, 1 ! f=24/(2*pi)
+SELECT
+    ACTIVE NSET = N1
+    XYDATA ITEM DISP DCOMP = 1
+    XYDATA ITEM VELO DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DISP
+    GO SPREADSHEET FILE = disp
+    ITEM CLEAR
+    ITEM XYDATA TYPE = VELO
+    GO SPREADSHEET FILE = velo
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES taghipour.py'
+STOP

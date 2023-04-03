@@ -1,0 +1,36 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = taylan_cloop.dat
+RETURN
+
+EXEC
+CLOOP LOOPS = 1, 9
+
+    TASK
+    EXEC 
+ 
+        ACT SIT = 'HBM_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE      = 128        &
+                                ACCURACY     =   5        &
+                                NOFHARMONICS =   5        &
+                                MODE         = FOLLOWPATH &
+                                DIRECTION    = ASCENDING  &
+                                STARTFREQ    = 6.0        &
+                                RESULTS      = ALL
+    SELECT
+        ACTIVE NSET = LOCALS
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+    EXPORT
+        ITEM CLEAR XYDATA
+        CURRENT HARMONIC = 1
+        ITEM MODL
+        GO PERMAS BINARY FILE = 'results_%(cloop)'   
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'hbm_%(cloop)_xy'
+    TASK END
+CLOOP END
+USER
+    CALL TOOL6 P1 = 'pyINTES taylan.py'
+STOP
