@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .header {
+            height: 60px;
+            border-bottom: 1px solid #DDDDDD;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .page {
+            width: 40%;
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .title {
+            font-size: 40px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+
+        .link {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .card-qualifier {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .paragraph {
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .subheader {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .card-section {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .image-gallery > li {
+            position: relative;
+        }
+
+        .image-gallery::after {
+            content: "";
+        }
+
+        .image-gallery li img {
+            object-fit: cover;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="./assets/rg-logo-header.png" alt="ResearchGate" width="156" height="20"/>
+    </div>
+    <div class="page">
+        <div style="margin-bottom: 20px">
+            <a class="link" style="text-decoration: none" href="./projectLogs.html">&lt; Back</a>
+        </div>
+        <h1 class="title" style="margin-bottom: 10px">December 2020</h1>
+        <div class="section">
+                <div class="card">
+                    <div class="card-qualifier">
+                        <div>
+                            <p class="paragraph"><b>Nils Wagner has added an update</b></p>
+                        </div>
+                        <div>
+                            <p class="paragraph">Dec 26,2020</p>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <ul class="image-gallery">
+                            <li>
+                                <img src="files/pressure.png" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-section">
+                        <p class="subheader">Spatially varying pressure load</p>
+                    </div>
+                    <div class="card-section">
+                        <p class="paragraph">The example is motivated by a recent request from Sofiia Borovkova 
+https://www.researchgate.net/post/How_to_create_a_varying_pressure_load_in_the_Abaqus_as_in_the_picture</p>
+                    </div>
+                    <div class="card-section">
+                        <ul>
+                            <li><a href="files/disload.tar.gz" class="link">disload.tar.gz</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-qualifier">
+                        <div>
+                            <p class="paragraph"><b>Nils Wagner has added an update</b></p>
+                        </div>
+                        <div>
+                            <p class="paragraph">Dec 23,2020</p>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <ul class="image-gallery">
+                            <li>
+                                <img src="files/pipe.gif" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-section">
+                        <p class="subheader">Matrix export</p>
+                    </div>
+                    <div class="card-section">
+                        <p class="paragraph">The example is taken from
+https://www.researchgate.net/post/How_to_export_Mass_and_Stiffness_matrices_using_Ansys_Workbench</p>
+                    </div>
+                    <div class="card-section">
+                        <ul>
+                            <li><a href="files/Piping_model.tar.gz" class="link">Piping_model.tar.gz</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-qualifier">
+                        <div>
+                            <p class="paragraph"><b>Nils Wagner has added an update</b></p>
+                        </div>
+                        <div>
+                            <p class="paragraph">Dec 17,2020</p>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <ul class="image-gallery">
+                            <li>
+                                <img src="files/with_topovar.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/without_topovar.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/quarter_ring.gif" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-section">
+                        <p class="subheader">Quarter Ring Problem</p>
+                    </div>
+                    <div class="card-section">
+                        <p class="paragraph">The example is taken from 
+A multi-discretization scheme for topology optimization base... 
+Compliance optimization
+Volume fraction 50%
+Mesh refinement
+SIMP</p>
+                    </div>
+                    <div class="card-section">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-qualifier">
+                        <div>
+                            <p class="paragraph"><b>Nils Wagner has added an update</b></p>
+                        </div>
+                        <div>
+                            <p class="paragraph">Dec 15,2020</p>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <ul class="image-gallery">
+                            <li>
+                                <img src="files/pipe1_mode1.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe1_mode3.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe1_mode5.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe1_mode8.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe3_mode1.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe3_mode3.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe3_mode6.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/pipe3_mode8.gif" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-section">
+                        <p class="subheader">Damage identification in axisymmetric tubular structures</p>
+                    </div>
+                    <div class="card-section">
+                        <p class="paragraph">The example is taken from 
+Local vibration mode pairs for damage identification in axis... 
+Modal analysis 
+Repeated modes
+Test cases 1 and 3 are considered here</p>
+                    </div>
+                    <div class="card-section">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-qualifier">
+                        <div>
+                            <p class="paragraph"><b>Nils Wagner has added an update</b></p>
+                        </div>
+                        <div>
+                            <p class="paragraph">Dec 5,2020</p>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <ul class="image-gallery">
+                            <li>
+                                <img src="files/acoustic_modes.gif" alt="" />
+                            </li>
+                            <li>
+                                <img src="files/modeshape.png" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-section">
+                        <p class="subheader">Acoustic mode shapes</p>
+                    </div>
+                    <div class="card-section">
+                        <p class="paragraph">The example is motivated by a recent request on acoustic modes of a room by Khaled Ahmida .
+https://www.researchgate.net/post/Using_Matlab_and_the_analytical_solution_for_Room_acoustic_modeshapes_is_it_possible_to_plot_modes_in_3D
+
+The video illustrates the first 31 modes of a room (Lx=8, Ly=4, Lz=2) m with rigid walls.
+Speed of sound is 343.2 m/s. Density of air 1.18 kg/m**3.</p>
+                    </div>
+                    <div class="card-section">
+                        <ul>
+                            <li><a href="files/room.tar.gz" class="link">room.tar.gz</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
