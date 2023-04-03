@@ -1,0 +1,39 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2 STEP_3 STEP_4
+      DFLT_COMP  SYSTEM = S_STEP_1  RESULTS = R_STEP_4
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DBEAM
+                1          1: SHAFT
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  2.000000E+11
+!
+      $DVMPAR  NAME = MAT_01  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          1
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_STEP_4
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      F_1
+!
+      $VPARVAL  TYPE = DESVAR  INPUT = EQUI
+                1  1.700000E+11  2.300000E+11  1.000000E+10
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

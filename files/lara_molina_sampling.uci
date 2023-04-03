@@ -1,0 +1,51 @@
+PRESET TOLBASE = 1.E-3
+!
+!  Example taken from
+!  Uncertainty analysis of flexible rotors considering
+!  fuzzy parameters and fuzzy-random parameters
+!  Latin American Journal of Solids and Structures, Vol.12(10) (2015)
+!  http://dx.doi.org/10.1590/1679-78251466
+!  
+NEW
+
+INPUT
+    READ PERMAS FILE = lara_molina_model.dat
+    READ PERMAS FILE = lara_molina.dat
+    READ PERMAS FILE = lara_molina_sampling.dat
+RETURN
+
+TASK LOOPS = 7
+EXEC
+    ACT SIT = STEP_1
+    STATIC 
+    ACT SIT  = STEP_2
+    VIBRATION ANALYSIS MODES = 20
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    GO SPREADSHEET FILE = 'campbell_%.3(tloop)'
+EXEC
+    MODAL FREQUENCY SITUATION = STEP_4
+    ACT SIT = STEP_4
+SELECT
+    ACTIVE NSET = N9
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1/3
+EXPORT 
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = 'unbalance_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END 
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+RETURN
+USER
+    CALL TOOL6 P1 = 'pyINTES multi_campbell.py'
+STOP
