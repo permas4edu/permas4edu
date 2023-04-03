@@ -1,0 +1,47 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = spatial_osci.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 3
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+EXEC
+CLOOP LOOPS = 1, 3
+
+    TASK 
+    EXEC
+        ACT SIT = 'HBM_%(cloop)'
+
+        DIRECT HARMONIC BALANCE FFTSIZE      =  128        &
+                                ACCURACY     =  5.0        &
+                                NOFHARMONICS =    7        &
+                                MODE         = FOLLOWPATH  & 
+                                DIRECTION    = ASCENDING   &
+                                STARTFREQ    = 0.27056342  &
+                                RESULTS      = ALL  
+    SELECT
+        ACTIVE NSET = M
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1,3
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'hbm_xy_%(cloop)'
+    TASK END
+CLOOP END
+
+USER
+    CALL TOOL6 P1 = 'pyINTES spatial_osci.py'
+STOP
