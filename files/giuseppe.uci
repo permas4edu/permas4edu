@@ -1,0 +1,44 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = giuseppe.dat
+RETURN
+
+!TASK
+!EXEC
+!    ACT SIT = STEP_0
+!    VIBRATION ANALYSIS MODES = 2
+!PRINT
+!    PORT RES REPLACE FILE = natural_frequencies.txt  
+!    DATA OBJECT RVALTAB.DISP
+!    PORT RES RESET
+!EXPORT
+!    ITEM MODL
+!    GO PERMAS BINARY
+!TASK END
+!STOP
+
+EXEC
+CLOOP LOOPS = 1, 8
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE      = 1024         &
+                                ACCURACY     = 5.0          &
+                                NOFHARMONICS = 6            &
+                                MODE         = FOLLOWPATH   &
+                                DIRECTION    = ASCENDING    &
+                                STARTFREQ    = 0.12732      &
+                                RESULTS      = ALL
+    SELECT
+        ACTIVE NSET = RESPONSE
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+    EXPORT 
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'hbm_xy_%.3(cloop)'         
+    TASK END
+CLOOP END
+USER
+    CALL TOOL6 P1 = 'pyINTES giuseppe.py'
+STOP
