@@ -15,7 +15,11 @@ Open index.html with your favourite browser
 
 Install the free education edition of PERMAS.  
 Launch PERMAS Control Center  
+
 ![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center")
+
+### VisPER aka Visual PERMAS 
+
 
 ### Modules 
 
