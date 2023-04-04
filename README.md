@@ -51,3 +51,26 @@ Launch PERMAS Control Center
 |coupl/emls | Electrodynamic mechanical coupling |  
 |coupl/htls | Thermal mechanical coupling |  
 |coupl/htnls| Thermal mechanical coupling |
+
+### Important File extensions
+
+| Extension | Description |  
+| ---       | ----        |  
+| .dat      | PERMAS model data |  
+| .hdf      | hdf5 model and result data |
+| .log      | PERMAS log file |  
+| .res      | PERMAS Result file |
+| .post .post.gz | PERMAS model and result data ASCII |  
+| .pro      | PERMAS Protocol file |
+| .stl      | Stereolithrography ASCII and binary |
+| .step .stp | STEP file CAD |  
+
+### Interfaces
+
+| Extension | Description |
+| ---       | ----        |
+| .bif .bof | Medina binary input/output file |
+| .cdb      | Ansys model data ASCII |
+| .inp      | Abaqus model data ASCII |
+| .bdf .nas | NASTRAN model data ASCII |
+| .unv .uff | Universal File format |
