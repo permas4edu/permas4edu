@@ -11,6 +11,11 @@ git clone https://github.com/permas4edu/permas4edu.git
 cd permas4edu  
 Open index.html with your favourite browser  
 
+### Replication of results
+
+Install the free education edition of PERMAS.  
+Launch PERMAS Control Center  
+
 ### Modules 
 
 |Name| Description             |
