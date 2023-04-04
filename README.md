@@ -74,3 +74,11 @@ Launch PERMAS Control Center
 | .inp      | Abaqus model data ASCII |
 | .bdf .nas | NASTRAN model data ASCII |
 | .unv .uff | Universal File format |
+
+### Export formats
+
+| Extension | Description |  
+| ----      | ----        |  
+| .bif .bof | Medina      |    
+| .h3d      | Hyperview   |  
+| .op2      | Nastran     |  
