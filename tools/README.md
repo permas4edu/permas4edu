@@ -4,6 +4,8 @@
  * Syntax Highlighting  
  * Direct link to the manual via the F1 key
  * Convenient jumping to specific messages
+ * Show and Hide (all) DAT contents
+ * Many shortcuts, e.g. function keys F4, F5, F6 to name a few
 
 ### pyINTES Enhanced Python Interpreter
 
