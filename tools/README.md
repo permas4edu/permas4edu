@@ -7,6 +7,8 @@
  * Show and Hide (all) DAT contents
  * Many shortcuts, e.g. function keys F4, F5, F6 to name a few
 
+![intespad](/assets/intespad.png "intespad")
+
 ### pyINTES Enhanced Python Interpreter
 
 | Module | Version |
