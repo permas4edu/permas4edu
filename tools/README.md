@@ -26,10 +26,12 @@
 
 | Module | Version |
 |----    | ----    |
+| bokeh | 2.4.2 |
 | h5py   | 3.6.0 |  
 | imageio | 2.9.0 |
 | matplotlib | 3.5.1 |
 | mplcursors | 0.5.1 |  
+| mpld3 | 0.5.7 | 
 | mpmath | 1.2.1 |  
 | numpy  | 1.22.3  |
 | numpy-stl | 2.17.1 |  
@@ -38,6 +40,7 @@
 | pandas | 1.4.2   |
 | PIL    | 9.0.1   |
 | plotly | 5.6.0 |  
+| pyDOE2 | 1.3.0 | 
 | python-docx | 0.8.11 |
 | python-pptx | 0.6.21 |
 | pywt | 1.3.0 |  
@@ -47,5 +50,6 @@
 | seaborn | 0.11.2 |
 | smt | 1.1.0 |  
 | sympy | 1.10.1 | 
+| tables | 3.6.1 |  
 | vitables | 3.0.2 |  
 | xlsxwriter | 3.0.3 |
