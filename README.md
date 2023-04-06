@@ -20,6 +20,8 @@ Launch PERMAS Control Center
 
 ### VisPER aka Visual PERMAS 
 
+![VisPER](/assets/visper_permascc.png "Launch VisPER via Permas Control Center")
+
 ![VisPER](/assets/visper_edu.png "VisPER")
 
 ### Modules 
