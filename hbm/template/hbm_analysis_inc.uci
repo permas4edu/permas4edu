@@ -1,0 +1,64 @@
+{%- do task_options(task, hbm_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, fft_size=Int()) %}
+{%- do task_options(task, accuracy=Float()) %}
+{%- do task_options(task, nofharmonics=Int()) %}
+{%- do task_options(task, num_modes=Int()) %}
+{%- do task_options(task, freqlim=Float()) %}
+{%- do task_options(task, direction=Choice("ASCENDING|DESCENDING",default="ASCENDING",explicitDefault=True)) %}
+{%- do task_options(task, start_freq=Float()) %}
+{%- do task_options(task, results=Choice("ALL|FREQUENCY",default="ALL", explicitDefault=True)) %}
+
+{%- do task_options(task, nset=Object(objType="NodeSet", specialObject="*")) %}
+{%- do task_options(task, file_name=Filename(default="hbm", explicitDefault=True)) %}
+{%- do task_options(task, file_name_xy=Filename(default="hbm_xy", explicitDefault=True)) %}
+{%- do task_options(task, back_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, loops=Int()) %}
+{%- do task_options(task, deltat=Float()) %}
+{%- do task_options(task, hbfreq=Float()) %}
+{%- do task_ucipos(task, "post") %}
+{%- do request_licence("MQA", "DEV", "DRA", "HBM") %}
+TASK
+EXEC
+    ACT SIT = {{ task_params.hbm_situation }}
+    DIRECT HARMONIC BALANCE FFTSIZE      = {{ task_params.fft_size }}  &
+                            ACCURACY     = {{ task_params.accuracy }}  & 
+                            NOFHARMONICS = {{ task_params.nofharmonics }} & 
+                            {{  "MODES    = " + task_params.num_modes|int|string if task_params.num_modes and task_params.num_modes != 0 }}
+                            {{- " FREQLIM = " + task_params.freqlim|float|string if task_params.freqlim and task_params.freqlim != 0.0 }} &
+                            MODE = FOLLOWPATH                          &
+                            DIRECTION = {{ task_params.direction }}    & 
+                            STARTFREQ = {{ task_params.start_freq }}   &
+                            RESULTS   = {{ task_params.results }}
+SELECT
+    ACTIVE NSET = {{ task_params.nset }}
+    XYDATA ITEM DISP BOOK = USR DCOMP = *
+    XYDATA ITEM DISP BOOK = USV DCOMP = *
+    XYDATA ITEM DISP BOOK = USA DCOMP = *
+EXPORT
+    ITEM CLEAR
+!   CURRENT HARMONIC = 1
+    ITEM XYDATA TYPE = DISP
+    GO SPREADSHEET FILE = {{ task_params.file_name_xy }}
+    GO PERMAS BINARY FILE = {{ task_params.file_name_xy }}
+EXEC 
+    ACT                SIT    = {{ task_params.back_situation }} 
+    DIRECT TIMEHISTORY LOOPS  = {{ 2 * task_params.loops|default(0,true)|string|int  }} &
+                       DELTAT = {{ 1.0 / (task_params.loops|default(1,true)|string|float * task_params.hbfreq|default(1,true)|string|float ) }} &
+                       TSTART =  0.0 &
+                       HBSIT  = {{ task_params.hbm_situation }} &
+                       HBFREQ = {{ task_params.hbfreq }}   
+SELECT
+    ACTIVE NSET = {{ task_params.nset }}
+    XYDATA ITEM DISP RESULT = rdisp DCOMP = 1      
+    XYDATA ITEM VELO RESULT = rvelo DCOMP = 1      
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = rdisp
+    GO SPREADSHEET FILE = displacement
+    ITEM CLEAR
+    ITEM XYDATA NAME = rvelo
+    GO SPREADSHEET FILE = velocity
+TASK END
+!USER
+!    CALL TOOL6 P1 = 'pyINTES postprocessing.py'
+!RETURN
