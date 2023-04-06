@@ -10,7 +10,17 @@
 ![intespad](/assets/intespad.png "intespad")
 
 ### permasgraph
+#### Supported file formats
 
+ * .hdf
+ * .post .post.gz
+ * .csv
+ * .xy PERMAS xy gnuplot files
+ * .x I-DEAS, MEDINA, Patran xy-data
+ 
+![permasgraph](/assets/permasgraph.png "permasgraph")
+
+  
 
 ### pyINTES Enhanced Python Interpreter
 
