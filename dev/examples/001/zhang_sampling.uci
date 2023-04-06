@@ -1,0 +1,38 @@
+!
+!  Example is taken from
+!     
+!  Natural frequency assignment of a pipeline 
+!  through structural modification in layout optimization of elastic supports
+!  Lin Zhang and Tao Zhang and Huajiang Ouyang and Tianyun Li and Mo You
+!  Journal of Sound and Vibration 2023
+!  https://doi.org/10.1016/j.jsv.2023.117702
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = zhang_model.dat
+    READ PERMAS FILE = zhang.dat
+    READ PERMAS FILE = zhang_opt.dat
+RETURN
+
+TASK LOOPS = 5 !  3^5 = 243 combinations
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = 'normal_modes%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING METHOD = LHC NSAMPLES = 5
+EXPORT
+    ITEM CLEAR
+    ITEM COOR MOD 
+    GO PERMAS BINARY FILE = 'coor_mod_%.3(tloop)'
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+STOP
