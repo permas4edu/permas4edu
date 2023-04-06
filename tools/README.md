@@ -28,6 +28,7 @@
 | h5py   | 3.6.0 |  
 | imageio | 2.9.0 |
 | matplotlib | 3.5.1 |
+| meshio | 5.3.4 |  
 | mplcursors | 0.5.1 |  
 | mpld3 | 0.5.7 | 
 | mpmath | 1.2.1 |  
