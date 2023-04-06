@@ -53,3 +53,9 @@
 | tables | 3.6.1 |  
 | vitables | 3.0.2 |  
 | xlsxwriter | 3.0.3 |
+
+### Miscellaneous
+
+#### pack_permas_job
+
+
