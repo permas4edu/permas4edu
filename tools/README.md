@@ -13,11 +13,17 @@
 
 | Module | Version |
 |----    | ----    |
+| h5py   | 3.6.0 |  
+| imageio | 2.9.0 |
 | matplotlib | 3.5.1 |
+| mplcursors | 0.5.1 |  
+| mpmath | 1.2.1 |  
 | numpy  | 1.22.3  |
 | pandas | 1.4.2   |
 | PIL    | 9.0.1   |
+| plotly | 5.6.0 |  
 | python-docx | 0.8.11 |
 | python-pptx | 0.6.21 |
 | scipy  | 1.7.3   |
+| seaborn | 0.11.2 |
 | xlsxwriter | 3.0.3 |
