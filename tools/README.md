@@ -60,4 +60,13 @@
 
 #### pygmentize
 
+##### Examples
+
+```bash
+pygmentize -f png -O style=permas -l dat -o test_dat.png test.dat
+pygmentize -f png -O style=permas -l uci -o test_uci.png test.uci
+pygmentize -f png -O style=permas,line_numbers=False -l uci -o test_uci_no_line_numbers.png test.uci
+pygmentize -f svg -O style=fruity -l bash -o test_sh.svg test.sh
+```
+
 ![pygmentize](/assets/pygmentize.png "pygmentize")
