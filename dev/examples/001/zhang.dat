@@ -1,0 +1,170 @@
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+!#                                             Result file written by VisPER Production Build 19.00.332-Rev.49256
+!#                                                            Distributed by INTES GmbH Stuttgart
+!#                                                                  Date:  6-Apr-23 08:13:29
+!#..............................................................................................................................................................
+!#                                                                       P r o j e c t
+!#                                                                           zhang
+!#..............................................................................................................................................................
+!#                                                                      Site: INTES GmbH
+!#                                                   Host: gs-1 / Linux-x86_64-5.14.0-162.22.2.el9_1.x86_64
+!#                                                                    Code: M9g8r (32 bpw)
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = SPRING1
+               31         32         37
+               32         33         38
+               33         34         39
+               34         35         40
+               35         36         41
+      $ELEMENT TYPE = MASS3
+               36         32
+               37         33
+               38         34
+               39         35
+               40         36
+!
+      $ESET NAME = DESIGN_01
+               31 36
+      $ESET NAME = DESIGN_02
+               32 37
+      $ESET NAME = DESIGN_03
+               33 38
+      $ESET NAME = DESIGN_04
+               34 39
+      $ESET NAME = DESIGN_05
+               35 40
+!
+      $MPC ILINE  DPDOFS = 1,2,3,4,5,6  DPITYP = NODE  DOFTYPE = DISP
+                1 PIPE        : COUPL
+!
+      $RSYS CART  FORM = ZX
+                1          1 :         19 :         31
+                2         19 :         31 :          1
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1          2
+       SFLA2          2          3
+       SFLA2          3          4
+       SFLA2          4          5
+       SFLA2          5          6
+       SFLA2          6          7
+       SFLA2          7          8
+       SFLA2          8          9
+       SFLA2          9         10
+       SFLA2         10         11
+       SFLA2         11         12
+       SFLA2         12         13
+       SFLA2         13         14
+       SFLA2         14         15
+       SFLA2         15         16
+       SFLA2         16         17
+       SFLA2         17         18
+       SFLA2         18         19
+       SFLA2         19         20
+       SFLA2         20         21
+       SFLA2         21         22
+       SFLA2         22         23
+       SFLA2         23         24
+       SFLA2         24         25
+       SFLA2         25         26
+       SFLA2         26         27
+       SFLA2         27         28
+       SFLA2         28         29
+       SFLA2         29         30
+       SFLA2         30         31
+!
+      $NSET NAME = COUPL
+               32         33         34         35         36
+      $NSET NAME = GROUND
+               37         38         39         40         41
+      $ESET NAME = MASS
+               36         37         38         39         40
+      $ESET NAME = SPRING
+               31         32         33         34         35
+      $ESET NAME = X
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18
+      $ESET NAME = Y
+               19         20         21         22         23         24         25         26         27         28         29         30
+      $LNSET NAME = PIPE
+                1
+!
+      $COOR
+               32  5.000000E+02  0.000000E+00  0.000000E+00
+               33  1.000000E+03  0.000000E+00  0.000000E+00
+               34  1.500000E+03  0.000000E+00  0.000000E+00
+               35  1.800000E+03  2.000000E+02  0.000000E+00
+               36  1.800000E+03  7.000000E+02  0.000000E+00
+               37  5.000000E+02  0.000000E+00  1.000000E+01
+               38  1.000000E+03  0.000000E+00  1.000000E+01
+               39  1.500000E+03  0.000000E+00  1.000000E+01
+               40  1.800000E+03  2.000000E+02  1.000000E+01
+               41  1.800000E+03  7.000000E+02  1.000000E+01
+!
+      $PART  NAME = SPRING
+       SPRING
+      $PART  NAME = MASS
+       MASS
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FSCPIPE   CONT = GEOPIPE  PREF
+       GD_X          3.000000E+01  1.500000E+00
+         &        :  0.000000E+00  0.000000E+00  1.000000E+00
+       GD_Y          3.000000E+01  1.500000E+00
+         &        :  0.000000E+00  0.000000E+00  1.000000E+00
+      $GEODAT SPRING    CONT = STIFF
+       GD_SPRING     5.916000E+01
+      $GEODAT MASS      CONT = MASS
+       GD_MASS       2.200000E-04  2.200000E-04  2.200000E-04
+!
+      $ELPROP
+       MASS          GEODAT = GD_MASS
+       SPRING        GEODAT = GD_SPRING
+       X             GEODAT = GD_X          MATERIAL = MAT_01
+       Y             GEODAT = GD_Y          MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $FLFSOLID  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.870000E+05  3.300000E-01
+!
+      $FLDENS  GENERAL  INPUT = DATA
+        1.000000E-09
+!
+      $COMPRESS  GENERAL  INPUT = DATA
+        4.444444E-04
+!
+   $END FLFSOLID
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
