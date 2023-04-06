@@ -58,6 +58,7 @@ Launch PERMAS Control Center
 
 | Extension | Description |  
 | ---       | ----        |  
+| .csv      | Spreadsheet |  
 | .dat      | PERMAS model data |  
 | .hdf      | hdf5 model and result data |
 | .log      | PERMAS log file |  
