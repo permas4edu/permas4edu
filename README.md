@@ -18,7 +18,11 @@ Launch PERMAS Control Center
 
 ![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center")
 
-[Replication of results](https://link.springer.com/article/10.1007/s00158-019-02298-4)
+#### References
+
+[Replication of results](https://link.springer.com/article/10.1007/s00158-019-02298-4)  
+[Making Scientific Computations Reproducible](https://doi.ieeecomputersociety.org/10.1109/5992.881708)  
+[Reproducible Research in Computational Science](https://doi.org/10.1126/science.1213847)  
 
 ### VisPER aka Visual PERMAS 
 
