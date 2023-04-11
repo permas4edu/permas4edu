@@ -1,0 +1,110 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2 PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1 LOADING = L_STEP_2 RESULTS = R_STEP_2
+   $END SITUATION
+!
+!------
+   $STRUCTURE
+
+      $ESETBIN NAME = SUM
+         FRAME
+         PANEL_01
+         PANEL_03
+         PANEL_04
+         PANEL_05
+         PANEL_06
+         PANEL_08
+         PANEL_09
+         PANEL_10
+         PANEL_12
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+! 
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+         CORNERS
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       FRAME      GEODAT = GD_FRAME      MATERIAL = MAT_01
+       PANEL_01   GEODAT = GD_PANEL_01   MATERIAL = MAT_02
+       PANEL_03   GEODAT = GD_PANEL_03   MATERIAL = MAT_02
+       PANEL_04   GEODAT = GD_PANEL_04   MATERIAL = MAT_02
+       PANEL_05   GEODAT = GD_PANEL_05   MATERIAL = MAT_02
+       PANEL_06   GEODAT = GD_PANEL_06   MATERIAL = MAT_02
+       PANEL_08   GEODAT = GD_PANEL_08   MATERIAL = MAT_02
+       PANEL_09   GEODAT = GD_PANEL_09   MATERIAL = MAT_02
+       PANEL_10   GEODAT = GD_PANEL_10   MATERIAL = MAT_02
+       PANEL_12   GEODAT = GD_PANEL_12   MATERIAL = MAT_02
+!
+      $GEODAT SHELL CONT = THICK NODES = ALL
+       GD_FRAME      2.0   
+       GD_PANEL_01   0.11
+       GD_PANEL_03   0.09
+       GD_PANEL_04   0.11
+       GD_PANEL_05   0.09
+       GD_PANEL_06   0.09
+       GD_PANEL_08   0.09
+       GD_PANEL_09   0.09
+       GD_PANEL_10   0.11
+       GD_PANEL_12   0.09
+!
+      $MODDAMP TYPE = RATIO KIND = FUNCTION
+        0.01 
+!
+      $ADDMODES SOURCE = LOAD
+        LPAT = ALL
+!    
+   $END SYSTEM
+!------
+   $LOADING NAME = L_STEP_2
+
+      $CONLOAD LPAT = 1
+        INPUT 2: 1.0
+
+      $FREQLOAD
+        LPAT = 1 TYPE = COSINE
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_2
+
+       $FREQUENCY PRIMARY = EQUI
+          1.0 1000.0 1.0
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.600000E-09
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_02  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        5.000000E+03  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        5.200000E-09
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
