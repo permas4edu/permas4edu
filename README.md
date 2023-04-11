@@ -18,6 +18,8 @@ Launch PERMAS Control Center
 
 ![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center")
 
+[Replication of results](https://link.springer.com/article/10.1007/s00158-019-02298-4)
+
 ### VisPER aka Visual PERMAS 
 
 ![VisPER](/assets/visper_permascc.png "Launch VisPER via Permas Control Center")
