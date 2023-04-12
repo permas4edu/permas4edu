@@ -61,7 +61,7 @@
 
 #### pygmentize
 
-##### Examples
+##### Examples for Linux Users
 
 ```bash
 pygmentize -f png -O style=permas -l dat -o test_dat.png test.dat
@@ -70,9 +70,11 @@ pygmentize -f png -O style=permas,line_numbers=False -l uci -o test_uci_no_line_
 pygmentize -f svg -O style=fruity -l bash -o test_sh.svg test.sh
 ```
 
-![pygmentize](/assets/pygmentize.png "pygmentize")
+##### Example for Windows Users
 
-![pygmentize-script](pygmentize-script.png "pygmentize-script")
+![pygmentize-script](pygmentize-script.png "pygmentize-script")  
+
+![pygmentize](/assets/pygmentize.png "pygmentize")  
 
 ### Other CAD formats
 
