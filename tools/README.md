@@ -72,6 +72,8 @@ pygmentize -f svg -O style=fruity -l bash -o test_sh.svg test.sh
 
 ![pygmentize](/assets/pygmentize.png "pygmentize")
 
+![pygmentize-script](pygmentize-script.png "pygmentize-script")
+
 ### Other CAD formats
 
 IGES format (.igs/.iges) is currently not supported by VisPER. However, you might use Open CASCADE to convert .iges to .step.
