@@ -34,3 +34,9 @@ Since customized settings may change the behavior of VisPER significantly it is 
 Ignore site-specific settings via VisPER command line option --no-site-config 
 * PERMAS-based configuration that may also influence the behavior of VisPER (e.g. VISPER.DFT, visperrc_gl or specific environment variables) 
 since a PERMAS instance is always running as data basis of VisPER. Consult the manual to know how these PERMAS-based settings may be ignored or modified.
+
+First, try to disable all VisPER-specific customized settings - this can be achieved by the VisPER command line option --qa or by combining all 3 command line options mentioned above.
+If the problem can be reproduced without customized settings - fine! Record a Python script from the very beginning by
+starting VisPER with the command line options --qa --logScript visper_bug.pm and afterwards make sure that the recorded Python script reproduces the misbehavior by restarting VisPER with --qa visper_bug.pm again. If the problem still arises - fine! This reduces the needed description how the problem can be reproduced.
+
+If the problem cannot be reproduced without customized settings try each combination of above mentioned command line options to reduce customized settings as far as possible. If it depends on the session-persistant or user-specific configuration those configuration data is also needed by us to reproduce the problem.
