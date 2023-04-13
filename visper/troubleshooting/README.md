@@ -17,6 +17,9 @@ Platform: Linux 4.19.0-23-amd64, Machine: x86_64 nils.local
  * Recorded Python script if useful to trigger the problem. Make sure that the recorded script really reproduce the problem or at least can be used to minimize the subsequent essential interaction to trigger the problem. A recorded Python script cannot replace the exact description what to do to trigger the problem if the Python script does not trigger it itself.
  *  Data that is needed to trigger the observed behavior. The smaller the data the better the problem can be fixed. If the problem can also be observed with some example data there is no need to provide any model data - then just refer to the example data set. 
  
+Some problems only occur in special circumstances (special data, customized configuration, user environment settings, platform specifics).
+Therefore, it is very important to ensure that the problem can be reproduced in the most common setup (without customized settings) with the provided data (Python script, model data, further info).
+
 ####  Disable customized settings
 
 Since customized settings may change the behavior of VisPER significantly it is important to try to reproduce the observed problem under standard settings where the customized settings on different levels are ignored as much as possible. Otherwise the VisPER developer may not reproduce the described problem on his site. There are several ways to influence the application behavior:
