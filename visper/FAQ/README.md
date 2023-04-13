@@ -19,6 +19,7 @@ gsettings set org.gnome.mutter attach-modal-dialogs false
 ```
 #### Black screen on Windows
 
+Check the output of dxdiag. This tool is used to collect info about devices to help troubleshoot problems with DirectX sound and video.
 Try to manually set the GL Renderer to use your NVIDIA graphics card instead of the Intel HD graphics via the following steps:
 * NVIDIA Control Panel 
     + 3D Settings
