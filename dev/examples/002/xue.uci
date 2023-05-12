@@ -1,0 +1,23 @@
+PRESET TOLBASE = 1.E-3
+NEW
+
+INPUT
+    READ PERMAS FILE = xue_model.dat
+    READ PERMAS FILE = xue.dat
+    READ PERMAS FILE = xue_add.dat
+    READ PERMAS FILE = xue_materials.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
