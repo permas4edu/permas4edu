@@ -1,0 +1,38 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+
+     $NSET NAME = CENTER 
+       1
+
+   $END STRUCTURE
+!
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       EDGES
+!
+      $SUPPRESS DOFS = 6
+       CENTER
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_HOST       1.000000E-02
+       GD_RESONATOR  1.000000E-02
+!
+      $ELPROP
+       HOST_PLATE    GEODAT = GD_HOST       MATERIAL = MAT_01
+       RESONATOR     GEODAT = GD_RESONATOR  MATERIAL = MAT_02
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

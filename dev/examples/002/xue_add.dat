@@ -1,0 +1,33 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+             6049       6122
+!
+      $MPC ISURFACE  DPDOFS = 1,2,3  DPITYP = NODE  DOFTYPE = DISP
+                1 RESONATOR   : MASS
+!
+      $NSET NAME = MASS
+             6122
+      $ESET NAME = MASS
+             6049
+!
+      $COOR
+             6122  0.000000E+00  0.000000E+00  0.000000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_MASS   0.296566    0.296566  0.296566 
+!
+      $ELPROP
+       MASS GEODAT = GD_MASS
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
