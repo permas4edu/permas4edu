@@ -1,0 +1,264 @@
+$ENTER COMPONENT  NAME = EULER_BERNOULLI  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1         10
+                2         10         11
+                3         11         12
+                4         12          8
+                5          1         13
+                6         13         14
+                7         14         15
+                8         15          7
+                9          1         16
+               10         16         17
+               11         17         18
+               12         18          6
+               13          1         19
+               14         19         20
+               15         20         21
+               16         21          5
+               17          1         22
+               18         22         23
+               19         23         24
+               20         24          4
+               21          1         25
+               22         25         26
+               23         26         27
+               24         27          3
+               25          1         28
+               26         28         29
+               27         29         30
+               28         30          2
+               29          1         31
+               30         31         32
+               31         32         33
+               32         33          9
+!
+      $NSET NAME = A             DESCRIPTION = 'A'
+                8
+      $NSET NAME = ALL_NODES     DESCRIPTION = 'ALL_NODES'
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33
+      $NSET NAME = B             DESCRIPTION = 'B'
+                7
+      $NSET NAME = C             DESCRIPTION = 'C'
+                6
+      $NSET NAME = D             DESCRIPTION = 'D'
+                5
+      $NSET NAME = E             DESCRIPTION = 'E'
+                4
+      $NSET NAME = F             DESCRIPTION = 'F'
+                3
+      $NSET NAME = G             DESCRIPTION = 'G'
+                2
+      $NSET NAME = H             DESCRIPTION = 'H'
+                9
+      $ESET NAME = BEAM_A        DESCRIPTION = 'BEAM_A'
+                1          2          3          4
+      $ESET NAME = BEAM_B        DESCRIPTION = 'BEAM_B'
+                5          6          7          8
+      $ESET NAME = BEAM_C        DESCRIPTION = 'BEAM_C'
+                9         10         11         12
+      $ESET NAME = BEAM_D        DESCRIPTION = 'BEAM_D'
+               13         14         15         16
+      $ESET NAME = BEAM_E        DESCRIPTION = 'BEAM_E'
+               17         18         19         20
+      $ESET NAME = BEAM_F        DESCRIPTION = 'BEAM_F'
+               21         22         23         24
+      $ESET NAME = BEAM_G        DESCRIPTION = 'BEAM_G'
+               25         26         27         28
+      $ESET NAME = BEAM_H        DESCRIPTION = 'BEAM_H'
+               29         30         31         32
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2 -7.105425E-15 -5.000000E+00  0.000000E+00
+                3  3.535534E+00 -3.535534E+00  0.000000E+00
+                4  5.000000E+00 -4.768372E-07  0.000000E+00
+                5  3.535535E+00  3.535534E+00  0.000000E+00
+                6  9.536743E-07  5.000000E+00  0.000000E+00
+                7 -3.535533E+00  3.535534E+00  0.000000E+00
+                8 -5.000000E+00  4.768372E-07  0.000000E+00
+                9 -3.535534E+00 -3.535534E+00  0.000000E+00
+               10 -1.250000E+00  1.192093E-07  0.000000E+00
+               11 -2.500000E+00  2.384186E-07  0.000000E+00
+               12 -3.750000E+00  3.576279E-07  0.000000E+00
+               13 -8.838833E-01  8.838835E-01  0.000000E+00
+               14 -1.767767E+00  1.767767E+00  0.000000E+00
+               15 -2.651650E+00  2.651651E+00  0.000000E+00
+               16  2.384186E-07  1.250000E+00  0.000000E+00
+               17  4.768372E-07  2.500000E+00  0.000000E+00
+               18  7.152557E-07  3.750000E+00  0.000000E+00
+               19  8.838837E-01  8.838834E-01  0.000000E+00
+               20  1.767767E+00  1.767767E+00  0.000000E+00
+               21  2.651651E+00  2.651650E+00  0.000000E+00
+               22  1.250000E+00 -1.192093E-07  0.000000E+00
+               23  2.500000E+00 -2.384186E-07  0.000000E+00
+               24  3.750000E+00 -3.576279E-07  0.000000E+00
+               25  8.838835E-01 -8.838835E-01  0.000000E+00
+               26  1.767767E+00 -1.767767E+00  0.000000E+00
+               27  2.651651E+00 -2.651651E+00  0.000000E+00
+               28 -1.776356E-15 -1.250000E+00  0.000000E+00
+               29 -3.552713E-15 -2.500000E+00  0.000000E+00
+               30 -5.329069E-15 -3.750000E+00  0.000000E+00
+               31 -8.838834E-01 -8.838834E-01  0.000000E+00
+               32 -1.767767E+00 -1.767767E+00  0.000000E+00
+               33 -2.651650E+00 -2.651650E+00  0.000000E+00
+!
+      $PART  NAME = BEAM_A
+       BEAM_A
+      $PART  NAME = BEAM_B
+       BEAM_B
+      $PART  NAME = BEAM_C
+       BEAM_C
+      $PART  NAME = BEAM_D
+       BEAM_D
+      $PART  NAME = BEAM_E
+       BEAM_E
+      $PART  NAME = BEAM_F
+       BEAM_F
+      $PART  NAME = BEAM_G
+       BEAM_G
+      $PART  NAME = BEAM_H
+       BEAM_H
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER COMPONENT  NAME = TIMOSHENKO  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BEAM2
+                1          1         10
+                2         10         11
+                3         11         12
+                4         12          8
+                5          1         13
+                6         13         14
+                7         14         15
+                8         15          7
+                9          1         16
+               10         16         17
+               11         17         18
+               12         18          6
+               13          1         19
+               14         19         20
+               15         20         21
+               16         21          5
+               17          1         22
+               18         22         23
+               19         23         24
+               20         24          4
+               21          1         25
+               22         25         26
+               23         26         27
+               24         27          3
+               25          1         28
+               26         28         29
+               27         29         30
+               28         30          2
+               29          1         31
+               30         31         32
+               31         32         33
+               32         33          9
+!
+      $NSET NAME = A             DESCRIPTION = 'A'
+                8
+      $NSET NAME = ALL_NODES     DESCRIPTION = 'ALL_NODES'
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33
+      $NSET NAME = B             DESCRIPTION = 'B'
+                7
+      $NSET NAME = C             DESCRIPTION = 'C'
+                6
+      $NSET NAME = D             DESCRIPTION = 'D'
+                5
+      $NSET NAME = E             DESCRIPTION = 'E'
+                4
+      $NSET NAME = F             DESCRIPTION = 'F'
+                3
+      $NSET NAME = G             DESCRIPTION = 'G'
+                2
+      $NSET NAME = H             DESCRIPTION = 'H'
+                9
+      $ESET NAME = BEAM_A        DESCRIPTION = 'BEAM_A'
+                1          2          3          4
+      $ESET NAME = BEAM_B        DESCRIPTION = 'BEAM_B'
+                5          6          7          8
+      $ESET NAME = BEAM_C        DESCRIPTION = 'BEAM_C'
+                9         10         11         12
+      $ESET NAME = BEAM_D        DESCRIPTION = 'BEAM_D'
+               13         14         15         16
+      $ESET NAME = BEAM_E        DESCRIPTION = 'BEAM_E'
+               17         18         19         20
+      $ESET NAME = BEAM_F        DESCRIPTION = 'BEAM_F'
+               21         22         23         24
+      $ESET NAME = BEAM_G        DESCRIPTION = 'BEAM_G'
+               25         26         27         28
+      $ESET NAME = BEAM_H        DESCRIPTION = 'BEAM_H'
+               29         30         31         32
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2 -7.105425E-15 -5.000000E+00  0.000000E+00
+                3  3.535534E+00 -3.535534E+00  0.000000E+00
+                4  5.000000E+00 -4.768372E-07  0.000000E+00
+                5  3.535535E+00  3.535534E+00  0.000000E+00
+                6  9.536743E-07  5.000000E+00  0.000000E+00
+                7 -3.535533E+00  3.535534E+00  0.000000E+00
+                8 -5.000000E+00  4.768372E-07  0.000000E+00
+                9 -3.535534E+00 -3.535534E+00  0.000000E+00
+               10 -1.250000E+00  1.192093E-07  0.000000E+00
+               11 -2.500000E+00  2.384186E-07  0.000000E+00
+               12 -3.750000E+00  3.576279E-07  0.000000E+00
+               13 -8.838833E-01  8.838835E-01  0.000000E+00
+               14 -1.767767E+00  1.767767E+00  0.000000E+00
+               15 -2.651650E+00  2.651651E+00  0.000000E+00
+               16  2.384186E-07  1.250000E+00  0.000000E+00
+               17  4.768372E-07  2.500000E+00  0.000000E+00
+               18  7.152557E-07  3.750000E+00  0.000000E+00
+               19  8.838837E-01  8.838834E-01  0.000000E+00
+               20  1.767767E+00  1.767767E+00  0.000000E+00
+               21  2.651651E+00  2.651650E+00  0.000000E+00
+               22  1.250000E+00 -1.192093E-07  0.000000E+00
+               23  2.500000E+00 -2.384186E-07  0.000000E+00
+               24  3.750000E+00 -3.576279E-07  0.000000E+00
+               25  8.838835E-01 -8.838835E-01  0.000000E+00
+               26  1.767767E+00 -1.767767E+00  0.000000E+00
+               27  2.651651E+00 -2.651651E+00  0.000000E+00
+               28 -1.776356E-15 -1.250000E+00  0.000000E+00
+               29 -3.552713E-15 -2.500000E+00  0.000000E+00
+               30 -5.329069E-15 -3.750000E+00  0.000000E+00
+               31 -8.838834E-01 -8.838834E-01  0.000000E+00
+               32 -1.767767E+00 -1.767767E+00  0.000000E+00
+               33 -2.651650E+00 -2.651650E+00  0.000000E+00
+!
+      $PART  NAME = BEAM_A
+       BEAM_A
+      $PART  NAME = BEAM_B
+       BEAM_B
+      $PART  NAME = BEAM_C
+       BEAM_C
+      $PART  NAME = BEAM_D
+       BEAM_D
+      $PART  NAME = BEAM_E
+       BEAM_E
+      $PART  NAME = BEAM_F
+       BEAM_F
+      $PART  NAME = BEAM_G
+       BEAM_G
+      $PART  NAME = BEAM_H
+       BEAM_H
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+
+$FIN

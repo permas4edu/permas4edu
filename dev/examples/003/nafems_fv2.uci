@@ -1,0 +1,63 @@
+PRESET TOLBASE = 1.E-3
+
+NEW
+
+INPUT
+    READ PERMAS FILE = nafems_model_fv2.dat
+    READ PERMAS FILE = nafems_fv2.dat
+RETURN
+EXEC
+    ACT CONFIG = EULER_BERNOULLI
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 16
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'Euler Bernoulli'
+    TEXT = 'Consistent mass matrix'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 16
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Lumped mass matrix'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+EXEC
+    ACT CONFIG = TIMOSHENKO
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 16
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Timoshenko'
+    TEXT = 'Consistent mass matrix'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 16
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Lumped mass matrix'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
