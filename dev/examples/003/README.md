@@ -7,3 +7,5 @@ $$ \rho = 8000 \frac{\textrm{kg}}{\textrm{m}^3} $$
 $$ A = b\cdot h = 0.125^2 \textrm{m}^2$$
 
 $$L_i = 5 \textrm{m} \quad \forall i$$
+
+![Pin-Ended Double Cross](model_fv2.png)
