@@ -1,0 +1,43 @@
+!
+! 
+!   Example is taken from
+!   A Python Implementation of a Robust
+!   Multi-harmonic Balance with Numerical
+!   Continuation and Automatic Differentiation for
+!   Structural Dynamics
+!   J. Comput. Nonlinear Dynam. Jul 2023, 18(7): 071008
+!   https://doi.org/10.1115/1.4062424
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = martins.dat
+RETURN
+
+EXEC
+CLOOP LOOPS = 1, 4
+
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE  FFTSIZE      = 1024         &
+                                 ACCURACY     = 5.0          &
+                                 NOFHARMONICS = 3            &
+                                 MODE         = FOLLOWPATH   & 
+                                 DIRECTION    = ASCENDING    &
+                                 STARTFREQ    = 0.09549      &
+                                 RESULTS      = ALL    
+    SELECT
+        ACTIVE NSET = Q
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'hbm_xy_%.3(cloop)'
+    TASK END
+
+CLOOP END
+USER
+    CALL TOOL6 P1 = 'pyINTES martins.py'
+RETURN
+STOP
