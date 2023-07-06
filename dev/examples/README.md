@@ -8,6 +8,8 @@ The example is taken from [A semi-analytical model for dynamic analysis of thin 
 
 ## Example 003
 
+NAFEMS Benchmark example FV2
+
 ## Example 004
 
 The example is taken from [Metamodel-assisted hybrid optimization strategy for model updating using vibration response data](https://doi.org/10.1016/j.advengsoft.2023.103515)
