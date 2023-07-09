@@ -2,3 +2,4 @@ The example is taken from [Prediction for Antiresonant and Extremum Response Fre
 
 A sampling procedure is used for the parametric study.
 
+![Frequency response plots](FRF.png)
