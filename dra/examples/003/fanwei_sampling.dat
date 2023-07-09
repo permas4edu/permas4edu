@@ -1,0 +1,71 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2 STEP_3
+      DFLT_COMP  SYSTEM = S_STEP_1  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $MPC ILINE  DPDOFS = 1,2,3  DPITYP = NODE  DOFTYPE = DISP
+                1 LINE        : MASS
+!
+      $DELEMENT TYPE = DMASS
+                1          1: MASS
+      $DELEMENT TYPE = DSHAPE
+                2: MASS
+         &      : MASS
+!
+      $DSVNODE
+                2 MASS        :          2
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1          2
+       SFLA2          2          3
+       SFLA2          3          4
+       SFLA2          4          5
+       SFLA2          5          6
+       SFLA2          6          7
+       SFLA2          7          8
+       SFLA2          8          9
+       SFLA2          9         10
+       SFLA2         10         11
+!
+      $NSET NAME = MASS
+               12
+      $LNSET NAME = LINE
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR MASS  NAME = GD_MASS  DEID = 1
+      MASS          1:          1
+      MASS          2:          1
+      MASS          3:          1
+!
+      $DVCOOR  KIND = DIRECT
+       MASS         1 :  1.000000E+00 :          2
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_STEP_3
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+!
+      $VPARVAL  TYPE = DESVAR
+                1  1.E-18        5.000000E+00  2.000000E+01  5.000000E+01  8.000000E+01
+                2  0.000000E+00  2.000000E-01
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
