@@ -1,0 +1,18 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = tooljig_model.dat
+    READ PERMAS FILE = tooljig.dat
+RETURN
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN EL STRESS
+    GEN N P STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
+  
