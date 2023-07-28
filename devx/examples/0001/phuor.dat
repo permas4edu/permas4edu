@@ -1,0 +1,184 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+   $SITUATION NAME = STEP_1
+      DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1
+   $END SITUATION
+
+   $SITUATION NAME = STEP_2
+      DFLT_COMP SYSTEM = S_STEP_2 CONSTRAINTS = C_STEP_1 
+   $END SITUATION
+
+   $SITUATION NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+
+   $STRUCTURE
+
+      $RSYS CART FORM = ZX
+         1 0.0 0.0 0.0 : 10.0 0.0 0.0 : 0.0 10.0 0.0
+
+      $COOR 
+          1    0.0  0.0   0.0 
+          2    3.4  0.0   0.0
+          3    7.9  0.0   0.0
+          4   23.1  0.0   0.0
+          5   29.1  0.0   0.0
+          6   36.2  0.0   0.0
+          7   45.7  0.0   0.0
+          8   58.35 0.0   0.0
+          9   74.5  0.0   0.0
+         10   77.5  0.0   0.0
+         11   88.7  0.0   0.0
+         12   95.3  0.0   0.0
+         13  104.9  0.0   0.0
+         14  108.2  0.0   0.0
+
+      $COOR NSET = GROUND
+        107   45.7  0.0   0.0
+        109   74.5  0.0   0.0
+
+      $ELEMENT TYPE = BECOS ESET = SHAFT
+           1   1   2
+           2   2   3
+           3   3   4
+           4   4   5
+           5   5   6
+           6   6   7
+           7   7   8
+           8   8   9
+           9   9  10
+          10  10  11
+          11  11  12
+          12  12  13
+          13  13  14
+
+      $ELEMENT TYPE = MASS6 ESET = IMPELLER
+          14  3
+      $ELEMENT TYPE = MASS6 ESET = TURBINE 
+          15  12
+
+      $ELEMENT TYPE = SPRING3 ESET = SPRING
+          16  7 107
+          17  9 109
+
+       $ELEMENT TYPE = DAMP3 ESET = DAMPER
+          18  7 107
+          19  9 109
+  
+      $NSET NAME = SHAFT RULE = ESET 
+          SHAFT
+
+      $ESET NAME = ROTOR
+           SHAFT 
+           IMPELLER
+           TURBINE
+    
+   $END STRUCTURE
+   
+   $SYSTEM NAME = S_STEP_1
+
+          $ELSYS RSYS 
+              SHAFT RSYS = 1
+
+          $GEODAT SPRING CONT = STIFF
+              GD_SPRING  0.0 1.E3 1.E3
+
+          $GEODAT DAMPER CONT = DAMP
+              GD_DAMPER  0.0 3.0E-3 3.0E-3 
+ 
+          $GEODAT MASS CONT = MASS
+              GD_IMPELLER 1.3328E-5 1.3328E-5 1.3328E-5 2.156E-3 1.274E-3 1.274E-3
+              GD_TURBINE  4.3414E-5 4.3414E-5 4.3414E-5  5.88E-3 3.136E-3 3.136E-3
+
+          $GEODAT BEAM  CONT = SECTTYPE SECTDIM
+              GD_BEAM_01  4:  4.1
+              GD_BEAM_02  4:  4.1
+              GD_BEAM_03  4:  4.1
+              GD_BEAM_04  4:  4.1
+              GD_BEAM_05  4:  4.1
+              GD_BEAM_06  4:  6.0
+              GD_BEAM_07  4:  6.0              
+              GD_BEAM_08  4:  6.0
+              GD_BEAM_09  4:  6.0
+              GD_BEAM_10  4:  9.9
+              GD_BEAM_11  4: 14.1
+              GD_BEAM_12  4: 11.0
+              GD_BEAM_13  4:  8.0
+
+          $ELPROP
+              1 GEODAT = GD_BEAM_01 MATERIAL = MAT_01
+              2 GEODAT = GD_BEAM_02 MATERIAL = MAT_01
+              3 GEODAT = GD_BEAM_03 MATERIAL = MAT_01
+              4 GEODAT = GD_BEAM_04 MATERIAL = MAT_01
+              5 GEODAT = GD_BEAM_05 MATERIAL = MAT_01
+              6 GEODAT = GD_BEAM_06 MATERIAL = MAT_01
+              7 GEODAT = GD_BEAM_07 MATERIAL = MAT_01
+              8 GEODAT = GD_BEAM_08 MATERIAL = MAT_01
+              9 GEODAT = GD_BEAM_09 MATERIAL = MAT_01
+             10 GEODAT = GD_BEAM_10 MATERIAL = MAT_01
+             11 GEODAT = GD_BEAM_11 MATERIAL = MAT_01
+             12 GEODAT = GD_BEAM_12 MATERIAL = MAT_01
+             13 GEODAT = GD_BEAM_13 MATERIAL = MAT_01
+
+             TURBINE  GEODAT = GD_TURBINE
+             IMPELLER GEODAT = GD_IMPELLER
+
+              SPRING  GEODAT = GD_SPRING
+              DAMPER  GEODAT = GD_DAMPER
+
+   $END SYSTEM
+      
+   $SYSTEM NAME = S_STEP_2
+
+      $INSERT VARIANT
+         S_STEP_1
+
+      $ELSTATE LOAD
+           SITUATION = STEP_1 LPAT = 1
+ 
+       $ADDMATRIX
+          GEOSTIFF
+          CONVSTIFF
+          GYRO
+
+   $END SYSTEM   
+ 
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,4
+         SHAFT
+
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+         GROUND
+ 
+   $END CONSTRAINTS 
+
+   $LOADING NAME = L_STEP_1
+
+     $INERTIA ROTATION LPAT = 1
+         ROTOR 0.0 0.0 0.0 10.0 0.0 0.0 1.0
+
+   $END LOADING
+
+   $RESULTS NAME = R_STEP_3
+
+       $ROTSPEED PRIMARY = EQUI 
+          0.0 5000. 100.
+
+   $END RESULTS
+
+$EXIT COMPONENT
+$ENTER MATERIAL
+
+   $MATERIAL NAME = MAT_01
+
+      $ELASTIC 
+         2.1E5  0.3
+ 
+      $DENSITY
+          7.8E-9
+
+   $END MATERIAL
+
+$EXIT MATERIAL
+$FIN
