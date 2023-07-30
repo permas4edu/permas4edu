@@ -1,0 +1,111 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+ $SITUATION NAME = STEP_1
+    DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+ $END SITUATION
+
+ $SITUATION NAME = STEP_2 PARENT = STEP_1
+    DFLT_COMP SYSTEM = S_STEP_1  RESULTS = R_STEP_2
+ $END SITUATION
+
+ $STRUCTURE
+
+    $COOR
+        100 0.0 0.0 0.0
+        101 1.0 0.0 0.0
+        102 2.0 0.0 0.0
+        103 3.0 0.0 0.0
+        104 4.0 0.0 0.0
+
+    $NSET NAME = GROUND
+        100 104
+
+    $NSET NAME = FREE RULE = RANGE
+        101 103
+
+    $ELEMENT TYPE = MASS3 ESET = M1
+        1  101
+    $ELEMENT TYPE = MASS3 ESET = M2
+        2  102
+    $ELEMENT TYPE = MASS3 ESET = M3
+        3  103
+
+    $ELEMENT TYPE = SPRING1 ESET = K1
+        4 100  101
+    $ELEMENT TYPE = SPRING1 ESET = K2
+        5 101  102
+    $ELEMENT TYPE = SPRING1 ESET = K3
+        6 102  103
+    $ELEMENT TYPE = SPRING1 ESET = K4
+        7 103  104
+    $ELEMENT TYPE = SPRING1 ESET = K5
+        8 100  102
+
+     $ELEMENT TYPE = DAMP1 ESET = C1
+        9 100  102
+     $ELEMENT TYPE = DAMP1 ESET = C2
+       10 101  103
+     $ELEMENT TYPE = DAMP1 ESET = C3
+       11 100  101
+
+   $END STRUCTURE
+
+   $SYSTEM NAME = S_STEP_1
+
+      $GEODAT MASS CONT = MASS
+          GD_M1 2.5
+          GD_M2 2.5
+          GD_M3 2.5
+
+       $GEODAT SPRING CONT = STIFF
+          GD_K1  2000.
+          GD_K2     1.e-12
+          GD_K3     1.e-12
+          GD_K4  2000.
+          GD_K5  2000.
+
+       $GEODAT DAMPER CONT = DAMP
+          GD_C1    10.0
+          GD_C2    10.0
+          GD_C3    10.0
+ 
+       $ELPROP 
+          M1 GEODAT = GD_M1
+          M2 GEODAT = GD_M2
+          M3 GEODAT = GD_M3
+          K1 GEODAT = GD_K1
+          K2 GEODAT = GD_K2
+          K3 GEODAT = GD_K3
+          K4 GEODAT = GD_K4
+          K5 GEODAT = GD_K5
+          C1 GEODAT = GD_C1
+          C2 GEODAT = GD_C2
+          C3 GEODAT = GD_C3
+
+        $MATRIX GYRO FORMAT = SKEW
+             101,1 102,1 :   0.0 ! -C4
+             101,1 103,1 : -10.0 ! -C2
+             102,1 103,1 :   0.0 ! -C4
+
+   $END SYSTEM
+
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,2,3
+          GROUND
+
+      $SUPPRESS DOFS = 2,3
+          FREE
+
+   $END CONSTRAINTS
+
+   $RESULTS NAME = R_STEP_2
+
+     $ROTSPEED PRIMARY = LIST XTYPE = OMEGA
+           1.0
+
+   $END RESULTS
+
+$EXIT COMPONENT
+$FIN
+
