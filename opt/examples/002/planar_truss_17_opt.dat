@@ -1,0 +1,125 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DFLA
+                1          1:          1
+                2          2:          2
+                3          3:          3
+                4          4:          4
+                5          5:          5
+                6          6:          6
+                7          7:          7
+                8          8:          8
+                9          9:          9
+               10         10:         10
+               11         11:         11
+               12         12:         12
+               13         13:         13
+               14         14:         14
+               15         15:         15
+               16         16:         16
+               17         17:         17
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR FLANGE  NAME = GD_TRUSS_01  DEID = 1  NODES = ALL
+      SECTION          1:          1
+      $DVGPAR FLANGE  NAME = GD_TRUSS_02  DEID = 2  NODES = ALL
+      SECTION          1:          2
+      $DVGPAR FLANGE  NAME = GD_TRUSS_03  DEID = 3  NODES = ALL
+      SECTION          1:          3
+      $DVGPAR FLANGE  NAME = GD_TRUSS_04  DEID = 4  NODES = ALL
+      SECTION          1:          4
+      $DVGPAR FLANGE  NAME = GD_TRUSS_05  DEID = 5  NODES = ALL
+      SECTION          1:          5
+      $DVGPAR FLANGE  NAME = GD_TRUSS_06  DEID = 6  NODES = ALL
+      SECTION          1:          6
+      $DVGPAR FLANGE  NAME = GD_TRUSS_07  DEID = 7  NODES = ALL
+      SECTION          1:          7
+      $DVGPAR FLANGE  NAME = GD_TRUSS_08  DEID = 8  NODES = ALL
+      SECTION          1:          8
+      $DVGPAR FLANGE  NAME = GD_TRUSS_09  DEID = 9  NODES = ALL
+      SECTION          1:          9
+      $DVGPAR FLANGE  NAME = GD_TRUSS_10  DEID = 10  NODES = ALL
+      SECTION          1:         10
+      $DVGPAR FLANGE  NAME = GD_TRUSS_11  DEID = 11  NODES = ALL
+      SECTION          1:         11
+      $DVGPAR FLANGE  NAME = GD_TRUSS_12  DEID = 12  NODES = ALL
+      SECTION          1:         12
+      $DVGPAR FLANGE  NAME = GD_TRUSS_13  DEID = 13  NODES = ALL
+      SECTION          1:         13
+      $DVGPAR FLANGE  NAME = GD_TRUSS_14  DEID = 14  NODES = ALL
+      SECTION          1:         14
+      $DVGPAR FLANGE  NAME = GD_TRUSS_15  DEID = 15  NODES = ALL
+      SECTION          1:         15
+      $DVGPAR FLANGE  NAME = GD_TRUSS_16  DEID = 16  NODES = ALL
+      SECTION          1:         16
+      $DVGPAR FLANGE  NAME = GD_TRUSS_17  DEID = 17  NODES = ALL
+      SECTION          1:         17
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  1.000000E-01  2.000000E+01
+                2  1.000000E-01  2.000000E+01
+                3  1.000000E-01  2.000000E+01
+                4  1.000000E-01  2.000000E+01
+                5  1.000000E-01  2.000000E+01
+                6  1.000000E-01  2.000000E+01
+                7  1.000000E-01  2.000000E+01
+                8  1.000000E-01  2.000000E+01
+                9  1.000000E-01  2.000000E+01
+               10  1.000000E-01  2.000000E+01
+               11  1.000000E-01  2.000000E+01
+               12  1.000000E-01  2.000000E+01
+               13  1.000000E-01  2.000000E+01
+               14  1.000000E-01  2.000000E+01
+               15  1.000000E-01  2.000000E+01
+               16  1.000000E-01  2.000000E+01
+               17  1.000000E-01  2.000000E+01
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        0.000000E+00
+!
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_1  LPAT = ALL  DATTYPE = REAL
+      U            : FREE           1 -2.000000E+00  2.000000E+00:        100
+      V            : FREE           2 -2.000000E+00  2.000000E+00:        100
+!
+      $DCONSTRAINT ELSTRESS  TYPE = SET  SITUATION = STEP_1  LPAT = 1  DATTYPE = REAL
+      SIGMA        : TRUSS          4 -5.000000E+01  5.000000E+01:        100
+!
+      $DOBJECT  CONSTRAINT = WGT
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+               11  1.000000E-01
+               12  1.000000E-01
+               13  1.000000E-01
+               14  1.000000E-01
+               15  1.000000E-01
+               16  1.000000E-01
+               17  1.000000E-01
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
