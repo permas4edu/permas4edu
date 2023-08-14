@@ -1,0 +1,18 @@
+SET CAGEOUP = ON
+NEW
+
+INPUT
+    READ PERMAS FILE = hertzian_model.dat
+    READ PERMAS FILE = hertzian.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = hertzian
+TASK END
+STOP
