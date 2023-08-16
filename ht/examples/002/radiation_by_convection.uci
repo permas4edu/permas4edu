@@ -1,0 +1,17 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = radiation_by_convection.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+!
+    NLTEMP ACC=4.0
+!
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
