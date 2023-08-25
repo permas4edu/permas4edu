@@ -1,0 +1,16 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = 2D_StroembergKlarbring2010.dat
+    READ PERMAS FILE = 2D_StroembergKlarbring2010_rbm.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP

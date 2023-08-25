@@ -1,0 +1,106 @@
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+!#                                             Result file written by VisPER Production Build 19.00.381-Rev.49400
+!#                                                            Distributed by INTES GmbH Stuttgart
+!#                                                                  Date: 24-Aug-23 10:38:02
+!#..............................................................................................................................................................
+!#                                                                       P r o j e c t
+!#                                                                 2D_StroembergKlarbring2010
+!#..............................................................................................................................................................
+!#                                                                      Site: INTES GmbH
+!#                                                       Host: NILS-MOBIL / Windows 11 Pro-AMD64-22621
+!#                                                                  Code: M9w20r19 (32 bpw)
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : DESIGN
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       5.000000E-01
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+!
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  TIME = 1.0  DATTYPE = REAL
+      CMPL_1         :  0.000000E+00      NO
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  TIME = 2.0  DATTYPE = REAL
+      CMPL_2         :  0.000000E+00      NO
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  TIME = 3.0  DATTYPE = REAL
+      CMPL_3         :  0.000000E+00      NO
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  TIME = 4.0  DATTYPE = REAL
+      CMPL_4         :  0.000000E+00      NO
+
+      $DCFUNCTION CSTID = AVG_CMPL FUNCTION = 100 EQUALITY = YES 
+        1 DCONSTRAINT : CMPL_1 : 1
+        2 DCONSTRAINT : CMPL_2 : 1
+        3 DCONSTRAINT : CMPL_3 : 1
+        4 DCONSTRAINT : CMPL_4 : 1
+
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      FILL         :          1      NO        5.000000E-01
+!
+      $DOBJECT  CONSTRAINT = AVG_CMPL
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+!
+      $DSVFILT  TYPE = TOPO
+                1  1.000000E+01
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 TIME = 1.0
+        CMPL_1
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 TIME = 2.0
+        CMPL_2
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 TIME = 3.0
+        CMPL_3
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 TIME = 4.0
+        CMPL_4
+ 
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+        WGT
+
+      $RESEXT FUNCTION
+        VOLFRAC : WGT  1 : 101
+        AVG_CMPL : CMPL_1 1 : CMPL_2 1 : CMPL_3 1 : CMPL_4 1 : 100
+
+      $RESEXT ITEM
+        CMPL_1 : CMPL_1 1
+        CMPL_2 : CMPL_2 1
+        CMPL_3 : CMPL_3 1
+        CMPL_4 : CMPL_4 1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 100 
+         f(x1,x2,x3,x4) = 0.25*x1+0.25*x2+0.25*x3+0.25*x4
+
+    $FUNCTION FORMULA FID = 101
+         f(x) = x/7.85E-9/172146.01836602553
+
+$EXIT FUNCTION
+$FIN
