@@ -3,3 +3,5 @@ The example is adapted from [Robust contact-constrained topology optimization co
 ![3D Benchmark Strömberg and Klarbring](timo_model.png)
 
 ![Smoothed hull](smoothed_hull.gif)
+
+![2D example](efratio.gif)
