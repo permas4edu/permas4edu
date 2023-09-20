@@ -2,4 +2,4 @@ The example is taken from [Inverse and direct projection schemes for topology op
 
 ![Element filling ratio](efratio.gif)
 
- 
+![Evolution of the element filling distribution over iteration](PERMAS_Topology_Optimization.png) 
