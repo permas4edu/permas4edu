@@ -1,19 +1,31 @@
 $ENTER COMPONENT NAME = DFLT_COMP
-
+!
     $SITUATION NAME = STEP_0
        DFLT_COMP SYSTEM = S_STEP_0 CONSTRAINTS = C_STEP_0
     $END SITUATION
 
+    $SITUATION NAME = STEP_4 PARENT = STEP_0
+       DFLT_COMP SYSTEM = S_STEP_0 
+    $END SITUATION
+!
     $SITUATION NAME = STEP_1
        DFLT_COMP SYSTEM = S_STEP_0 CONSTRAINTS = C_STEP_0 LOADING = L_STEP_1 RESULTS = R_STEP_1
     $END SITUATION
-
+!
+    $SITUATION NAME = STEP_2
+       DFLT_COMP SYSTEM = S_STEP_0 CONSTRAINTS = C_STEP_0 LOADING = L_STEP_2 
+    $END SITUATION
+!
+    $SITUATION NAME = STEP_3
+       DFLT_COMP SYSTEM = S_STEP_0 CONSTRAINTS = C_STEP_0 LOADING = L_STEP_2 
+    $END SITUATION
+!
     $STRUCTURE
 
        $NSET NAME = RESULTS
-          110 201
+          110 111 118
        $NSET NAME = GROUND
-          100 209
+          100 119
 
        $NODE NSET = ALL_NODES
           100  0.0  0.0  0.0
@@ -28,15 +40,15 @@ $ENTER COMPONENT NAME = DFLT_COMP
           109  9.0  0.0  0.0
           110 10.0  0.0  0.0
 
-          201 11.0  0.0  0.0
-          202 12.0  0.0  0.0
-          203 13.0  0.0  0.0
-          204 14.0  0.0  0.0
-          205 15.0  0.0  0.0
-          206 16.0  0.0  0.0
-          207 17.0  0.0  0.0
-          208 18.0  0.0  0.0
-          209 19.0  0.0  0.0
+          111 11.0  0.0  0.0
+          112 12.0  0.0  0.0
+          113 13.0  0.0  0.0
+          114 14.0  0.0  0.0
+          115 15.0  0.0  0.0
+          116 16.0  0.0  0.0
+          117 17.0  0.0  0.0
+          118 18.0  0.0  0.0
+          119 19.0  0.0  0.0
  
        $ELEMENT TYPE = MASS3 ESET = M_A
             1  101
@@ -50,14 +62,14 @@ $ENTER COMPONENT NAME = DFLT_COMP
             9  109
            10  110
        $ELEMENT TYPE = MASS3 ESET = M_B
-           11  201
-           12  202
-           13  203
-           14  204
-           15  205
-           16  206
-           17  207
-           18  208
+           11  111
+           12  112
+           13  113
+           14  114
+           15  115
+           16  116
+           17  117
+           18  118
 
         $ELEMENT TYPE = SPRING1 ESET = K_A
            19  100 101
@@ -71,41 +83,46 @@ $ENTER COMPONENT NAME = DFLT_COMP
            27  108 109
            28  109 110
         $ELEMENT TYPE = SPRING1 ESET = K_B
-           29  201 202
-           30  202 203
-           31  203 204
-           32  204 205
-           33  205 206
-           34  206 207
-           35  207 208
-           36  208 209
+           29  111 112
+           30  112 113
+           31  113 114
+           32  114 115
+           33  115 116
+           34  116 117
+           35  117 118
+           36  118 119
 
          $ELEMENT TYPE = NLSTIFF ESET = NL_K
-           37  110 201
+           37  110 111
          $ELEMENT TYPE = NLDAMP ESET = NL_C
-           38  110 201
+           38  110 111
 
         $ELEMENT TYPE = DAMP1 ESET = C_A
-           39  100 101
-           40  101 102
-           41  102 103
-           42  103 104
-           43  104 105
+!           39  100 101
+!           40  101 102
+!           41  102 103
+!           42  103 104
+!           43  104 105
            44  105 106
-           45  106 107
-           46  107 108
-           47  108 109
-           48  109 110
+!           45  106 107
+!           46  107 108
+!           47  108 109
+!           48  109 110
          $ELEMENT TYPE = DAMP1 ESET = C_B
-           49  201 202
-           50  202 203
-           51  203 204
-           52  204 205
-           53  205 206
-           54  206 207
-           55  207 208
-           56  208 209
- 
+!           49  111 112
+!           50  112 113
+           51  113 114
+!           52  114 115
+!           53  115 116
+!           54  116 117
+!           55  117 118
+!           56  118 119
+
+         $ELEMENT TYPE = SPRING1 ESET = K_INT
+           57  110 111
+         $ELEMENT TYPE = DAMP1 ESET = C_INT 
+           58  110 111 
+
     $END STRUCTURE
 
     $CONSTRAINTS NAME = C_STEP_0
@@ -121,13 +138,15 @@ $ENTER COMPONENT NAME = DFLT_COMP
     $SYSTEM NAME = S_STEP_0
 
        $GEODAT SPRING CONT = STIFF
-         GD_K 1.E7
+         GD_K     1.E7
+         GD_K_INT 1.E4
  
        $GEODAT MASS CONT = MASS
          GD_M 1.0
 
        $GEODAT DAMPER CONT = DAMP
-         GD_C 400.0
+         GD_C     400.0
+         GD_C_INT  10.0
 
        $GEODAT SPRING CONT = FUNCTION
          GD_NL_K 101 
@@ -136,14 +155,16 @@ $ENTER COMPONENT NAME = DFLT_COMP
          GD_NL_C 102
 
        $ELPROP
-         M_A  GEODAT = GD_M
-         M_B  GEODAT = GD_M
-         K_A  GEODAT = GD_K
-         K_B  GEODAT = GD_K
-         C_A  GEODAT = GD_C
-         C_B  GEODAT = GD_C
-         NL_K GEODAT = GD_NL_K
-         NL_C GEODAT = GD_NL_C
+         M_A   GEODAT = GD_M
+         M_B   GEODAT = GD_M
+         K_A   GEODAT = GD_K
+         K_B   GEODAT = GD_K
+         K_INT GEODAT = GD_K_INT
+         C_INT GEODAT = GD_C_INT
+         C_A   GEODAT = GD_C
+         C_B   GEODAT = GD_C
+         NL_K  GEODAT = GD_NL_K
+         NL_C  GEODAT = GD_NL_C
 
     $END SYSTEM
 
@@ -155,6 +176,16 @@ $ENTER COMPONENT NAME = DFLT_COMP
       $FREQLOAD
          LPAT = 1 TYPE = COSINE 
 
+    $END LOADING
+!
+    $LOADING NAME = L_STEP_2
+
+      $CONLOAD LPAT = 1
+         109 1 : 500.0  ! ninth mass of substructure A
+
+      $TRANSLOAD
+         LPAT = 1 FUNCTION = 103
+      
     $END LOADING
 
     $RESULTS NAME = R_STEP_1
@@ -171,10 +202,13 @@ $EXIT COMPONENT
 $ENTER FUNCTION
 
     $FUNCTION FORMULA FID = 101 DESCRIPTION = 'Nonlinear stiffness'
-       f(x) = 1.E4*x+2.E7*x^3
+       f(x) = 2.E7*x^3
 
     $FUNCTION FORMULA FID = 102 DESCRIPTION = 'Nonlinear damping'
-       f(x) = 10*x+1.E-3*x^3
+       f(x) = 1.E-3*x^3
+
+    $FUNCTION FORMULA FID = 103 DESCRIPTION = 'Harmonic excitation'
+       f(t) = COS(475*t)
 
 $EXIT FUNCTION
 $FIN

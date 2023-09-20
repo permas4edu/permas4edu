@@ -22,11 +22,23 @@ EXPORT
     ITEM MODL
     GO PERMAS BINARY FILE = normal_modes
 EXEC
+    ACT SIT = STEP_0
+    MODAL COMPLEX SITUATION = STEP_4
+    ACT SIT = STEP_4
+PRINT
+    PORT RES REPLACE FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+    GO PERMAS FILE = complex_modes
+EXEC
     ACT SIT = STEP_1
     ACTIVE NSET = RESULTS
-    DIRECT HARMONIC BALANCE FFTSIZE      = 2048       &
-                            ACCURACY     = 5.0        &
-                            NOFHARMONICS = 7          &
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 8.0        &
+                            NOFHARMONICS = 3          &
 !                           MODES        = 10         &
                             MODE         = FOLLOWPATH &
                             DIRECTION    = ASCENDING  &
@@ -38,8 +50,40 @@ SELECT
 EXPORT
      ITEM CLEAR
      ITEM XYDATA NAME = RESP
-     GO SPREADSHEET FILE = hbm                   
+     GO SPREADSHEET FILE = hbm    
 TASK END
+!TASK
+!EXEC
+!    ACT SIT = STEP_2
+!    DIRECT TIMEHISTORY LOOPS = 200 &
+!                       DELTAT = 0.00013227758541430707 &
+!                       HBSIT = STEP_1 &
+!                       HBFREQ = 7.559859E+01
+!SELECT
+!     ACTIVE NSET = RESULTS
+!     XYDATA ITEM DISP RESULT = RESP DCOMP = 1   
+!EXPORT
+!     ITEM CLEAR
+!     ITEM XYDATA NAME = RESP
+!     GO SPREADSHEET FILE = backtransform     
+!TASK END
+
+!TASK
+!EXEC
+!    ACT SIT = STEP_3
+!    DIRECT TIMEHISTORY LOOPS =  151197 &
+!                       DELTAT = 0.00013227758541430707 &
+!                       TSTART = 0.0 &
+!                       STORE  = ALL &
+!                       SOLV   = NEWMARK 
+!SELECT
+!     ACTIVE NSET = RESULTS
+!     XYDATA ITEM DISP RESULT = RESP DCOMP = 1  
+!EXPORT
+!     ITEM CLEAR
+!     ITEM XYDATA NAME = RESP
+!     GO SPREADSHEET FILE = transient
+!TASK END 
 USER
     CALL TOOL6 P1 = 'pyINTES xing_tan.py hbm_resp.csv'
 STOP
