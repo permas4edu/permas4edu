@@ -1,0 +1,73 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2 PARENT = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 
+    $END SITUATION
+
+    $STRUCTURE
+
+        $NODE NSET = ALL_NODES
+          100   0.0  0.0  0.0
+          101   1.0  0.0  0.0
+          102   2.0  0.0  0.0
+          103   3.0  0.0  0.0
+          104   4.0  0.0  0.0
+          105   5.0  0.0  0.0
+
+        $ELEMENT TYPE = MASS3 ESET = M
+            1   101
+            2   102
+            3   103
+            4   104
+            5   105
+
+        $ELEMENT TYPE = SPRING1 ESET = K
+            6   100  101
+            7   101  102
+            8   102  103
+            9   103  104
+           10   104  105
+
+       $NSET NAME = GROUND
+           100  
+
+       $NSET NAME = FREE RULE = BOOLEAN
+           ALL_NODES AND NOT GROUND
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+!
+!      Caution: PERMAS C = alpha K + beta M
+!
+       $COMPDAMP 
+          ALPHA = 0.00057  BETA = 0.3935
+!
+       $GEODAT MASS CONT = MASS
+          GD_M 70.57
+
+       $GEODAT SPRING CONT = STIFF
+          GD_K 96000.0
+
+       $ELPROP
+          M GEODAT = GD_M
+          K GEODAT = GD_K
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 1,2,3
+          GROUND
+
+       $SUPPRESS DOFS = 2,3
+          FREE
+ 
+    $END CONSTRAINTS
+
+$EXIT COMPONENT
+$FIN
