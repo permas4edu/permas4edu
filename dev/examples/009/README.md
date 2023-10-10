@@ -2,3 +2,4 @@ The example is taken from [EfficientModal Identification and Optimal Sensor Plac
 
 Thanks to Weizhuo Wang for sharing the underlying finite element model. His support is greatly appreciated.
 
+![First mode shape](mode_01.gif)
