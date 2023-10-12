@@ -1,0 +1,52 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = gabriele.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 8
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'Undamaged system'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+SELECT
+    ACTIVE NSET = ALL_NODES
+    XYDATA ITEM DISP COOR = X RESULT = MODES DCOMP = 1
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_undamaged
+    ITEM CLEAR
+    ITEM XYDATA NAME = MODES
+    GO SPREADSHEET FILE = modes_undamaged
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 8
+    GEN MAC SITUATION = STEP_1
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+SELECT
+    ACTIVE NSET = ALL_NODES
+    XYDATA ITEM DISP COOR = X RESULT = MODES DCOMP = 1
+EXPORT
+    OPEN PERMAS ASCII FILE = mac
+    DATA OBJECT MAC.DISP BLOCKFORM = VALUE    
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_damaged
+    ITEM CLEAR
+    ITEM XYDATA NAME = MODES
+    GO SPREADSHEET FILE = modes_damaged
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES gabriele.py mac.pmat natural_frequencies.txt'
+    CALL TOOL6 P1 = 'pyINTES gabriele_modes.py modes_undamaged_modes.csv'
+    CALL TOOL6 P1 = 'pyINTES gabriele_modes.py modes_damaged_modes.csv'
+
+STOP

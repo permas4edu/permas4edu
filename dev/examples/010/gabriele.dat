@@ -1,0 +1,169 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2
+        DFLT_COMP SYSTEM = S_STEP_2 CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+        $NODE NSET = ALL_NODES
+          100  0.0  0.0  0.0
+          101  1.0  0.0  0.0
+          102  2.0  0.0  0.0
+          103  3.0  0.0  0.0
+          104  4.0  0.0  0.0
+          105  5.0  0.0  0.0
+          106  6.0  0.0  0.0
+          107  7.0  0.0  0.0
+          108  8.0  0.0  0.0
+ 
+        $NSET NAME = GROUND 
+          100
+
+        $NSET NAME = FREE RULE = RANGE
+          101 108
+
+        $ELEMENT TYPE = MASS3 ESET = M1
+          1    101
+        $ELEMENT TYPE = MASS3 ESET = M2
+          2    102
+        $ELEMENT TYPE = MASS3 ESET = M3
+          3    103        
+        $ELEMENT TYPE = MASS3 ESET = M4
+          4    104
+        $ELEMENT TYPE = MASS3 ESET = M5
+          5    105
+        $ELEMENT TYPE = MASS3 ESET = M6
+          6    106
+        $ELEMENT TYPE = MASS3 ESET = M7
+          7    107       
+        $ELEMENT TYPE = MASS3 ESET = M8
+          8    108
+!
+        $ELEMENT TYPE = SPRING1 ESET = K1
+          9    100 101 
+        $ELEMENT TYPE = SPRING1 ESET = K2 
+         10    101 102 
+        $ELEMENT TYPE = SPRING1 ESET = K3 
+         11    102 103 
+        $ELEMENT TYPE = SPRING1 ESET = K4 
+         12    103 104 
+        $ELEMENT TYPE = SPRING1 ESET = K5 
+         13    104 105 
+        $ELEMENT TYPE = SPRING1 ESET = K6 
+         14    105 106 
+        $ELEMENT TYPE = SPRING1 ESET = K7 
+         15    106 107 
+        $ELEMENT TYPE = SPRING1 ESET = K8 
+         16    107 108
+ 
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+!
+         $MODDAMP TYPE = RATIO KIND = FUNCTION
+           0.03
+!
+         $GEODAT MASS CONT = MASS
+           GD_M1 559.3E-3
+           GD_M2 419.4E-3
+           GD_M3 419.4E-3
+           GD_M4 419.4E-3
+           GD_M5 419.4E-3
+           GD_M6 419.4E-3
+           GD_M7 419.4E-3
+           GD_M8 419.4E-3
+
+         $GEODAT SPRING CONT = STIFF
+           GD_K1  2.7E3
+           GD_K2 57.6E3
+           GD_K3 57.6E3
+           GD_K4 57.6E3
+           GD_K5 57.6E3
+           GD_K6 57.6E3
+           GD_K7 57.6E3
+           GD_K8 57.6E3
+
+         $ELPROP
+           M1 GEODAT = GD_M1
+           M2 GEODAT = GD_M2
+           M3 GEODAT = GD_M3
+           M4 GEODAT = GD_M4
+           M5 GEODAT = GD_M5
+           M6 GEODAT = GD_M6
+           M7 GEODAT = GD_M7
+           M8 GEODAT = GD_M8
+
+           K1 GEODAT = GD_K1
+           K2 GEODAT = GD_K2
+           K3 GEODAT = GD_K3
+           K4 GEODAT = GD_K4
+           K5 GEODAT = GD_K5
+           K6 GEODAT = GD_K6
+           K7 GEODAT = GD_K7
+           K8 GEODAT = GD_K8
+
+    $END SYSTEM
+
+    $SYSTEM NAME = S_STEP_2
+!
+         $MODDAMP TYPE = RATIO KIND = FUNCTION
+           0.03
+!
+         $GEODAT MASS CONT = MASS
+           GD_M1 559.3E-3
+           GD_M2 419.4E-3
+           GD_M3 419.4E-3
+           GD_M4 419.4E-3
+           GD_M5 419.4E-3
+           GD_M6 419.4E-3
+           GD_M7 419.4E-3
+           GD_M8 419.4E-3
+
+         $GEODAT SPRING CONT = STIFF
+           GD_K1  2.7E3
+           GD_K2 57.6E3
+           GD_K3 57.6E3
+           GD_K4 57.6E3
+           GD_K5 49.536E3
+           GD_K6 57.6E3
+           GD_K7 57.6E3
+           GD_K8 57.6E3
+
+         $ELPROP
+           M1 GEODAT = GD_M1
+           M2 GEODAT = GD_M2
+           M3 GEODAT = GD_M3
+           M4 GEODAT = GD_M4
+           M5 GEODAT = GD_M5
+           M6 GEODAT = GD_M6
+           M7 GEODAT = GD_M7
+           M8 GEODAT = GD_M8
+
+           K1 GEODAT = GD_K1
+           K2 GEODAT = GD_K2
+           K3 GEODAT = GD_K3
+           K4 GEODAT = GD_K4
+           K5 GEODAT = GD_K5
+           K6 GEODAT = GD_K6
+           K7 GEODAT = GD_K7
+           K8 GEODAT = GD_K8
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 1,2,3
+          GROUND
+
+       $SUPPRESS DOFS = 2,3
+          FREE
+
+    $END CONSTRAINTS
+
+$EXIT COMPONENT
+$FIN
