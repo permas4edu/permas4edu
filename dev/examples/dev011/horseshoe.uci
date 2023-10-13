@@ -1,0 +1,63 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = horseshoe.dat
+    READ PERMAS FILE = horseshoe_add.dat
+RETURN
+
+TASK 
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 6
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'FFFF'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN PERMAS ASCII FILE = natural_frequencies
+    DATA OBJECT RVALTAB.DISP
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_ffff
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES horseshoe.py natural_frequencies.pmat' ! Non-dimensional frequencies
+RETURN
+
+TASK 
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 6
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'SSSS'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN PERMAS ASCII FILE = natural_frequencies
+    DATA OBJECT RVALTAB.DISP
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_ssss
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES horseshoe.py natural_frequencies.pmat' ! Non-dimensional frequencies
+RETURN
+
+TASK 
+EXEC
+    ACT SIT = STEP_3
+    VIBRATION ANALYSIS MODES = 6
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'CCCC'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN PERMAS ASCII FILE = natural_frequencies
+    DATA OBJECT RVALTAB.DISP
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_cccc
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES horseshoe.py natural_frequencies.pmat' ! Non-dimensional frequencies
+STOP
