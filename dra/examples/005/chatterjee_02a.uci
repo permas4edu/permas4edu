@@ -1,0 +1,33 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = chatterjee_02a.dat
+RETURN
+
+EXEC
+CLOOP LOOPS = 1, 4  
+    TASK
+    EXEC 
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT TIMEHISTORY LOOPS  = 2500    &
+                           DELTAT = 0.001   & 
+                           TSTART = 0.0     &
+                           STORE  = ALL     &
+                           SOLV   = NEWMARK
+!                          SOLV   = HHT
+    SELECT
+        ACTIVE NSET = FREE
+        XYDATA ITEM DISP RESULT = U  DCOMP = 1
+        XYDATA ITEM VELO RESULT = UP DCOMP = 1
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = U
+        GO SPREADSHEET FILE = 'transient_u_%(cloop)'
+        ITEM CLEAR
+        ITEM XYDATA NAME = UP
+        GO SPREADSHEET FILE = 'transient_up_%(cloop)'   
+    TASK END
+CLOOP END
+USER
+    CALL TOOL6 P1 = 'pyINTES chatterjee_02a.py'
+STOP

@@ -1,0 +1,115 @@
+$DEFVAR SITNAME  TYPE = NAME    GEN = STEP_,1,1
+$DEFVAR SYSVAR   TYPE = NAME    GEN = S_STEP_,1,1 
+$DEFVAR LOADVAR  TYPE = NAME    GEN = L_STEP_,1,1 
+$DEFVAR FID      TYPE = INTEGER GEN = 101,1
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $LOOP I = 1, 4
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = SYSVAR(I) CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I)
+        $END SITUATION
+    $ENDLOOP
+
+    $STRUCTURE
+
+        $NODE  NSET = ALL_NODES
+          100 0.0 0.0 0.0
+          101 1.0 0.0 0.0
+ 
+        $NSET NAME = GROUND
+          100
+
+        $NSET NAME = FREE
+          101
+
+        $ELEMENT TYPE = MASS3 ESET = M
+            1 101
+
+        $ELEMENT TYPE = DAMP1 ESET = C
+            2 100 101
+
+        $ELEMENT TYPE = SPRING1 ESET = K
+            3 100 101
+
+        $ELEMENT TYPE = NLDAMP ESET = NL_C
+            4 100 101
+
+    $END STRUCTURE
+
+    $LOOP I = 1, 4
+        $SYSTEM NAME = SYSVAR(I)
+
+            $GEODAT MASS CONT = MASS
+                GD_M 1.0
+
+            $GEODAT DAMPER CONT = DAMP
+                GD_C 2.0
+ 
+            $GEODAT SPRING CONT = STIFF
+                GD_K 1000.0
+
+            $GEODAT DAMPER CONT = FUNCTION
+                GD_NL_C 100
+
+            $ELPROP
+                M    GEODAT = GD_M
+                C    GEODAT = GD_C
+                K    GEODAT = GD_K
+                NL_C GEODAT = GD_NL_C
+
+        $END SYSTEM
+    $ENDLOOP
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 1,2,3
+          GROUND
+
+        $SUPPRESS DOFS = 2,3
+          FREE
+
+    $END CONSTRAINTS
+
+    $LOOP I = 1, 4
+        $LOADING NAME = LOADVAR(I)
+
+            $CONLOAD LPAT = 1
+                FREE 1: 1.0
+
+            $TRANSLOAD
+                LPAT = 1 FUNCTION = FID(I)
+
+            $INIVAL DISP 
+                FREE 1 : 0.0
+
+            $INIVAL VELO
+                FREE 1 : 0.0
+ 
+        $END LOADING
+    $ENDLOOP
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI 
+!          3.5  6.5 0.5
+           0.5570423 1.03450713 0.07957747
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 100 
+       f(x) = TANH(100*x)
+   
+    $DEFVAR RATIO TYPE = REAL LIST = 0.65 1.05 1.25 1.4
+ 
+    $LOOP I = 1, 4
+        $FUNCTION FORMULA FID = FID(I)
+            f(t) = 100*COS(RATIO(I)*SQRT(1000)*t)
+    $ENDLOOP
+
+$EXIT FUNCTION
+
+$FIN
