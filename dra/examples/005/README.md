@@ -3,3 +3,5 @@ The examples are taken from [Sparse Bayesian machine learning for the interpreta
 ![Phase space diagram](Transient_Response.png "Coulomb friction damping model")
 
 ![Phase space diagram](Transient_Response_Duffing.png "Duffing oscillator")
+
+![Bouc Wen oscillator](Transient_Response_Bouc_Wen.png "Bouc Wen oscillator")
