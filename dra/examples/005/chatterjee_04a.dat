@@ -1,0 +1,117 @@
+$DEFVAR SITNAME  TYPE = NAME    GEN = STEP_,1,1
+$DEFVAR SYSVAR   TYPE = NAME    GEN = S_STEP_,1,1 
+$DEFVAR LOADVAR  TYPE = NAME    GEN = L_STEP_,1,1 
+$DEFVAR FID      TYPE = INTEGER GEN = 101,1
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $LOOP I = 1, 4
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = SYSVAR(I) CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I)
+        $END SITUATION
+    $ENDLOOP
+
+    $STRUCTURE
+
+        $NODE  NSET = ALL_NODES
+          100 0.0 0.0 0.0
+          101 1.0 0.0 0.0
+        $NODE NSET = HYST_NODE
+         1001 1.0 0.0 0.0
+
+        $NSET NAME = GROUND
+          100
+
+        $NSET NAME = FREE
+          101
+        $NSET NAME = RESULTS
+          101 1001
+
+        $ELEMENT TYPE = MASS3 ESET = M
+            1 101
+
+        $ELEMENT TYPE = SPRING1 ESET = K
+            2 100 101
+
+        $ELEMENT TYPE = HYST3 ESET = HYST
+            3 100 101 1001
+
+    $END STRUCTURE
+
+    $LOOP I = 1, 4
+        $SYSTEM NAME = SYSVAR(I)
+
+           $ELSYS RSYS
+                HYST RSYS = 0
+
+            $GEODAT MASS CONT = MASS
+                GD_M 1.0
+
+            $GEODAT SPRING CONT = STIFF
+                GD_K 100.0
+
+            $GEODAT HYST CONT = FUNCTION HYSTFUN
+                GD_HYST  99 : 100
+
+            $ELPROP
+                M    GEODAT = GD_M
+                K    GEODAT = GD_K
+                HYST GEODAT = GD_HYST
+
+        $END SYSTEM
+    $ENDLOOP
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 1,2,3
+          GROUND
+
+        $SUPPRESS DOFS = 2,3
+          FREE 
+          HYST_NODE
+
+    $END CONSTRAINTS
+
+    $LOOP I = 1, 4
+        $LOADING NAME = LOADVAR(I)
+
+            $CONLOAD LPAT = 1
+                FREE 1: 1.0
+
+            $TRANSLOAD
+                LPAT = 1 FUNCTION = FID(I)
+
+            $INIVAL DISP 
+                FREE 1 : 0.0
+
+            $INIVAL VELO
+                FREE 1 : 0.0
+ 
+        $END LOADING
+    $ENDLOOP
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+  $DEFVAR E1    TYPE = REAL LIST = 10.0
+  $DEFVAR E2    TYPE = REAL LIST = 20.0
+  $DEFVAR ALPHA TYPE = REAL LIST =  5.0
+
+  $FUNCTION FORMULA FID = 99
+            f(x,xp,y,yp,z,zp,z1,z1p,z2,z2p,z3,z3p) = z1  ! restoring force
+!
+!         ! Equation (42) in residual form
+!
+  $FUNCTION FORMULA FID = 100
+      f(x,xp,y,yp,z,zp,z1,z1p,z2,z2p,z3,z3p) = z1p-(E1(1)+TANH(200*xp)*(ALPHA(1)*x-E2(1)*z1))*xp 
+   
+    $DEFVAR RATIO TYPE = REAL LIST = 1.15 1.4 0.6  1.05 
+ 
+    $LOOP I = 1, 4
+        $FUNCTION FORMULA FID = FID(I)
+            f(t) = SIN(RATIO(I)*10*t)
+    $ENDLOOP
+
+$EXIT FUNCTION
+
+$FIN
