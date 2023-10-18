@@ -5,3 +5,6 @@ The examples are taken from [Sparse Bayesian machine learning for the interpreta
 ![Phase space diagram](Transient_Response_Duffing.png "Duffing oscillator")
 
 ![Bouc Wen oscillator](Transient_Response_Bouc_Wen.png "Bouc Wen oscillator")
+
+![Valanis model](Transient_Response_Valanis_model.png "Valanis model - Case I")
+
