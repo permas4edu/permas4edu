@@ -15,7 +15,8 @@ If permas4edu helped you please consider adding a star here on GitHub. This mean
 
 ### Replication of results
 
-Install the free education edition of PERMAS.  
+Install the free education edition of PERMAS https://www.intes.de/k_permas/overview/academic_license
+
 Launch PERMAS Control Center  
 
 ![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center")
