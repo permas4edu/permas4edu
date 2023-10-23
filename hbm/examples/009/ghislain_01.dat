@@ -1,0 +1,107 @@
+$DEFVAR LAMBDA TYPE = REAL LIST = 0.025 0.05 0.075 0.1 0.125 0.15
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,1,1
+$DEFVAR LOADVAR TYPE = NAME GEN = L_STEP_,1,1
+$ECHO GEN ON
+ 
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $LOOP I = 1, 6
+
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_1
+        $END SITUATION
+
+    $ENDLOOP
+
+    $STRUCTURE
+
+       $NSET NAME = N101
+         101 
+
+       $NODE NSET = ALL_NODES
+         100 0.0  0.0  0.0
+         101 1.0  0.0  0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+           1 101
+       $ELEMENT TYPE = SPRING1 ESET = K
+           2 100 101
+       $ELEMENT TYPE = DAMP1 ESET = C
+           3 100 101
+       $ELEMENT TYPE = NLSTIFF ESET = K2
+           4 100 101
+       $ELEMENT TYPE = NLSTIFF ESET = K3
+           5 100 101
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+           GD_M   1.0
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K   1.0
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_K2 102
+           GD_K3 103
+  
+        $GEODAT DAMPER CONT = DAMP
+           GD_C   0.1
+
+        $ELPROP
+           M   GEODAT = GD_M
+           K   GEODAT = GD_K
+           C   GEODAT = GD_C
+           K2  GEODAT = GD_K2  
+           K3  GEODAT = GD_K3
+  
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 1,2,3
+           100
+
+       $SUPPRESS DOFS = 2,3
+           101 
+
+    $END CONSTRAINTS
+
+    $LOOP I = 1, 6
+
+        $LOADING NAME = LOADVAR(I)
+  
+            $CONLOAD LPAT = 1
+                101 1: LAMBDA(I)
+
+            $FREQLOAD
+                LPAT = 1 TYPE = SINE
+ 
+        $END LOADING
+
+    $ENDLOOP
+
+    $RESULTS NAME = R_STEP_1
+  
+         $FREQUENCY PRIMARY = EQUI
+             0.001592  0.3183098861837907  0.001592          
+
+    $END RESULTS
+
+$EXIT COMPONENT
+
+$ENTER FUNCTION
+
+   $DEFVAR K2 TYPE = REAL LIST = 1.6
+   $DEFVAR K3 TYPE = REAL LIST = 1.0
+ 
+   $FUNCTION FORMULA FID = 102
+       f(x) = K2(1)*x^2
+   $FUNCTION FORMULA FID = 103
+       f(x) = K3(1)*x^3
+
+$EXIT FUNCTION
+
+$FIN
