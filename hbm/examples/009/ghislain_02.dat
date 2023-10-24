@@ -1,0 +1,136 @@
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,2,1
+$DEFVAR LOADVAR TYPE = NAME GEN = L_STEP_,2,1
+$DEFVAR LAMBDA  TYPE = REAL LIST = 0.2 0.4 0.6 0.8 1.0
+$ECHO GEN 
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_0
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_1 PARENT = STEP_0
+        DFLT_COMP SYSTEM = S_STEP_1 
+    $END SITUATION
+
+    $LOOP I = 1,5
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_2
+        $END SITUATION
+    $ENDLOOP
+
+    $STRUCTURE
+
+       $NSET NAME = FREE RULE = RANGE
+         101 102
+
+       $NODE NSET = ALL_NODES
+         100 0.0  0.0  0.0
+         101 1.0  0.0  0.0
+         102 2.0  0.0  0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M1
+           1 101
+       $ELEMENT TYPE = MASS3 ESET = M2
+           2 102
+!
+       $ELEMENT TYPE = SPRING1 ESET = K1
+           3 100 101
+       $ELEMENT TYPE = SPRING1 ESET = K2
+           4 100 102
+       $ELEMENT TYPE = SPRING1 ESET = K12
+           5 101 102 
+!
+!       $ELEMENT TYPE = DAMP1 ESET = C1
+!           6 100 101
+!       $ELEMENT TYPE = DAMP1 ESET = C2
+!           7 100 102
+!       $ELEMENT TYPE = DAMP1 ESET = C12
+!           8 101 102
+! 
+       $ELEMENT TYPE = NLSTIFF ESET = K3
+           9 100 101
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $COMPDAMP 
+!           ALPHA = 0.004104264741492885 BETA = 0.015895735258507116
+            ALPHA = 0.0020521323707464426 BETA = 0.007947867629253558
+
+
+        $GEODAT MASS CONT = MASS
+           GD_M1   1.0
+           GD_M2   1.0
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K1   1.0
+           GD_K2   1.0
+           GD_K12  7.0
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_K3 100
+  
+!        $GEODAT DAMPER CONT = DAMP
+!           GD_C1   0.0487298531904502
+!           GD_C2   0.0487298531904502
+!           GD_C12  0.028729853190450197
+
+        $ELPROP
+           M1  GEODAT = GD_M1
+           M2  GEODAT = GD_M2
+           K1  GEODAT = GD_K1
+           K12 GEODAT = GD_K12
+           K2  GEODAT = GD_K2
+!           C1  GEODAT = GD_C1
+!           C12 GEODAT = GD_C12
+!           C2  GEODAT = GD_C2
+           K3  GEODAT = GD_K3  
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 1,2,3
+           100
+
+       $SUPPRESS DOFS = 2,3
+           101 102
+
+    $END CONSTRAINTS
+
+
+    $LOOP I = 1, 5
+
+        $LOADING NAME = LOADVAR(I)
+  
+            $CONLOAD LPAT = 1
+                101 1: LAMBDA(I)
+
+            $FREQLOAD
+                LPAT = 1 TYPE = SINE
+    
+        $END LOADING
+
+    $ENDLOOP
+
+    $RESULTS NAME = R_STEP_2
+  
+!        $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+!           0.1 10.0 0.1
+
+         $FREQUENCY PRIMARY = EQUI
+             0.01592  1.5915494309189535  0.01592          
+    $END RESULTS
+
+$EXIT COMPONENT
+
+$ENTER FUNCTION
+
+   $DEFVAR K3 TYPE = REAL LIST = 0.5
+ 
+   $FUNCTION FORMULA FID = 100
+       f(x) = K3(1)*x^3
+
+$EXIT FUNCTION
+
+$FIN
