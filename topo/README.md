@@ -21,5 +21,6 @@
 |   |  SOUND RADIATION POWER|
 |   |  SOUND RADIATION POWER DENSITY |
 |   |  SOUND RADIATION POWER SUM |
+|   |  STRESSRES (stress resultants)| 
 |   |  VELOCITY |
 |   |  WEIGHT |
