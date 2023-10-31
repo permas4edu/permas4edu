@@ -1,0 +1,48 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $RSYS CART  FORM = XY
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+01  0.000000E+00 : -1.000000E+01  0.000000E+00  0.000000E+00
+!
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $MATREF RSYS
+       LAYER_01      RSYS =          0  AXES =  1,  2
+       LAYER_02      RSYS =          1  AXES =  1,  2
+       LAYER_03      RSYS =          0  AXES =  1,  2
+       LAYER_04      RSYS =          1  AXES =  1,  2
+!
+      $ELPROP
+       PLATE  MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       CCCC
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ORTHO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.500000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+!         E1=40E2        E2            E3          nu12            nu23         nu13          G12         G23=0.5E2        G13
+        8.000000E+10  2.000000E+09  2.000000E+09  2.500000E-01  2.500000E-01  2.500000E-01  1.200000E+09  1.000000E+09  1.200000E+09
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

@@ -1,0 +1,27 @@
+DEFAULT SET VERIFICATION = ON ! Output of an extended model and verification results
+NEW
+
+INPUT
+    READ PERMAS FILE = composite_plate_01.dat
+    READ PERMAS FILE = composite_plate_01_add.dat
+    READ PERMAS FILE = esets.dat 
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 20
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN PERMAS ASCII FILE = natural_frequencies
+    DATA OBJECT RVALTAB.DISP
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES composite_plate.py natural_frequencies.pmat'
+RETURN
+STOP
