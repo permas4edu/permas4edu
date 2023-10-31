@@ -1,0 +1,75 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: DESIGN : DN_01
+!
+      $DSVNODE
+                1 DN_01       :          1
+!
+      $DESYMM  TYPE = PLANAR
+                1  AXIS =  2,  3
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  0.000000E+00
+!
+      $DVCOOR  KIND = DIRECT
+       DN_01        2 :  1.000000E+00 :          1
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1 -4.000000E+01  4.000000E+01
+!
+!      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+!      WGT          :      NO        0.000000E+00
+
+!      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+!      F_1          :  4.400000E+02  4.400000E+02
+!
+!      $DOBJECT  CONSTRAINT = WGT
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :            NO  4.400000E+02
+      F_2          :  4.400000E+02  NO
+!
+      $DOBJECT  CONSTRAINT = F_2 TARGET = MAX
+! 
+      $DSVMLIM
+                1  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS
+
+      $RSLITEM FREQ SITUATION = STEP_1 MODE = 1
+        F_1
+      $RSLITEM FREQ SITUATION = STEP_1 MODE = 2
+        F_2
+      $RSLITEM FREQ SITUATION = STEP_1 MODE = 3
+        F_3
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+        WGT
+
+      $RESEXT ITEM
+        F_1 : F_1 1
+        F_2 : F_2 1
+        F_3 : F_3 1
+        WGT : WGT 1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
