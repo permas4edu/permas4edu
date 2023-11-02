@@ -9,6 +9,16 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       $DELEMENT TYPE = DTOPO
                 1 DESET.1     : DESIGN
 !
+      $DERESTRAINT  TYPE = FREEZE
+                1 FREEZE        :  1.000000E+00
+!
+      $ESET NAME = FREEZE
+             8581       8582       8583       8584       8585       8586       8587       8588       8589       8590       8591       8592       8593       8594
+             8595       8596       8597       8598       8599       8600       8601       8602       8603       8604       8605       8606       8607       8608
+             8609       8610       8611      15605      15622      15623      15624      15625      15626      15627      15628      15629      15630      15631
+            15632      15633      15634      15635      15636      15637      15638      15639      15640      15641      15642      15643      15644      15645
+            15646      15647      15648      15649      15650      15651
+!
    $END STRUCTURE
 !------
    $SYSTEM  NAME = S_STEP_1
@@ -28,7 +38,6 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
       $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  LPAT = 1  DATTYPE = REAL
       CMPL         :  0.000000E+00      NO
-!
       $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
       FILL         :          1      NO        5.000000E-01
 !
