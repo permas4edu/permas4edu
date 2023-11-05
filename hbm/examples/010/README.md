@@ -1,0 +1,2 @@
+The example is taken from [A novel adaptive harmonic balance method with an asymptotic harmonic selection](https://doi.org/10.1007/s10483-023-3047-6)
+
