@@ -9,7 +9,7 @@ ax = fig.add_subplot(111)
 csv = sys.argv[1]
 
 df = pd.read_csv(csv,delimiter = ';')
-ax.plot(2*np.pi*df['Frequency'],df['H1-N101,u'])
+ax.plot(2*np.pi*df['Frequency'],df['H1-N101,u'],label=r'$H1$')
 ax.legend(shadow=True).set_draggable(True)
 ax.grid()
 ax.set_xlabel(r'Frequency $\Omega$ [rad/s]')
