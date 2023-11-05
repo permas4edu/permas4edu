@@ -1,0 +1,27 @@
+NEW
+
+INPUT
+    READ PERMAS FILE  = saeed.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024 &
+                            ACCURACY     = 5.0 &
+                            NOFHARMONICS = 7 &
+                            MODE         = FOLLOWPATH &               
+                            DIRECTION    = ASCENDING &
+                            STARTFREQ    = 0.3183 &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = U DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = U
+    GO SPREADSHEET FILE = hbm
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES saeed.py hbm_u.csv'
+STOP
