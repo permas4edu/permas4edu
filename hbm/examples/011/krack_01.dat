@@ -1,0 +1,112 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_0
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+         $NSET NAME = F
+            102
+
+         $NSET NAME = FREE RULE = RANGE
+            101  102
+
+         $NSET NAME = GROUND
+            100
+ 
+         $NODE NSET = ALL_NODES
+            100 0.0 0.0 0.0
+            101 1.0 0.0 0.0
+            102 2.0 0.0 0.0
+ 
+         $ELEMENT TYPE = MASS3 ESET = M1
+              1 101
+         $ELEMENT TYPE = MASS3 ESET = M2
+              2 102
+
+         $ELEMENT TYPE = SPRING1 ESET = K1
+              3 101  102
+         $ELEMENT TYPE = SPRING1 ESET = K2
+              4 100  102
+
+         $ELEMENT TYPE = DAMP1 ESET = C1
+              5 101  102
+         $ELEMENT TYPE = DAMP1 ESET = C2
+              6 100  102
+
+         $ELEMENT TYPE = NLSTIFF ESET = NL_K
+              7 100  101
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+ 
+        $GEODAT MASS CONT = MASS
+           GD_M1  1.0
+           GD_M2  1.0
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K1 1.0   
+           GD_K2 1.0   
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_C1 0.03
+           GD_C2 0.03
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_NL_K 100
+
+        $ELPROP
+            M1   GEODAT = GD_M1
+            M2   GEODAT = GD_M2
+            K1   GEODAT = GD_K1
+            K2   GEODAT = GD_K2
+            C1   GEODAT = GD_C1
+            C2   GEODAT = GD_C2
+            NL_K GEODAT = GD_NL_K
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+       $SUPPRESS DOFS = 1
+          GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+       $CONLOAD LPAT = 1
+          F 1: 0.1
+
+       $FREQLOAD  
+          LPAT = 1 TYPE = COSINE
+
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI
+!           0.01 0.5 0.01
+            0.07883936 0.12811396 0.001
+
+    $END RESULTS
+  
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $DEFVAR EPS TYPE = REAL LIST = 0.01 0.2 2.0
+   
+    $FUNCTION FORMULA FID = 100
+       f(x) = 100*(x-1)/2+SQRT((100*(x-1)/2)**2+EPS(1))
+   
+$EXIT FUNCTION
+$FIN
