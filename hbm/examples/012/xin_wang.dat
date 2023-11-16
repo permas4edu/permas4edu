@@ -1,0 +1,137 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+         $NSET NAME = Y
+            100
+
+         $NSET NAME = FREE RULE = RANGE
+            101  103
+
+         $NSET NAME = GROUND
+            100
+ 
+         $NODE NSET = ALL_NODES
+            100 0.0 0.0 0.0
+            101 1.0 0.0 0.0
+            102 2.0 0.0 0.0
+            103 3.0 0.0 0.0
+ 
+         $ELEMENT TYPE = MASS3 ESET = M1
+              1 101
+         $ELEMENT TYPE = MASS3 ESET = M2
+              2 102
+         $ELEMENT TYPE = MASS3 ESET = M3
+              3 103
+
+         $ELEMENT TYPE = SPRING1 ESET = K1
+              4 100  101
+         $ELEMENT TYPE = SPRING1 ESET = K2
+              5 101  102
+
+         $ELEMENT TYPE = DAMP1 ESET = C1
+              6 100  101
+         $ELEMENT TYPE = DAMP1 ESET = C2
+              7 101  102
+         $ELEMENT TYPE = DAMP1 ESET = CN
+              8 102  103
+
+         $ELEMENT TYPE = NLSTIFF ESET = K_N
+              9 102  103
+
+         $ELEMENT TYPE = NLSTIFF ESET = K_3
+             10 100  101
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+!
+!       Data from Table 1
+! 
+        $GEODAT MASS CONT = MASS
+           GD_M1  6.0
+           GD_M2  2.0
+           GD_M3  0.2
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K1 8.0E+03   
+           GD_K2 3.0E+03   
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_C1 1.0
+           GD_C2 0.5
+           GD_CN 5.0
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_K_N 100
+           GD_K_3 101
+
+        $ELPROP
+            M1   GEODAT = GD_M1
+            M2   GEODAT = GD_M2
+            M3   GEODAT = GD_M3
+
+            K1   GEODAT = GD_K1
+            K2   GEODAT = GD_K2
+
+            C1   GEODAT = GD_C1
+            C2   GEODAT = GD_C2
+            CN   GEODAT = GD_CN
+
+            K_N  GEODAT = GD_K_N
+            K_3  GEODAT = GD_K_3
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+       $PRESCRIBE DOFS = 1
+          100 
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+       $DEFVAR A TYPE = REAL LIST = 0.002
+
+       $PREVAL LPAT = 1
+          100 1: A(1)
+
+       $FREQLOAD  
+          LPAT = 1 TYPE = COSINE  PRESCRIBED = DISP
+
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+!       $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+!           10.0 80. 0.1
+        $FREQUENCY PRIMARY = EQUI
+           1.5915 12.7234 0.03
+
+    $END RESULTS
+  
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $DEFVAR ZETA TYPE = REAL LIST = 1.E+08 
+    $DEFVAR    L TYPE = REAL LIST = 0.005
+    $DEFVAR K_3  TYPE = REAL LIST = 4000.0
+ 
+    $FUNCTION FORMULA FID = 100
+       f(x) = 1.E+05*x^3
+!
+!   Equation (5)
+!
+    $FUNCTION FORMULA FID = 101
+       f(x) = K_3(1)*(x-L(1))*(0.5*(1+tanh(ZETA(1)*(x-L(1)))))+K_3(1)*(x+L(1))*(0.5*(1-tanh(ZETA(1)*(x+L(1)))))
+   
+$EXIT FUNCTION
+$FIN
