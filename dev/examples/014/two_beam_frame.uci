@@ -1,0 +1,21 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = two_beam_frame.dat
+    READ PERMAS FILE = two_beam_frame_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 20
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt 
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT 
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
+  
