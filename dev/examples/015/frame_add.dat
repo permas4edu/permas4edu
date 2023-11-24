@@ -1,0 +1,112 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+02  0.000000E+00 :  0.000000E+00  0.000000E+00  1.000000E+02
+                2  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00  1.000000E+02
+!
+      $NSET NAME = ALL_NODES RULE = ALL
+!
+      $NSET NAME = FREE RULE = BOOLEAN
+           ALL_NODES AND NOT GROUND
+
+      $NSET NAME = FREE_MOD RULE = BOOLEAN
+           FREE AND NOT MASS
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          2  AXES =  1,  2
+       COLUMN        RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+                1          4
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  1.587500E+01  1.587500E+00
+!
+      $ELPROP
+       COLUMN        GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+       BEAM          GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  1.587500E+01  1.587500E+00
+!
+      $ELPROP
+       COLUMN        GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+       BEAM          GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_3
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  1.587500E+01  1.587500E+00
+!
+      $ELPROP
+       COLUMN        GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+       BEAM          GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_4
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  1.587500E+01  1.587500E+00
+!
+      $ELPROP
+       COLUMN        GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+       BEAM          GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_5
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  1.587500E+01  1.587500E+00
+!
+      $ELPROP
+       COLUMN        GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+       BEAM          GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+
+       $SUPPRESS DOFS = 3,4,5 DOFTYPE = DISP
+        FREE_MOD
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

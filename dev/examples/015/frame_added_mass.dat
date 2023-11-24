@@ -1,0 +1,175 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2 
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_3 
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_4
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_4 
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_5
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_5 
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+              181        181
+              182        182
+!
+      $MPC ILINE  DPDOFS = 1,2,3  DPITYP = NODE  DOFTYPE = DISP
+                1 LINE1       : M1
+                2 LINE2       : M2
+!
+      $LINE GEO  LNID =          1
+       SFLA2          3         65
+       SFLA2         93          6
+       SFLA2         65         66
+       SFLA2         66         67
+       SFLA2         67         68
+       SFLA2         68         69
+       SFLA2         69         70
+       SFLA2         70         71
+       SFLA2         71         72
+       SFLA2         72         73
+       SFLA2         73         74
+       SFLA2         74         75
+       SFLA2         75         76
+       SFLA2         76         77
+       SFLA2         77         78
+       SFLA2         78         79
+       SFLA2         79         80
+       SFLA2         80         81
+       SFLA2         81         82
+       SFLA2         82         83
+       SFLA2         83         84
+       SFLA2         84         85
+       SFLA2         85         86
+       SFLA2         86         87
+       SFLA2         87         88
+       SFLA2         88         89
+       SFLA2         89         90
+       SFLA2         90         91
+       SFLA2         91         92
+       SFLA2         92         93
+      $LINE GEO  LNID =          2
+       SFLA2          2        152
+       SFLA2        180          5
+       SFLA2        152        153
+       SFLA2        153        154
+       SFLA2        154        155
+       SFLA2        155        156
+       SFLA2        156        157
+       SFLA2        157        158
+       SFLA2        158        159
+       SFLA2        159        160
+       SFLA2        160        161
+       SFLA2        161        162
+       SFLA2        162        163
+       SFLA2        163        164
+       SFLA2        164        165
+       SFLA2        165        166
+       SFLA2        166        167
+       SFLA2        167        168
+       SFLA2        168        169
+       SFLA2        169        170
+       SFLA2        170        171
+       SFLA2        171        172
+       SFLA2        172        173
+       SFLA2        173        174
+       SFLA2        174        175
+       SFLA2        175        176
+       SFLA2        176        177
+       SFLA2        177        178
+       SFLA2        178        179
+       SFLA2        179        180
+!
+      $NSET NAME = M1
+              181
+      $NSET NAME = M2
+              182
+      $NSET NAME = MASS
+              181        182
+      $ESET NAME = M1
+              181
+      $ESET NAME = M2
+              182
+      $LNSET NAME = LINE1
+                1
+      $LNSET NAME = LINE2
+                2
+!
+      $COOR
+              181  1.500000E+02  6.000000E+02  0.000000E+00
+              182  1.500000E+02  3.000000E+02  0.000000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M1         7.810000E-18  7.810000E-18  7.810000E-18
+       GD_M2         7.810000E-18  7.810000E-18  7.810000E-18
+!
+      $ELPROP
+       M1            GEODAT = GD_M1
+       M2            GEODAT = GD_M2
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M1         7.810000E-09  7.810000E-09  7.810000E-09
+       GD_M2         7.810000E-18  7.810000E-18  7.810000E-18
+!
+      $ELPROP
+       M1            GEODAT = GD_M1
+       M2            GEODAT = GD_M2
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_3
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M1         1.562000E-08  1.562000E-08  1.562000E-08
+       GD_M2         7.810000E-09  7.810000E-09  7.810000E-09
+!
+      $ELPROP
+       M1            GEODAT = GD_M1
+       M2            GEODAT = GD_M2
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_4
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M1         1.562000E-08  1.562000E-08  1.562000E-08
+       GD_M2         1.562000E-08  1.562000E-08  1.562000E-08
+!
+      $ELPROP
+       M1            GEODAT = GD_M1
+       M2            GEODAT = GD_M2
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_5
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M1         7.810000E-09  7.810000E-09  7.810000E-09
+       GD_M2         7.810000E-09  7.810000E-09  7.810000E-09
+!
+      $ELPROP
+       M1            GEODAT = GD_M1
+       M2            GEODAT = GD_M2
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

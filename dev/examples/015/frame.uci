@@ -1,0 +1,28 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = frame.dat
+    READ PERMAS FILE = frame_add.dat
+    READ NEW PERMAS FILE = frame_added_mass.dat
+RETURN
+
+PORT RES REPLACE FILE = natural_frequencies.txt
+PORT RES RESET
+
+EXEC
+CLOOP LOOPS = 1,5     
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        VIBRATION ANALYSIS MODES = 10
+    PRINT
+        PORT RES SWITCH TO FILE = natural_frequencies.txt
+        TEXT = 'Scenario #%(cloop)'
+        DATA OBJECT RVALTAB.DISP
+        PORT RES RESET
+    EXPORT
+        ITEM MODL  
+        GO PERMAS BINARY FILE = 'normal_modes_%(cloop)'
+    TASK END
+CLOOP END
+STOP
