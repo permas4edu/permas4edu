@@ -1,0 +1,161 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $SURFACE ELEMENTS  SURFID =          1  SYSTEM = LOCAL
+                1          1
+               75          1
+              149          1
+              223          1
+              297          1
+              371          1
+              445          1
+              519          1
+              593          1
+              667          1
+              741          1
+              815          1
+              889          1
+              963          1
+             1037          1
+             1111          1
+             1185          1
+             1259          1
+             1333          1
+             1407          1
+             1481          1
+             1555          1
+             1629          1
+             1703          1
+             1777          1
+             1851          1
+             1925          1
+             1999          1
+             2073          1
+             2147          1
+             2221          1
+             2295          1
+             2369          1
+             2443          1
+             2517          1
+      $SURFACE ELEMENTS  SURFID =          2  SYSTEM = LOCAL
+             5533          3
+             5534          3
+             5535          3
+             5536          3
+             5537          3
+             5538          3
+             5607          3
+             5608          3
+             5609          3
+             5610          3
+             5611          3
+             5612          3
+             5681          3
+             5682          3
+             5683          3
+             5684          3
+             5685          3
+             5686          3
+             5755          3
+             5756          3
+             5757          3
+             5758          3
+             5759          3
+             5760          3
+             5829          3
+             5830          3
+             5831          3
+             5832          3
+             5833          3
+             5834          3
+             5903          3
+             5904          3
+             5905          3
+             5906          3
+             5907          3
+             5908          3
+!
+      $SFSET NAME = CLAMPED
+                1
+      $SFSET NAME = LOAD
+                2
+!
+      $NSET NAME = RESPONSE
+         397
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       PHYSICALVOLUME93  MATERIAL = MAT_01
+!
+      $ADDMODES SOURCE = LOAD
+       LPAT = ALL
+
+      $MODDAMP TYPE = RATIO KIND = FUNCTION
+        0.01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOADS PRESS  LPAT = 1  DOFTYPE = DISP
+       LOAD  40.000000E+03
+!
+      $FREQLOAD 
+        LPAT = 1 TYPE = COSINE
+!
+   $END LOADING
+!------
+   $LOADING  NAME = L_STEP_2
+!
+      $DISLOADS PRESS  LPAT = 1  DOFTYPE = DISP
+       LOAD  40.000000E+03
+!
+      $TRANSLOAD 
+        LPAT = 1 FUNCTION = 100
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_1
+
+      $FREQUENCY PRIMARY = EQUI
+        10.0 60.0 1.0
+
+   $END RESULTS
+! 
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $DEFVAR F TYPE = REAL LIST = 10.0 60.
+
+    $FUNCTION FORMULA FID = 100
+       f(t) = SIN(2*PI*F(1)*t)
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.500000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
