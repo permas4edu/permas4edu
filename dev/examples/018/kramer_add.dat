@@ -1,0 +1,74 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = SPRING6
+               91          1        101
+               92          2        102
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  6.000000E+00  0.000000E+00 :  1.000000E+01  6.000000E+00  0.000000E+00 :  0.000000E+00  6.000000E+00  1.000000E+01
+                2  0.000000E+00  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+01  0.000000E+00 :  0.000000E+00  0.000000E+00  1.000000E+01
+!
+      $ELSYS RSYS
+       BEAMS         RSYS =          1  AXES =  1,  2
+       COLUMNS       RSYS =          2  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+              101        102
+      $ESET NAME = SPRING
+               91         92
+      $NSET NAME = FRAME RULE = ESET
+          BEAMS COLUMNS 
+!
+      $COOR
+              101  0.000000E+00  0.000000E+00  0.000000E+00
+              102  1.000000E+01  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = SPRING
+       SPRING
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = AREA     BEND
+       GD_BEAM         8.000000E-02 :  11.000000E-04 11.000000E-04 
+       GD_COLUMN       8.000000E-02 :  11.000000E-04 11.000000E-04 
+      $GEODAT SPRING    CONT = STIFF
+       GD_SPRING     1.000000E+06  1.000000E+06  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+06
+!
+      $ELPROP
+       BEAMS         GEODAT = GD_BEAM       MATERIAL = MAT_01
+       COLUMNS       GEODAT = GD_BEAM       MATERIAL = MAT_01
+       SPRING        GEODAT = GD_SPRING
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+! 
+      $SUPPRESS  DOFS = 3,4,5 DOFTYPE = DISP
+       FRAME 
+! 
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.500000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.100000E+10  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
