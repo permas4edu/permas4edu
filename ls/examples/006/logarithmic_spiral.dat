@@ -1,0 +1,934 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $INCLUDE FILE = 'logarithmic_spiral_rsys.dat'
+!
+      $ELEMENT TYPE = BECOS
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          6          7
+                7          7          8
+                8          8          9
+                9          9         10
+               10         10         11
+               11         11         12
+               12         12         13
+               13         13         14
+               14         14         15
+               15         15         16
+               16         16         17
+               17         17         18
+               18         18         19
+               19         19         20
+               20         20         21
+               21         21         22
+               22         22         23
+               23         23         24
+               24         24         25
+               25         25         26
+               26         26         27
+               27         27         28
+               28         28         29
+               29         29         30
+               30         30         31
+               31         31         32
+               32         32         33
+               33         33         34
+               34         34         35
+               35         35         36
+               36         36         37
+               37         37         38
+               38         38         39
+               39         39         40
+               40         40         41
+               41         41         42
+               42         42         43
+               43         43         44
+               44         44         45
+               45         45         46
+               46         46         47
+               47         47         48
+               48         48         49
+               49         49         50
+               50         50         51
+               51         51         52
+               52         52         53
+               53         53         54
+               54         54         55
+               55         55         56
+               56         56         57
+               57         57         58
+               58         58         59
+               59         59         60
+               60         60         61
+               61         61         62
+               62         62         63
+               63         63         64
+               64         64         65
+               65         65         66
+               66         66         67
+               67         67         68
+               68         68         69
+               69         69         70
+               70         70         71
+               71         71         72
+               72         72         73
+               73         73         74
+               74         74         75
+               75         75         76
+               76         76         77
+               77         77         78
+               78         78         79
+               79         79         80
+               80         80         81
+               81         81         82
+               82         82         83
+               83         83         84
+               84         84         85
+               85         85         86
+               86         86         87
+               87         87         88
+               88         88         89
+               89         89         90
+               90         90         91
+               91         91         92
+               92         92         93
+               93         93         94
+               94         94         95
+               95         95         96
+               96         96         97
+               97         97         98
+               98         98         99
+               99         99        100
+              100        100        101
+              101        101        102
+              102        102        103
+              103        103        104
+              104        104        105
+              105        105        106
+              106        106        107
+              107        107        108
+              108        108        109
+              109        109        110
+              110        110        111
+              111        111        112
+              112        112        113
+              113        113        114
+              114        114        115
+              115        115        116
+              116        116        117
+              117        117        118
+              118        118        119
+              119        119        120
+              120        120        121
+              121        121        122
+              122        122        123
+              123        123        124
+              124        124        125
+              125        125        126
+              126        126        127
+              127        127        128
+              128        128        129
+              129        129        130
+              130        130        131
+              131        131        132
+              132        132        133
+              133        133        134
+              134        134        135
+              135        135        136
+              136        136        137
+              137        137        138
+              138        138        139
+              139        139        140
+              140        140        141
+              141        141        142
+              142        142        143
+              143        143        144
+              144        144        145
+              145        145        146
+              146        146        147
+              147        147        148
+              148        148        149
+              149        149        150
+              150        150        151
+!
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = LINE8
+                8
+      $ESET NAME = LINE9
+                9
+      $ESET NAME = LINE10
+               10
+      $ESET NAME = LINE11
+               11
+      $ESET NAME = LINE12
+               12
+      $ESET NAME = LINE13
+               13
+      $ESET NAME = LINE14
+               14
+      $ESET NAME = LINE15
+               15
+      $ESET NAME = LINE16
+               16
+      $ESET NAME = LINE17
+               17
+      $ESET NAME = LINE18
+               18
+      $ESET NAME = LINE19
+               19
+      $ESET NAME = LINE20
+               20
+      $ESET NAME = LINE21
+               21
+      $ESET NAME = LINE22
+               22
+      $ESET NAME = LINE23
+               23
+      $ESET NAME = LINE24
+               24
+      $ESET NAME = LINE25
+               25
+      $ESET NAME = LINE26
+               26
+      $ESET NAME = LINE27
+               27
+      $ESET NAME = LINE28
+               28
+      $ESET NAME = LINE29
+               29
+      $ESET NAME = LINE30
+               30
+      $ESET NAME = LINE31
+               31
+      $ESET NAME = LINE32
+               32
+      $ESET NAME = LINE33
+               33
+      $ESET NAME = LINE34
+               34
+      $ESET NAME = LINE35
+               35
+      $ESET NAME = LINE36
+               36
+      $ESET NAME = LINE37
+               37
+      $ESET NAME = LINE38
+               38
+      $ESET NAME = LINE39
+               39
+      $ESET NAME = LINE40
+               40
+      $ESET NAME = LINE41
+               41
+      $ESET NAME = LINE42
+               42
+      $ESET NAME = LINE43
+               43
+      $ESET NAME = LINE44
+               44
+      $ESET NAME = LINE45
+               45
+      $ESET NAME = LINE46
+               46
+      $ESET NAME = LINE47
+               47
+      $ESET NAME = LINE48
+               48
+      $ESET NAME = LINE49
+               49
+      $ESET NAME = LINE50
+               50
+      $ESET NAME = LINE51
+               51
+      $ESET NAME = LINE52
+               52
+      $ESET NAME = LINE53
+               53
+      $ESET NAME = LINE54
+               54
+      $ESET NAME = LINE55
+               55
+      $ESET NAME = LINE56
+               56
+      $ESET NAME = LINE57
+               57
+      $ESET NAME = LINE58
+               58
+      $ESET NAME = LINE59
+               59
+      $ESET NAME = LINE60
+               60
+      $ESET NAME = LINE61
+               61
+      $ESET NAME = LINE62
+               62
+      $ESET NAME = LINE63
+               63
+      $ESET NAME = LINE64
+               64
+      $ESET NAME = LINE65
+               65
+      $ESET NAME = LINE66
+               66
+      $ESET NAME = LINE67
+               67
+      $ESET NAME = LINE68
+               68
+      $ESET NAME = LINE69
+               69
+      $ESET NAME = LINE70
+               70
+      $ESET NAME = LINE71
+               71
+      $ESET NAME = LINE72
+               72
+      $ESET NAME = LINE73
+               73
+      $ESET NAME = LINE74
+               74
+      $ESET NAME = LINE75
+               75
+      $ESET NAME = LINE76
+               76
+      $ESET NAME = LINE77
+               77
+      $ESET NAME = LINE78
+               78
+      $ESET NAME = LINE79
+               79
+      $ESET NAME = LINE80
+               80
+      $ESET NAME = LINE81
+               81
+      $ESET NAME = LINE82
+               82
+      $ESET NAME = LINE83
+               83
+      $ESET NAME = LINE84
+               84
+      $ESET NAME = LINE85
+               85
+      $ESET NAME = LINE86
+               86
+      $ESET NAME = LINE87
+               87
+      $ESET NAME = LINE88
+               88
+      $ESET NAME = LINE89
+               89
+      $ESET NAME = LINE90
+               90
+      $ESET NAME = LINE91
+               91
+      $ESET NAME = LINE92
+               92
+      $ESET NAME = LINE93
+               93
+      $ESET NAME = LINE94
+               94
+      $ESET NAME = LINE95
+               95
+      $ESET NAME = LINE96
+               96
+      $ESET NAME = LINE97
+               97
+      $ESET NAME = LINE98
+               98
+      $ESET NAME = LINE99
+               99
+      $ESET NAME = LINE100
+              100
+      $ESET NAME = LINE101
+              101
+      $ESET NAME = LINE102
+              102
+      $ESET NAME = LINE103
+              103
+      $ESET NAME = LINE104
+              104
+      $ESET NAME = LINE105
+              105
+      $ESET NAME = LINE106
+              106
+      $ESET NAME = LINE107
+              107
+      $ESET NAME = LINE108
+              108
+      $ESET NAME = LINE109
+              109
+      $ESET NAME = LINE110
+              110
+      $ESET NAME = LINE111
+              111
+      $ESET NAME = LINE112
+              112
+      $ESET NAME = LINE113
+              113
+      $ESET NAME = LINE114
+              114
+      $ESET NAME = LINE115
+              115
+      $ESET NAME = LINE116
+              116
+      $ESET NAME = LINE117
+              117
+      $ESET NAME = LINE118
+              118
+      $ESET NAME = LINE119
+              119
+      $ESET NAME = LINE120
+              120
+      $ESET NAME = LINE121
+              121
+      $ESET NAME = LINE122
+              122
+      $ESET NAME = LINE123
+              123
+      $ESET NAME = LINE124
+              124
+      $ESET NAME = LINE125
+              125
+      $ESET NAME = LINE126
+              126
+      $ESET NAME = LINE127
+              127
+      $ESET NAME = LINE128
+              128
+      $ESET NAME = LINE129
+              129
+      $ESET NAME = LINE130
+              130
+      $ESET NAME = LINE131
+              131
+      $ESET NAME = LINE132
+              132
+      $ESET NAME = LINE133
+              133
+      $ESET NAME = LINE134
+              134
+      $ESET NAME = LINE135
+              135
+      $ESET NAME = LINE136
+              136
+      $ESET NAME = LINE137
+              137
+      $ESET NAME = LINE138
+              138
+      $ESET NAME = LINE139
+              139
+      $ESET NAME = LINE140
+              140
+      $ESET NAME = LINE141
+              141
+      $ESET NAME = LINE142
+              142
+      $ESET NAME = LINE143
+              143
+      $ESET NAME = LINE144
+              144
+      $ESET NAME = LINE145
+              145
+      $ESET NAME = LINE146
+              146
+      $ESET NAME = LINE147
+              147
+      $ESET NAME = LINE148
+              148
+      $ESET NAME = LINE149
+              149
+      $ESET NAME = LINE150
+              150
+      $ESET NAME = PHYSICALLINE251
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34         35         36         37         38         39         40         41         42
+               43         44         45         46         47         48         49         50         51         52         53         54         55         56
+               57         58         59         60         61         62         63         64         65         66         67         68         69         70
+               71         72         73         74         75         76         77         78         79         80         81         82         83         84
+               85         86         87         88         89         90         91         92         93         94         95         96         97         98
+               99        100        101        102        103        104        105        106        107        108        109        110        111        112
+              113        114        115        116        117        118        119        120        121        122        123        124        125        126
+              127        128        129        130        131        132        133        134        135        136        137        138        139        140
+              141        142        143        144        145        146        147        148        149        150
+!
+      $COOR
+                1  2.264303E-02 -4.443945E-02 -7.382743E-01
+                2  2.643965E-02 -4.428260E-02 -7.315722E-01
+                3  3.034597E-02 -4.385785E-02 -7.248701E-01
+                4  3.434693E-02 -4.314908E-02 -7.181681E-01
+                5  3.842586E-02 -4.214073E-02 -7.114660E-01
+                6  4.256449E-02 -4.081788E-02 -7.047639E-01
+                7  4.674294E-02 -3.916641E-02 -6.980619E-01
+                8  5.093972E-02 -3.717313E-02 -6.913598E-01
+                9  5.513173E-02 -3.482590E-02 -6.846578E-01
+               10  5.929431E-02 -3.211384E-02 -6.779557E-01
+               11  6.340127E-02 -2.902737E-02 -6.712536E-01
+               12  6.742489E-02 -2.555847E-02 -6.645516E-01
+               13  7.133607E-02 -2.170076E-02 -6.578495E-01
+               14  7.510430E-02 -1.744968E-02 -6.511475E-01
+               15  7.869779E-02 -1.280265E-02 -6.444454E-01
+               16  8.208358E-02 -7.759183E-03 -6.377433E-01
+               17  8.522762E-02 -2.321078E-03 -6.310412E-01
+               18  8.809489E-02  3.507456E-03 -6.243392E-01
+               19  9.064959E-02  9.719651E-03 -6.176371E-01
+               20  9.285519E-02  1.630604E-02 -6.109350E-01
+               21  9.467472E-02  2.325434E-02 -6.042330E-01
+               22  9.607083E-02  3.054930E-02 -5.975310E-01
+               23  9.700609E-02  3.817261E-02 -5.908288E-01
+               24  9.744312E-02  4.610277E-02 -5.841268E-01
+               25  9.734484E-02  5.431504E-02 -5.774247E-01
+               26  9.667471E-02  6.278129E-02 -5.707227E-01
+               27  9.539700E-02  7.147000E-02 -5.640206E-01
+               28  9.347698E-02  8.034614E-02 -5.573185E-01
+               29  9.088130E-02  8.937119E-02 -5.506164E-01
+               30  8.757818E-02  9.850308E-02 -5.439144E-01
+               31  8.353776E-02  1.076962E-01 -5.372124E-01
+               32  7.873238E-02  1.169015E-01 -5.305102E-01
+               33  7.313690E-02  1.260663E-01 -5.238082E-01
+               34  6.672905E-02  1.351347E-01 -5.171061E-01
+               35  5.948968E-02  1.440473E-01 -5.104041E-01
+               36  5.140321E-02  1.527415E-01 -5.037020E-01
+               37  4.245783E-02  1.611519E-01 -4.970000E-01
+               38  3.264594E-02  1.692099E-01 -4.902979E-01
+               39  2.196442E-02  1.768442E-01 -4.835958E-01
+               40  1.041500E-02  1.839813E-01 -4.768938E-01
+               41 -1.995457E-03  1.905451E-01 -4.701917E-01
+               42 -1.525459E-02  1.964580E-01 -4.634896E-01
+               43 -2.934428E-02  2.016404E-01 -4.567876E-01
+               44 -4.424030E-02  2.060117E-01 -4.500855E-01
+               45 -5.991208E-02  2.094901E-01 -4.433835E-01
+               46 -7.632244E-02  2.119937E-01 -4.366814E-01
+               47 -9.342732E-02  2.134404E-01 -4.299793E-01
+               48 -1.111756E-01  2.137484E-01 -4.232773E-01
+               49 -1.295088E-01  2.128371E-01 -4.165752E-01
+               50 -1.483611E-01  2.106273E-01 -4.098731E-01
+               51 -1.676590E-01  2.070417E-01 -4.031711E-01
+               52 -1.873215E-01  2.020058E-01 -3.964690E-01
+               53 -2.072597E-01  1.954482E-01 -3.897669E-01
+               54 -2.273768E-01  1.873017E-01 -3.830649E-01
+               55 -2.475687E-01  1.775033E-01 -3.763628E-01
+               56 -2.677232E-01  1.659954E-01 -3.696607E-01
+               57 -2.877208E-01  1.527263E-01 -3.629587E-01
+               58 -3.074345E-01  1.376509E-01 -3.562566E-01
+               59 -3.267303E-01  1.207316E-01 -3.495545E-01
+               60 -3.454671E-01  1.019386E-01 -3.428525E-01
+               61 -3.634975E-01  8.125132E-02 -3.361504E-01
+               62 -3.806678E-01  5.865839E-02 -3.294483E-01
+               63 -3.968188E-01  3.415890E-02 -3.227463E-01
+               64 -4.117860E-01  7.762902E-03 -3.160442E-01
+               65 -4.254005E-01 -2.050787E-02 -3.093421E-01
+               66 -4.374895E-01 -5.061926E-02 -3.026401E-01
+               67 -4.478771E-01 -8.252409E-02 -2.959380E-01
+               68 -4.563852E-01 -1.161615E-01 -2.892360E-01
+               69 -4.628339E-01 -1.514563E-01 -2.825339E-01
+               70 -4.670432E-01 -1.883185E-01 -2.758318E-01
+               71 -4.688333E-01 -2.266429E-01 -2.691298E-01
+               72 -4.680262E-01 -2.663082E-01 -2.624277E-01
+               73 -4.644465E-01 -3.071773E-01 -2.557257E-01
+               74 -4.579229E-01 -3.490964E-01 -2.490236E-01
+               75 -4.482891E-01 -3.918949E-01 -2.423215E-01
+               76 -4.353854E-01 -4.353854E-01 -2.356195E-01
+               77 -4.190601E-01 -4.793634E-01 -2.289174E-01
+               78 -3.991708E-01 -5.236074E-01 -2.222153E-01
+               79 -3.755859E-01 -5.678790E-01 -2.155132E-01
+               80 -3.481860E-01 -6.119232E-01 -2.088112E-01
+               81 -3.168659E-01 -6.554686E-01 -2.021091E-01
+               82 -2.815355E-01 -6.982279E-01 -1.954071E-01
+               83 -2.421219E-01 -7.398983E-01 -1.887050E-01
+               84 -1.985709E-01 -7.801625E-01 -1.820029E-01
+               85 -1.508485E-01 -8.186894E-01 -1.753009E-01
+               86 -9.894247E-02 -8.551348E-01 -1.685988E-01
+               87 -4.286414E-02 -8.891430E-01 -1.618967E-01
+               88  1.735020E-02 -9.203476E-01 -1.551947E-01
+               89  8.163775E-02 -9.483731E-01 -1.484926E-01
+               90  1.499077E-01 -9.728366E-01 -1.417906E-01
+               91  2.220398E-01 -9.933490E-01 -1.350885E-01
+               92  2.978831E-01 -1.009518E+00 -1.283864E-01
+               93  3.772547E-01 -1.020947E+00 -1.216844E-01
+               94  4.599384E-01 -1.027243E+00 -1.149823E-01
+               95  5.456838E-01 -1.028013E+00 -1.082802E-01
+               96  6.342055E-01 -1.022869E+00 -1.015782E-01
+               97  7.251821E-01 -1.011431E+00 -9.487610E-02
+               98  8.182557E-01 -9.933299E-01 -8.817404E-02
+               99  9.130316E-01 -9.682082E-01 -8.147196E-02
+              100  1.009077E+00 -9.357253E-01 -7.476991E-02
+              101  1.105924E+00 -8.955593E-01 -6.806784E-02
+              102  1.203064E+00 -8.474110E-01 -6.136578E-02
+              103  1.299955E+00 -7.910064E-01 -5.466371E-02
+              104  1.396016E+00 -7.261007E-01 -4.796165E-02
+              105  1.490633E+00 -6.524813E-01 -4.125958E-02
+              106  1.583157E+00 -5.699714E-01 -3.455752E-02
+              107  1.672904E+00 -4.784339E-01 -2.785546E-02
+              108  1.759163E+00 -3.777742E-01 -2.115339E-02
+              109  1.841190E+00 -2.679442E-01 -1.445133E-02
+              110  1.918215E+00 -1.489458E-01 -7.749262E-03
+              111  1.989446E+00 -2.083419E-02 -1.047198E-03
+              112  2.054067E+00  1.162787E-01  5.654867E-03
+              113  2.111245E+00  2.622211E-01  1.235693E-02
+              114  2.160131E+00  4.167577E-01  1.905899E-02
+              115  2.199868E+00  5.795874E-01  2.576106E-02
+              116  2.229590E+00  7.503399E-01  3.246312E-02
+              117  2.248431E+00  9.285733E-01  3.916519E-02
+              118  2.255527E+00  1.113772E+00  4.586725E-02
+              119  2.250023E+00  1.305342E+00  5.256932E-02
+              120  2.231078E+00  1.502616E+00  5.927138E-02
+              121  2.197869E+00  1.704842E+00  6.597345E-02
+              122  2.149601E+00  1.911190E+00  7.267550E-02
+              123  2.085510E+00  2.120749E+00  7.937758E-02
+              124  2.004871E+00  2.332524E+00  8.607964E-02
+              125  1.907005E+00  2.545439E+00  9.278170E-02
+              126  1.791286E+00  2.758339E+00  9.948377E-02
+              127  1.657149E+00  2.969986E+00  1.061858E-01
+              128  1.504095E+00  3.179065E+00  1.128879E-01
+              129  1.331701E+00  3.384183E+00  1.195900E-01
+              130  1.139627E+00  3.583877E+00  1.262920E-01
+              131  9.276247E-01  3.776611E+00  1.329941E-01
+              132  6.955423E-01  3.960784E+00  1.396962E-01
+              133  4.433353E-01  4.134733E+00  1.463982E-01
+              134  1.710727E-01  4.296740E+00  1.531003E-01
+              135 -1.210555E-01  4.445037E+00  1.598023E-01
+              136 -4.327307E-01  4.577813E+00  1.665044E-01
+              137 -7.634987E-01  4.693221E+00  1.732065E-01
+              138 -1.112763E+00  4.789387E+00  1.799085E-01
+              139 -1.479779E+00  4.864419E+00  1.866106E-01
+              140 -1.863645E+00  4.916418E+00  1.933127E-01
+              141 -2.263304E+00  4.943484E+00  2.000147E-01
+              142 -2.677528E+00  4.943732E+00  2.067168E-01
+              143 -3.104924E+00  4.915302E+00  2.134189E-01
+              144 -3.543924E+00  4.856371E+00  2.201209E-01
+              145 -3.992784E+00  4.765166E+00  2.268230E-01
+              146 -4.449582E+00  4.639980E+00  2.335251E-01
+              147 -4.912216E+00  4.479185E+00  2.402271E-01
+              148 -5.378407E+00  4.281244E+00  2.469292E-01
+              149 -5.845694E+00  4.044733E+00  2.536312E-01
+              150 -6.311442E+00  3.768349E+00  2.603333E-01
+              151 -6.772840E+00  3.450934E+00  2.670354E-01
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = LINE9
+       LINE9
+      $PART  NAME = LINE10
+       LINE10
+      $PART  NAME = LINE11
+       LINE11
+      $PART  NAME = LINE12
+       LINE12
+      $PART  NAME = LINE13
+       LINE13
+      $PART  NAME = LINE14
+       LINE14
+      $PART  NAME = LINE15
+       LINE15
+      $PART  NAME = LINE16
+       LINE16
+      $PART  NAME = LINE17
+       LINE17
+      $PART  NAME = LINE18
+       LINE18
+      $PART  NAME = LINE19
+       LINE19
+      $PART  NAME = LINE20
+       LINE20
+      $PART  NAME = LINE21
+       LINE21
+      $PART  NAME = LINE22
+       LINE22
+      $PART  NAME = LINE23
+       LINE23
+      $PART  NAME = LINE24
+       LINE24
+      $PART  NAME = LINE25
+       LINE25
+      $PART  NAME = LINE26
+       LINE26
+      $PART  NAME = LINE27
+       LINE27
+      $PART  NAME = LINE28
+       LINE28
+      $PART  NAME = LINE29
+       LINE29
+      $PART  NAME = LINE30
+       LINE30
+      $PART  NAME = LINE31
+       LINE31
+      $PART  NAME = LINE32
+       LINE32
+      $PART  NAME = LINE33
+       LINE33
+      $PART  NAME = LINE34
+       LINE34
+      $PART  NAME = LINE35
+       LINE35
+      $PART  NAME = LINE36
+       LINE36
+      $PART  NAME = LINE37
+       LINE37
+      $PART  NAME = LINE38
+       LINE38
+      $PART  NAME = LINE39
+       LINE39
+      $PART  NAME = LINE40
+       LINE40
+      $PART  NAME = LINE41
+       LINE41
+      $PART  NAME = LINE42
+       LINE42
+      $PART  NAME = LINE43
+       LINE43
+      $PART  NAME = LINE44
+       LINE44
+      $PART  NAME = LINE45
+       LINE45
+      $PART  NAME = LINE46
+       LINE46
+      $PART  NAME = LINE47
+       LINE47
+      $PART  NAME = LINE48
+       LINE48
+      $PART  NAME = LINE49
+       LINE49
+      $PART  NAME = LINE50
+       LINE50
+      $PART  NAME = LINE51
+       LINE51
+      $PART  NAME = LINE52
+       LINE52
+      $PART  NAME = LINE53
+       LINE53
+      $PART  NAME = LINE54
+       LINE54
+      $PART  NAME = LINE55
+       LINE55
+      $PART  NAME = LINE56
+       LINE56
+      $PART  NAME = LINE57
+       LINE57
+      $PART  NAME = LINE58
+       LINE58
+      $PART  NAME = LINE59
+       LINE59
+      $PART  NAME = LINE60
+       LINE60
+      $PART  NAME = LINE61
+       LINE61
+      $PART  NAME = LINE62
+       LINE62
+      $PART  NAME = LINE63
+       LINE63
+      $PART  NAME = LINE64
+       LINE64
+      $PART  NAME = LINE65
+       LINE65
+      $PART  NAME = LINE66
+       LINE66
+      $PART  NAME = LINE67
+       LINE67
+      $PART  NAME = LINE68
+       LINE68
+      $PART  NAME = LINE69
+       LINE69
+      $PART  NAME = LINE70
+       LINE70
+      $PART  NAME = LINE71
+       LINE71
+      $PART  NAME = LINE72
+       LINE72
+      $PART  NAME = LINE73
+       LINE73
+      $PART  NAME = LINE74
+       LINE74
+      $PART  NAME = LINE75
+       LINE75
+      $PART  NAME = LINE76
+       LINE76
+      $PART  NAME = LINE77
+       LINE77
+      $PART  NAME = LINE78
+       LINE78
+      $PART  NAME = LINE79
+       LINE79
+      $PART  NAME = LINE80
+       LINE80
+      $PART  NAME = LINE81
+       LINE81
+      $PART  NAME = LINE82
+       LINE82
+      $PART  NAME = LINE83
+       LINE83
+      $PART  NAME = LINE84
+       LINE84
+      $PART  NAME = LINE85
+       LINE85
+      $PART  NAME = LINE86
+       LINE86
+      $PART  NAME = LINE87
+       LINE87
+      $PART  NAME = LINE88
+       LINE88
+      $PART  NAME = LINE89
+       LINE89
+      $PART  NAME = LINE90
+       LINE90
+      $PART  NAME = LINE91
+       LINE91
+      $PART  NAME = LINE92
+       LINE92
+      $PART  NAME = LINE93
+       LINE93
+      $PART  NAME = LINE94
+       LINE94
+      $PART  NAME = LINE95
+       LINE95
+      $PART  NAME = LINE96
+       LINE96
+      $PART  NAME = LINE97
+       LINE97
+      $PART  NAME = LINE98
+       LINE98
+      $PART  NAME = LINE99
+       LINE99
+      $PART  NAME = LINE100
+       LINE100
+      $PART  NAME = LINE101
+       LINE101
+      $PART  NAME = LINE102
+       LINE102
+      $PART  NAME = LINE103
+       LINE103
+      $PART  NAME = LINE104
+       LINE104
+      $PART  NAME = LINE105
+       LINE105
+      $PART  NAME = LINE106
+       LINE106
+      $PART  NAME = LINE107
+       LINE107
+      $PART  NAME = LINE108
+       LINE108
+      $PART  NAME = LINE109
+       LINE109
+      $PART  NAME = LINE110
+       LINE110
+      $PART  NAME = LINE111
+       LINE111
+      $PART  NAME = LINE112
+       LINE112
+      $PART  NAME = LINE113
+       LINE113
+      $PART  NAME = LINE114
+       LINE114
+      $PART  NAME = LINE115
+       LINE115
+      $PART  NAME = LINE116
+       LINE116
+      $PART  NAME = LINE117
+       LINE117
+      $PART  NAME = LINE118
+       LINE118
+      $PART  NAME = LINE119
+       LINE119
+      $PART  NAME = LINE120
+       LINE120
+      $PART  NAME = LINE121
+       LINE121
+      $PART  NAME = LINE122
+       LINE122
+      $PART  NAME = LINE123
+       LINE123
+      $PART  NAME = LINE124
+       LINE124
+      $PART  NAME = LINE125
+       LINE125
+      $PART  NAME = LINE126
+       LINE126
+      $PART  NAME = LINE127
+       LINE127
+      $PART  NAME = LINE128
+       LINE128
+      $PART  NAME = LINE129
+       LINE129
+      $PART  NAME = LINE130
+       LINE130
+      $PART  NAME = LINE131
+       LINE131
+      $PART  NAME = LINE132
+       LINE132
+      $PART  NAME = LINE133
+       LINE133
+      $PART  NAME = LINE134
+       LINE134
+      $PART  NAME = LINE135
+       LINE135
+      $PART  NAME = LINE136
+       LINE136
+      $PART  NAME = LINE137
+       LINE137
+      $PART  NAME = LINE138
+       LINE138
+      $PART  NAME = LINE139
+       LINE139
+      $PART  NAME = LINE140
+       LINE140
+      $PART  NAME = LINE141
+       LINE141
+      $PART  NAME = LINE142
+       LINE142
+      $PART  NAME = LINE143
+       LINE143
+      $PART  NAME = LINE144
+       LINE144
+      $PART  NAME = LINE145
+       LINE145
+      $PART  NAME = LINE146
+       LINE146
+      $PART  NAME = LINE147
+       LINE147
+      $PART  NAME = LINE148
+       LINE148
+      $PART  NAME = LINE149
+       LINE149
+      $PART  NAME = LINE150
+       LINE150
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
