@@ -1,0 +1,46 @@
+PRESET TOLBASE = 1.E-3
+NEW
+!
+!  Example is taken from
+!
+!  Enzo Marino, Seyed Farhad Hosseini, Ali Hashemian, Alessandro Reali
+!
+!  Effects of parameterization and knot placement techniques on
+!  primal and mixed isogeometric collocation formulations of 
+!  spatial shear-deformable beams with varying curvature and torsion
+!
+!  Computers and Mathematics with Applications, 
+!
+!  Volume 80, Issue 11, 1 December 2020, Pages 2563-2585
+!
+!  https://doi.org/10.1016/j.camwa.2020.06.006
+!  
+!
+INPUT
+    READ PERMAS FILE = tschirnhausen_cma_model.dat
+    READ PERMAS FILE = tschirnhausen_cma.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+SELECT
+    APPLY ITEM DISP  RESULT = MM SETS = F, , , 100
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = TIP DCOMP = 1,3
+    XYDATA ITEM DISP BOOK = MM RESULT = TIPMM DCOMP = 1,3 
+PRINT
+    ACTIVE NSET = F
+    PORT RES REPLACE FILE = tschirnhausen.txt
+    TEXT = 'Units: Meter'
+    ITEM XYDATA NAME = TIP
+    TEXT = ' '
+    TEXT = 'Units: Millimeter'
+    ITEM XYDATA BOOK = TIPMM
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP

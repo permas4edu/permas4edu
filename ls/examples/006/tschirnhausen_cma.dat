@@ -1,0 +1,70 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = RESULTS
+          51
+      $NSET NAME = F
+          51
+! 
+      $ESET NAME = BEAM RULE = ALL
+!
+      $NSET NAME = FREE RULE = RANGE
+                2  50
+
+      $NSET NAME = CLAMPED
+                1         
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_BEAM               4 : 0.2 : 0.2  
+!
+      $ELPROP
+       BEAM      GEODAT = GD_BEAM       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+      $SUPPRESS DOFS = 3,4,5
+       FREE
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_1
+
+      $CONLOAD LPAT = 1
+        F 2: -200.0
+
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 100
+     f(x) = 1.E3*x
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.5E3
+!
+       $ELASTIC GENERAL
+         2.0E10 0.3
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
