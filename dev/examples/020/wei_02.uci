@@ -1,0 +1,16 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = wei_model.dat
+    READ PERMAS FILE = wei_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT 
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
