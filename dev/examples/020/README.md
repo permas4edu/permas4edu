@@ -3,3 +3,9 @@ The example is adapted from [Free vibration analysis of thin to thick straight o
 ![7th mode shape](arch_01.gif "First elastic mode shape")
 
 ![8th mode shape](arch_02.gif "Second elastic mode shape")
+
+![7th mode shape](beam_01.gif)
+
+![8th mode shape](beam_02.gif)
+
+![13th mode shape](beam_07.gif)
