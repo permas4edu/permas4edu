@@ -2,3 +2,4 @@ The example is adapted from [Vibration characteristics of eccentric annular plat
 
 Herein, the eccentricity of the annular plate is described by a mesh morphing approach.
 
+![Shape Wizard](mesh_morphing.gif "Shape Wizard for mesh morphing") 
