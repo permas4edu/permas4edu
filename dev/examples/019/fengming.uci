@@ -6,7 +6,7 @@ INPUT
     READ PERMAS FILE = fengming_sampling.dat
 RETURN
 
-TASK LOOPS = 3
+TASK LOOPS = 9
 EXEC
     ACT SIT = STEP_1
     VIBRATION ANALYSIS MODES = 10
@@ -22,4 +22,7 @@ EXPORT
     ITEM XYDATA TYPE = DHIS
     ITEM XYDATA TYPE = SRHIS
     GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES fengming.py sampling_xdhis.csv sampling_srhis.csv'
+RETURN
 STOP
