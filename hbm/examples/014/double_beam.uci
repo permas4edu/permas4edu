@@ -1,0 +1,47 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = double_beam.dat
+    READ NEW PERMAS FILE = double_beam_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL FREQUENCY SITUATION = STEP_2 
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = MODAL DCOMP = 2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = MODAL
+    GO SPREADSHEET FILE = modal_frf
+EXEC
+    ACT SIT = STEP_3
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODES        = 5          &
+                            MODE         = FOLLOWPATH &
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 0.0        &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = HBM DCOMP = 2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = HBM
+    GO SPREADSHEET FILE = nonlinear_frf       
+    ITEM MODL
+    CURRENT HARMONIC = 1
+    ITEM DISP
+    GO PERMAS BINARY FILE = hbm            
+TASK END
+STOP
