@@ -1,0 +1,45 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+               19          5
+               20          7
+               21          9
+               22         11
+               23         12
+               24         14
+               25         16
+               26         18
+!
+      $ELEMENT TYPE = MASS3 ESET = INPUT_SOURCE
+               27          8
+!
+      $ESET NAME = SENSORS
+               19         20         21         22         23         24         25         26
+!
+      $PART  NAME = SENSORS
+       SENSORS
+!
+      $PART  NAME = INPUT_SOURCE
+       INPUT_SOURCE
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_SENSOR       1.280000E+00  1.280000E+00  1.280000E+00
+       GD_INPUT_SOURCE 3.600000E+00  3.600000E+00  3.600000E+00
+!
+!   
+!
+      $ELPROP
+       SENSORS       GEODAT = GD_SENSOR
+       INPUT_SOURCE  GEODAT = GD_INPUT_SOURCE
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
