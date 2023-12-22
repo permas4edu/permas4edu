@@ -1,0 +1,50 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = duffing.dat
+RETURN
+EXEC
+   ACT CONFIG = INITIAL
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 256        &    ! 2^8
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH &
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 0.0        &
+                            RESULTS      = ALL
+SELECT
+     ACTIVE NSET = FREE
+     XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+     ITEM CLEAR
+     ITEM XYDATA NAME = RESP
+     GO SPREADSHEET FILE = initial_hbm
+TASK END
+
+EXEC
+   ACT CONFIG = OPTIMIZED
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 256        &    ! 2^8
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH &
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 0.0        &
+                            RESULTS      = ALL
+SELECT
+     ACTIVE NSET = FREE
+     XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+     ITEM CLEAR
+     ITEM XYDATA NAME = RESP
+     GO SPREADSHEET FILE = optimized_hbm
+TASK END
+
+USER
+    CALL TOOL6 P1 = 'pyINTES duffing.py initial_hbm_resp.csv optimized_hbm_resp.csv'
+STOP 
