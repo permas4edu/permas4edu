@@ -1,0 +1,291 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_0
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+      $NSET NAME = RESPONSE
+        110  208
+
+      $NODE NSET = ALL_NODES
+        100   0.0  0.0  0.0
+        101   1.0  0.0  0.0
+        102   2.0  0.0  0.0
+        103   3.0  0.0  0.0
+        104   4.0  0.0  0.0
+        105   5.0  0.0  0.0
+        106   6.0  0.0  0.0
+        107   7.0  0.0  0.0
+        108   8.0  0.0  0.0
+        109   9.0  0.0  0.0
+        110  10.0  0.0  0.0
+        208  11.0  0.0  0.0
+        207  12.0  0.0  0.0
+        206  13.0  0.0  0.0
+        205  14.0  0.0  0.0
+        204  15.0  0.0  0.0
+        203  16.0  0.0  0.0
+        202  17.0  0.0  0.0
+        201  18.0  0.0  0.0
+        200  19.0  0.0  0.0
+
+      $NSET NAME = GROUND
+         100 200
+
+      $NSET NAME = FREE RULE = BOOLEAN
+         ALL_NODES AND NOT GROUND
+!
+      $ESET NAME = MASS RULE = RANGE
+            1  18
+!
+      $PART NAME = MASS 
+            MASS
+!
+      $ESET NAME = SPRING RULE = RANGE
+            19 36 
+!
+      $PART NAME = SPRING
+            SPRING 
+! 
+      $ELEMENT TYPE = MASS3 ESET = M1
+          1  101
+      $ELEMENT TYPE = MASS3 ESET = M2
+          2  102
+      $ELEMENT TYPE = MASS3 ESET = M3
+          3  103
+      $ELEMENT TYPE = MASS3 ESET = M4
+          4  104
+      $ELEMENT TYPE = MASS3 ESET = M5
+          5  105
+      $ELEMENT TYPE = MASS3 ESET = M6
+          6  106
+      $ELEMENT TYPE = MASS3 ESET = M7
+          7  107
+      $ELEMENT TYPE = MASS3 ESET = M8
+          8  108
+      $ELEMENT TYPE = MASS3 ESET = M9
+          9  109
+      $ELEMENT TYPE = MASS3 ESET = M10
+         10  110
+      $ELEMENT TYPE = MASS3 ESET = M11
+         11  208
+      $ELEMENT TYPE = MASS3 ESET = M12
+         12  207
+      $ELEMENT TYPE = MASS3 ESET = M13
+          13  206
+      $ELEMENT TYPE = MASS3 ESET = M14
+          14  205
+      $ELEMENT TYPE = MASS3 ESET = M15
+          15  204
+      $ELEMENT TYPE = MASS3 ESET = M16
+          16  203
+      $ELEMENT TYPE = MASS3 ESET = M17
+          17  202
+      $ELEMENT TYPE = MASS3 ESET = M18
+          18  201
+!    
+      $ELEMENT TYPE = SPRING1 ESET = K1
+         19  100  101
+      $ELEMENT TYPE = SPRING1 ESET = K2
+         20  101  102   
+      $ELEMENT TYPE = SPRING1 ESET = K3
+         21  102  103
+      $ELEMENT TYPE = SPRING1 ESET = K4
+         22  103  104
+      $ELEMENT TYPE = SPRING1 ESET = K5
+         23  104  105
+      $ELEMENT TYPE = SPRING1 ESET = K6
+         24  105  106
+      $ELEMENT TYPE = SPRING1 ESET = K7
+         25  106  107
+      $ELEMENT TYPE = SPRING1 ESET = K8
+         26  107  108
+      $ELEMENT TYPE = SPRING1 ESET = K9
+         27  108  109
+      $ELEMENT TYPE = SPRING1 ESET = K10
+         28  109  110
+!
+      $ELEMENT TYPE = SPRING1 ESET = K11
+         29  208  207
+      $ELEMENT TYPE = SPRING1 ESET = K12
+         30  207  206
+      $ELEMENT TYPE = SPRING1 ESET = K13
+         31  206  205
+      $ELEMENT TYPE = SPRING1 ESET = K14
+         32  205  204
+      $ELEMENT TYPE = SPRING1 ESET = K15
+         33  204  203
+      $ELEMENT TYPE = SPRING1 ESET = K16
+         34  203  202
+      $ELEMENT TYPE = SPRING1 ESET = K17
+         35  202  201
+      $ELEMENT TYPE = SPRING1 ESET = K18
+         36  201  200
+
+      $ELEMENT TYPE = DAMP1 ESET = C1
+         37  105 106
+      $ELEMENT TYPE = DAMP1 ESET = C2
+         38  205 206
+
+      $ELEMENT TYPE = NLSTIFF ESET = KNL
+         39  110  208 
+      $ELEMENT TYPE = NLDAMP  ESET = CNL
+        40  110  208
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+ 
+         $GEODAT MASS CONT = MASS
+            GD_M1   1.0   
+            GD_M2   1.0 
+            GD_M3   1.0   
+            GD_M4   1.0 
+            GD_M5   1.0   
+            GD_M6   1.0 
+            GD_M7   1.0   
+            GD_M8   1.0 
+            GD_M9   1.0   
+            GD_M10  1.0 
+            GD_M11  1.0   
+            GD_M12  1.0 
+            GD_M13  1.0   
+            GD_M14  1.0 
+            GD_M15  1.0   
+            GD_M16  1.0 
+            GD_M17  1.0   
+            GD_M18  1.0 
+!
+!        Stiffness of the interior region
+!
+         $GEODAT SPRING CONT = STIFF
+            GD_K1    1.E7
+            GD_K2    1.E7  
+            GD_K3    1.E7
+            GD_K4    1.E7  
+            GD_K5    1.E7
+            GD_K6    1.E7  
+            GD_K7    1.E7
+            GD_K8    1.E7  
+            GD_K9    1.E7
+            GD_K10   1.E7  
+            GD_K11   1.E7
+            GD_K12   1.E7  
+            GD_K13   1.E7
+            GD_K14   1.E7  
+            GD_K15   1.E7
+            GD_K16   1.E7  
+            GD_K17   1.E7
+            GD_K18   1.E7  
+!
+!        Nonproportional damping
+!
+         $GEODAT DAMPER CONT = DAMP
+            GD_C1   400.0
+            GD_C2   400.0 
+!
+!        Nonlinear spring
+!
+         $GEODAT SPRING CONT = FUNCTION
+            GD_KNL 1
+!
+!        Nonlinear damper
+!
+         $GEODAT DAMPER CONT = FUNCTION
+            GD_CNL 2
+
+         $ELPROP
+             M1   GEODAT = GD_M1
+             M2   GEODAT = GD_M2
+             M3   GEODAT = GD_M3
+             M4   GEODAT = GD_M4
+             M5   GEODAT = GD_M5
+             M6   GEODAT = GD_M6
+             M7   GEODAT = GD_M7
+             M8   GEODAT = GD_M8
+             M9   GEODAT = GD_M9
+             M10  GEODAT = GD_M10
+             M11  GEODAT = GD_M11
+             M12  GEODAT = GD_M12
+             M13  GEODAT = GD_M13
+             M14  GEODAT = GD_M14
+             M15  GEODAT = GD_M15
+             M16  GEODAT = GD_M16
+             M17  GEODAT = GD_M17
+             M18  GEODAT = GD_M18
+!
+             K1    GEODAT = GD_K1
+             K2    GEODAT = GD_K2
+             K3    GEODAT = GD_K3
+             K4    GEODAT = GD_K4
+             K5    GEODAT = GD_K5
+             K6    GEODAT = GD_K6
+             K7    GEODAT = GD_K7
+             K8    GEODAT = GD_K8
+             K9    GEODAT = GD_K9
+             K10   GEODAT = GD_K10
+             K11   GEODAT = GD_K11
+             K12   GEODAT = GD_K12
+             K13   GEODAT = GD_K13
+             K14   GEODAT = GD_K14
+             K15   GEODAT = GD_K15
+             K16   GEODAT = GD_K16
+             K17   GEODAT = GD_K17
+             K18   GEODAT = GD_K18
+!
+              C1   GEODAT = GD_C1
+              C2   GEODAT = GD_C2
+!
+             KNL   GEODAT = GD_KNL
+             CNL   GEODAT = GD_CNL
+  
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 1,2,3
+          GROUND
+
+       $SUPPRESS DOFS = 2,3
+          FREE
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+        $CONLOAD  LPAT = 1
+           109 1 :  500.0 !
+
+        $FREQLOAD
+            LPAT = 1 TYPE = COSINE
+
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+!       $FREQUENCY PRIMARY = EQUI XTYPE = RPM
+!          460.0 495.0 0.5
+
+        $FREQUENCY PRIMARY = EQUI
+            73.211  78.782 0.0796
+
+    $END RESULTS
+  
+$EXIT COMPONENT
+!
+$ENTER FUNCTION
+
+  $FUNCTION FORMULA FID = 1 
+      f(x)  =  1.E4*x+2.E7*x^3
+
+  $FUNCTION FORMULA FID = 2 
+      f(xp) =  1.E1*xp+1.E-3*xp^3
+
+$EXIT FUNCTION
+$FIN
