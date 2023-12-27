@@ -24,7 +24,7 @@ ax2.grid('on')
 ax2.legend(shadow=True).set_draggable(True)
 ax2.set_xlim(460.,495.)
 ax2.set_xticks(np.linspace(460.,495.,8))
-
+plt.tight_layout()
 
 fig2 = plt.figure('HBM 3rd order')
 ax3 = fig2.add_subplot(211)
