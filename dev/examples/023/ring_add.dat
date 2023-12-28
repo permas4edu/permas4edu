@@ -1,0 +1,48 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       A             MATERIAL = MAT_01
+       B             MATERIAL = MAT_02
+       C             MATERIAL = MAT_03
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.796000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.200000E+10  3.300000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_02  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.796000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.200000E+10  3.300000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_03  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.796000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.200000E+10  3.300000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
