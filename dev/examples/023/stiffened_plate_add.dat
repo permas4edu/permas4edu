@@ -1,0 +1,31 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PANEL      5.000000E-02
+       GD_STIFFENER  5.000000E-02
+!
+      $ELPROP
+       STIFFENER     GEODAT = GD_STIFFENER  MATERIAL = MAT_01
+       PANEL         GEODAT = GD_PANEL      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
