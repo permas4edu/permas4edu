@@ -1,0 +1,43 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = xiao.dat
+    READ NEW PERMAS FILE = xiao_add.dat
+RETURN
+
+TASK LOOPS = 81
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+SELECT
+    CURRENT LPAT = 999
+    ACTIVE NSET = B
+    XYDATA ITEM DISP RESULT = VB DCOMP = 2
+    ACTIVE NSET = A
+    XYDATA ITEM REAC RESULT = MA DCOMP = 6
+IF ('%(tloop)' == 1) THEN
+    PRINT
+        CURRENT LPAT = 999
+        PORT RES REPLACE FILE = results.txt
+        TEXT = 'Vertical deflection at free end'
+        ITEM XYDATA NAME = VB
+        TEXT = 'Bending moment at fixed end'
+        ITEM XYDATA NAME = MA
+        PORT RES RESET
+    EXPORT
+        ITEM MODL 
+        GO PERMAS BINARY FILE = 'static_%.3(tloop)'
+ENDIF
+EXEC  
+    ACT SIT = SAMPLING
+    SAMPLING ! METHOD = LHC NSAMPLES = 1
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RBHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES xiao.py'
+RETURN
+STOP

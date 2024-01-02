@@ -1,0 +1,155 @@
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+!#                                            Result file written by VisPER Development Build 19.10.010-Rev.50282
+!#                                                            Distributed by INTES GmbH Stuttgart
+!#                                                                  Date:  2-Jan-24 11:38:33
+!#..............................................................................................................................................................
+!#                                                                       P r o j e c t
+!#                                                                            xiao
+!#..............................................................................................................................................................
+!#                                                                      Site: INTES GmbH
+!#                                                       Host: NILS-MOBIL / Windows 11 Pro-AMD64-22631
+!#                                                                  Code: M9w20r19 (32 bpw)
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1  RESULTS = R_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00  1.000000E+01
+!
+      $DELEMENT TYPE = DBEAM
+                1          2  3  4: BEAM
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1          3
+       SFLA2          9          2
+       SFLA2          3          4
+       SFLA2          4          5
+       SFLA2          5          6
+       SFLA2          6          7
+       SFLA2          7          8
+       SFLA2          8          9
+!
+      $BASVAR
+               1 TYPE = LOADFAC  PDF = 1
+               2 TYPE = DESVAR   PDF = 2
+               3 TYPE = DESVAR   PDF = 3
+               4 TYPE = DESVAR   PDF = 4
+!
+      $PDFUNCTION  PDF = 1  TYPE = RECT  DATA = MOMENTS
+        1.000000E+03  1.000000E+02
+      $PDFUNCTION  PDF = 2  TYPE = RECT  DATA = MOMENTS
+        2.000000E+11  2.000000E+10
+      $PDFUNCTION  PDF = 3  TYPE = RECT  DATA = MOMENTS
+        3.833659E-02  3.833659E-03
+      $PDFUNCTION  PDF = 4  TYPE = RECT  DATA = MOMENTS
+        3.833659E-02  3.833659E-03
+
+!
+      $NSET NAME = A
+                1
+      $NSET NAME = ALL_NODES
+                1          2          3          4          5          6          7          8          9
+      $NSET NAME = B
+                2
+      $NSET NAME = CLAMPED
+                1
+      $NSET NAME = FREE
+                2          3          4          5          6          7          8          9
+      $LNSET NAME = LOAD
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  3.833659E-02  3.833659E-02
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = MAT_01
+!
+      $DVGPAR BEAM  NAME = GD_BEAM  DEID = 1
+      SECTDIM          1:          3
+      SECTDIM          2:          4
+!
+      $DVMPAR  NAME = MAT_01  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          2
+!
+!      $DSVVAL 
+!          2 2.000000E+11
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3,4,5  DOFTYPE = DISP
+       FREE
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOAD LINE3D  LPAT = 1  NODES = ALL  DOFTYPE = DISP
+                1  0.000000E+00  1.000000E+00  0.000000E+00
+                8  0.000000E+00  1.000000E+00  0.000000E+00
+                2  0.000000E+00  1.000000E+00  0.000000E+00
+                3  0.000000E+00  1.000000E+00  0.000000E+00
+                4  0.000000E+00  1.000000E+00  0.000000E+00
+                5  0.000000E+00  1.000000E+00  0.000000E+00
+                6  0.000000E+00  1.000000E+00  0.000000E+00
+                7  0.000000E+00  1.000000E+00  0.000000E+00
+!
+      $COMBINE LOADS  LPAT = 999  DOFTYPE = DISP
+      LPAT = 1  BASVAR = 1
+!
+   $END LOADING
+!------
+   $RESULTS  NAME = R_STEP_2
+!
+      $RSLITEM REAC  TYPE = SET  SITUATION = STEP_1  LPAT = 999
+      M_A          : A              6
+      $RSLITEM DISP  TYPE = SET  SITUATION = STEP_1  LPAT = 999
+      V_B          : B              2
+!
+      $VPARVAL  TYPE = BASVAR
+!               1  9.000000E+02  1.000000E+03  1.100000E+03
+                1 -1.100000E+03 -1.000000E+03 -9.000000E+02  ! q 
+                2  1.800000E+11  2.000000E+11  2.200000E+11  ! E
+      $VPARVAL  TYPE = BASVAR
+                3  3.744712E-02  3.833659E-02  3.937368E-02 ! b
+                4  3.744712E-02  3.833659E-02  3.937368E-02 ! b
+!
+      $RESEXT  ITEM
+      V_B : V_B          1
+      M_A : M_A          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
