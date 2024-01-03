@@ -1,0 +1,108 @@
+!==================================================
+!      UCI generate by PCGen 19.10.002, 
+!          Fri Nov 17 12:57:54 2023
+!==================================================
+
+!---------------------------------------------
+! Global switches
+!---------------------------------------------
+! ... Model and results:
+set tolsys = 1.E-6                   ! Tolerance on point coordinates
+set tolnod = 1.E-6                   ! Tolerance on node coordinates
+default set mode = binary            ! By default, export result in binary (HDF). Alternative: ascii or gzip.
+default set model = off              ! Do not export the model along results
+!default set verification = results  ! Export verification info. Options are: off, results, model, on (= results + model)
+!set modenorm = off                  ! Internal mode normalization (stiffness) i.o. default unit normlization
+!default set pagesize=64.
+DEFAULT SET MAXDMS = 1
+DEFAULT SET DSIZE = 1024.  
+
+! ... Verbosity:
+!report prolog on pro                ! More information in the PRO file for the PERMAS support
+!report proarg on pro
+!report steplog on pro
+!report steparg on pro
+
+! ... Files:
+!define dms directory = ./           ! Where the databases are scratched (use fast disks!)
+set database = delete                ! Do not keep database for subsequent run
+default set postproc = PERMAS        ! Export results in PERMAS format, unless otherwise specified
+default set mode = BINARY            ! Export PERMAS reuslts as HDF rather than ascii POST
+define write directory = ./          ! Where the results are exported
+
+NEW
+!---------------------------------------------
+! Model input
+!---------------------------------------------
+  INPUT
+     define read directory=./
+     read permas file= LAUNCHER_4EDU.dat
+     return
+
+TASK
+
+!---------------------------------------------
+! Static analysis
+!---------------------------------------------
+  EXEC
+     activate situation=STATIC_PDYN_MAX
+     inertia relief  reference=rigmode  addm=YES
+     ! ... (Fluid mass, condensed on interface, is considered
+     ! ... in the computation of the balancing inertia load.)
+     generate element stress mises
+     generate compliance
+  PRINT
+     item compliance
+     contents off
+     summary minmax
+     item acce ! Balancing acceleration
+     contents on
+  EXPORT
+     go  file=%(sit)
+
+
+!---------------------------------------------
+! Buckling analysis
+!---------------------------------------------
+  EXEC
+     activate situation=BUCKLING_PDYN_MAX
+     buckling analysis  modes=5  sign=positive
+  EXPORT
+     go  file=%(sit)
+
+
+!---------------------------------------------
+! Vibration analysis with fluid added mass
+!---------------------------------------------
+  EXEC
+     activate situation=MODAL_PDYN_MAX
+     vibration analysis  modes=50  freqlim=20.0  addm=yes
+  EXPORT
+     item rigid
+     go  file=%(sit)
+
+
+!---------------------------------------------
+! Modal frequency response
+!---------------------------------------------
+  EXEC
+     activate situation=MODAL_PDYN_MAX
+     modal frequency  situation=PAYLOAD_COMFORT  response=total  primres=complete
+     activate situation=PAYLOAD_COMFORT
+    !generate element stress mises
+  SELECT
+     evaluation disp  rule=statistics
+     evaluation acce  rule=statistics
+    !evaluation element stress mises  rule=statistics
+  EXPORT
+     item clear
+     item statistics  type=disp
+     item statistics  type=acce
+    !item statistics  type=emis
+     go  file=%(sit)
+
+     return
+
+TASK END
+
+stop
