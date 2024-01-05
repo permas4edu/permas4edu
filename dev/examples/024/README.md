@@ -3,3 +3,5 @@ The example is taken from [Interface reduction technique for Enhanced Craig-Bamp
 ![First mode shape](first_mode.gif "First elastic mode shape")
 
 ![CLT plate](clt_plate.png "Cross-laminated timber (CLT) plate")
+
+![Multi storey CLT building](multi_storey_clt.png "Multi storey CLT building")
