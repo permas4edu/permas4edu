@@ -1,0 +1,84 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+               11          1
+               12          2
+               13          3
+               14          4
+!
+      $NSET NAME = ALL_NODES
+                1          2          3          4          5          6
+      $NSET NAME = FREE
+                1          2          3          4
+      $NSET NAME = SPC_NODES
+                5          6
+      $ESET NAME = ADDED_MASS
+               11         12         13         14
+!
+      $PART  NAME = ADDED_MASS
+       ADDED_MASS
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_E1         1.000000E-03
+       GD_E2         1.000000E-03
+       GD_E3         1.000000E-03
+       GD_E4         1.000000E-03
+       GD_E5         1.000000E-03
+       GD_E6         1.000000E-03
+       GD_E7         1.000000E-03
+       GD_E8         1.000000E-03
+       GD_E9         1.000000E-03
+       GD_E10        1.000000E-03
+!
+!     454 kg / 4 = 113.5 kg
+!
+      $GEODAT MASS      CONT = MASS
+       GD_ADDED_MASS  1.135000E+02  1.135000E+02  1.135000E+02
+!
+      $ELPROP
+       ADDED_MASS    GEODAT = GD_ADDED_MASS
+       E1            GEODAT = GD_E1         MATERIAL = MAT_01
+       E10           GEODAT = GD_E10        MATERIAL = MAT_01
+       E2            GEODAT = GD_E2         MATERIAL = MAT_01
+       E3            GEODAT = GD_E3         MATERIAL = MAT_01
+       E4            GEODAT = GD_E4         MATERIAL = MAT_01
+       E5            GEODAT = GD_E5         MATERIAL = MAT_01
+       E6            GEODAT = GD_E6         MATERIAL = MAT_01
+       E7            GEODAT = GD_E7         MATERIAL = MAT_01
+       E8            GEODAT = GD_E8         MATERIAL = MAT_01
+       E9            GEODAT = GD_E9         MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ALL_NODES
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       SPC_NODES
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        6.890000E+10  3.300000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

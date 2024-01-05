@@ -1,0 +1,95 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = FLA2
+                1          3          5
+                2          1          3
+                3          4          6
+                4          2          4
+                5          3          4
+                6          1          2
+                7          4          5
+                8          3          6
+                9          2          3
+               10          1          4
+!
+      $ESET NAME = E1
+                1
+      $ESET NAME = E2
+                2
+      $ESET NAME = E3
+                3
+      $ESET NAME = E4
+                4
+      $ESET NAME = E5
+                5
+      $ESET NAME = E6
+                6
+      $ESET NAME = E7
+                7
+      $ESET NAME = E8
+                8
+      $ESET NAME = E9
+                9
+      $ESET NAME = E10
+               10
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = LINE8
+                8
+      $ESET NAME = LINE9
+                9
+      $ESET NAME = LINE10
+               10
+!
+      $COOR
+                1  1.828800E+01  9.144000E+00  0.000000E+00
+                2  1.828800E+01  0.000000E+00  0.000000E+00
+                3  9.144000E+00  9.144000E+00  0.000000E+00
+                4  9.144000E+00  0.000000E+00  0.000000E+00
+                5  0.000000E+00  9.144000E+00  0.000000E+00
+                6  0.000000E+00  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = LINE9
+       LINE9
+      $PART  NAME = LINE10
+       LINE10
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
