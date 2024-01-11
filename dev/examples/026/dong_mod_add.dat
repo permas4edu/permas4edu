@@ -1,0 +1,55 @@
+$ENTER COMPONENT  NAME = MODIFIED_SYSTEM  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2 PARENT = STEP_1
+      MODIFIED_SYSTEM  SYSTEM = S_STEP_1  LOADING = L_STEP_2  RESULTS = R_STEP_2
+   $END SITUATION
+
+   $STRUCTURE
+!
+      $NSET NAME = F
+         4
+!
+      $NSET NAME = RESPONSE
+         2
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00  1.000000E+01
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  3.000000E-02  3.000000E-03
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $LOADING NAME = L_STEP_2
+!  
+      $CONLOAD LPAT = 1
+         F 2: 1.0
+!
+      $FREQLOAD
+         LPAT = 1 TYPE = COSINE
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_2
+
+      $FREQUENCY PRIMARY = EQUI
+         0.1 45.0 0.1
+
+      $FREQUENCY PRIMARY = EIGCLUS BOUNDS = 0.,45. CLUSTER = 5,0.01
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

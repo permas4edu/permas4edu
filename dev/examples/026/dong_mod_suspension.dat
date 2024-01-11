@@ -1,0 +1,54 @@
+$ENTER COMPONENT  NAME = MODIFIED_SYSTEM  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+!      $ELEMENT TYPE = SPRING3
+!               81          1         82
+!               82          3         83
+!               83          5         84
+      $ELEMENT TYPE = DAMP3
+               84          1         82
+               85          3         83
+               86          5         84
+!
+      $NSET NAME = GROUND
+               82         83         84
+!      $ESET NAME = SPRING
+!               81         82         83
+      $ESET NAME = DAMPER
+               84         85         86
+!
+      $COOR
+               82  0.000000E+00  0.000000E+00  0.000000E+00
+               83  1.000000E+00  0.000000E+00  0.000000E+00
+               84  2.000000E+00  0.000000E+00  0.000000E+00
+!
+!      $PART  NAME = SPRING
+!       SPRING
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+!      $GEODAT SPRING    CONT = STIFF
+!       GD_SPRING     0.000000E+00  0.000000E+00  0.000000E+00
+!
+      $GEODAT DAMPER    CONT = DAMP
+       GD_DAMPER     0.000000E+00  5.000000E-01  0.000000E+00
+!
+      $ELPROP
+!       SPRING  GEODAT = GD_SPRING
+       DAMPER  GEODAT = GD_DAMPER
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
