@@ -1,0 +1,65 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = three_disc_rotor.dat
+    READ PERMAS FILE = three_disc_rotor_add.dat
+    READ PERMAS FILE = initial_unbalance.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    WEIGHT ANALYSIS SETS = ALL
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 20
+EXPORT 
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR XYDATA 
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    GO SPREADSHEET FILE = campbell
+!
+!   Unbalanced rotor
+!
+EXEC
+    ACT SIT = STEP_2
+    MODAL FREQUENCY SITUATION = STEP_4
+    ACT SIT = STEP_4
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1,2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = initial_unbalance
+!
+!   Balanced rotor
+!
+EXEC
+    ACT SIT = STEP_2
+    MODAL FREQUENCY SITUATION = STEP_5
+    ACT SIT = STEP_5
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1,2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = final_unbalance
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES three_disc_rotor_unbalance.py initial_unbalance_resp.csv final_unbalance_resp.csv'
+RETURN
+STOP
