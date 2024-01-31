@@ -1,0 +1,105 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = X1
+         23 
+      $NSET NAME = X2
+         25 
+      $NSET NAME = X3
+         27
+      $NSET NAME = Y1
+         18 
+      $NSET NAME = Y2
+         20 
+      $NSET NAME = Y3
+         22 
+!
+      $DELEMENT TYPE = DSHAPE
+                1: SURFACE39:         23
+                2: SURFACE43:         25
+                3: SURFACE47:         27
+                4: SURFACE27:         18
+                5: SURFACE31:         20
+                6: SURFACE35:         22
+!
+      $DSVNODE
+                1         X1:          1
+                2         X2:          2
+                3         X3:          3
+                4         Y1:          4
+                5         Y2:          5
+                6         Y3:          6
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  0.000000E+00
+                2  0.000000E+00
+                3  0.000000E+00
+                4  0.000000E+00
+                5  0.000000E+00
+                6  0.000000E+00
+!
+      $DVCOOR  KIND = DIRECT
+               X1 1 :  1.000000E+00 :          1
+               X2 1 :  1.000000E+00 :          2
+               X3 1 :  1.000000E+00 :          3
+               Y1 2 :  1.000000E+00 :          4
+               Y2 2 :  1.000000E+00 :          5
+               Y3 2 :  1.000000E+00 :          6
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1 -6.000000E-02  6.000000E-02
+                2 -6.000000E-02  6.000000E-02
+                3 -6.000000E-02  6.000000E-02
+                4 -6.000000E-02  6.000000E-02
+                5 -6.000000E-02  6.000000E-02
+                6 -6.000000E-02  6.000000E-02
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :  1.000000E-01      NO
+      $DCONSTRAINT ELTEST  TYPE = DMODEL  DATTYPE = REAL
+      ECHQ         :      NO        9.000000E-01:          1
+!
+      $DOBJECT  CONSTRAINT = F_1  TARGET = MAX
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS
+!
+       $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+         F_1
+       $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+         F_2
+       $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+         F_3
+
+       $RESEXT ITEM
+         F_1 : F_1 1
+         F_2 : F_2 1
+         F_3 : F_3 1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
