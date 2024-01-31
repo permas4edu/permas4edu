@@ -1,0 +1,103 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: PLATE
+         &      :          9
+!
+      $DSVNODE
+                1          9:          1
+                2          9:          1
+!
+      $DERESTRAINT  TYPE = BOUND
+                1  0 : EDGES
+!
+      $DSVLINK LINEAR
+       -1.000000E+00,          1:          2
+!
+   $END STRUCTURE
+!------
+   $MODIFICATION
+
+      $DSVLIMIT
+         1  -0.02 0.02
+
+   $END MODIFICATION
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+                9 1 :  1.000000E+00 :          1
+                9 2 :  1.000000E+00 :          2
+!
+   $END SYSTEM
+!------
+   $RESULTS
+! 
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+      WGT
+!
+      $RESEXT ITEM 
+       WGT : WGT 1
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4
+      F_4
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5
+      F_5
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6
+      F_6
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 7
+      F_7
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 8
+      F_8
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 9
+      F_9
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 10
+      F_10
+!
+      $VPARVAL  TYPE = DESVAR
+                1  0.000000E+00
+!
+      $RESEXT  FUNCTION
+      NONDIM_F_1  : F_1          1 :          1
+      NONDIM_F_2  : F_2          1 :          1
+      NONDIM_F_3  : F_3          1 :          1
+      NONDIM_F_4  : F_4          1 :          1
+      NONDIM_F_5  : F_5          1 :          1
+      NONDIM_F_6  : F_6          1 :          1
+      NONDIM_F_7  : F_7          1 :          1
+      NONDIM_F_8  : F_8          1 :          1
+      NONDIM_F_9  : F_9          1 :          1
+      NONDIM_F_10 : F_10         1 :          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+!
+   $DEFVAR B    TYPE = REAL LIST = 1.0
+   $DEFVAR H    TYPE = REAL LIST = 6.0E-4
+   $DEFVAR RHO  TYPE = REAL LIST = 1550.
+   $DEFVAR E_22 TYPE = REAL LIST = 1.4E10
+!
+!  Equation (41)
+!
+   $FUNCTION FORMULA  FID =          1 DESCRIPTION = 'Nondimensional frequency'
+   F(X)=2*PI*X*B(1)^2*SQRT(RHO(1)/E_22(1))/H(1)
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
