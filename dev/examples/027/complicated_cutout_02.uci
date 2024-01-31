@@ -1,0 +1,29 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = complicated_cutout_02.dat
+    READ PERMAS FILE = complicated_cutout_02_add.dat
+    READ PERMAS FILE = complicated_cutout_02_sampling.dat
+RETURN
+
+TASK LOOPS = 1
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+STOP

@@ -1,0 +1,140 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $RSYS CART  FORM = XY
+                1       3438 :         18 :         19
+!
+      $DESYMM  TYPE = AXI
+                1  RSYS =          1  AXIS =  3
+!
+      $DERESTRAINT  TYPE = BOUND
+                1  0 : BOUND
+!
+      $DELEMENT TYPE = DSHAPE
+                1: PLATE
+         &      :         21
+!
+      $DSVNODE
+                1         21:          1
+!
+      $DERESTRAINT  TYPE = BOUND
+                1  0 : EDGES
+!
+      $NSET NAME = EDGES
+                1          2          3          4          5          6          7          8         26         27         28         29         30         31
+               32         33         38         39         40         41         42         43         44         45         46         47         48         49
+               50         51         52         53         54         55         92         93         94         95         96         97         98         99
+              100        101        102        103        104        105        106        107        108        109        414        415        416        417
+              418        419        420        421        422        423        424        425        426        427        428        429        430        431
+              432        433        434        435        436        437        438        439        440        441        442        443        444        445
+              446        447        448        449        486        487        488        489        490        491        492        493        494        495
+              496        497        498        499        500        501        502        503        504        505        506        507        508        509
+              510        511        512        513        514        515        516        517        518        519        520        521        522        523
+              524        525        526        527        528        529        530        531        532        533        534        535        536        537
+              538        539        540        541        542        543        544        545        546        547        548        549        550        551
+              552        553        554        555        556        557
+!
+      $NSET NAME = BOUND
+               10         11         12         13         14         15         16         17         22         23         24         25        110        111
+              112        113        114        115        116        117        118        119        120        121        122        123        124        125
+              126        127        128        129        130        131        132        133        134        135        136        137        138        139
+              140        141        142        143        144        145        146        147        148        149        150        151        152        153
+              154        155        156        157        158        159        160        161        162        163        164        165        166        167
+              168        169        170        171        172        173        174        175        176        177        178        179        180        181
+              182        183        184        185        186        187        188        189        190        191        192        193        194        195
+              196        197        198        199        200        201        202        203        204        205        206        207        208        209
+              210        211        212        213        214        215        216        217        218        219        220        221        222        223
+              224        225        226        227        228        229        230        231        232        233        234        235        236        237
+              238        239        240        241        242        243        244        245        246        247        248        249        250        251
+              252        253        254        255        256        257        258        259        260        261        338        339        340        341
+              342        343        344        345        346        347        348        349        350        351        352        353        354        355
+              356        357        358        359        360        361        362        363        364        365        366        367        368        369
+              370        371        372        373        374        375        376        377        378        379        380        381        382        383
+              384        385        386        387        388        389        390        391        392        393        394        395        396        397
+              398        399        400        401        402        403        404        405        406        407        408        409        410        411
+              412        413
+!
+      $NSET NAME = CENTER
+             3438
+!
+      $COOR
+             3438  2.500000E-01  7.500000E-01  0.000000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+               21 2 :  1.000000E+00 :          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $VPARVAL  TYPE = DESVAR
+                1  0.000000E+00
+!
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+      WGT
+!
+      $RESEXT ITEM 
+       WGT : WGT 1
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4
+      F_4
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5
+      F_5
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6
+      F_6
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 7
+      F_7
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 8
+      F_8
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 9
+      F_9
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 10
+      F_10
+!
+      $RESEXT  FUNCTION
+      NONDIM_F_1  : F_1          1 :          1
+      NONDIM_F_2  : F_2          1 :          1
+      NONDIM_F_3  : F_3          1 :          1
+      NONDIM_F_4  : F_4          1 :          1
+      NONDIM_F_5  : F_5          1 :          1
+      NONDIM_F_6  : F_6          1 :          1
+      NONDIM_F_7  : F_7          1 :          1
+      NONDIM_F_8  : F_8          1 :          1
+      NONDIM_F_9  : F_9          1 :          1
+      NONDIM_F_10 : F_10         1 :          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+!
+   $DEFVAR B    TYPE = REAL LIST = 1.0
+   $DEFVAR H    TYPE = REAL LIST = 1.0E-02
+   $DEFVAR RHO  TYPE = REAL LIST = 1550.
+   $DEFVAR E_22 TYPE = REAL LIST = 1.4E10
+!
+!  Equation (41)
+!
+   $FUNCTION FORMULA  FID =          1 DESCRIPTION = 'Nondimensional frequency'
+   F(X)=2*PI*X*B(1)^2*SQRT(RHO(1)/E_22(1))/H(1)
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
