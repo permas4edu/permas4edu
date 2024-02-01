@@ -7,3 +7,5 @@ The layout of the stiffeners was sought while the stacking sequence for both the
 The animated gif illustrates the movement of the stiffeners during optimization.
 
 ![Coordinate modification](coordinate_modification.gif "Coordinate modification")
+
+![Square composite laminate with circular hole](square_composite_laminate_with_hole.png "Square composite laminate with circular hole")
