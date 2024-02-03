@@ -1,0 +1,30 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = melot.dat
+RETURN
+EXEC
+CLOOP LOOPS = 1,2
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                                ACCURACY     = 5.0        & 
+                                NOFHARMONICS = 7          &
+                                MODE         = FOLLOWPATH &
+                                DIRECTION    = ASCENDING  &
+                                STARTFREQ    = 0.0        &
+                                RESULTS      = ALL 
+    SELECT
+        ACTIVE NSET = FREE
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'hbm_%.3(cloop)'
+    TASK END
+CLOOP END
+USER
+    CALL TOOL6 P1='pyINTES melot.py'
+RETURN
+STOP 

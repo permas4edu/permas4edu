@@ -1,0 +1,116 @@
+$DEFVAR F       TYPE = REAL LIST = 1.5 2.0 
+$DEFVAR SITNAME TYPE = NAME GEN  = STEP_,1,1
+$DEFVAR LOADVAR TYPE = NAME GEN  = L_STEP_,1,1
+$ECHO GEN
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $LOOP I = 1, 2
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_1
+        $END SITUATION
+    $ENDLOOP 
+
+    $STRUCTURE
+
+        $NSET NAME = F
+           101
+
+        $NSET NAME = FREE RULE = BOOLEAN
+           ALL_NODES AND NOT GROUND
+
+        $NODE NSET = ALL_NODES
+           100  0.0  0.0  0.0
+           101  1.0  0.0  0.0
+           102  2.0  0.0  0.0
+           103  3.0  0.0  0.0
+
+        $NSET NAME = GROUND
+           100 103
+
+        $ELEMENT TYPE = MASS3 ESET = M_1
+             1 101
+        $ELEMENT TYPE = MASS3 ESET = M_2
+             2 102
+ 
+        $ELEMENT TYPE = SPRING1 ESET = K
+             3 100 101
+             4 102 103
+
+        $ELEMENT TYPE = SPRING1 ESET = K_2
+             5 101 102
+
+        $ELEMENT TYPE = DAMP1 ESET = C
+             6 100 101
+             7 102 103
+
+        $ELEMENT TYPE = NLSTIFF ESET = K_NL
+             8 100 101
+             9 102 103 
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+           GD_M_1  1.0
+           GD_M_2  1.0
+ 
+        $GEODAT SPRING CONT = STIFF
+           GD_K   1.0
+           GD_K_2 5.0
+ 
+        $GEODAT DAMPER CONT = DAMP
+           GD_C   0.1
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_K_NL 100 
+      
+        $ELPROP
+           M_1  GEODAT = GD_M_1
+           M_2  GEODAT = GD_M_2
+           K    GEODAT = GD_K
+           K_2  GEODAT = GD_K_2
+           C    GEODAT = GD_C
+           K_NL GEODAT = GD_K_NL
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 1
+         GROUND
+ 
+       $SUPPRESS DOFS = 2,3
+         ALL_NODES
+
+    $END CONSTRAINTS
+
+    $LOOP I = 1, 2
+
+        $LOADING NAME = LOADVAR(I)
+ 
+            $CONLOAD LPAT = 1
+                F 1: F(I)
+
+            $FREQLOAD
+                LPAT = 1 TYPE = COSINE
+
+        $END LOADING
+
+    $ENDLOOP
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI
+           0.0 1.0  0.01
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 100
+        f(x) = x^3
+
+$EXIT FUNCTION
+$FIN
