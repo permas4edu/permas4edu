@@ -5,5 +5,8 @@ Hereafter the number of beam elements is reduced to fulfil the limits of the fre
 i.e. 
 $$n_{beam} \le 250$$. 
 
-![Buckling mode](buckling_01.gif "First buckling mode")
-$$\lambda_1$$
+![1st Buckling mode](buckling_01.gif "First buckling mode")
+
+![2nd Buckling mode](buckling_02.gif "Second buckling mode")
+
+![3rd Buckling mode](buckling_03.gif "Third buckling mode")
