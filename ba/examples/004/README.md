@@ -4,3 +4,6 @@ Thanks to Chisanga Kaluba for sharing underlying finite element models. His supp
 Hereafter the number of beam elements is reduced to fulfil the limits of the free education edition
 i.e. 
 $$n_{beam} \le 250$$. 
+
+![Buckling mode](buckling_01.gif "First buckling mode")
+$$\lambda_1$$
