@@ -1,0 +1,85 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = ALL_NODES RULE = ALL
+!
+      $RSYS CART  FORM = ZX
+                1          1 :          2 :  0.000000E+00  0.000000E+00  1.000000E+01
+                2          2 :          3 :  1.500000E+01  0.000000E+00  1.000000E+01
+                3          3 :          4 :  1.500000E+01  3.000000E+01  1.000000E+01
+                4          4 :          1 :  0.000000E+00  3.000000E+01  1.000000E+01
+!
+      $ELSYS RSYS
+       LINE1         RSYS =          1  AXES =  1,  2
+       LINE2         RSYS =          2  AXES =  1,  2
+       LINE3         RSYS =          3  AXES =  1,  2
+       LINE4         RSYS =          4  AXES =  1,  2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+!      GD_BEAM               2 :  5.200000E-02  6.000000E-03
+       GD_BEAM               2 :  4.064000E-01  6.000000E-03
+
+!
+      $ELPROP
+       LINE1         GEODAT = GD_BEAM       MATERIAL = MAT_01
+       LINE2         GEODAT = GD_BEAM       MATERIAL = MAT_01
+       LINE3         GEODAT = GD_BEAM       MATERIAL = MAT_01
+       LINE4         GEODAT = GD_BEAM       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS NAME = C_STEP_1
+!
+      $SUPPRESS DOFS = 3,4,5
+        ALL_NODES
+!
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+                1
+      $SUPPRESS  DOFS = 2  DOFTYPE = DISP
+                2
+      $SUPPRESS  DOFS = 1  DOFTYPE = DISP
+                4
+!
+   $END CONSTRAINTS 
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+                3 2: -1.000000E+00
+                4 2: -1.000000E+00
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+08  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
