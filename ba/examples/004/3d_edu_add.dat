@@ -1,0 +1,84 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $RSYS CART  FORM = ZX
+                1 -1.000000E+01  0.000000E+00  0.000000E+00 : -2.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+01  0.000000E+00
+                2 -1.000000E+00 -2.000000E+00  2.000000E+00 : -1.000000E+00  0.000000E+00  2.000000E+00 :  0.000000E+00 -2.000000E+00  2.000000E+00
+!
+      $ELSYS RSYS
+       X             RSYS =          1  AXES =  1,  2
+       Y             RSYS =          2  AXES =  1,  2
+       Z             RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = F
+                4          5          7          8
+      $NSET NAME = SPC_13
+                4          5          7          8
+      $NSET NAME = SPC_123
+                1          2          3          6
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               2
+         &        :  5.200000E-02  6.000000E-03
+!
+      $ELPROP
+       LINE1         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE2         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE3         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE4         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE5         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE6         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE7         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE8         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE9         GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE10        GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE11        GEODAT = GD_BEAM       MATERIAL = STEEL_1
+       LINE12        GEODAT = GD_BEAM       MATERIAL = STEEL_1
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,3  DOFTYPE = DISP
+       SPC_13
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       SPC_123
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  RSYS = 0  DOFTYPE = DISP
+       F            2: -1.000000E+00
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = YES
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL_1  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+08  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
