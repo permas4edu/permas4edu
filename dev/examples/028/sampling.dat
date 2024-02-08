@@ -1,0 +1,99 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: PLATE
+         &      :          1
+!
+      $DSVNODE
+                1          1:          1
+!
+      $DERESTRAINT  TYPE = BOUND
+                1  0 : BOUND
+!
+      $NSET NAME = BOUND
+                2          3          7          8         11         12         13         16        137        138        139        140        141        142
+              143        144        145        146        147        148        149        150        151        152        153        154        155        156
+              157        158        159        160        161        162        163        164        165        166        167        168        169        170
+              324        325        326        327        328        329        330        331        332        333        334        335        336        337
+              338        339        340        341        342        343        344        345        346        347        348        349        350        351
+              352        353        354        355        356        357        358        359        360        361        362        363        364        365
+              366        367        368        369        370        371        372        373        374        375        376        377        378        379
+              380        381        382        383        384        385        386        387        388        389        390        391        392        393
+              394        395        396        397        398        399        400        401        402        403        404        405        406        407
+              408        409        410        411        412        413        414        415        416        417        418        419        420        421
+              422        423        424        425
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+                1 3 :  1.000000E+00 :          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4
+      F_4
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5
+      F_5
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6
+      F_6
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 7
+      F_7
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 8
+      F_8
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 9
+      F_9
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 10
+      F_10
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 11
+      F_11
+!
+      $VPARVAL  TYPE = DESVAR
+                1  0.000000E+00
+!
+      $RESEXT  FUNCTION
+      NONDIM_F_1  : F_1          1 :          1
+      NONDIM_F_2  : F_2          1 :          1
+      NONDIM_F_3  : F_3          1 :          1
+      NONDIM_F_4  : F_4          1 :          1
+      NONDIM_F_5  : F_5          1 :          1
+      NONDIM_F_6  : F_6          1 :          1
+      NONDIM_F_7  : F_7          1 :          1
+      NONDIM_F_8  : F_8          1 :          1
+      NONDIM_F_9  : F_9          1 :          1
+      NONDIM_F_10 : F_10         1 :          1
+      NONDIM_F_11 : F_11         1 :          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $DEFVAR RHO TYPE = REAL LIST = 7800.  ! density
+   $DEFVAR H   TYPE = REAL LIST = 0.01   ! h_0
+   $DEFVAR NU  TYPE = REAL LIST = 0.3    ! Poisson ratio
+   $DEFVAR E   TYPE = REAL LIST = 2.1E11 ! Youngs modulus
+   $DEFVAR R   TYPE = REAL LIST = 1.0
+!
+   $FUNCTION FORMULA  FID =          1  DESCRIPTION = 'Nondimensional frequency'
+       F(X)=SQRT(RHO(1)*H(1)*12*(1-NU(1)^2)/(E(1)*H(1)^3))*(2*PI*X*R(1)^2)
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
