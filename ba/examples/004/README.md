@@ -12,3 +12,5 @@ $$n_{beam} \le 250$$.
 ![3rd Buckling mode](buckling_03.gif "Third buckling mode")
 
 ![First buckling mode](3d_buckling_mode_01.gif "First buckling mode")
+
+![First buckling mode](hexagon_01.gif "First buckling mode")
