@@ -1,0 +1,46 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $MATREF RSYS
+       PLATE         RSYS =          0  AXES =  1,  2
+!
+      $ELPROP
+       PLATE         MATERIAL = PLY_LAYUP
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 6  DOFTYPE = DISP
+                1
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ORTHO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.408800E+03
+!
+      $ELASTIC  SHELL  INPUT = DATA
+        8.300000E+10  5.130000E+09  3.200000E-01  8.360000E+09  1.940000E+09  8.360000E+09
+!
+   $END MATERIAL
+!------
+   $LAMINATE  NAME = PLY_LAYUP  DESTYPE = PLY
+!
+      $PLY  SYM  NPLY = 8
+       MAT_01  1.800000E-04  0.000000E+00 : SHELL
+       MAT_01  1.800000E-04  9.000000E+01 : SHELL
+       MAT_01  1.800000E-04  0.000000E+00 : SHELL
+       MAT_01  1.800000E-04  9.000000E+01 : SHELL
+!
+   $END LAMINATE
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
