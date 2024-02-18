@@ -1,0 +1,66 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_FILLET     1.000000E-03
+!
+      $MATREF RSYS
+       FILLET        RSYS =          0  AXES =  1,  2
+!
+      $ELPROP
+       FILLET        GEODAT = GD_FILLET     MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ABA_NALL_INP
+      $SUPPRESS  LINENODE  DOFS = 1  DOFTYPE = DISP
+       X0
+      $SUPPRESS  LINENODE  DOFS = 2  DOFTYPE = DISP
+       Y0
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOAD LINE2D  LPAT = 1  IDS = ELGEO  NODES = ALL  DOFTYPE = DISP
+             1181  2 :  0.000000E+00 -1.000000E+03
+             1200  2 :  0.000000E+00 -1.000000E+03
+             1182  2 :  0.000000E+00 -1.000000E+03
+             1183  2 :  0.000000E+00 -1.000000E+03
+             1184  2 :  0.000000E+00 -1.000000E+03
+             1185  2 :  0.000000E+00 -1.000000E+03
+             1186  2 :  0.000000E+00 -1.000000E+03
+             1187  2 :  0.000000E+00 -1.000000E+03
+             1188  2 :  0.000000E+00 -1.000000E+03
+             1189  2 :  0.000000E+00 -1.000000E+03
+             1190  2 :  0.000000E+00 -1.000000E+03
+             1191  2 :  0.000000E+00 -1.000000E+03
+             1192  2 :  0.000000E+00 -1.000000E+03
+             1193  2 :  0.000000E+00 -1.000000E+03
+             1194  2 :  0.000000E+00 -1.000000E+03
+             1195  2 :  0.000000E+00 -1.000000E+03
+             1196  2 :  0.000000E+00 -1.000000E+03
+             1197  2 :  0.000000E+00 -1.000000E+03
+             1198  2 :  0.000000E+00 -1.000000E+03
+             1199  2 :  0.000000E+00 -1.000000E+03
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ANISO
+!
+      $ELASTIC  PLANE  INPUT = DATA
+        2.293333E+11  5.733333E+10  2.293333E+11  0.000000E+00  0.000000E+00  8.600000E+10
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

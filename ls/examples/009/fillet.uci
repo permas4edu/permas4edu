@@ -1,0 +1,17 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = fillet.dat
+    READ NEW PERMAS FILE = fillet_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN EL STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = fillet
+TASK END
+STOP
