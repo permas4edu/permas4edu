@@ -1,0 +1,33 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = laine.dat
+    READ PERMAS FILE = laine_add.dat
+    READ PERMAS FILE = laine_sampling.dat
+RETURN
+
+TASK LOOPS = 2
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+     
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC   
+    ACT SIT = SAMPLING
+    SAMPLING
+    GEN EPRES
+EXPORT
+    ITEM CLEAR
+    ITEM EPRES
+    GO PERMAS ASCII FILE = 'epres_%.3(tloop)'
+TASK END
+EXPORT 
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS 
+    GO SPREADSHEET FILE = sampling
+STOP
