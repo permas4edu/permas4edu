@@ -18,7 +18,7 @@
 
 009 - [Tracking Amplitude Extrema of Nonlinear Frequency Responses using the Harmonic Balance Method](https://doi.org/10.1002/nme.7376)
 
-010 -
+010 - [A novel adaptive harmonic balance method with an asymptotic harmonic selection](https://doi.org/10.1007/s10483-023-3047-6)
 
 011 -
 
