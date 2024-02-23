@@ -34,7 +34,7 @@
 
 017 - [Multi-parametric optimization for controlling bifurcation structures](http://dx.doi.org/10.13140/RG.2.2.13866.18887)
 
-018 -
+018 - [Extended component mode synthesis method for dynamic analysis of mechanical systems with local nonlinearities](https://doi.org/10.1016/j.jsv.2023.118227)
 
 019 - 
 
