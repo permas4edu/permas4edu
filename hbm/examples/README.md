@@ -16,7 +16,7 @@
 
 008 - [Event-driven Gauss quadrature and stability analysis for fast alternating frequency–time harmonic balance of non-smooth systems](https://doi.org/10.1016/j.cnsns.2023.107189)
 
-009 -
+009 - [Tracking Amplitude Extrema of Nonlinear Frequency Responses using the Harmonic Balance Method](https://doi.org/10.1002/nme.7376)
 
 010 -
 
