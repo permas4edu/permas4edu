@@ -20,7 +20,7 @@
 
 010 - [A novel adaptive harmonic balance method with an asymptotic harmonic selection](https://doi.org/10.1007/s10483-023-3047-6)
 
-011 -
+011 - [Are Chebyshev-based stability analysis and Urabe’s error bound useful features for Harmonic Balance?](https://doi.org/10.1016/j.ymssp.2023.110265)
 
 012 -
 
