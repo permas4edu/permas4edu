@@ -11,3 +11,5 @@
 005 - [Competitive advantages of a bistable vibration isolator: Cut-off frequency and operational safety near harmful resonance](https://doi.org/10.1016/j.jsv.2023.118004)
 
 006 - [A Lagrange surrogate-based approach for uncertain nonlinear oscillators](https://doi.org/10.1016/j.jsv.2021.116075)
+
+007 - [Extended Component Mode Synthesis Method for Dynamic Analysis Mechanical Systems with Local Nonlinearities](http://dx.doi.org/10.2139/ssrn.4573730)
