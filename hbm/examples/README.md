@@ -5,3 +5,5 @@
 002 - [A Python Implementation of a Robust Multi-harmonic Balance with Numerical Continuation and Automatic Differentiation for Structural Dynamics](https://doi.org/10.1115/1.4062424)
 
 003 - [A Python Implementation of a Robust Multi-harmonic Balance with Numerical Continuation and Automatic Differentiation for Structural Dynamics](https://doi.org/10.1115/1.4062424)
+
+004 - [Performance analysis and optimization of bimodal nonlinear energy sink](https://doi.org/10.1007/s11071-023-08737-8)
