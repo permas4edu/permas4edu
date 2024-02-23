@@ -28,7 +28,7 @@
 
 014 - [Nonlinear dynamic behavior analysis of an elastically restrained double-beam connected through a mass-spring system that is nonlinear](https://doi.org/10.1007/s11071-023-08351-8)
 
-015 -
+015 - [Longitudinal vibration responses of a double-rod system coupled through a nonlinear element](https://doi.org/10.1007/s11071-023-09138-7)
 
 016 -
 
