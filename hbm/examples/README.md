@@ -13,3 +13,29 @@
 006 - [A Lagrange surrogate-based approach for uncertain nonlinear oscillators](https://doi.org/10.1016/j.jsv.2021.116075)
 
 007 - [Extended Component Mode Synthesis Method for Dynamic Analysis Mechanical Systems with Local Nonlinearities](http://dx.doi.org/10.2139/ssrn.4573730)
+
+008 - [Event-driven Gauss quadrature and stability analysis for fast alternating frequency–time harmonic balance of non-smooth systems](https://doi.org/10.1016/j.cnsns.2023.107189)
+
+009 -
+
+010 -
+
+011 -
+
+012 -
+
+013 -
+
+014 -
+
+015 -
+
+016 -
+
+017 -
+
+018 -
+
+019 - 
+
+020 - 
