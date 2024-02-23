@@ -9,3 +9,5 @@
 004 - [Performance analysis and optimization of bimodal nonlinear energy sink](https://doi.org/10.1007/s11071-023-08737-8)
 
 005 - [Competitive advantages of a bistable vibration isolator: Cut-off frequency and operational safety near harmful resonance](https://doi.org/10.1016/j.jsv.2023.118004)
+
+006 - [A Lagrange surrogate-based approach for uncertain nonlinear oscillators](https://doi.org/10.1016/j.jsv.2021.116075)
