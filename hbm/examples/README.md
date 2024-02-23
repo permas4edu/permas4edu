@@ -36,6 +36,6 @@
 
 018 - [Extended component mode synthesis method for dynamic analysis of mechanical systems with local nonlinearities](https://doi.org/10.1016/j.jsv.2023.118227)
 
-019 - 
+019 - [Investigative Study of the Effect of Damping and Stiffness Nonlinearities on an Electromagnetic Energy Harvester at Low-Frequency Excitations]( https://doi.org/10.3390/machines12010030)
 
 020 - 
