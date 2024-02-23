@@ -26,7 +26,7 @@
 
 013 - [A time and ensemble equivalent linearization method for nonlinear systems under combined harmonic and random excitation](https://doi.org/10.1177/09544062231203844)
 
-014 -
+014 - [Nonlinear dynamic behavior analysis of an elastically restrained double-beam connected through a mass-spring system that is nonlinear](https://doi.org/10.1007/s11071-023-08351-8)
 
 015 -
 
