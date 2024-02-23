@@ -24,7 +24,7 @@
 
 012 - [Multi-resonance inhibition of a two-degree-of-freedom piecewise system by one nonlinear energy sink](https://doi.org/10.1007/s40435-023-01337-9)
 
-013 -
+013 - [A time and ensemble equivalent linearization method for nonlinear systems under combined harmonic and random excitation](https://doi.org/10.1177/09544062231203844)
 
 014 -
 
