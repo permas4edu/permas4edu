@@ -38,4 +38,4 @@
 
 019 - [Investigative Study of the Effect of Damping and Stiffness Nonlinearities on an Electromagnetic Energy Harvester at Low-Frequency Excitations]( https://doi.org/10.3390/machines12010030)
 
-020 - 
+020 - [Control of Isolated Response Curves Through Optimization of Codimension-1 Singularities](http://dx.doi.org/10.2139/ssrn.4711296)
