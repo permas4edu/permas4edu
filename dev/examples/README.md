@@ -7,3 +7,5 @@
 003 - NAFEMS Benchmark example FV2
 
 004 - [Metamodel-assisted hybrid optimization strategy for model updating using vibration response data](https://doi.org/10.1016/j.advengsoft.2023.103515)
+
+005 - [Strain experimental modal analysis of an Euler–Bernoulli beam based on the thermoelastic principle](https://doi.org/10.1016/j.ymssp.2023.110655)
