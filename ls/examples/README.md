@@ -13,6 +13,6 @@
 006 - [Effects of parameterization and knot placement techniques on primal and mixed isogeometric collocation formulations of spatial shear-deformable beams with varying curvature and torsion](http://dx.doi.org/10.1016/j.camwa.2020.06.006)
 
 
-007 -
+007 - [Analysis of Stress and Strain Concentrations Around an Elliptical Hole Via Finite Element Method and Response Surface Methodology](https://doi.org/10.58491/2735-4202.3175)
 
 008 -
