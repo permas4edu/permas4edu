@@ -13,3 +13,5 @@
 006 - [Single-pixel optical-flow-based experimental modal analysis](https://doi.org/10.1016/j.ymssp.2023.110686)
 
 007 - [Stochastic Model Updating with Uncertainty Quantification: An Overview and Tutorial](https://doi.org/10.1016/j.ymssp.2023.110784)
+
+008 - [Simulation-Based Model-Updating Method for Linear Dynamic Structural Systems](https://doi.org/10.3390/app131810494)
