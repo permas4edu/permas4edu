@@ -8,6 +8,6 @@
 
 004 - [A two-stage Polynomial Chaos Expansion application for bound estimation of uncertain FRFs](http://dx.doi.org/10.1016/j.jsv.2023.117930)
 
-005 -
+005 -  [Sparse Bayesian machine learning for the interpretable identification of nonlinear structural dynamics: Towards the experimental data-driven discovery of a quasi zero stiffness device](https://doi.org/10.1016/j.ymssp.2023.110858)
 
 006 -
