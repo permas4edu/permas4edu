@@ -19,3 +19,7 @@
 009 - [Efficient Modal Identification and Optimal Sensor Placement via Dynamic DICMeasurement and Feature-Based Data Compression](https://doi.org/10.3390/vibration6040050)
 
 010 - [The Accuracy and Computational Efficiency of the Loewner Framework for the System Identification of Mechanical Systems](https://doi.org/10.3390/aerospace10060571)
+
+011 - 
+
+012 - [A robust poly-reference frequency-domain identiﬁcation method to extract dynamic properties from vibration data](https://doi.org/10.1038/s44172-023-00122-y)
