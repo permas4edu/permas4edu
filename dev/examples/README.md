@@ -39,3 +39,5 @@
 019 - [Vibration characteristics of eccentric annular plates](https://doi.org/10.1016/j.tws.2023.111043)
 
 020 - [Free vibration analysis of thin to thick straight or curved beams by a solid-3D beam finite element method](https://doi.org/10.1016/j.tws.2023.111028)
+
+021 - [Curve veering in spherical reticulated shells: Numerical simulations and mechanism analysis](https://doi.org/10.1016/j.tws.2023.111026)
