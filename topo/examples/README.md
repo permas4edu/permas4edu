@@ -4,7 +4,7 @@
 
 002 - [Robust contact-constrained topology optimization considering uncertainty at the contact support](https://www.researchsquare.com/article/rs-3275237/v1)
 
-003 -
+003 - [Inverse and direct projection schemes for topology optimization using polygonal elements](https://www.researchgate.net/publication/347079140_Inverse_and_direct_projection_schemes_for_topology_optimization_using_polygonal_elements)
 
 004 -
 
