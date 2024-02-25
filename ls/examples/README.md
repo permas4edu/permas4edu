@@ -10,7 +10,8 @@
 
 005 - [Discussion](https://www.researchgate.net/post/Why_does_the_thermal_expansion_change_with_varying_length_of_cylinder_in_Abaqus)
 
-006 -
+006 - [Effects of parameterization and knot placement techniques on primal and mixed isogeometric collocation formulations of spatial shear-deformable beams with varying curvature and torsion](http://dx.doi.org/10.1016/j.camwa.2020.06.006)
+
 
 007 -
 
