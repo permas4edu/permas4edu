@@ -35,3 +35,5 @@
 017 - [Free Vibration Analysis of Rectangular Plate with Cutouts under Elastic Boundary Conditions in Independent Coordinate Coupling Method](https://doi.org/10.32604/cmes.2022.021340)
 
 018 - [The Shifted and Deflated Newton's Method in Context with the Numerical Assembly Technique in Structural Dynamics](https://dx.doi.org/10.2139/ssrn.4648345)
+
+019 - [Vibration characteristics of eccentric annular plates](https://doi.org/10.1016/j.tws.2023.111043)
