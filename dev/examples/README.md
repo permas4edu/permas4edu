@@ -33,3 +33,5 @@
 016 - [Natural Frequency Estimation for an Euler-Bernoulli Beam Carrying a Mass with Rotary Inertia](https://www.researchgate.net/publication/375865124_Natural_Frequency_Estimation_for_an_Euler-Bernoulli_Beam_Carrying_a_Mass_with_Rotary_Inertia)
 
 017 - [Free Vibration Analysis of Rectangular Plate with Cutouts under Elastic Boundary Conditions in Independent Coordinate Coupling Method](https://doi.org/10.32604/cmes.2022.021340)
+
+018 - [The Shifted and Deflated Newton's Method in Context with the Numerical Assembly Technique in Structural Dynamics](https://dx.doi.org/10.2139/ssrn.4648345)
