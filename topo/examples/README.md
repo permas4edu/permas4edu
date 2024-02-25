@@ -10,7 +10,7 @@
 
 005 - [Inverse and direct projection schemes for topology optimization using polygonal elements](https://www.researchgate.net/publication/347079140_Inverse_and_direct_projection_schemes_for_topology_optimization_using_polygonal_elements)
 
-006 -
+006 - [An improved partial differential equation filter scheme for topology optimization of additively manufactured coated structure](https://doi.org/10.1016/j.compstruc.2023.107147)
 
 007 -
 
