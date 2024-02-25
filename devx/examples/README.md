@@ -9,3 +9,5 @@ Complex eigenvalue problems
 0003 - [The Virtual Rotor Kit Project: A virtual rotor test rig for balancing experiments](https://doi.org/10.1177/03064190231197119)
 
 0004 - [Numerical investigation of rotor-bearing systems with fractional derivative material damping models](http://dx.doi.org/10.24425/bpasts.2023.148610)
+
+0005 - [Balancing of a linear elastic rotor-bearing system with arbitrarily distributed unbalance using the numerical assembly technique](https://doi.org/10.24425/bpasts.2021.138237)
