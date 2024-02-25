@@ -53,3 +53,5 @@
 026 - [Reducing effects of boundary condition in modal testing of flexible structures](https://doi.org/10.1007/s12206-023-1208-9)
 
 027 - [A novel spectral element method with a higher-order coarse quad meshing approach to design laminated composite panels with arbitrarily shaped cutouts](https://doi.org/10.1016/j.tws.2024.111636)
+
+028 - [Free vibration of variable-thickness plates via adaptive finite elements](https://doi.org/10.1016/j.jsv.2024.118336)
