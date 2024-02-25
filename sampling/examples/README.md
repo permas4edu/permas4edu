@@ -8,4 +8,4 @@
 
 003 - [Mass lumping schemes fitted to MLS-based numerical manifold method in vibration of plates with cutouts using CPT and FSDT](https://doi.org/10.1016/j.compstruct.2023.117815)
 
-004 -
+004 - [Rotor resonance avoidance by continuous adjustment of support stiffness](https://doi.org/10.1016/j.ijmecsci.2024.109092)
