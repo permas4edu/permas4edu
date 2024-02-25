@@ -14,4 +14,4 @@
 
 007 - [A Hybrid Parallel Strategy for Isogeometric Topology Optimization via CPU/GPU Heterogeneous Computing](https://doi.org/10.32604/cmes.2023.029177)
 
-008 -
+008 -  [Multiscale topology optimization framework for natural frequency maximization of multi-morphology lattice structures](https://doi.org/10.1016/j.compstruct.2023.117720)
