@@ -23,3 +23,5 @@
 011 - 
 
 012 - [A robust poly-reference frequency-domain identiﬁcation method to extract dynamic properties from vibration data](https://doi.org/10.1038/s44172-023-00122-y)
+
+013 - [Three-Dimensional Vibration Analysis of Laminated Composite Rectangular Plate with Cutouts](https://doi.org/10.3390/ma13143113)
