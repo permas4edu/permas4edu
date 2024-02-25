@@ -55,3 +55,5 @@
 027 - [A novel spectral element method with a higher-order coarse quad meshing approach to design laminated composite panels with arbitrarily shaped cutouts](https://doi.org/10.1016/j.tws.2024.111636)
 
 028 - [Free vibration of variable-thickness plates via adaptive finite elements](https://doi.org/10.1016/j.jsv.2024.118336)
+
+029 - [Multi-Objective Sensor Placement Optimization in SHM Systems with Kriging-Based Mode Shape Interpolation](https://doi.org/10.1016/j.ymssp.2024.111150)
