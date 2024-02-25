@@ -51,3 +51,5 @@
 025 -  [Transverse free vibration analysis of thin sectorial plates by the weak form quadrature element method](https://doi.org/10.1177/10775463231225276)
 
 026 - [Reducing effects of boundary condition in modal testing of flexible structures](https://doi.org/10.1007/s12206-023-1208-9)
+
+027 - [A novel spectral element method with a higher-order coarse quad meshing approach to design laminated composite panels with arbitrarily shaped cutouts](https://doi.org/10.1016/j.tws.2024.111636)
