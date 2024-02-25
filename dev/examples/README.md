@@ -27,3 +27,5 @@
 013 - [Three-Dimensional Vibration Analysis of Laminated Composite Rectangular Plate with Cutouts](https://doi.org/10.3390/ma13143113)
 
 014 - [The Numerical Assembly Technique for arbitrary planar beam structures based on an improved homogeneous solution](https://doi.org/10.1002/pamm.202200059)
+
+015 - [Novelty detection on a laboratory benchmark slender structure using an unsupervised deep learning algorithm](https://doi.org/10.1590/1679-78257591)
