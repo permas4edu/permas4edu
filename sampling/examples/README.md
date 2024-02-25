@@ -4,7 +4,7 @@
 
 001 - [Improved interval finite element for analysis of planar frames](https://doi.org/10.1016/j.compstruc.2023.107161)
 
-002 -
+002 -  [Concurrent stacking sequence and layout optimization of stiffened composite plates using a spectral element method and an index-based optimization technique](https://doi.org/10.1016/j.compstruct.2023.117698)
 
 003 -
 
