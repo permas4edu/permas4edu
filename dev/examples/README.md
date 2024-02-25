@@ -37,3 +37,5 @@
 018 - [The Shifted and Deflated Newton's Method in Context with the Numerical Assembly Technique in Structural Dynamics](https://dx.doi.org/10.2139/ssrn.4648345)
 
 019 - [Vibration characteristics of eccentric annular plates](https://doi.org/10.1016/j.tws.2023.111043)
+
+020 - [Free vibration analysis of thin to thick straight or curved beams by a solid-3D beam finite element method](https://doi.org/10.1016/j.tws.2023.111028)
