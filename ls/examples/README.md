@@ -16,3 +16,5 @@
 007 - [Analysis of Stress and Strain Concentrations Around an Elliptical Hole Via Finite Element Method and Response Surface Methodology](https://doi.org/10.58491/2735-4202.3175)
 
 008 - [NURBS-boundary-based quadtree scaled boundary finite element method study for irregular design domain](https://doi.org/10.1016/j.enganabound.2023.12.007)
+
+009 - 
