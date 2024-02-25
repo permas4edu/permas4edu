@@ -8,7 +8,7 @@
 
 004 - [Validation Case: Fixed Beam Under Gravitational Load](https://www.simscale.com/docs/validation-cases/fixed-beam-under-gravitational-load/)
 
-005 -
+005 - [Discussion](https://www.researchgate.net/post/Why_does_the_thermal_expansion_change_with_varying_length_of_cylinder_in_Abaqus)
 
 006 -
 
