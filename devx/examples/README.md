@@ -7,3 +7,5 @@ Complex eigenvalue problems
 0002 -  [Eigensensitivity of damped system with distinct and repeated eigenvalues by chain rule](https://doi.org/10.1002/nme.7331)
 
 0003 - [The Virtual Rotor Kit Project: A virtual rotor test rig for balancing experiments](https://doi.org/10.1177/03064190231197119)
+
+0004 - [Numerical investigation of rotor-bearing systems with fractional derivative material damping models](http://dx.doi.org/10.24425/bpasts.2023.148610)
