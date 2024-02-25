@@ -45,3 +45,5 @@
 022 - [Localizability of damage with statistical tests and sensitivity-based parameter clusters](https://doi.org/10.1016/j.ymssp.2023.110783)
 
 023 - [A family of Craig–Bampton methods considering residual mode compensation](https://doi.org/10.1016/j.amc.2019.124822)
+
+024 - [Interface reduction technique for Enhanced Craig-Bampton method](https://doi.org/10.1016/j.ymssp.2023.111074)
