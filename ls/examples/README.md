@@ -6,7 +6,7 @@
 
 003 - [I beam under remote force](https://www.simscale.com/docs/validation-cases/i-beam-under-remote-force/)
 
-004 -
+004 - [Validation Case: Fixed Beam Under Gravitational Load](https://www.simscale.com/docs/validation-cases/fixed-beam-under-gravitational-load/)
 
 005 -
 
