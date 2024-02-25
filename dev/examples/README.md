@@ -47,3 +47,5 @@
 023 - [A family of Craig–Bampton methods considering residual mode compensation](https://doi.org/10.1016/j.amc.2019.124822)
 
 024 - [Interface reduction technique for Enhanced Craig-Bampton method](https://doi.org/10.1016/j.ymssp.2023.111074)
+
+025 -  [Transverse free vibration analysis of thin sectorial plates by the weak form quadrature element method](https://doi.org/10.1177/10775463231225276)
