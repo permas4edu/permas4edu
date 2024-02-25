@@ -11,3 +11,5 @@
 005 - [Strain experimental modal analysis of an Euler–Bernoulli beam based on the thermoelastic principle](https://doi.org/10.1016/j.ymssp.2023.110655)
 
 006 - [Single-pixel optical-flow-based experimental modal analysis](https://doi.org/10.1016/j.ymssp.2023.110686)
+
+007 - [Stochastic Model Updating with Uncertainty Quantification: An Overview and Tutorial](https://doi.org/10.1016/j.ymssp.2023.110784)
