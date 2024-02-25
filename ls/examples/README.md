@@ -2,7 +2,7 @@
 
 001 - [A computationally efficient isoparametric tangled finite element method for handling inverted quadrilateral and hexahedral elements](https://doi.org/10.1016/j.cma.2023.115897)
 
-002 -
+002 - [A Solution Procedure to Improve 3D Solid Finite Element Analysis with an Enrichment Scheme](http://dx.doi.org/10.3390/app13127114)
 
 003 -
 
