@@ -29,3 +29,5 @@
 014 - [The Numerical Assembly Technique for arbitrary planar beam structures based on an improved homogeneous solution](https://doi.org/10.1002/pamm.202200059)
 
 015 - [Novelty detection on a laboratory benchmark slender structure using an unsupervised deep learning algorithm](https://doi.org/10.1590/1679-78257591)
+
+016 - [Natural Frequency Estimation for an Euler-Bernoulli Beam Carrying a Mass with Rotary Inertia](https://www.researchgate.net/publication/375865124_Natural_Frequency_Estimation_for_an_Euler-Bernoulli_Beam_Carrying_a_Mass_with_Rotary_Inertia)
