@@ -15,3 +15,5 @@
 007 - [Stochastic Model Updating with Uncertainty Quantification: An Overview and Tutorial](https://doi.org/10.1016/j.ymssp.2023.110784)
 
 008 - [Simulation-Based Model-Updating Method for Linear Dynamic Structural Systems](https://doi.org/10.3390/app131810494)
+
+009 - [Efficient Modal Identification and Optimal Sensor Placement via Dynamic DICMeasurement and Feature-Based Data Compression](https://doi.org/10.3390/vibration6040050)
