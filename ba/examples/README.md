@@ -4,6 +4,6 @@
 
 002 - [Elastic critical local buckling stress in cold-formed lipped channel and hat sections under uniform compression](https://doi.org/10.1016/j.tws.2023.111064)
 
-003 - 
+003 - [Simultaneous Layout, Sizing and Topology Optimization of Stiffened Panels using CAD-based Parameterization](http://dx.doi.org/10.2514/6.2023-1090)
 
 004 -
