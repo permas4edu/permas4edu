@@ -17,3 +17,5 @@
 008 - [Simulation-Based Model-Updating Method for Linear Dynamic Structural Systems](https://doi.org/10.3390/app131810494)
 
 009 - [Efficient Modal Identification and Optimal Sensor Placement via Dynamic DICMeasurement and Feature-Based Data Compression](https://doi.org/10.3390/vibration6040050)
+
+010 - [The Accuracy and Computational Efficiency of the Loewner Framework for the System Identification of Mechanical Systems](https://doi.org/10.3390/aerospace10060571)
