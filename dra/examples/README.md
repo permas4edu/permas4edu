@@ -6,7 +6,7 @@
 
 003 - [Prediction for Antiresonant and Extremum Response Frequencies of Undamped Structures](https://doi.org/10.2514/1.J063011)
 
-004 -
+004 - [A two-stage Polynomial Chaos Expansion application for bound estimation of uncertain FRFs](http://dx.doi.org/10.1016/j.jsv.2023.117930)
 
 005 -
 
