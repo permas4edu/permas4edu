@@ -1,0 +1,82 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DQUAM4
+               16         31: CIRCLE_11
+               17         32: CIRCLE_12
+               18         33: CIRCLE_13
+               19         34: CIRCLE_14
+               20         35: CIRCLE_15
+               21         36: CIRCLE_21
+               22         37: CIRCLE_22
+               23         38: CIRCLE_23
+               24         39: CIRCLE_24
+               25         40: CIRCLE_25
+               26         41: CIRCLE_31
+               27         42: CIRCLE_32
+               28         43: CIRCLE_33
+               29         44: CIRCLE_34
+               30         45: CIRCLE_35
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 16  NODES = ALL
+      THICK          1:         31
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 17  NODES = ALL
+      THICK          1:         32
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 18  NODES = ALL
+      THICK          1:         33
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 19  NODES = ALL
+      THICK          1:         34
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 20  NODES = ALL
+      THICK          1:         35
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 21  NODES = ALL
+      THICK          1:         36
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 22  NODES = ALL
+      THICK          1:         37
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 23  NODES = ALL
+      THICK          1:         38
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 24  NODES = ALL
+      THICK          1:         39
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 25  NODES = ALL
+      THICK          1:         40
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 26  NODES = ALL
+      THICK          1:         41
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 27  NODES = ALL
+      THICK          1:         42
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 28  NODES = ALL
+      THICK          1:         43
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 29  NODES = ALL
+      THICK          1:         44
+      $DVGPAR SHELL  NAME = GD_CIRCLES  DEID = 30  NODES = ALL
+      THICK          1:         45
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_STEP_3
+!
+      $VPARVAL  TYPE = DESVAR
+               31  5.000000E-03
+               32  5.000000E-03
+               33  5.000000E-03
+               34  5.000000E-03
+               35  5.000000E-03
+               36  5.000000E-03
+               37  5.000000E-03
+               38  5.000000E-03
+               39  5.000000E-03
+               40  5.000000E-03
+               41  5.000000E-03
+               42  5.000000E-03
+               43  5.000000E-03
+               44  5.000000E-03
+               45  5.000000E-03
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
