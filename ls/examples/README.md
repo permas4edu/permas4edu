@@ -18,3 +18,5 @@
 008 - [NURBS-boundary-based quadtree scaled boundary finite element method study for irregular design domain](https://doi.org/10.1016/j.enganabound.2023.12.007)
 
 009 - [Accurate and efficient boundary method for isogeometric shape design sensitivity analysis considering tangential divergence of non-smooth boundary](http://dx.doi.org/10.21203/rs.3.rs-3838261/v1)
+
+010 . [High Resolution Topology Optimization of Aerospace Structures with Stress and Frequency Constraints](http://dx.doi.org/10.2514/6.2018-4056)
