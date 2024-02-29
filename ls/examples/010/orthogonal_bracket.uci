@@ -1,0 +1,26 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = orthogonal_bracket.dat
+    READ PERMAS FILE = orthogonal_bracket_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1 
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
