@@ -11,3 +11,5 @@
 0005 - [Balancing of a linear elastic rotor-bearing system with arbitrarily distributed unbalance using the numerical assembly technique](https://doi.org/10.24425/bpasts.2021.138237)
 
 0006 - [Model reduction-based Bayesian updating of non-classically damped systems using modal data from multiple setups](http://dx.doi.org/10.1007/s00707-023-03819-5)
+
+0007 - [Rotordynamics Continuum Finite Element Formulations from a Structural and Multibody Dynamics Perspective](https://www.researchgate.net/publication/378148473_Rotordynamics_Continuum_Finite_Element_Formulations_from_a_Structural_and_Multibody_Dynamics_Perspective)
