@@ -1,0 +1,66 @@
+NEW
+
+INPUT
+   READ PERMAS FILE = francesco_02.dat
+   READ PERMAS FILE = francesco_02_add.dat
+RETURN
+
+TASK
+!
+!   Centrifugal load
+!
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = statics
+!
+!   Normal modes considering geometrical and centrifugal stiffness matrices
+!
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 20
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+!
+!   Campbell diagram
+!
+EXEC
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    GO SPREADSHEET FILE = campbell
+!
+!   Normal modes for non-rotating system
+!
+EXEC
+    ACT SIT = STEP_4
+    VIBRATION ANALYSIS  MODES = 20 FREQLIM = 20000.
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = non_rotating
+!
+!   Frequency response analyses for non-rotating system
+!
+EXEC
+    ACTIVE NSET = RESPONSE
+    MODAL FREQUENCY SITUATION = STEP_5 PRIMRES = REDUCED
+    ACT SIT = STEP_5
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = frf 
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES francesco.py'
+STOP
