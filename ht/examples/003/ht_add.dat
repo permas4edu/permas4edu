@@ -1,0 +1,116 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = ALL_NODES RULE = ALL
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1        299
+       SFLA2        281          8
+       SFLA2        282        281
+       SFLA2        283        282
+       SFLA2        284        283
+       SFLA2        285        284
+       SFLA2        286        285
+       SFLA2        287        286
+       SFLA2        288        287
+       SFLA2        289        288
+       SFLA2        290        289
+       SFLA2        291        290
+       SFLA2        292        291
+       SFLA2        293        292
+       SFLA2        294        293
+       SFLA2        295        294
+       SFLA2        296        295
+       SFLA2        297        296
+       SFLA2        298        297
+       SFLA2        299        298
+      $LINE GEO  LNID =          2
+       SFLA2        122          3
+       SFLA2          6        105
+       SFLA2        113         21
+       SFLA2         21        114
+       SFLA2        105        106
+       SFLA2        106        107
+       SFLA2        107        108
+       SFLA2        108        109
+       SFLA2        109        110
+       SFLA2        110        111
+       SFLA2        111        112
+       SFLA2        112        113
+       SFLA2        114        115
+       SFLA2        115        116
+       SFLA2        116        117
+       SFLA2        117        118
+       SFLA2        118        119
+       SFLA2        119        120
+       SFLA2        120        121
+       SFLA2        121        122
+!
+      $LNSET NAME = T_0
+                2
+      $LNSET NAME = T_100
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      1.000000
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS  DOFS = 1 DOFTYPE = TEMP
+         T_0
+
+      $PRESCRIBE DOFS = 1 DOFTYPE = TEMP
+         T_100
+
+   $END CONSTRAINTS
+
+   $LOADING  NAME = L_STEP_1
+!
+      $PREVAL LPAT = 1 DOFTYPE = TEMP 
+         T_100  1: 100.0
+!
+      $TRANSLOAD DOFTYPE = TEMP
+         LPAT = 1 FUNCTION = 1 
+!
+      $INIVAL TEMP DOFTYPE = TEMP
+         T_100 1: 100.0
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 1
+     f(t) = 1.0
+
+$EXIT FUNCTION 
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $CONDUCTIVITY  GENERAL  INPUT = DATA
+        237.
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.698400E+03
+!
+      $HEATCAP  GENERAL  INPUT = DATA   
+        2428560.            ! kappa = c*rho = 900.*2698.4
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

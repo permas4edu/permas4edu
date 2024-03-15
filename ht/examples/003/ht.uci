@@ -1,0 +1,48 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = ht.dat
+    READ PERMAS FILE = ht_add.dat
+    READ PERMAS FILE = ht_sets.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+!
+!   Steady-state temperature analysis
+!
+    TEMPERATURE
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+EXEC
+    ACT SIT = STEP_2
+!
+!   Direct transient temperature analysis 
+! 
+    DIRECT TEMP LOOPS  = 1000  &
+                DELTAT = 0.2   &
+                TSTART = 0.0   &
+                INNER  = 10    &
+                STORE  = ALL  
+SELECT
+    ACTIVE NSET = A
+    XYDATA ITEM TEMP RESULT = T_A
+    ACTIVE NSET = B
+    XYDATA ITEM TEMP RESULT = T_B
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY
+    ITEM CLEAR
+    ITEM XYDATA NAME = T_A
+    GO SPREADSHEET FILE = t_A
+    ITEM CLEAR
+    ITEM XYDATA NAME = T_B
+    GO SPREADSHEET FILE = t_B
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES ht.py'
+RETURN
+STOP
