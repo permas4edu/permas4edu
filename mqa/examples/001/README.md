@@ -3,3 +3,5 @@ The examples are taken from [A general mesh smoothing method for ﬁnite element
 Thanks to Raul Durand for sharing the meshes in .vtk format. His support is greatly appreciated.
 
 ![holes-3d](holes-3d.png)
+
+![rocker](rocker.png)
