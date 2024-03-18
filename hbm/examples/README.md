@@ -41,3 +41,5 @@
 020 - [Control of Isolated Response Curves Through Optimization of Codimension-1 Singularities](http://dx.doi.org/10.2139/ssrn.4711296)
 
 021 - [Uncertainty quantification of nonlinear vibrationresponse of the oscillator with double-sidedunilateral spring](https://doi.org/10.1063/5.0175313)
+
+022 - [A constrained Bayesian Optimization framework for structural vibrations with local nonlinearities](https://doi.org/10.1007/s00158-024-03747-5)
