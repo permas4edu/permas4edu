@@ -20,3 +20,5 @@
 009 - [Accurate and efficient boundary method for isogeometric shape design sensitivity analysis considering tangential divergence of non-smooth boundary](http://dx.doi.org/10.21203/rs.3.rs-3838261/v1)
 
 010 - [High Resolution Topology Optimization of Aerospace Structures with Stress and Frequency Constraints](http://dx.doi.org/10.2514/6.2018-4056)
+
+011 - [Development of quadratic enhanced assumed strain elements for three-dimensional linear elasticity](https://doi.org/10.1016/j.compstruc.2023.107217)
