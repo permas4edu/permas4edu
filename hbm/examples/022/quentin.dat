@@ -1,0 +1,107 @@
+$DEFVAR SIT    TYPE = NAME GEN = STEP_,1,1
+$DEFVAR SYSVAR TYPE = NAME GEN = S_STEP_,1,1
+$DEFVAR FID    TYPE = INTEGER GEN = 1,1
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $LOOP I = 1, 4
+
+        $SITUATION NAME = SIT(I)
+            DFLT_COMP SYSTEM = SYSVAR(I) CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+        $END SITUATION
+
+    $ENDLOOP
+
+    $STRUCTURE
+
+       $NSET NAME = F
+          101
+
+       $NSET NAME = GROUND
+          100
+
+       $NODE  NSET = ALL_NODES
+          100  0.0  0.0   0.0
+          101  1.0  0.0   0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+          1  101
+
+       $ELEMENT TYPE = SPRING1 ESET = K
+          2  100 101
+ 
+       $ELEMENT TYPE = DAMP1 ESET = XI
+          3  100 101
+
+       $ELEMENT TYPE = NLSTIFF ESET = K_NL
+          4  100 101
+
+    $END STRUCTURE
+
+    $LOOP I = 1, 4  
+
+        $SYSTEM NAME = SYSVAR(I)
+
+           $GEODAT SPRING CONT = STIFF
+              GD_K 1.0
+
+           $GEODAT MASS CONT = MASS
+              GD_M 1.0
+
+           $GEODAT DAMPER CONT = DAMP
+              GD_XI 0.1
+
+           $GEODAT SPRING CONT = FUNCTION
+              GD_K_NL  FID(I)
+     
+           $ELPROP
+              K     GEODAT = GD_K
+              XI    GEODAT = GD_XI
+              M     GEODAT = GD_M
+              K_NL  GEODAT = GD_K_NL
+
+        $END SYSTEM
+  
+    $ENDLOOP
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3
+         ALL_NODES
+
+       $SUPPRESS DOFS = 1
+         GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+       $CONLOAD LPAT = 1
+         F 1: 1.0
+ 
+       $FREQLOAD
+         LPAT = 1 TYPE = COSINE
+ 
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI
+        0.0 0.3978873577297384 0.0015915494309189536
+ 
+    $END RESULTS
+
+$EXIT COMPONENT
+
+$ENTER FUNCTION
+
+    $DEFVAR K_NL TYPE = REAL LIST =  -0.003 0.0 0.01 0.04
+
+    $LOOP I = 1, 4
+        $FUNCTION FORMULA FID = FID(I) 
+           f(x) = K_NL(I)*x^3
+    $ENDLOOP
+
+$EXIT FUNCTION
+
+$FIN
