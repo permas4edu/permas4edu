@@ -1,0 +1,75 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+!
+   $STRUCTURE
+!
+!
+      $SURFACE ELEMENTS  SURFID =          1  SYSTEM = LOCAL
+                1          5
+                2          5
+                3          5
+                4          5
+                5          5
+                6          5
+                7          5
+                8          5
+                9          5
+               10          5
+               11          5
+               12          5
+               13          5
+               14          5
+               15          5
+               16          5
+!
+      $LINE GEO  LNID =          1
+       SFLA2          3        550
+       SFLA2        552         12
+       SFLA2        550        551
+       SFLA2        551        552
+!
+      $SFSET NAME = CLAMPED
+                1
+      $LNSET NAME = LOAD
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       BEAM          MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOAD LINE3D  LPAT = 1  IDS = ELGEO FACTOR = 0.1728 NODES = ALL  DOFTYPE = DISP
+             2045  7 : -1.000000E+00  0.000000E+00  0.000000E+00
+             2048  7 : -1.000000E+00  0.000000E+00  0.000000E+00
+             2046  7 : -1.000000E+00  0.000000E+00  0.000000E+00
+             2047  7 : -1.000000E+00  0.000000E+00  0.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.000000E+03  2.500000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

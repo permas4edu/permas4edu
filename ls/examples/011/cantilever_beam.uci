@@ -1,0 +1,18 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = cantilever_beam.dat
+    READ PERMAS FILE = cantilever_beam_add.dat
+RETURN
+
+TASK
+EXEC 
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS 
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
+
