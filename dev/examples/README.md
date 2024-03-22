@@ -57,3 +57,5 @@
 028 - [Free vibration of variable-thickness plates via adaptive finite elements](https://doi.org/10.1016/j.jsv.2024.118336)
 
 029 - [Multi-Objective Sensor Placement Optimization in SHM Systems with Kriging-Based Mode Shape Interpolation](https://doi.org/10.1016/j.ymssp.2024.111150)
+
+030 - [Mode-shape magnification in high-speed camera measurements](https://doi.org/10.1016/j.ymssp.2024.111336)
