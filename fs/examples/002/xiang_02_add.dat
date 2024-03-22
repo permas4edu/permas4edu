@@ -1,0 +1,26 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP PRES MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       CAVITY  MATERIAL = AIR
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $FLUID  NAME = AIR  TYPE = ISO
+!
+      $COMPRESS  GENERAL  INPUT = DATA
+        6.898379E-06
+!
+      $FLDENS  GENERAL  INPUT = DATA
+        1.225000E+00
+!
+   $END FLUID
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
