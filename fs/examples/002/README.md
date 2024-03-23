@@ -5,3 +5,5 @@ The example is adapted from [Dynamic stiffness formulations for exact modal and 
 ![Acoustic mode annular](annular_acoustic_mode.png)
 
 ![Sectiorial cross-sectional cavity](sectorial_cross_sectional_cavity.png)
+
+![Circular cross-sectional cavity](circular_cross_sectional_cavity.png)
