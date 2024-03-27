@@ -9,3 +9,5 @@
 004 - [OPTIMIZING TRUSS STRUCTURES WITH NATURAL FREQUENCY CONSTRAINTS USING THE CROSS-ENTROPY METHOD](https://www.researchgate.net/publication/377153400_Optimizing_truss_structures_with_natural_frequency_constraints_using_the_cross-entropy_method)
 
 005 - [Concurrent stacking sequence and layout optimization of stiffened composite plates using a spectral element method and an index-based optimization technique](http://dx.doi.org/10.1016/j.compstruct.2023.117698)
+
+006 - [Finite Element Model Updating Using Resonance–Antiresonant Frequencies with Radial Basis Function Neural Network](http://dx.doi.org/10.3390/app13126928)
