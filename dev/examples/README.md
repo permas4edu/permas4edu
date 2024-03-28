@@ -59,3 +59,5 @@
 029 - [Multi-Objective Sensor Placement Optimization in SHM Systems with Kriging-Based Mode Shape Interpolation](https://doi.org/10.1016/j.ymssp.2024.111150)
 
 030 - [Mode-shape magnification in high-speed camera measurements](https://doi.org/10.1016/j.ymssp.2024.111336)
+
+031 - [Optimization of Sensor Placement for Modal Testing Using Machine Learning](http://dx.doi.org/10.20944/preprints202403.0604.v1)
