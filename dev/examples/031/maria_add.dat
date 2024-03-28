@@ -1,0 +1,56 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = ALL_NODES RULE = ALL
+
+      $NSET NAME = FREE RULE = BOOLEAN
+         ALL_NODES AND NOT CLAMPED
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_BEAM               5
+         &        :  3.200000E-02  3.050000E-03
+         &        :  3.200000E-02  3.050000E-03
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+      $SUPPRESS DOFS = 1, 3, 5, 6
+       FREE
+
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+10  3.300000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
