@@ -22,3 +22,5 @@
 010 - [High Resolution Topology Optimization of Aerospace Structures with Stress and Frequency Constraints](http://dx.doi.org/10.2514/6.2018-4056)
 
 011 - [Development of quadratic enhanced assumed strain elements for three-dimensional linear elasticity](https://doi.org/10.1016/j.compstruc.2023.107217)
+
+012 - [Stress-constrained topology optimization using the constrained natural element method](https://doi.org/10.1007/s00158-024-03786-y)
