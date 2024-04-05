@@ -1,0 +1,146 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          5        416
+       SFLA2        504          6
+       SFLA2        416        417
+       SFLA2        417        418
+       SFLA2        418        419
+       SFLA2        419        420
+       SFLA2        420        421
+       SFLA2        421        422
+       SFLA2        422        423
+       SFLA2        423        424
+       SFLA2        424        425
+       SFLA2        425        426
+       SFLA2        426        427
+       SFLA2        427        428
+       SFLA2        428        429
+       SFLA2        429        430
+       SFLA2        430        431
+       SFLA2        431        432
+       SFLA2        432        433
+       SFLA2        433        434
+       SFLA2        434        435
+       SFLA2        435        436
+       SFLA2        436        437
+       SFLA2        437        438
+       SFLA2        438        439
+       SFLA2        439        440
+       SFLA2        440        441
+       SFLA2        441        442
+       SFLA2        442        443
+       SFLA2        443        444
+       SFLA2        444        445
+       SFLA2        445        446
+       SFLA2        446        447
+       SFLA2        447        448
+       SFLA2        448        449
+       SFLA2        449        450
+       SFLA2        450        451
+       SFLA2        451        452
+       SFLA2        452        453
+       SFLA2        453        454
+       SFLA2        454        455
+       SFLA2        455        456
+       SFLA2        456        457
+       SFLA2        457        458
+       SFLA2        458        459
+       SFLA2        459        460
+       SFLA2        460        461
+       SFLA2        461        462
+       SFLA2        462        463
+       SFLA2        463        464
+       SFLA2        464        465
+       SFLA2        465        466
+       SFLA2        466        467
+       SFLA2        467        468
+       SFLA2        468        469
+       SFLA2        469        470
+       SFLA2        470        471
+       SFLA2        471        472
+       SFLA2        472        473
+       SFLA2        473        474
+       SFLA2        474        475
+       SFLA2        475        476
+       SFLA2        476        477
+       SFLA2        477        478
+       SFLA2        478        479
+       SFLA2        479        480
+       SFLA2        480        481
+       SFLA2        481        482
+       SFLA2        482        483
+       SFLA2        483        484
+       SFLA2        484        485
+       SFLA2        485        486
+       SFLA2        486        487
+       SFLA2        487        488
+       SFLA2        488        489
+       SFLA2        489        490
+       SFLA2        490        491
+       SFLA2        491        492
+       SFLA2        492        493
+       SFLA2        493        494
+       SFLA2        494        495
+       SFLA2        495        496
+       SFLA2        496        497
+       SFLA2        497        498
+       SFLA2        498        499
+       SFLA2        499        500
+       SFLA2        500        501
+       SFLA2        501        502
+       SFLA2        502        503
+       SFLA2        503        504
+!
+      $NSET NAME = F
+              229
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_LSHAPE     2.000000E+00
+!
+      $ELPROP
+       LSHAPE        GEODAT = GD_LSHAPE     MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ALL_NODES
+      $SUPPRESS  LINENODE  DOFS = 1,2  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            2: -1.000000E+01
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
