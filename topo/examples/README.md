@@ -15,3 +15,7 @@
 007 - [A Hybrid Parallel Strategy for Isogeometric Topology Optimization via CPU/GPU Heterogeneous Computing](https://doi.org/10.32604/cmes.2023.029177)
 
 008 -  [Multiscale topology optimization framework for natural frequency maximization of multi-morphology lattice structures](https://doi.org/10.1016/j.compstruct.2023.117720)
+
+009 - [Topology Optimization under a Single Displacement Constraint Using a Strain Energy Criterion](https://doi.org/10.3390/applmech4020031)
+
+010 - [Non-penalization topology optimization for maximizing naturalfrequency using SEMDOT](https://www.researchgate.net/publication/372506078_Non-penalization_topology_optimization_for_maximizing_natural_frequency_using_SEMDOT)
