@@ -1,0 +1,61 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = ALL_NODES  RULE = ALL 
+!
+      $ELEMENT TYPE = MASS3
+            14401       7651
+!
+      $NSET NAME = M
+             7651
+      $NSET NAME = PINNED
+              273        571
+      $ESET NAME = M
+            14401
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      1.000000E+00
+      $GEODAT MASS      CONT = MASS
+       GD_M          1.000000E-04  1.000000E-04  1.000000E-04
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = MAT_01
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       PINNED
+
+      $SUPPRESS DOFS = 3 
+       ALL_NODES
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.000000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.000000E+00  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
