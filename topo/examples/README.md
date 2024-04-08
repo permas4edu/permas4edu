@@ -18,4 +18,4 @@
 
 009 - [Topology Optimization under a Single Displacement Constraint Using a Strain Energy Criterion](https://doi.org/10.3390/applmech4020031)
 
-010 - [Non-penalization topology optimization for maximizing naturalfrequency using SEMDOT](https://www.researchgate.net/publication/372506078_Non-penalization_topology_optimization_for_maximizing_natural_frequency_using_SEMDOT)
+010 - [Non-penalization topology optimization for maximizing natural frequency using SEMDOT](https://www.researchgate.net/publication/372506078_Non-penalization_topology_optimization_for_maximizing_natural_frequency_using_SEMDOT)
