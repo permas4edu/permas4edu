@@ -63,3 +63,6 @@
 031 - [Optimization of Sensor Placement for Modal Testing Using Machine Learning](http://dx.doi.org/10.20944/preprints202403.0604.v1)
 
 032 - [Operational modal identification based on parallel factor decomposition with the presence of harmonic excitation](https://doi.org/10.5802/crmeca.90)
+
+033 - [An efficient Bayesian method with intrusive homotopy surrogate model for stochastic model updating](https://doi.org/10.1111/mice.13206)
+
