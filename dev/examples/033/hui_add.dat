@@ -1,0 +1,161 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = SPC
+                2          6          9         13         16         20
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       VOLUME1       MATERIAL = MAT_1
+       VOLUME2       MATERIAL = MAT_2
+       VOLUME3       MATERIAL = MAT_3
+       VOLUME4       MATERIAL = MAT_4
+       VOLUME5       MATERIAL = MAT_5
+       VOLUME6       MATERIAL = MAT_6
+       VOLUME7       MATERIAL = MAT_7
+       VOLUME8       MATERIAL = MAT_8
+       VOLUME9       MATERIAL = MAT_9
+       VOLUME10      MATERIAL = MAT_10
+       VOLUME11      MATERIAL = MAT_11
+       VOLUME12      MATERIAL = MAT_12
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       SPC
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_1  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_2  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_3  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_4  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_5  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_6  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_7  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_8  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_9  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_10  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_11  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_12  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.450000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.000000E+10  2.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
