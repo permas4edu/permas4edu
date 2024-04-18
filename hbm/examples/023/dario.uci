@@ -1,0 +1,46 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = dario.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_0
+    DIRECT FREQUENCY 
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP BOOK = USR.DISP  RESULT = AMPL DCOMP = 1
+    XYDATA ITEM DISP BOOK = USRF.DISP RESULT = PHAS DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = AMPL
+    GO SPREADSHEET FILE = frf
+    ITEM CLEAR
+    ITEM XYDATA NAME = PHAS
+    GO SPREADSHEET FILE = frf
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH &
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 50.0       &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP BOOK = USR.DISP  RESULT = AMPL DCOMP = 1
+    XYDATA ITEM DISP BOOK = USRF.DISP RESULT = PHAS DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = AMPL
+    GO SPREADSHEET FILE = hbm
+    ITEM CLEAR
+    ITEM XYDATA NAME = PHAS
+    GO SPREADSHEET FILE = hbm
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES dario.py hbm_ampl.csv hbm_phas.csv frf_ampl.csv frf_phas.csv'
+RETURN
+STOP
