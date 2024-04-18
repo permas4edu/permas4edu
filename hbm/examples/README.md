@@ -43,3 +43,5 @@
 021 - [Uncertainty quantification of nonlinear vibrationresponse of the oscillator with double-sidedunilateral spring](https://doi.org/10.1063/5.0175313)
 
 022 - [A constrained Bayesian Optimization framework for structural vibrations with local nonlinearities](https://doi.org/10.1007/s00158-024-03747-5)
+
+023 - [A novel analysis method for calculating nonlinear Frequency Response Functions](https://doi.org/10.48550/arXiv.2404.01972)
