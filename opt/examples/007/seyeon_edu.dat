@@ -1,0 +1,46 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+        FIXED
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PART_A     3.000000E+00
+       GD_PART_B     3.000000E+00
+       GD_PART_C     3.000000E+00
+       GD_PART_D     3.000000E+00
+!
+      $ELPROP
+       PART_A        GEODAT = GD_PART_A     MATERIAL = MAT_01
+       PART_B        GEODAT = GD_PART_B     MATERIAL = MAT_01
+       PART_C        GEODAT = GD_PART_C     MATERIAL = MAT_01
+       PART_D        GEODAT = GD_PART_D     MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.068000E+05  2.900000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
