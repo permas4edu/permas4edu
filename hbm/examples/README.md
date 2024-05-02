@@ -48,3 +48,5 @@
 
 024 - [A two-stage model updating method for the linear parts of structures with local nonlinearities](https://doi.org/10.3389/fmats.2023.1331081)
 
+025 - [Koopman-Hill Stability Computation of Periodic Orbits in Polynomial Dynamical Systems Using a Real-Valued Quadratic Harmonic Balance Formulation](http://dx.doi.org/10.2139/ssrn.4811433)
+
