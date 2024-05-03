@@ -1,0 +1,185 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+      $NODE NSET = ALL_NODES
+         1     0.0     0.0   0.0
+         2  2000.0     0.0   0.0
+         3  4000.0     0.0   0.0
+         4  6000.0     0.0   0.0
+         5  8000.0     0.0   0.0
+         6     0.0  1000.0   0.0
+         7  2000.0  1000.0   0.0
+         8  4000.0  1000.0   0.0
+         9  6000.0  1000.0   0.0
+        10  8000.0  1000.0   0.0
+
+      $NSET NAME = SPC
+           1  5
+ 
+      $ESET NAME = E_STRAIN
+         1  3  6  8  10  12  17  21
+
+      $ESET NAME = SUBSTRUCTURE_1
+         1  9  15
+      $ESET NAME = SUBSTRUCTURE_2
+         5  10  14
+      $ESET NAME = SUBSTRUCTURE_3
+         2  17
+      $ESET NAME = SUBSTRUCTURE_4
+         6 11 16
+      $ESET NAME = SUBSTRUCTURE_5
+         3 19
+      $ESET NAME = SUBSTRUCTURE_6
+         7 12 18   
+      $ESET NAME = SUBSTRUCTURE_7
+         4 21
+      $ESET NAME = SUBSTRUCTURE_8
+         8 13 20
+ 
+      $ELEMENT TYPE = FLA2 ESET = TRUSS
+         1    1   2
+         2    2   3
+         3    3   4
+         4    4   5
+         5    6   7
+         6    7   8
+         7    8   9
+         8    9  10
+         9    1   6
+        10    2   7
+        11    3   8
+        12    4   9
+        13    5  10
+        14    1   7
+        15    2   6
+        16    2   8
+        17    3   7
+        18    3   9
+        19    4   8
+        20    4  10
+        21    5   9
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+       $GEODAT FLANGE CONT = SECTION  NODES = ALL
+         GD_FLA_01 700.0
+         GD_FLA_02 700.0
+         GD_FLA_03 700.0
+         GD_FLA_04 700.0
+         GD_FLA_05 700.0
+         GD_FLA_06 700.0
+         GD_FLA_07 700.0
+         GD_FLA_08 700.0
+
+       $ELPROP
+          SUBSTRUCTURE_1 GEODAT = GD_FLA_01 MATERIAL = MAT_01
+          SUBSTRUCTURE_2 GEODAT = GD_FLA_02 MATERIAL = MAT_02
+          SUBSTRUCTURE_3 GEODAT = GD_FLA_03 MATERIAL = MAT_03
+          SUBSTRUCTURE_4 GEODAT = GD_FLA_04 MATERIAL = MAT_04
+          SUBSTRUCTURE_5 GEODAT = GD_FLA_05 MATERIAL = MAT_05
+          SUBSTRUCTURE_6 GEODAT = GD_FLA_06 MATERIAL = MAT_06
+          SUBSTRUCTURE_7 GEODAT = GD_FLA_07 MATERIAL = MAT_07
+          SUBSTRUCTURE_8 GEODAT = GD_FLA_08 MATERIAL = MAT_08
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 3
+          ALL_NODES
+
+        $SUPPRESS DOFS = 1, 2
+          SPC
+ 
+    $END CONSTRAINTS
+
+$EXIT COMPONENT
+$ENTER MATERIAL 
+
+    $MATERIAL NAME = MAT_01
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+    $MATERIAL NAME = MAT_02
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+    $MATERIAL NAME = MAT_03
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+    $MATERIAL NAME = MAT_04
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+    $MATERIAL NAME = MAT_05
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+    $MATERIAL NAME = MAT_06
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+    $MATERIAL NAME = MAT_07
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+    $MATERIAL NAME = MAT_08
+
+        $ELASTIC GENERAL
+           70000.  0.3
+  
+        $DENSITY
+            2.7E-9
+
+    $END MATERIAL
+
+$EXIT MATERIAL
+$FIN
