@@ -2,3 +2,4 @@ The example is adapted from [Finite element model updating and damage detection 
 
 ![2D Truss structure](2D_truss.png "2D truss structure")
 
+![Plate structure](plate_structure.png "Plate structure")
