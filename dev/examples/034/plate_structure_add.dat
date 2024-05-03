@@ -1,0 +1,106 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ESET NAME = E_STRAIN
+         1  3  6  8  9  11  14  16
+!
+      $ESET NAME = GROUP_01
+         1  2  5  6
+      $ESET NAME = GROUP_02
+         3  4  7  8
+      $ESET NAME = GROUP_03
+         9 10 13 14
+      $ESET NAME = GROUP_04
+        11 12 15 16
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1         16
+       SFLA2         14          4
+       SFLA2         15         14
+       SFLA2         16         15
+!
+      $LNSET NAME = CLAMPED
+                1
+!
+      $PART NAME = GROUP_01
+        GROUP_01
+      $PART NAME = GROUP_02
+        GROUP_02
+      $PART NAME = GROUP_03
+        GROUP_03
+      $PART NAME = GROUP_04
+        GROUP_04
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE_01      3.000000E+00
+       GD_PLATE_02      3.000000E+00
+       GD_PLATE_03      3.000000E+00
+       GD_PLATE_04      3.000000E+00
+!
+      $ELPROP
+       GROUP_01         GEODAT = GD_PLATE_01      MATERIAL = MAT_01
+       GROUP_02         GEODAT = GD_PLATE_02      MATERIAL = MAT_02
+       GROUP_03         GEODAT = GD_PLATE_03      MATERIAL = MAT_03
+       GROUP_04         GEODAT = GD_PLATE_04      MATERIAL = MAT_04
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_02  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_03  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_04  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
