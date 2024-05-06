@@ -1,0 +1,143 @@
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+!#                                            Result file written by VisPER Development Build 19.10.013-Rev.50718
+!#                                                            Distributed by INTES GmbH Stuttgart
+!#                                                                  Date:  6-May-24 11:59:24
+!#..............................................................................................................................................................
+!#                                                                       P r o j e c t
+!#                                                                       cantilever_20
+!#..............................................................................................................................................................
+!#                                                                      Site: INTES GmbH
+!#                                                         Host: nils / Linux-x86_64-4.19.0-26-amd64
+!#                                                                   Code: M9g11r (32 bpw)
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DBEAM
+                1          1: SEGMENT_01
+                2          2: SEGMENT_02
+                3          3: SEGMENT_03
+                4          4: SEGMENT_04
+                5          5: SEGMENT_05
+                6          6: SEGMENT_06
+                7          7: SEGMENT_07
+                8          8: SEGMENT_08
+                9          9: SEGMENT_09
+               10         10: SEGMENT_10
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_01  DEID = 1
+      SECTDIM          1:          1
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_02  DEID = 2
+      SECTDIM          1:          2
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_03  DEID = 3
+      SECTDIM          1:          3
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_04  DEID = 4
+      SECTDIM          1:          4
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_05  DEID = 5
+      SECTDIM          1:          5
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_06  DEID = 6
+      SECTDIM          1:          6
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_07  DEID = 7
+      SECTDIM          1:          7
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_08  DEID = 8
+      SECTDIM          1:          8
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_09  DEID = 9
+      SECTDIM          1:          9
+      $DVGPAR BEAM  NAME = GD_SEGEMENT_10  DEID = 10
+      SECTDIM          1:         10
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  1.000000E-03  5.000000E+00
+                2  1.000000E-03  5.000000E+00
+                3  1.000000E-03  5.000000E+00
+                4  1.000000E-03  5.000000E+00
+                5  1.000000E-03  5.000000E+00
+                6  1.000000E-03  5.000000E+00
+                7  1.000000E-03  5.000000E+00
+                8  1.000000E-03  5.000000E+00
+                9  1.000000E-03  5.000000E+00
+               10  1.000000E-03  5.000000E+00
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        0.000000E+00
+
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_1  LPAT = 1  DATTYPE = REAL
+      U_Y          : F              2      NO        1.000000E-04:        100
+
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1  DATTYPE = REAL
+      F_1          :  1.000000E+02      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2  DATTYPE = REAL
+      F_2          :  1.000000E+02      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3  DATTYPE = REAL
+      F_3          :  1.000000E+02      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4  DATTYPE = REAL
+      F_4          :  1.000000E+02      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 5  DATTYPE = REAL
+      F_5          :  1.000000E+02      NO
+!
+      $DOBJECT  CONSTRAINT = WGT
+!
+      $DSVMLIM
+                1  5.000000E-02
+                2  5.000000E-02
+                3  5.000000E-02
+                4  5.000000E-02
+                5  5.000000E-02
+                6  5.000000E-02
+                7  5.000000E-02
+                8  5.000000E-02
+                9  5.000000E-02
+               10  5.000000E-02
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+ 
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+        WGT
+ 
+      $RESEXT ITEM
+        WGT : WGT  1
+
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1  LPAT = 1
+        CMPL_1
+
+      $RESEXT ITEM
+        CMPL_1 : CMPL_1  1
+       
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 2
+        F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 3
+        F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 4
+        F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 5
+        F_5
+
+      $RESEXT ITEM
+        F_1 : F_1  1
+        F_2 : F_2  1
+        F_3 : F_3  1
+        F_4 : F_4  1
+        F_5 : F_5  1
+  
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

@@ -1,0 +1,205 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1         10         11
+                2         11         12
+                3         10        106
+                4        106          3
+                5          1        206
+                6        206         12
+                7          2          1
+                8          2          3
+                9          3          7
+               10          7         12
+               11         12         13
+               12         13         14
+               13         12        108
+               14        108          5
+               15          3        208
+               16        208         14
+               17          3          4
+               18          4          5
+               19          5          9
+               20          9         14
+      $ELEMENT TYPE = MASS3
+               21          3
+!
+      $RSYS CART  FORM = ZX
+                1          1 :          5 :         10
+                2          1 :         10 :          5
+                3          1 :         12 :          5
+                4         10 :          3 :         14
+!
+      $ELSYS RSYS
+       SEGMENT_01    RSYS =          1  AXES =  1,  2
+       SEGMENT_02    RSYS =          4  AXES =  1,  2
+       SEGMENT_03    RSYS =          3  AXES =  1,  2
+       SEGMENT_04    RSYS =          1  AXES =  1,  2
+       SEGMENT_05    RSYS =          2  AXES =  1,  2
+       SEGMENT_06    RSYS =          1  AXES =  1,  2
+       SEGMENT_07    RSYS =          4  AXES =  1,  2
+       SEGMENT_08    RSYS =          3  AXES =  1,  2
+       SEGMENT_09    RSYS =          1  AXES =  1,  2
+       SEGMENT_10    RSYS =          2  AXES =  1,  2
+!
+      $NSET NAME = CLAMPED
+                1         10
+      $NSET NAME = F
+                5
+      $NSET NAME = FREE
+                2          3          4          5          7          9         11         12         13         14        106        108        206        208
+      $ESET NAME = M
+               21
+      $ESET NAME = SEGMENT_01
+                1          2
+      $ESET NAME = SEGMENT_02
+                3          4
+      $ESET NAME = SEGMENT_03
+                5          6
+      $ESET NAME = SEGMENT_04
+                7          8
+      $ESET NAME = SEGMENT_05
+                9         10
+      $ESET NAME = SEGMENT_06
+               11         12
+      $ESET NAME = SEGMENT_07
+               13         14
+      $ESET NAME = SEGMENT_08
+               15         16
+      $ESET NAME = SEGMENT_09
+               17         18
+      $ESET NAME = SEGMENT_10
+               19         20
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  5.000000E-01  0.000000E+00  0.000000E+00
+                3  1.000000E+00  0.000000E+00  0.000000E+00
+                4  1.500000E+00  0.000000E+00  0.000000E+00
+                5  2.000000E+00  0.000000E+00  0.000000E+00
+                7  1.000000E+00  5.000000E-01  0.000000E+00
+                9  2.000000E+00  5.000000E-01  0.000000E+00
+               10  0.000000E+00  1.000000E+00  0.000000E+00
+               11  5.000000E-01  1.000000E+00  0.000000E+00
+               12  1.000000E+00  1.000000E+00  0.000000E+00
+               13  1.500000E+00  1.000000E+00  0.000000E+00
+               14  2.000000E+00  1.000000E+00  0.000000E+00
+              106  5.000000E-01  5.000000E-01  0.000000E+00
+              108  1.500000E+00  5.000000E-01  0.000000E+00
+              206  5.000000E-01  5.000000E-01  0.000000E+00
+              208  1.500000E+00  5.000000E-01  0.000000E+00
+!
+      $PART  NAME = SEGMENT_01
+       SEGMENT_01
+      $PART  NAME = SEGMENT_02
+       SEGMENT_02
+      $PART  NAME = SEGMENT_03
+       SEGMENT_03
+      $PART  NAME = SEGMENT_04
+       SEGMENT_04
+      $PART  NAME = SEGMENT_05
+       SEGMENT_05
+      $PART  NAME = SEGMENT_06
+       SEGMENT_06
+      $PART  NAME = SEGMENT_07
+       SEGMENT_07
+      $PART  NAME = SEGMENT_08
+       SEGMENT_08
+      $PART  NAME = SEGMENT_09
+       SEGMENT_09
+      $PART  NAME = SEGMENT_10
+       SEGMENT_10
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3,4,5  DOFTYPE = DISP
+       FREE
+!
+   $END CONSTRAINTS
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_SEGEMENT_01          4 :  1.000000E-01
+       GD_SEGEMENT_02          4 :  1.000000E-01
+       GD_SEGEMENT_03          4 :  1.000000E-01
+       GD_SEGEMENT_04          4 :  1.000000E-01
+       GD_SEGEMENT_05          4 :  1.000000E-01
+       GD_SEGEMENT_06          4 :  1.000000E-01
+       GD_SEGEMENT_07          4 :  1.000000E-01
+       GD_SEGEMENT_08          4 :  1.000000E-01
+       GD_SEGEMENT_09          4 :  1.000000E-01
+       GD_SEGEMENT_10          4 :  1.000000E-01
+
+      $GEODAT MASS      CONT = MASS
+       GD_M          1.000000E+02  1.000000E+02  1.000000E+02
+!
+      $ELPROP
+       M             GEODAT = GD_M
+       SEGMENT_01    GEODAT = GD_SEGEMENT_01  MATERIAL = MAT_01
+       SEGMENT_02    GEODAT = GD_SEGEMENT_02  MATERIAL = MAT_01
+       SEGMENT_03    GEODAT = GD_SEGEMENT_03  MATERIAL = MAT_01
+       SEGMENT_04    GEODAT = GD_SEGEMENT_04  MATERIAL = MAT_01
+       SEGMENT_05    GEODAT = GD_SEGEMENT_05  MATERIAL = MAT_01
+       SEGMENT_06    GEODAT = GD_SEGEMENT_06  MATERIAL = MAT_01
+       SEGMENT_07    GEODAT = GD_SEGEMENT_07  MATERIAL = MAT_01
+       SEGMENT_08    GEODAT = GD_SEGEMENT_08  MATERIAL = MAT_01
+       SEGMENT_09    GEODAT = GD_SEGEMENT_09  MATERIAL = MAT_01
+       SEGMENT_10    GEODAT = GD_SEGEMENT_10  MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS NAME = C_STEP_1
+
+     $SUPPRESS DOFS = 1,2,3,4,5,6
+        CLAMPED
+
+     $SUPPRESS DOFS = 3,4,5
+        FREE
+
+   $END CONSTRAINTS 
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            2:  1.000000E+04
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        6.890000E+10  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.770000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
