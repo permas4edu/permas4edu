@@ -66,3 +66,6 @@
 
 033 - [An efficient Bayesian method with intrusive homotopy surrogate model for stochastic model updating](https://doi.org/10.1111/mice.13206)
 
+034 - [Finite element model updating and damage detection using strain-based modal data in the Bayesian framework](https://doi.org/10.1016/j.jsv.2024.118457)
+
+
