@@ -11,11 +11,9 @@ git clone https://github.com/permas4edu/permas4edu.git
 cd permas4edu  
 Open index.html with your favourite browser  
 
-<span style="color:blue">
-If permas4edu helped you please consider adding a star here on GitHub. 
-</span>
+### Feedback 
 
-This means a lot to the author.
+$$\textrm{\color{blue}{If permas4edu helped you please consider adding a star here on GitHub. This means a lot to the author.}}$$
 
 ### Replication of results
 
