@@ -11,7 +11,11 @@ git clone https://github.com/permas4edu/permas4edu.git
 cd permas4edu  
 Open index.html with your favourite browser  
 
-If permas4edu helped you please consider adding a star here on GitHub. This means a lot to the author.
+<span style="color:blue">
+If permas4edu helped you please consider adding a star here on GitHub. 
+</span>
+
+This means a lot to the author.
 
 ### Replication of results
 
