@@ -1,0 +1,78 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : CYLINDER
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       5.000000E-01
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+!
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  LPAT = 1  DATTYPE = REAL
+      CMPL         :  0.000000E+00      NO
+
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      FILL         :          1      NO        5.000000E-01
+!
+      $DOBJECT  CONSTRAINT = CMPL
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+!
+      $DSVFILT  TYPE = TOPO
+                1  2.000000E+00 : 1
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 1 
+         CMPL_1
+
+      $RESEXT ITEM
+         CMPL_1 : CMPL_1 1
+
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+         WGT
+
+      $RESEXT ITEM
+         WGT : WGT 1
+
+      $RESEXT FUNCTION
+         VOLFRAC : WGT 1 : 1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $DEFVAR RHO TYPE = REAL LIST = 7.85E-9
+   $DEFVAR RI  TYPE = REAL LIST = 39.5
+   $DEFVAR RO  TYPE = REAL LIST = 40.5
+   $DEFVAR H   TYPE = REAL LIST = 100.0
+
+   $FUNCTION FORMULA FID = 1
+     f(x)= x/(RHO(1)*PI*(RO(1)^2-RI(1)^2)*H(1))
+
+$EXIT FUNCTION  
+!------------------------------------
+$FIN
