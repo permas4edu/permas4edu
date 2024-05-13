@@ -1,0 +1,71 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = N7
+                7
+      $NSET NAME = N9
+                9
+      $NSET NAME = SPC_NODES
+                7          9
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_DESIGN     1.000000E+00
+       GD_SKIN       1.000000E+00
+!
+      $ELPROP
+       DESIGN        GEODAT = GD_DESIGN     MATERIAL = MAT_DESIGN
+       SKIN          GEODAT = GD_SKIN       MATERIAL = MAT_SKIN
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ALL_NODES
+      $SUPPRESS  DOFS = 1  DOFTYPE = DISP
+       SPC_NODES
+      $SUPPRESS  DOFS = 2  DOFTYPE = DISP
+                1
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       N9           2:  1.000000E+00
+       N7           2: -1.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_DESIGN  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_SKIN  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
