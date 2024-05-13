@@ -21,3 +21,7 @@
 010 - [Non-penalization topology optimization for maximizing natural frequency using SEMDOT](https://www.researchgate.net/publication/372506078_Non-penalization_topology_optimization_for_maximizing_natural_frequency_using_SEMDOT)
 
 011 - [Stress Minimization of Structures Based on Bidirectional Evolutionary Procedure](https://doi.org/10.1061/(ASCE)ST.1943-541X.0002264)
+
+012 - [Web Layout Design of Large Cavity Structures Based on Topology Optimization](https://www.techscience.com/CMES/v138n3/54960)
+
+013 - [Full-Scale Isogeometric Topology Optimization of Cellular Structures Based on Kirchhoff–Love Shells](https://www.techscience.com/CMES/v139n3/55627)
