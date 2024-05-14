@@ -6,7 +6,7 @@ Thank you for your interest in contributing to permas4edu! We are actively looki
 
 We are very interested in reproducible results. Therefore, the finite element models should be referenceable and come from the literature. 
 It should be noted that the models are limited in size due to the requirements of the free education edition of [PERMAS](https://www.intes.de/edu). 
-Feel free to submit your suggestions for interesting applications of finite element analyses.
+Feel free to submit your suggestions for interesting applications of finite element analyses. https://github.com/permas4edu/permas4edu/discussions/categories/ideas
 
 ## Have a Bug Report?
 
