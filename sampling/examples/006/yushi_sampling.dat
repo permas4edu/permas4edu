@@ -1,0 +1,89 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: VOLUME2
+         &      :        516
+                2: VOLUME3
+         &      :        576
+!
+      $DSVNODE
+                1        516:          1
+                2        576:          2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+              516 1 :  1.000000E+00 :          1
+              576 2 :  1.000000E+00 :          2
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_01
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_02
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_03
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4
+      F_04
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5
+      F_05
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6
+      F_06
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 7
+      F_07
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 8
+      F_08
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 9
+      F_09
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 10
+      F_10
+!
+      $VPARVAL  TYPE = DESVAR
+!                1  0.000000E+00 ! 7.000000E+01
+!                2  0.000000E+00 ! 7.000000E+01
+                1  7.000000E+01 
+                2  7.000000E+01
+!
+      $RESEXT  FUNCTION
+      NONDIM_F_01 : F_01          1 :          1
+      NONDIM_F_02 : F_02          1 :          1
+      NONDIM_F_03 : F_03          1 :          1
+      NONDIM_F_04 : F_04          1 :          1
+      NONDIM_F_05 : F_05          1 :          1
+      NONDIM_F_06 : F_06          1 :          1
+      NONDIM_F_07 : F_07          1 :          1
+      NONDIM_F_08 : F_08          1 :          1
+      NONDIM_F_09 : F_09          1 :          1
+      NONDIM_F_10 : F_10          1 :          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $DEFVAR E   TYPE = REAL LIST = 7.E4
+   $DEFVAR NU  TYPE = REAL LIST = 0.3
+   $DEFVAR RHO TYPE = REAL LIST = 2.7E-9
+   $DEFVAR H   TYPE = REAL LIST = 8.0
+   $DEFVAR A_1 TYPE = REAL LIST = 40.0
+   $DEFVAR D   TYPE = REAL LIST = 3282051.282051282  ! E*h^3/(12*(1-nu^2))
+ 
+   $FUNCTION FORMULA  FID =          1
+!       F(X)=2*PI*X*A_1(1)^2*SQRT(RHO(1)/(E*H(1)^3/(12*(1-NU(1)^2))))
+       F(X)=2*PI*X*A_1(1)^2*SQRT(RHO(1)*H(1)/D(1))
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
