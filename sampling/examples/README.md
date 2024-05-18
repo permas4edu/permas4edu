@@ -11,3 +11,5 @@
 004 - [Rotor resonance avoidance by continuous adjustment of support stiffness](https://doi.org/10.1016/j.ijmecsci.2024.109092)
 
 005 - [Improved model reduction with basis enrichment for dynamic analysis of nearly periodic structures including substructures with geometric changes](https://doi.org/10.1016/j.cam.2024.115844)
+
+006 - [New Analytic Free Vibration Solutions of L-Shaped Moderately Thick Plates by Symplectic Superposition](https://doi.org/10.1142/S0219455424502572)
