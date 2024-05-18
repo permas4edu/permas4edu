@@ -1,0 +1,69 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1         50
+       SFLA2         46          5
+       SFLA2          5        117
+       SFLA2          9        106
+       SFLA2        102         13
+       SFLA2        118         13
+       SFLA2         47         46
+       SFLA2         48         47
+       SFLA2         49         48
+       SFLA2         50         49
+       SFLA2        103        102
+       SFLA2        104        103
+       SFLA2        105        104
+       SFLA2        106        105
+       SFLA2        117        118
+!
+      $NSET NAME = F
+               12
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_BOXBEAM    1.000000E-02
+!
+      $ELPROP
+       BOXBEAM       GEODAT = GD_BOXBEAM    MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3: -5.000000E+03
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.200000E+10  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
