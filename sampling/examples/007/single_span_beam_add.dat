@@ -1,0 +1,58 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = BEAM RULE = ALL  
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  2.500000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -2.500000E+01
+!
+      $ELSYS RSYS
+       LINE1         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = N1
+                1
+      $NSET NAME = N2
+                2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               1
+         &        :  0.000000E+00  0.000000E+00  7.500000E-01  5.000000E-01  2.000000E+00  3.500000E-01
+!
+      $ELPROP
+       LINE1         GEODAT = GD_BEAM       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3,4,5  DOFTYPE = DISP
+       BEAM
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       N1
+      $SUPPRESS  DOFS = 2  DOFTYPE = DISP
+       N2
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.500000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        3.400000E+10  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
