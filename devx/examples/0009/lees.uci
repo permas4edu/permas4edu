@@ -1,0 +1,41 @@
+DEFAULT SET VERIFICATION = MODEL
+!
+!  Example is taken from
+!
+!  Arthur W. Lees 
+!  Vibration problems in machines
+!  Diagnosis and Resolution , 2nd edition
+!  CRC Press (2020)
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = lees.dat
+    READ PERMAS FILE = lees_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    GO SPREADSHEET FILE = campbell
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES lees.py campbell_rsfrq.csv'
+RETURN
+STOP
