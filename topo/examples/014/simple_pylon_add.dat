@@ -1,0 +1,156 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          4        264
+       SFLA2        362          5
+       SFLA2        264        265
+       SFLA2        265        266
+       SFLA2        266        267
+       SFLA2        267        268
+       SFLA2        268        269
+       SFLA2        269        270
+       SFLA2        270        271
+       SFLA2        271        272
+       SFLA2        272        273
+       SFLA2        273        274
+       SFLA2        274        275
+       SFLA2        275        276
+       SFLA2        276        277
+       SFLA2        277        278
+       SFLA2        278        279
+       SFLA2        279        280
+       SFLA2        280        281
+       SFLA2        281        282
+       SFLA2        282        283
+       SFLA2        283        284
+       SFLA2        284        285
+       SFLA2        285        286
+       SFLA2        286        287
+       SFLA2        287        288
+       SFLA2        288        289
+       SFLA2        289        290
+       SFLA2        290        291
+       SFLA2        291        292
+       SFLA2        292        293
+       SFLA2        293        294
+       SFLA2        294        295
+       SFLA2        295        296
+       SFLA2        296        297
+       SFLA2        297        298
+       SFLA2        298        299
+       SFLA2        299        300
+       SFLA2        300        301
+       SFLA2        301        302
+       SFLA2        302        303
+       SFLA2        303        304
+       SFLA2        304        305
+       SFLA2        305        306
+       SFLA2        306        307
+       SFLA2        307        308
+       SFLA2        308        309
+       SFLA2        309        310
+       SFLA2        310        311
+       SFLA2        311        312
+       SFLA2        312        313
+       SFLA2        313        314
+       SFLA2        314        315
+       SFLA2        315        316
+       SFLA2        316        317
+       SFLA2        317        318
+       SFLA2        318        319
+       SFLA2        319        320
+       SFLA2        320        321
+       SFLA2        321        322
+       SFLA2        322        323
+       SFLA2        323        324
+       SFLA2        324        325
+       SFLA2        325        326
+       SFLA2        326        327
+       SFLA2        327        328
+       SFLA2        328        329
+       SFLA2        329        330
+       SFLA2        330        331
+       SFLA2        331        332
+       SFLA2        332        333
+       SFLA2        333        334
+       SFLA2        334        335
+       SFLA2        335        336
+       SFLA2        336        337
+       SFLA2        337        338
+       SFLA2        338        339
+       SFLA2        339        340
+       SFLA2        340        341
+       SFLA2        341        342
+       SFLA2        342        343
+       SFLA2        343        344
+       SFLA2        344        345
+       SFLA2        345        346
+       SFLA2        346        347
+       SFLA2        347        348
+       SFLA2        348        349
+       SFLA2        349        350
+       SFLA2        350        351
+       SFLA2        351        352
+       SFLA2        352        353
+       SFLA2        353        354
+       SFLA2        354        355
+       SFLA2        355        356
+       SFLA2        356        357
+       SFLA2        357        358
+       SFLA2        358        359
+       SFLA2        359        360
+       SFLA2        360        361
+       SFLA2        361        362
+!
+      $NSET NAME = F
+                1          2
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PYLON      1.000000E+00
+!
+      $ELPROP
+       PYLON         GEODAT = GD_PYLON      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ABA_NALL_INP
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            2: -5.000000E-01
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.000000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.000000E+00  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
