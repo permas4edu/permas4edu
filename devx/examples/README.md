@@ -15,3 +15,7 @@
 0007 - [Rotordynamics Continuum Finite Element Formulations from a Structural and Multibody Dynamics Perspective](https://www.researchgate.net/publication/378148473_Rotordynamics_Continuum_Finite_Element_Formulations_from_a_Structural_and_Multibody_Dynamics_Perspective)
 
 0008 - [Reduced-Order Modeling in Rotordynamics and Its Robustness to Random Matrix Perturbation](https://doi.org/10.1115/1.4065038)
+
+0009 - [Vibration Problems in Machines](https://www.routledge.com/Vibration-Problems-in-Machines-Diagnosis-and-Resolution/Lees/p/book/9780367367756)
+
+0010 - [Random matrices applied to anti-symmetric operators](https://doi.org/10.1007/s40430-024-04871-5)
