@@ -1,0 +1,107 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2
+        DFLT_COMP SYSTEM = S_STEP_2 CONSTRAINTS = C_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_3 PARENT = STEP_2
+        DFLT_COMP SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+    $END SITUATION
+
+    $STRUCTURE
+
+       $NODE
+         1   0.0  0.0  0.0
+         2   0.75 0.0  0.0
+         3   1.0  0.0  0.0
+         4   0.0  0.0  0.0 
+         5   1.0  0.0  0.0
+ 
+       $NSET NAME = GROUND
+         4   5
+
+       $ELEMENT TYPE = MASS6 ESET = ROTOR
+         1   2
+ 
+       $NSET NAME = ROTOR
+         2
+
+       $NSET NAME = BEARINGS
+         1  3
+
+       $MPC RIGID DPDOFS = 1,2,3,4,5,6 
+         1   ROTOR :  BEARINGS
+
+       $ELEMENT TYPE = SPRING3 ESET = K
+         2   1  4
+         3   3  5
+       $ELEMENT TYPE = DAMP3 ESET = C
+         4   1  4
+         5   3  5
+              
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+           GD_ROTOR  60.0 60.0 60.0  0.6750  0.3375 0.3375
+
+        $GEODAT SPRING CONT = STIFF
+           GD_SPRING 0.0 9245.0 9425.0 
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_DAMPER 0.0  3.0  3.0
+
+        $ELPROP
+          K     GEODAT = GD_SPRING
+          C     GEODAT = GD_DAMPER
+          ROTOR GEODAT = GD_ROTOR
+         
+    $END SYSTEM
+
+    $SYSTEM NAME = S_STEP_2
+
+      $INSERT VARIANT
+         S_STEP_1
+
+      $ELSTATE LOAD
+         SITUATION = STEP_1  LPAT = 1
+
+      $ADDMATRIX
+          GEOSTIFF
+          CONVSTIFF
+          GYRO
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 1,2,3
+            GROUND
+
+        $SUPPRESS DOFS = 1,4
+            ROTOR
+ 
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+       $INERTIA ROTATION LPAT = 1
+         ROTOR  0.0 0.0 0.0 1.0 0.0 0.0   10.0
+
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_3
+
+        $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+            0.0 1000.0 5.0
+ 
+    $END RESULTS
+
+$EXIT COMPONENT
+$FIN
+
