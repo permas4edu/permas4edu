@@ -13,3 +13,5 @@
 0006 - [Model reduction-based Bayesian updating of non-classically damped systems using modal data from multiple setups](http://dx.doi.org/10.1007/s00707-023-03819-5)
 
 0007 - [Rotordynamics Continuum Finite Element Formulations from a Structural and Multibody Dynamics Perspective](https://www.researchgate.net/publication/378148473_Rotordynamics_Continuum_Finite_Element_Formulations_from_a_Structural_and_Multibody_Dynamics_Perspective)
+
+0008 - [Reduced-Order Modeling in Rotordynamics and Its Robustness to Random Matrix Perturbation](https://doi.org/10.1115/1.4065038)
