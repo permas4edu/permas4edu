@@ -1,0 +1,123 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1  LOADING = L_STEP_1  RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+        $NSET NAME = RESPONSE
+          105
+
+        $NSET NAME = GROUND
+          100  200
+ 
+        $NSET NAME = FREE RULE  = BOOLEAN
+           ALL_NODES AND NOT GROUND
+
+        $NODE NSET = ALL_NODES
+          100   0.0   0.0   0.0
+          101   1.0   0.0   0.0
+          102   2.0   0.0   0.0
+          103   3.0   0.0   0.0
+          104   4.0   0.0   0.0
+          105   5.0   0.0   0.0
+          200  21.0   0.0   0.0
+
+        $ELEMENT TYPE = MASS3 ESET = M
+            1  101
+            2  102
+            3  103
+            4  104
+            5  105
+
+ 
+         $ELEMENT TYPE = SPRING1 ESET = K
+           21  100  101
+           22  101  102
+           23  102  103
+           24  103  104
+           25  104  105
+           26  105  200
+
+         $ELEMENT TYPE = DAMP1 ESET = C
+           42  100  101
+           43  101  102
+           44  102  103
+           45  103  104
+           46  104  105
+           47  105  200
+
+        $ELEMENT TYPE = NLSTIFF ESET = NL_K
+           63  100  101
+!           64  100  102
+!           65  100  103
+!           66  100  104
+!           67  100  105
+
+    $END STRUCTURE
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1 
+         GROUND
+
+      $SUPPRESS DOFS = 2,3
+         ALL_NODES
+
+    $END CONSTRAINTS
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+          GD_M  1.0
+
+        $GEODAT DAMPER CONT = DAMP
+          GD_C  0.005
+
+        $GEODAT SPRING CONT = STIFF
+          GD_K  1.0
+
+        $GEODAT SPRING CONT = FUNCTION
+          GD_NL_K 1
+
+        $ELPROP
+          M GEODAT = GD_M
+          C GEODAT = GD_C
+          K GEODAT = GD_K
+       NL_K GEODAT = GD_NL_K
+        
+    $END SYSTEM
+
+    $LOADING NAME = L_STEP_1
+
+       $CONLOAD LPAT = 1
+!           FREE 1 : 0.004
+           101  1 : 0.004
+
+       $FREQLOAD 
+         LPAT = 1 TYPE = COSINE
+ 
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+!       $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+!         0.515 0.525 0.001
+
+        $FREQUENCY PRIMARY = EQUI
+          0.0819648 0.083715455 0.000159155
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $DEFVAR KAPPA TYPE = REAL LIST = 0.5
+
+    $FUNCTION FORMULA FID = 1
+       F(X) = KAPPA(1)*X^3
+
+$EXIT FUNCTION
+
+$FIN
