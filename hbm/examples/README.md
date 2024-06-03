@@ -50,3 +50,6 @@
 
 025 - [Koopman-Hill Stability Computation of Periodic Orbits in Polynomial Dynamical Systems Using a Real-Valued Quadratic Harmonic Balance Formulation](http://dx.doi.org/10.2139/ssrn.4811433)
 
+026 - [Explicit Backbone Curves from Spectral Submanifolds of Forced-Damped Nonlinear Mechanical Systems](https://doi.org/10.1098/rspa.2018.0083)
+
+027 - [A general and efficient harmonic balance method for nonlinear dynamic simulation](https://doi.org/10.1016/j.ijmecsci.2024.109388)
