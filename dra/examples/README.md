@@ -11,3 +11,5 @@
 005 -  [Sparse Bayesian machine learning for the interpretable identification of nonlinear structural dynamics: Towards the experimental data-driven discovery of a quasi zero stiffness device](https://doi.org/10.1016/j.ymssp.2023.110858)
 
 006 - [A digital twin framework for civil engineering structures](https://doi.org/10.1016/j.cma.2023.116584)
+
+007 - [A novel uncertainty propagation and probability assessment method for the frequency response function involving correlated uncertainties](https://doi.org/10.1007/s00419-024-02596-4)
