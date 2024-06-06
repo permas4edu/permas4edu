@@ -1,0 +1,126 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = RESPONSE
+         2  3
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1        240
+       SFLA2        192          4
+       SFLA2        193        192
+       SFLA2        194        193
+       SFLA2        195        194
+       SFLA2        196        195
+       SFLA2        197        196
+       SFLA2        198        197
+       SFLA2        199        198
+       SFLA2        200        199
+       SFLA2        201        200
+       SFLA2        202        201
+       SFLA2        203        202
+       SFLA2        204        203
+       SFLA2        205        204
+       SFLA2        206        205
+       SFLA2        207        206
+       SFLA2        208        207
+       SFLA2        209        208
+       SFLA2        210        209
+       SFLA2        211        210
+       SFLA2        212        211
+       SFLA2        213        212
+       SFLA2        214        213
+       SFLA2        215        214
+       SFLA2        216        215
+       SFLA2        217        216
+       SFLA2        218        217
+       SFLA2        219        218
+       SFLA2        220        219
+       SFLA2        221        220
+       SFLA2        222        221
+       SFLA2        223        222
+       SFLA2        224        223
+       SFLA2        225        224
+       SFLA2        226        225
+       SFLA2        227        226
+       SFLA2        228        227
+       SFLA2        229        228
+       SFLA2        230        229
+       SFLA2        231        230
+       SFLA2        232        231
+       SFLA2        233        232
+       SFLA2        234        233
+       SFLA2        235        234
+       SFLA2        236        235
+       SFLA2        237        236
+       SFLA2        238        237
+       SFLA2        239        238
+       SFLA2        240        239
+!
+      $NSET NAME = F
+                2          3
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      2.500000E+00
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = ALUMINUM
+!
+      $ADDMODES SOURCE = LOAD
+         LPAT = ALL 
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_2
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3:  1.000000E+00
+!
+      $FREQLOAD  DOFTYPE = DISP
+      LPAT =          1  TYPE = COSINE
+!
+   $END LOADING
+!------
+   $RESULTS  NAME = R_STEP_2
+!
+      $FREQUENCY  PRIMARY = EQUI  DOFTYPE = DISP
+        0.000000E+00  5.000000E+02  2.000000E+00
+      $FREQUENCY  PRIMARY = EIGCLUS  DOFTYPE = DISP
+         &        BOUNDS =  0.000000E+00,  5.000000E+02
+         &        CLUSTER = 5,  1.000000E-01
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.300000E-01
+!
+      $DAMPING
+        0.01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
