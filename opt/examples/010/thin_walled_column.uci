@@ -1,0 +1,19 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = thin_walled_column.dat
+    READ PERMAS FILE = thin_walled_column_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    WEIGHT ANALYSIS 
+    STATIC
+    GEN COMPLIANCE
+    GEN EL STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
