@@ -12,7 +12,7 @@
 
 006 - [Finite Element Model Updating Using Resonance–Antiresonant Frequencies with Radial Basis Function Neural Network](http://dx.doi.org/10.3390/app13126928)
 
-007 - Researchgate 
+007 - [Researchgate](https://www.researchgate.net/post/How_can_I_make_Isight_interact_Catia_with_Abaqus) 
 
 008 - [Global weight optimization of frame structures under free-vibration eigenvalue constraints](http://dx.doi.org/10.13140/RG.2.2.32834.39365)
 
