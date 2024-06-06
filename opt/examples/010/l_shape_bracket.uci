@@ -1,0 +1,25 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = stiffened_l_shape_bracket.dat
+    READ PERMAS FILE = stiffened_l_shape_bracket_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    WEIGHT ANALYSIS 
+    STATIC
+    GEN COMPLIANCE
+    GEN EL STRESS
+SELECT
+    SUM WEIGHT ESETBIN = SUM
+PRINT
+    PORT RES SWITCH TO FILE = mass_info.txt
+    ITEM SUM TYPE = WEIGHT
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
