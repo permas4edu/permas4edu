@@ -11,3 +11,11 @@
 005 - [Concurrent stacking sequence and layout optimization of stiffened composite plates using a spectral element method and an index-based optimization technique](http://dx.doi.org/10.1016/j.compstruct.2023.117698)
 
 006 - [Finite Element Model Updating Using Resonance–Antiresonant Frequencies with Radial Basis Function Neural Network](http://dx.doi.org/10.3390/app13126928)
+
+007 - Researchgate 
+
+008 - [Global weight optimization of frame structures under free-vibration eigenvalue constraints](http://dx.doi.org/10.13140/RG.2.2.32834.39365)
+
+009 - [Generalized polynomial chaos expansion by reanalysis using static condensation based on substructuring](https://doi.org/10.1007/s10483-024-3108-8)
+
+010 - [Parameter-free optimum design method of stiffeners on thin-walled structures](https://doi.org/10.1007/s00158-013-0954-1)
