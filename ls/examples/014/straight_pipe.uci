@@ -1,0 +1,19 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = straight_pipe.dat
+    READ PERMAS FILE = straight_pipe_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN COMPLIANCE
+    GEN EL STRESS
+    GEN EL STRAIN
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
