@@ -24,3 +24,7 @@
 011 - [Development of quadratic enhanced assumed strain elements for three-dimensional linear elasticity](https://doi.org/10.1016/j.compstruc.2023.107217)
 
 012 - [Stress-constrained topology optimization using the constrained natural element method](https://doi.org/10.1007/s00158-024-03786-y)
+
+013 - [Modelling and Simulation of Composite Structure Using Ansys Composite PrePost (ACP) Tool](https://www.springerprofessional.de/en/modelling-and-simulation-of-composite-structure-using-ansys-comp/27037378)
+
+014 - [NEW PIPE ELEMENT BASED ON HERMITE-JACKSON INTERPOLATION](https://doi.org/10.1051/m2an/2024027)
