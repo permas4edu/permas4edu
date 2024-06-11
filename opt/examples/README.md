@@ -19,3 +19,5 @@
 009 - [Generalized polynomial chaos expansion by reanalysis using static condensation based on substructuring](https://doi.org/10.1007/s10483-024-3108-8)
 
 010 - [Parameter-free optimum design method of stiffeners on thin-walled structures](https://doi.org/10.1007/s00158-013-0954-1)
+
+011 - [Design, Manufacturing, and Experiments of Additive Manufactured Stiffened Thin-walled Plates](https://doi.org/10.2514/6.2024-2077)
