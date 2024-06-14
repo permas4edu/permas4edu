@@ -19,3 +19,6 @@
 0009 - [Vibration Problems in Machines](https://www.routledge.com/Vibration-Problems-in-Machines-Diagnosis-and-Resolution/Lees/p/book/9780367367756)
 
 0010 - [Random matrices applied to anti-symmetric operators](https://doi.org/10.1007/s40430-024-04871-5)
+
+0011 - [Vibration Reduction on Circular Disks with Vibroacoustic Metamaterials](https://doi.org/10.3390/app14114637)
+
