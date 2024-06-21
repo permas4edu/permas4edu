@@ -13,3 +13,5 @@
 006 - [A digital twin framework for civil engineering structures](https://doi.org/10.1016/j.cma.2023.116584)
 
 007 - [A novel uncertainty propagation and probability assessment method for the frequency response function involving correlated uncertainties](https://doi.org/10.1007/s00419-024-02596-4)
+
+008 - [Mode selection for component mode synthesis with guaranteed assembly accuracy](https://doi.org/10.1016/j.jsv.2024.118596)
