@@ -1,0 +1,16 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = yasunori.dat
+    READ PERMAS FILE = yasunori_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
