@@ -7,3 +7,5 @@
 003 - [Simultaneous Layout, Sizing and Topology Optimization of Stiffened Panels using CAD-based Parameterization](http://dx.doi.org/10.2514/6.2023-1090) 
 
 004 - [Computational simplifications and observations on buckling modes of polygonal ring frames under symmetric compressive joint loads](https://doi.org/10.1016/j.istruc.2024.105904)
+
+005 - [On the spatial buckling of elastic columns](https://doi.org/10.1142/S0219455425501469)
