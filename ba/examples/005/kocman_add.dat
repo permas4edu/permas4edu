@@ -1,0 +1,74 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = ALL_NODES RULE = ALL
+  
+      $NSET NAME = FREE RULE = BOOLEAN
+         ALL_NODES AND NOT CLAMPED
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = CLAMPED
+                1
+      $NSET NAME = F
+                2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = AREA     BEND  TORS
+       GD_BEAM       1.884956E-01 :  4.241150E-03  1.884956E-03  0.0 : 0.005219877024426118
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+!      $SUPPRESS DOFS = 6 DOFTYPE = DISP
+!       FREE
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3: -1.000000E+03
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = TRANS
+!
+      $ELASTIC  BEAM  INPUT = DATA
+        3.284000E+10  2.052500E+10
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
