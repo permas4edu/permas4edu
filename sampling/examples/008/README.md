@@ -1,4 +1,5 @@
 The example is adapted from [Shape optimization of non-matching isogeometric shells with moving intersections](https://arxiv.org/abs/2407.00185)
+Thanks to Professor Chen for private communication and sharing the CAD model of the eVTOL wing geometry. His support is greatly appreciated.
 
 ![T-beam model](T_shape_beam_boundary_conditions_pressure_load.png "T-beam")
 
