@@ -6,3 +6,5 @@ Thanks to Professor Chen for private communication and sharing the CAD model of 
 ![Movable intersection](movable_intersection.gif "Movable intersection")
 
 ![Normalized internal energy](Internal_energy.png)
+
+![eVTOL wing](eVTOL_wing.png "eVTOL wing model") 
