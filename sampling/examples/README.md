@@ -13,3 +13,7 @@
 005 - [Improved model reduction with basis enrichment for dynamic analysis of nearly periodic structures including substructures with geometric changes](https://doi.org/10.1016/j.cam.2024.115844)
 
 006 - [New Analytic Free Vibration Solutions of L-Shaped Moderately Thick Plates by Symplectic Superposition](https://doi.org/10.1142/S0219455424502572)
+
+007 - [Uncertain pedestrian load modeling for structural vibration assessment in footbridge design](https://doi.org/10.1016/j.engstruct.2024.118070)
+
+008 . [Shape optimization of non-matching isogeometric shells with moving intersections](https://arxiv.org/abs/2407.00185)
