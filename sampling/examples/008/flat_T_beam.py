@@ -7,7 +7,7 @@ csv = sys.argv[1]
 df = pd.read_csv(csv,delimiter=';')
 fig=plt.figure('Internal energy')
 ax = fig.add_subplot(111)
-ax.plot(df['DV_1'],df['NONDIM_CMPL_1'],label=r'$W^\text{int}$')
+ax.plot(df['DV_1'],df['NONDIM_CMPL_1'],label=r'$W^{int}$')
 ax.grid()
 ax.legend(shadow=True).set_draggable(True)
 ax.set_xlabel('Vertical patch location')
