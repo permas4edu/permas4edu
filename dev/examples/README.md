@@ -69,3 +69,9 @@
 034 - [Finite element model updating and damage detection using strain-based modal data in the Bayesian framework](https://doi.org/10.1016/j.jsv.2024.118457)
 
 035 - Free vibrations of a wine glass
+
+036 - [Real Time Fatigue Monitoring using OMA](http://dx.doi.org/10.1007/978-3-031-61425-5_8)
+
+037 - [Effect of optimally placed sensors on the quality of estimated modal parameters](http://dx.doi.org/10.1088/1742-6596/2647/19/192002)
+
+038 - [An experimental study on the performance of virtual sensing using optimal and regular physical sensors placement](https://iopscience.iop.org/article/10.1088/1742-6596/2647/19/192003)
