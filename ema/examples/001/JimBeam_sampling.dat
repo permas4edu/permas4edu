@@ -1,0 +1,48 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1 RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: ROD : ROD
+!
+      $DSVNODE
+                1 ROD         :          1
+                2 ROD         :          1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+       ROD          1 :  1.000000E+00 :          1
+       ROD          2 :  1.000000E+00 :          2
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_STEP_3
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+!
+      $VPARVAL  TYPE = DESVAR
+                1 -5.737500E+01  0.000000E+00  9.562500E+01
+                2 -1.247920E+02  0.000000E+00  1.747080E+02
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+      F_3 : F_3          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
