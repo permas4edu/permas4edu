@@ -1,0 +1,43 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = chawit.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 3
+    MODAL TIMEHISTORY SITUATION = STEP_2  &
+                          LOOPS = 1000    &
+                         DELTAT = 0.01    &
+                         TSTART = 0.0     &
+                           SOLV = NEWMARK
+    ACT SIT = STEP_2 
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = FREE DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = FREE
+    GO SPREADSHEET FILE = modal_response
+EXEC
+    ACT SIT = STEP_3
+    DIRECT TIMEHISTORY  LOOPS = 1000    &
+                       DELTAT = 0.01    &
+                       TSTART = 0.0     &
+                       STORE  = ALL     &
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = FREE DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = FREE
+    GO SPREADSHEET FILE = direct_response        
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES chawit.py direct_response_free.csv'
+RETURN
+STOP
+   
