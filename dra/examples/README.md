@@ -15,3 +15,5 @@
 007 - [A novel uncertainty propagation and probability assessment method for the frequency response function involving correlated uncertainties](https://doi.org/10.1007/s00419-024-02596-4)
 
 008 - [Mode selection for component mode synthesis with guaranteed assembly accuracy](https://doi.org/10.1016/j.jsv.2024.118596)
+
+009 - [Physics-informed neural operator solver and super-resolution for solid mechanics](http://dx.doi.org/10.1111/mice.13292)
