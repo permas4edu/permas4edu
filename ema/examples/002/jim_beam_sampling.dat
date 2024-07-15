@@ -1,0 +1,57 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DQUAD4
+                1          1: BEAM
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SHELL  NAME = GD_BEAM  DEID = 1  NODES = ALL
+      THICK          1:          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4
+      F_4
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5
+      F_5
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6
+      F_6
+!
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+      WGT 
+!
+      $VPARVAL  TYPE = DESVAR  INPUT = EQUI
+                1  2.000000E+00  1.000000E+01  1.000000E+00
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+      F_3 : F_3          1
+      F_4 : F_4          1
+      F_5 : F_5          1
+      F_6 : F_6          1
+!
+      $RESEXT ITEM
+      WGT : WGT 1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
