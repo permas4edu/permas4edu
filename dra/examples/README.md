@@ -17,3 +17,5 @@
 008 - [Mode selection for component mode synthesis with guaranteed assembly accuracy](https://doi.org/10.1016/j.jsv.2024.118596)
 
 009 - [Physics-informed neural operator solver and super-resolution for solid mechanics](http://dx.doi.org/10.1111/mice.13292)
+
+010 . [Transient Dynamic Response of Generally Shaped Arches under Interval Uncertainties](https://doi.org/10.3390/app14135918)
