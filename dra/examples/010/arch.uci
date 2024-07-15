@@ -1,0 +1,31 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = arch.dat
+    READ PERMAS FILE = arch_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_2  &
+                      LOOPS     = 100     &
+                      DELTAT    = 0.02    &
+                      TSTART    = 0.0     &
+                      INNER     = 5       &
+                      SOLV      = NEWMARK 
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = modal_resp
+TASK END
+STOP
