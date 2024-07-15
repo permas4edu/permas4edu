@@ -26,6 +26,6 @@
 
 013 - [Full-Scale Isogeometric Topology Optimization of Cellular Structures Based on Kirchhoff–Love Shells](https://www.techscience.com/CMES/v139n3/55627)
 
-014 -
+014 - [Reliability-Based Topology Optimization with a Proportional Topology for Reliability](https://doi.org/10.3390/aerospace11060435)
 
 015 - [Plate manufacturing constraint in topology optimization using anisotropic Helmholtz filter](http://dx.doi.org/10.21203/rs.3.rs-3623856/v1)
