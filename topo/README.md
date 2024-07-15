@@ -13,6 +13,7 @@
 |   |  FREQUENCY |
 |   |  INERTIA |
 |   |  LOAD SCALE FACTOR |
+|   |  MAXMISES (>= V20) |
 |   |  NODAL POINT STRESS |
 |   |  NP STRESS COMPONENTS |
 |   |  PLY FAILURE |
