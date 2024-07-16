@@ -1,0 +1,65 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       PUNCH         MATERIAL = MAT_PUNCH
+       FOUNDATION    MATERIAL = MAT_FOUNDATION
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  SURFNODE  DOFS = 1  DOFTYPE = DISP
+       SYM_X
+      $SUPPRESS  SURFNODE  DOFS = 3  DOFTYPE = DISP
+       SYM_Z
+!
+      $CONTACT SURFACE SURFNODE
+                C1 FOUNDATION  : PUNCH
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOADS PRESS  LPAT = 1  DOFTYPE = DISP
+       PRESSURE  4.000000E+02
+!
+      $CONTACT LOAD  LPAT =       1000  GAPWIDTH = ADD
+                C1  0.000000E+00
+!
+      $NLLOAD  TABLE  TIME = LIST  DOFTYPE = DISP
+                         0.000000E+00  1.000000E+00
+      LPAT = 1           0.000000E+00  1.000000E+00
+      LPAT = 1000        1.000000E+00  1.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_PUNCH  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_FOUNDATION  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
