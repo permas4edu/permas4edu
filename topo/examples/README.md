@@ -29,3 +29,6 @@
 014 - [Reliability-Based Topology Optimization with a Proportional Topology for Reliability](https://doi.org/10.3390/aerospace11060435)
 
 015 - [Plate manufacturing constraint in topology optimization using anisotropic Helmholtz filter](http://dx.doi.org/10.21203/rs.3.rs-3623856/v1)
+
+016 - [Topology optimization of curved thick shells using level set method and non-conforming multi-patch isogeometric analysis](https://doi.org/10.1016/j.cma.2024.117205)
+
