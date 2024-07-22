@@ -32,3 +32,5 @@
 
 016 - [Topology optimization of curved thick shells using level set method and non-conforming multi-patch isogeometric analysis](https://doi.org/10.1016/j.cma.2024.117205)
 
+017 - [The path-engulfment method for topology optimization of structures](https://doi.org/10.1016/j.advengsoft.2024.103715)
+
