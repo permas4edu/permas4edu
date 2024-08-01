@@ -1,0 +1,116 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1        280
+       SFLA2        222          5
+       SFLA2        223        222
+       SFLA2        224        223
+       SFLA2        225        224
+       SFLA2        226        225
+       SFLA2        227        226
+       SFLA2        228        227
+       SFLA2        229        228
+       SFLA2        230        229
+       SFLA2        231        230
+       SFLA2        232        231
+       SFLA2        233        232
+       SFLA2        234        233
+       SFLA2        235        234
+       SFLA2        236        235
+       SFLA2        237        236
+       SFLA2        238        237
+       SFLA2        239        238
+       SFLA2        240        239
+       SFLA2        241        240
+       SFLA2        242        241
+       SFLA2        243        242
+       SFLA2        244        243
+       SFLA2        245        244
+       SFLA2        246        245
+       SFLA2        247        246
+       SFLA2        248        247
+       SFLA2        249        248
+       SFLA2        250        249
+       SFLA2        251        250
+       SFLA2        252        251
+       SFLA2        253        252
+       SFLA2        254        253
+       SFLA2        255        254
+       SFLA2        256        255
+       SFLA2        257        256
+       SFLA2        258        257
+       SFLA2        259        258
+       SFLA2        260        259
+       SFLA2        261        260
+       SFLA2        262        261
+       SFLA2        263        262
+       SFLA2        264        263
+       SFLA2        265        264
+       SFLA2        266        265
+       SFLA2        267        266
+       SFLA2        268        267
+       SFLA2        269        268
+       SFLA2        270        269
+       SFLA2        271        270
+       SFLA2        272        271
+       SFLA2        273        272
+       SFLA2        274        273
+       SFLA2        275        274
+       SFLA2        276        275
+       SFLA2        277        276
+       SFLA2        278        277
+       SFLA2        279        278
+       SFLA2        280        279
+!
+      $NSET NAME = F
+                3
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      1.000000E+00
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ABA_NALL_INP
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F             -1.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
