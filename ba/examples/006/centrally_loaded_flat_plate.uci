@@ -1,0 +1,44 @@
+!
+! Example is adapted from 
+! L.N. Virgin, S.M. Spottswood, R. Perez, C. Cervi
+! Experimental probing of the configuration space of circular, clamped panels
+! International Journal of Non–Linear Mechanics 166 (2024) 104772
+! https://doi.org/10.1016/j.ijnonlinmec.2024.104772
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = centrally_loaded_flat_plate.dat
+    READ PERMAS FILE = centrally_loaded_flat_plate_add.dat
+    READ PERMAS FILE = centrally_loaded_flat_plate_ba.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+SELECT
+    ACTIVE NSET = RADIAL
+    XYDATA ITEM DISP COOR = X RESULT = DEFL DCOMP = 3
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+    ITEM CLEAR
+    ITEM XYDATA NAME = DEFL 
+    GO SPREADSHEET FILE = deflection
+EXEC
+    ACT SIT = STEP_2
+    BUCKLING ANALYSIS MODES = 10 SIGN = POSITIVE
+PRINT
+    PORT RES REPLACE FILE = load_scale_factors.txt
+    DATA OBJECT BVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = buckling_modes
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES lawrie.py deflection_defl.csv'
+RETURN
+STOP

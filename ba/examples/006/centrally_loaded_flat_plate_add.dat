@@ -1,0 +1,342 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          2        590
+       SFLA2          2        869
+       SFLA2        729          3
+       SFLA2        730          3
+       SFLA2          4        659
+       SFLA2        660          4
+       SFLA2        799          5
+       SFLA2          5        800
+       SFLA2        624         14
+       SFLA2        625         14
+       SFLA2         15        694
+       SFLA2         15        695
+       SFLA2         16        764
+       SFLA2         16        765
+       SFLA2        834         17
+       SFLA2        835         17
+       SFLA2        590        591
+       SFLA2        591        592
+       SFLA2        592        593
+       SFLA2        593        594
+       SFLA2        594        595
+       SFLA2        595        596
+       SFLA2        596        597
+       SFLA2        597        598
+       SFLA2        598        599
+       SFLA2        599        600
+       SFLA2        600        601
+       SFLA2        601        602
+       SFLA2        602        603
+       SFLA2        603        604
+       SFLA2        604        605
+       SFLA2        605        606
+       SFLA2        606        607
+       SFLA2        607        608
+       SFLA2        608        609
+       SFLA2        609        610
+       SFLA2        610        611
+       SFLA2        611        612
+       SFLA2        612        613
+       SFLA2        613        614
+       SFLA2        614        615
+       SFLA2        615        616
+       SFLA2        616        617
+       SFLA2        617        618
+       SFLA2        618        619
+       SFLA2        619        620
+       SFLA2        620        621
+       SFLA2        621        622
+       SFLA2        622        623
+       SFLA2        623        624
+       SFLA2        626        625
+       SFLA2        627        626
+       SFLA2        628        627
+       SFLA2        629        628
+       SFLA2        630        629
+       SFLA2        631        630
+       SFLA2        632        631
+       SFLA2        633        632
+       SFLA2        634        633
+       SFLA2        635        634
+       SFLA2        636        635
+       SFLA2        637        636
+       SFLA2        638        637
+       SFLA2        639        638
+       SFLA2        640        639
+       SFLA2        641        640
+       SFLA2        642        641
+       SFLA2        643        642
+       SFLA2        644        643
+       SFLA2        645        644
+       SFLA2        646        645
+       SFLA2        647        646
+       SFLA2        648        647
+       SFLA2        649        648
+       SFLA2        650        649
+       SFLA2        651        650
+       SFLA2        652        651
+       SFLA2        653        652
+       SFLA2        654        653
+       SFLA2        655        654
+       SFLA2        656        655
+       SFLA2        657        656
+       SFLA2        658        657
+       SFLA2        659        658
+       SFLA2        661        660
+       SFLA2        662        661
+       SFLA2        663        662
+       SFLA2        664        663
+       SFLA2        665        664
+       SFLA2        666        665
+       SFLA2        667        666
+       SFLA2        668        667
+       SFLA2        669        668
+       SFLA2        670        669
+       SFLA2        671        670
+       SFLA2        672        671
+       SFLA2        673        672
+       SFLA2        674        673
+       SFLA2        675        674
+       SFLA2        676        675
+       SFLA2        677        676
+       SFLA2        678        677
+       SFLA2        679        678
+       SFLA2        680        679
+       SFLA2        681        680
+       SFLA2        682        681
+       SFLA2        683        682
+       SFLA2        684        683
+       SFLA2        685        684
+       SFLA2        686        685
+       SFLA2        687        686
+       SFLA2        688        687
+       SFLA2        689        688
+       SFLA2        690        689
+       SFLA2        691        690
+       SFLA2        692        691
+       SFLA2        693        692
+       SFLA2        694        693
+       SFLA2        695        696
+       SFLA2        696        697
+       SFLA2        697        698
+       SFLA2        698        699
+       SFLA2        699        700
+       SFLA2        700        701
+       SFLA2        701        702
+       SFLA2        702        703
+       SFLA2        703        704
+       SFLA2        704        705
+       SFLA2        705        706
+       SFLA2        706        707
+       SFLA2        707        708
+       SFLA2        708        709
+       SFLA2        709        710
+       SFLA2        710        711
+       SFLA2        711        712
+       SFLA2        712        713
+       SFLA2        713        714
+       SFLA2        714        715
+       SFLA2        715        716
+       SFLA2        716        717
+       SFLA2        717        718
+       SFLA2        718        719
+       SFLA2        719        720
+       SFLA2        720        721
+       SFLA2        721        722
+       SFLA2        722        723
+       SFLA2        723        724
+       SFLA2        724        725
+       SFLA2        725        726
+       SFLA2        726        727
+       SFLA2        727        728
+       SFLA2        728        729
+       SFLA2        731        730
+       SFLA2        732        731
+       SFLA2        733        732
+       SFLA2        734        733
+       SFLA2        735        734
+       SFLA2        736        735
+       SFLA2        737        736
+       SFLA2        738        737
+       SFLA2        739        738
+       SFLA2        740        739
+       SFLA2        741        740
+       SFLA2        742        741
+       SFLA2        743        742
+       SFLA2        744        743
+       SFLA2        745        744
+       SFLA2        746        745
+       SFLA2        747        746
+       SFLA2        748        747
+       SFLA2        749        748
+       SFLA2        750        749
+       SFLA2        751        750
+       SFLA2        752        751
+       SFLA2        753        752
+       SFLA2        754        753
+       SFLA2        755        754
+       SFLA2        756        755
+       SFLA2        757        756
+       SFLA2        758        757
+       SFLA2        759        758
+       SFLA2        760        759
+       SFLA2        761        760
+       SFLA2        762        761
+       SFLA2        763        762
+       SFLA2        764        763
+       SFLA2        765        766
+       SFLA2        766        767
+       SFLA2        767        768
+       SFLA2        768        769
+       SFLA2        769        770
+       SFLA2        770        771
+       SFLA2        771        772
+       SFLA2        772        773
+       SFLA2        773        774
+       SFLA2        774        775
+       SFLA2        775        776
+       SFLA2        776        777
+       SFLA2        777        778
+       SFLA2        778        779
+       SFLA2        779        780
+       SFLA2        780        781
+       SFLA2        781        782
+       SFLA2        782        783
+       SFLA2        783        784
+       SFLA2        784        785
+       SFLA2        785        786
+       SFLA2        786        787
+       SFLA2        787        788
+       SFLA2        788        789
+       SFLA2        789        790
+       SFLA2        790        791
+       SFLA2        791        792
+       SFLA2        792        793
+       SFLA2        793        794
+       SFLA2        794        795
+       SFLA2        795        796
+       SFLA2        796        797
+       SFLA2        797        798
+       SFLA2        798        799
+       SFLA2        800        801
+       SFLA2        801        802
+       SFLA2        802        803
+       SFLA2        803        804
+       SFLA2        804        805
+       SFLA2        805        806
+       SFLA2        806        807
+       SFLA2        807        808
+       SFLA2        808        809
+       SFLA2        809        810
+       SFLA2        810        811
+       SFLA2        811        812
+       SFLA2        812        813
+       SFLA2        813        814
+       SFLA2        814        815
+       SFLA2        815        816
+       SFLA2        816        817
+       SFLA2        817        818
+       SFLA2        818        819
+       SFLA2        819        820
+       SFLA2        820        821
+       SFLA2        821        822
+       SFLA2        822        823
+       SFLA2        823        824
+       SFLA2        824        825
+       SFLA2        825        826
+       SFLA2        826        827
+       SFLA2        827        828
+       SFLA2        828        829
+       SFLA2        829        830
+       SFLA2        830        831
+       SFLA2        831        832
+       SFLA2        832        833
+       SFLA2        833        834
+       SFLA2        836        835
+       SFLA2        837        836
+       SFLA2        838        837
+       SFLA2        839        838
+       SFLA2        840        839
+       SFLA2        841        840
+       SFLA2        842        841
+       SFLA2        843        842
+       SFLA2        844        843
+       SFLA2        845        844
+       SFLA2        846        845
+       SFLA2        847        846
+       SFLA2        848        847
+       SFLA2        849        848
+       SFLA2        850        849
+       SFLA2        851        850
+       SFLA2        852        851
+       SFLA2        853        852
+       SFLA2        854        853
+       SFLA2        855        854
+       SFLA2        856        855
+       SFLA2        857        856
+       SFLA2        858        857
+       SFLA2        859        858
+       SFLA2        860        859
+       SFLA2        861        860
+       SFLA2        862        861
+       SFLA2        863        862
+       SFLA2        864        863
+       SFLA2        865        864
+       SFLA2        866        865
+       SFLA2        867        866
+       SFLA2        868        867
+       SFLA2        869        868
+!
+      $NSET NAME = F
+                1
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      0.48 ! 0.652 0.776
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3: -1.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

@@ -1,0 +1,30 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = RADIAL
+                1          2          6         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34         35         36         37         38         39         40         41         42
+               43         44         45         46         47         48         49         50         51         52        438        439        440        441
+              442        443        444        445        446        447        448        449        450        451        452        453        454        455
+              456
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
