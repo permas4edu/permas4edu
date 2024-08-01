@@ -9,3 +9,5 @@
 004 - [Computational simplifications and observations on buckling modes of polygonal ring frames under symmetric compressive joint loads](https://doi.org/10.1016/j.istruc.2024.105904)
 
 005 - [On the spatial buckling of elastic columns](https://doi.org/10.1142/S0219455425501469)
+
+006 - [Experimental probing of the configuration space of circular, clamped panels](https://doi.org/10.1016/j.ijnonlinmec.2024.104772)
