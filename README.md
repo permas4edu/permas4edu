@@ -79,6 +79,7 @@ Launch PERMAS Control Center
 | .pro      | PERMAS Protocol file |
 | .stl      | Stereolithrography ASCII and binary |
 | .step .stp | STEP file CAD |  
+| .zst       | zstd is a fast lossless compression algorithm (V20) |
 
 ### Interfaces
 
