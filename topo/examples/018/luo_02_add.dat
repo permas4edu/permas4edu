@@ -1,0 +1,96 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          5          3
+       SFLA2          4         43
+       SFLA2          6          5
+       SFLA2          7          6
+       SFLA2          8          7
+       SFLA2          9          8
+       SFLA2         10          9
+       SFLA2         11         10
+       SFLA2         12         11
+       SFLA2         13         12
+       SFLA2         14         13
+       SFLA2         15         14
+       SFLA2         16         15
+       SFLA2         17         16
+       SFLA2         18         17
+       SFLA2         19         18
+       SFLA2         20         19
+       SFLA2         21         20
+       SFLA2         22         21
+       SFLA2         23         22
+       SFLA2         24         23
+       SFLA2         25         24
+       SFLA2         26         25
+       SFLA2         27         26
+       SFLA2         28         27
+       SFLA2         29         28
+       SFLA2         30         29
+       SFLA2         31         30
+       SFLA2         32         31
+       SFLA2         33         32
+       SFLA2         34         33
+       SFLA2         35         34
+       SFLA2         36         35
+       SFLA2         37         36
+       SFLA2         38         37
+       SFLA2         39         38
+       SFLA2         40         39
+       SFLA2         41         40
+       SFLA2         42         41
+       SFLA2         43         42
+!
+      $NSET NAME = F
+                2
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      1.000000E+00
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ABA_NALL_INP
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F              1.000000E+03
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
