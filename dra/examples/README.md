@@ -19,3 +19,5 @@
 009 - [Physics-informed neural operator solver and super-resolution for solid mechanics](http://dx.doi.org/10.1111/mice.13292)
 
 010 . [Transient Dynamic Response of Generally Shaped Arches under Interval Uncertainties](https://doi.org/10.3390/app14135918)
+
+011 - [A Node-Based Smoothed Finite Element Method (NS-FEM) for Free and Forced Vibration Analysis of Three-Dimensional (3D) Structures](https://doi.org/10.1142/S0219876223420100)
