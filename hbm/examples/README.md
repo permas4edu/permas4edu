@@ -53,3 +53,5 @@
 026 - [Explicit Backbone Curves from Spectral Submanifolds of Forced-Damped Nonlinear Mechanical Systems](https://doi.org/10.1098/rspa.2018.0083)
 
 027 - [A general and efficient harmonic balance method for nonlinear dynamic simulation](https://doi.org/10.1016/j.ijmecsci.2024.109388)
+
+028 - [Frequency response based identification of nonlinear oscillators](https://doi.org/10.1016/j.jsv.2024.118651)
