@@ -13,10 +13,12 @@ EXPORT
     ITEM MODL 
     GO PERMAS BINARY FILE = normal_modes
 EXEC
+    ACTIVE NSET = RESP
     MODAL TIMEHISTORY SITUATION = STEP_2 &
                       LOOPS     = 800    &
                       DELTAT    = 1.E-4  &
                       TSTART    = 0.0    &
+                      PRIMRES   = REDUCED&
                       SOLV      = NEWMARK
     ACT SIT = STEP_2
 SELECT
