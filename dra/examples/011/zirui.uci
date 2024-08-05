@@ -1,0 +1,30 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = zirui.dat
+    READ PERMAS FILE = zirui_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 12
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_2 &
+                      LOOPS     = 800    &
+                      DELTAT    = 1.E-4  &
+                      TSTART    = 0.0    &
+                      SOLV      = NEWMARK
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = RESP
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = modal_resp
+TASK END
+STOP
