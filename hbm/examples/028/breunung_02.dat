@@ -1,0 +1,120 @@
+!
+!  Equation (28)
+!
+$DEFVAR C     TYPE = REAL LIST = 4.2
+$DEFVAR K     TYPE = REAL LIST = 84748.84
+$DEFVAR K_3   TYPE = REAL LIST = -6042.78
+$DEFVAR K_5   TYPE = REAL LIST = 2424.39
+$DEFVAR NU    TYPE = REAL LIST = 7.13
+$DEFVAR F     TYPE = REAL LIST = 410.89 616.33 821.77 
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,1,1
+$DEFVAR LOADVAR TYPE = NAME GEN = L_STEP_,1,1
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+   $LOOP I = 1, 3
+
+       $SITUATION NAME = SITNAME(I)
+           DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_1
+       $END SITUATION
+    
+   $ENDLOOP
+
+   $STRUCTURE
+
+     $NSET NAME = N101
+        101
+
+     $ELSYS RSYS
+        NL_C RSYS = 0
+
+     $COOR 
+        100 0.0 0.0 0.0
+        101 1.0 0.0 0.0
+        102 0.0 1.0 0.0
+
+     $ELEMENT TYPE = MASS3 ESET = M
+          1 101
+
+     $ELEMENT TYPE = DAMP1 ESET = C
+          2 100 101
+
+     $ELEMENT TYPE = SPRING1 ESET = K
+          3 100 101
+
+     $ELEMENT TYPE = NLSTIFF ESET = NL_K
+          4 100 101
+
+     $ELEMENT TYPE = HYST3 ESET = NL_C
+          5 100 101 102
+
+   $END STRUCTURE
+
+   $SYSTEM NAME = S_STEP_1
+
+      $GEODAT MASS CONT = MASS
+        GD_M 1.0
+
+      $GEODAT DAMPER CONT = DAMP
+        GD_C C(1)
+ 
+      $GEODAT SPRING CONT = STIFF
+        GD_K K(1)
+
+      $GEODAT SPRING CONT = FUNCTION
+        GD_NL_K 100
+
+      $GEODAT HYST CONT = FUNCTION
+        GD_NL_C 101
+
+      $ELPROP
+        M    GEODAT = GD_M
+        C    GEODAT = GD_C
+        K    GEODAT = GD_K
+        NL_C GEODAT = GD_NL_C
+        NL_K GEODAT = GD_NL_K
+
+   $END SYSTEM
+
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,2,3
+         100 102
+
+      $SUPPRESS DOFS = 2,3
+         101
+
+   $END CONSTRAINTS
+
+   $LOOP I = 1, 3
+
+       $LOADING NAME = LOADVAR(I)
+
+          $CONLOAD LPAT = 1
+             101 1: F(I)
+
+          $FREQLOAD 
+             LPAT = 1 TYPE = COSINE
+
+       $END LOADING
+
+   $ENDLOOP
+
+   $RESULTS NAME = R_STEP_1
+
+      $FREQUENCY PRIMARY = EQUI 
+        45.0 48.0 0.02
+
+   $END RESULTS
+   
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 100
+       F(X) = K_3(1)*X^3+K_5(1)*X^5
+
+    $FUNCTION FORMULA FID = 101
+       F(x,xp,y,yp,z,zp,z1,z1p,z2,z2p,z3,z3p) = NU(1)*x**2*xp 
+    
+$EXIT FUNCTION
+$FIN

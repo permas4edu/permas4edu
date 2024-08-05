@@ -1,0 +1,42 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = breunung_02.dat
+RETURN
+
+EXEC
+CLOOP LOOPS = 1,3
+
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE      = 1024         &
+                                ACCURACY     = 5.0          &
+                                NOFHARMONICS = 7            &
+                                MODE         = FOLLOWPATH   &
+                                DIRECTION    = ASCENDING    &
+                                STARTFREQ    = 45.0         &
+                                RESULTS      = ALL
+    SELECT
+        ACTIVE NSET = N101
+        XYDATA ITEM DISP RESULT = URESP DCOMP = 1
+        XYDATA ITEM VELO RESULT = VRESP DCOMP = 1
+        XYDATA ITEM ACCE RESULT = ARESP DCOMP = 1
+    EXPORT 
+        ITEM CLEAR
+        ITEM XYDATA NAME = URESP
+        GO SPREADSHEET FILE = 'u_hbm_xy_%.3(cloop)'         
+        ITEM CLEAR
+        ITEM XYDATA NAME = URESP
+        GO SPREADSHEET FILE = 'v_hbm_xy_%.3(cloop)'  
+        ITEM CLEAR
+        ITEM XYDATA NAME = ARESP
+        GO SPREADSHEET FILE = 'a_hbm_xy_%.3(cloop)' 
+    TASK END
+
+CLOOP END
+
+USER
+    CALL TOOL6 P1 = 'pyINTES breunung_02.py'
+RETURN
+STOP

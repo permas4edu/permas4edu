@@ -1,0 +1,34 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = breunung_03.dat
+RETURN
+
+EXEC
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024         &
+                            ACCURACY     = 5.0          &
+                            NOFHARMONICS = 7            &
+                            MODE         = FOLLOWPATH   &
+                            DIRECTION    = ASCENDING    &
+                            STARTFREQ    = 38.0         &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = N101
+    XYDATA ITEM DISP RESULT = URESP DCOMP = 1
+    XYDATA ITEM VELO RESULT = VRESP DCOMP = 1
+    XYDATA ITEM ACCE RESULT = ARESP DCOMP = 1
+EXPORT 
+    ITEM CLEAR
+    ITEM XYDATA NAME = URESP
+    GO SPREADSHEET FILE = u_hbm_xy         
+    ITEM CLEAR
+    ITEM XYDATA NAME = URESP
+    GO SPREADSHEET FILE = v_hbm_xy  
+    ITEM CLEAR
+    ITEM XYDATA NAME = ARESP
+    GO SPREADSHEET FILE = a_hbm_xy 
+TASK END
+STOP
