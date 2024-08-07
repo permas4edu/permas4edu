@@ -33,4 +33,6 @@
 
 016 - [Reduced and All-at-Once Approaches for Model Calibration and Discovery in Computational Solid Mechanics](https://doi.org/10.1115/1.4066118)
 
+017 - [Caveats of three direct linear solvers for finite element analyses](https://doi.org/10.1002/nme.7545)
+
 
