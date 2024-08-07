@@ -2,3 +2,5 @@ The example is adapted from [Caveats of three direct linear solvers for finite e
 
 ![Pressurized cylinder](Pressurized_Cylinder.png)
 
+![Finite element model](pressurized_cylinder_model.png)
+
