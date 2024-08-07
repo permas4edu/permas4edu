@@ -75,3 +75,5 @@
 037 - [Effect of optimally placed sensors on the quality of estimated modal parameters](http://dx.doi.org/10.1088/1742-6596/2647/19/192002)
 
 038 - [An experimental study on the performance of virtual sensing using optimal and regular physical sensors placement](https://iopscience.iop.org/article/10.1088/1742-6596/2647/19/192003)
+
+039 - [Physics-guided deep learning based on modal sensitivity for structural damage identification with unseen damage patterns](https://doi.org/10.1016/j.engstruct.2024.118510)
