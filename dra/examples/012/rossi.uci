@@ -1,0 +1,57 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = rossi.dat
+    READ PERMAS FILE = rossi_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT TIMEHISTORY LOOPS  =    1000 &
+                       DELTAT =  0.0015 &
+                       TSTART =     0.0 &
+                       INNER  =       1 &
+                       OUTPUT =     ALL &
+                       STORE  =     ALL &
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_3  &
+                      LOOPS     =   1000  &
+                      DELTAT    = 0.0015  &
+                      TSTART    =    0.0  &
+                      INNER     =      1  &
+                      OUTPUT    =    ALL  &
+                      SOLV      = NEWMARK 
+    ACT SIT = STEP_3
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES rossi.py step_1_resp.csv step_3_resp.csv'
+RETURN
+STOP
+
+  
