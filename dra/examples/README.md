@@ -21,3 +21,5 @@
 010 . [Transient Dynamic Response of Generally Shaped Arches under Interval Uncertainties](https://doi.org/10.3390/app14135918)
 
 011 - [A Node-Based Smoothed Finite Element Method (NS-FEM) for Free and Forced Vibration Analysis of Three-Dimensional (3D) Structures](https://doi.org/10.1142/S0219876223420100)
+
+012 - [A review of automatic time-stepping strategies on numerical time integration for structural dynamics analysis](http://dx.doi.org/10.1016/j.engstruct.2014.08.016)
