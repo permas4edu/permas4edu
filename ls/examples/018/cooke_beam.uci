@@ -1,0 +1,18 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = cooke_beam.dat
+    READ PERMAS FILE = cooke_beam_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+    GEN EL STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
