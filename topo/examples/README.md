@@ -34,3 +34,8 @@
 
 017 - [The path-engulfment method for topology optimization of structures](https://doi.org/10.1016/j.advengsoft.2024.103715)
 
+018 - [An efficient isogeometric topology optimization based on the adaptive damped geometric multigrid method](https://doi.org/10.1016/j.advengsoft.2024.103712)
+
+019 . [Achieving self-supported enclosed voids and machinable support structures in topology optimization for additive manufacturing](https://doi.org/10.1007/s00158-024-03858-z)
+
+
