@@ -1,0 +1,33 @@
+!
+!  Example is taken from
+!  A comparative study on the effectiveness of a moving
+!  versus a fixed passive damper in beam vibration mitigation
+!  https://doi.org/10.1007/s00707-024-04048-0
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = manolis.dat
+    READ PERMAS FILE = manolis_add.dat
+    READ PERMAS FILE = manolis_tmd.dat
+    READ PERMAS FILE = manolis_moving_mass.dat
+    READ PERMAS FILE = manolis_positioning.dat ! TMD and moving mass can change their positions independently along the beam
+RETURN
+
+TASK LOOPS = 9 !  3^2
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL NEWCOOR ! Model with current position of TMD and moving mass
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING ! METHOD = LHC NSAMPLES = 1
+TASK END
+EXPORT 
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+STOP

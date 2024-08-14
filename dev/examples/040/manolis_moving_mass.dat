@@ -1,0 +1,36 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+              204        204
+!
+      $MPC ILINE  DPDOFS = 1,2,3  DPITYP = NODE  DOFTYPE = DISP
+                2 BEAM        : MOVING_MASS
+!
+      $NSET NAME = MOVING_MASS
+              204
+      $ESET NAME = MOVING_MASS
+              204
+!
+      $COOR
+              204  2.915000E+00  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = MOVING_MASS
+       MOVING_MASS
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_MOVING_MASS  2.700000E+01  2.700000E+01  2.700000E+01
+!
+      $ELPROP
+       MOVING_MASS   GEODAT = GD_MOVING_MASS
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

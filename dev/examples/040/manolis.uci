@@ -1,0 +1,24 @@
+!
+!  Example is taken from
+!  A comparative study on the effectiveness of a moving
+!  versus a fixed passive damper in beam vibration mitigation
+!  https://doi.org/10.1007/s00707-024-04048-0
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = manolis.dat
+    READ PERMAS FILE = manolis_add.dat
+    READ PERMAS FILE = manolis_tmd.dat
+    READ PERMAS FILE = manolis_moving_mass.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
