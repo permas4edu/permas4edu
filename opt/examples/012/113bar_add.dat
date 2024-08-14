@@ -1,0 +1,220 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = SPC
+               16         24         46         54
+!
+      $NSET NAME = UPPER_CHORD
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         31         32         33         34         35         36         37         38         39         40         41         42         43
+               44
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       NODEDISP
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       SPC
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_1          3.870960E+03
+       GD_2          3.870960E+03
+       GD_3          3.870960E+03
+       GD_4          3.870960E+03
+       GD_5          3.870960E+03
+       GD_6          3.870960E+03
+       GD_7          3.870960E+03
+       GD_8          3.870960E+03
+       GD_9          3.870960E+03
+       GD_10         3.870960E+03
+       GD_11         3.870960E+03
+       GD_12         3.870960E+03
+       GD_13         3.870960E+03
+       GD_14         3.870960E+03
+       GD_15         3.870960E+03
+       GD_16         3.870960E+03
+       GD_17         3.870960E+03
+       GD_18         3.870960E+03
+       GD_19         3.870960E+03
+       GD_20         3.870960E+03
+       GD_21         3.870960E+03
+       GD_22         3.870960E+03
+       GD_23         3.870960E+03
+       GD_24         3.870960E+03
+       GD_25         3.870960E+03
+       GD_26         3.870960E+03
+       GD_27         3.870960E+03
+       GD_28         3.870960E+03
+       GD_29         3.870960E+03
+       GD_30         3.870960E+03
+       GD_31         3.870960E+03
+       GD_32         3.870960E+03
+       GD_33         3.870960E+03
+       GD_34         3.870960E+03
+       GD_35         3.870960E+03
+       GD_36         3.870960E+03
+       GD_37         3.870960E+03
+       GD_38         3.870960E+03
+       GD_39         3.870960E+03
+       GD_40         3.870960E+03
+       GD_41         3.870960E+03
+       GD_42         3.870960E+03
+       GD_43         3.870960E+03
+!
+      $ELPROP
+                1    GEODAT = GD_1
+                2    GEODAT = GD_2
+                3    GEODAT = GD_3
+                4    GEODAT = GD_4
+                5    GEODAT = GD_5
+                6    GEODAT = GD_6
+                7    GEODAT = GD_7
+                8    GEODAT = GD_8
+                9    GEODAT = GD_9
+               10    GEODAT = GD_10
+               11    GEODAT = GD_11
+               12    GEODAT = GD_12
+               13    GEODAT = GD_13
+               14    GEODAT = GD_14
+               15    GEODAT = GD_15
+               16    GEODAT = GD_16
+               17    GEODAT = GD_17
+               18    GEODAT = GD_18
+               19    GEODAT = GD_19
+               20    GEODAT = GD_20
+               21    GEODAT = GD_21
+               22    GEODAT = GD_22
+               23    GEODAT = GD_23
+               24    GEODAT = GD_24
+               25    GEODAT = GD_25
+               26    GEODAT = GD_26
+               27    GEODAT = GD_27
+               28    GEODAT = GD_28
+               29    GEODAT = GD_29
+               30    GEODAT = GD_30
+               31    GEODAT = GD_30
+               32    GEODAT = GD_31
+               33    GEODAT = GD_31
+               34    GEODAT = GD_32
+               35    GEODAT = GD_32
+               36    GEODAT = GD_33
+               37    GEODAT = GD_33
+               38    GEODAT = GD_34
+               39    GEODAT = GD_34
+               40    GEODAT = GD_35
+               41    GEODAT = GD_35
+               42    GEODAT = GD_36
+               43    GEODAT = GD_36
+               44    GEODAT = GD_37
+               45    GEODAT = GD_37
+               46    GEODAT = GD_38
+               47    GEODAT = GD_38
+               48    GEODAT = GD_39
+               49    GEODAT = GD_39
+               50    GEODAT = GD_40
+               51    GEODAT = GD_40
+               52    GEODAT = GD_41
+               53    GEODAT = GD_41
+               54    GEODAT = GD_42
+               55    GEODAT = GD_42
+               56    GEODAT = GD_43
+               57    GEODAT = GD_43
+               58    GEODAT = GD_1
+               59    GEODAT = GD_2
+               60    GEODAT = GD_3
+               61    GEODAT = GD_4
+               62    GEODAT = GD_5
+               63    GEODAT = GD_6
+               64    GEODAT = GD_7
+               65    GEODAT = GD_8
+               66    GEODAT = GD_9
+               67    GEODAT = GD_10
+               68    GEODAT = GD_11
+               69    GEODAT = GD_12
+               70    GEODAT = GD_13
+               71    GEODAT = GD_14
+               72    GEODAT = GD_15
+               73    GEODAT = GD_16
+               74    GEODAT = GD_17
+               75    GEODAT = GD_18
+               76    GEODAT = GD_19
+               77    GEODAT = GD_20
+               78    GEODAT = GD_21
+               79    GEODAT = GD_22
+               80    GEODAT = GD_23
+               81    GEODAT = GD_24
+               82    GEODAT = GD_25
+               83    GEODAT = GD_26
+               84    GEODAT = GD_27
+               85    GEODAT = GD_28
+               86    GEODAT = GD_30
+               87    GEODAT = GD_30
+               88    GEODAT = GD_31
+               89    GEODAT = GD_31
+               90    GEODAT = GD_32
+               91    GEODAT = GD_32
+               92    GEODAT = GD_33
+               93    GEODAT = GD_33
+               94    GEODAT = GD_34
+               95    GEODAT = GD_34
+               96    GEODAT = GD_35
+               97    GEODAT = GD_35
+               98    GEODAT = GD_36
+               99    GEODAT = GD_36
+              100    GEODAT = GD_37
+              101    GEODAT = GD_37
+              102    GEODAT = GD_38
+              103    GEODAT = GD_38
+              104    GEODAT = GD_39
+              105    GEODAT = GD_39
+              106    GEODAT = GD_40
+              107    GEODAT = GD_40
+              108    GEODAT = GD_41
+              109    GEODAT = GD_41
+              110    GEODAT = GD_42
+              111    GEODAT = GD_42
+              112    GEODAT = GD_43
+              113    GEODAT = GD_43
+!
+         TRUSS      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       UPPER_CHORD  2:  1.000000E+05
+!
+      $CONLOAD  LPAT = 2  DOFTYPE = DISP
+       UPPER_CHORD  2:  5.000000E+04
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
