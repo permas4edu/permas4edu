@@ -250,8 +250,15 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        GD_M_TMD      2.700000E+01  2.700000E+01  2.700000E+01 ! Mass 0.027 tn 
       $GEODAT SPRING    CONT = STIFF
        GD_K_TMD      1.220000E+05 ! stiffness
+!
+!     Table 3 xi=0.0075   \omega=sqrt(k/m)
+!     k = 122.0/1637.0 kN/m  m = 27 kg 
+!     f = 10.70/39.18 [Hz]
+!
       $GEODAT DAMPER    CONT = DAMP
-       GD_C_TMD      1.000000E+01 ! viscous damper 
+       GD_C_TMD      27.224070232057514 ! viscous damper c = 2 m \omega_1 \xi
+!       GD_C_TMD      99.72349271861671 ! viscous damper c = 2 m \omega_2 \xi
+
 !
       $ELPROP
        M_TMD         GEODAT = GD_M_TMD
