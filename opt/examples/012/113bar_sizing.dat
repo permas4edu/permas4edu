@@ -1,0 +1,273 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DFLA
+                9          9:          9         66
+               12         12:         12         69
+                3          3:          3         60
+               11         11:         11         68
+                8          8:          8         65
+               15         15:         15         72
+               16         16:         16         73
+               18         18:         18         75
+               24         24:         24         81
+                4          4:          4         61
+               20         20:         20         77
+               13         13:         13         70
+                5          5:          5         62
+               22         22:         22         79
+               23         23:         23         80
+               27         27:         27         84
+               28         28:         28         85
+               26         26:         26         83
+               29         29:         29
+               25         25:         25         82
+               31         31:         32         33         88         89
+               21         21:         21         78
+               32         32:         34         35         90         91
+               19         19:         19         76
+               33         33:         36         37         92         93
+                2          2:          2         59
+                7          7:          7         64
+               35         35:         40         41         96         97
+               36         36:         42         43         98         99
+               37         37:         44         45        100        101
+               38         38:         46         47        102        103
+               40         40:         50         51        106        107
+               17         17:         17         74
+               41         41:         52         53        108        109
+               42         42:         54         55        110        111
+               14         14:         14         71
+               43         43:         56         57        112        113
+               39         39:         48         49        104        105
+               10         10:         10         67
+               30         30:         30         31         86         87
+               34         34:         38         39         94         95
+                1          1:          1         58
+                6          6:          6         63
+!
+      $NSET NAME = N20
+               20
+      $NSET NAME = N30
+               30
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR FLANGE  NAME = GD_1  DEID = 1  NODES = ALL
+      SECTION          1:          1
+      $DVGPAR FLANGE  NAME = GD_2  DEID = 2  NODES = ALL
+      SECTION          1:          2
+      $DVGPAR FLANGE  NAME = GD_3  DEID = 3  NODES = ALL
+      SECTION          1:          3
+      $DVGPAR FLANGE  NAME = GD_4  DEID = 4  NODES = ALL
+      SECTION          1:          4
+      $DVGPAR FLANGE  NAME = GD_5  DEID = 5  NODES = ALL
+      SECTION          1:          5
+      $DVGPAR FLANGE  NAME = GD_6  DEID = 6  NODES = ALL
+      SECTION          1:          6
+      $DVGPAR FLANGE  NAME = GD_7  DEID = 7  NODES = ALL
+      SECTION          1:          7
+      $DVGPAR FLANGE  NAME = GD_8  DEID = 8  NODES = ALL
+      SECTION          1:          8
+      $DVGPAR FLANGE  NAME = GD_9  DEID = 9  NODES = ALL
+      SECTION          1:          9
+      $DVGPAR FLANGE  NAME = GD_10  DEID = 10  NODES = ALL
+      SECTION          1:         10
+      $DVGPAR FLANGE  NAME = GD_11  DEID = 11  NODES = ALL
+      SECTION          1:         11
+      $DVGPAR FLANGE  NAME = GD_12  DEID = 12  NODES = ALL
+      SECTION          1:         12
+      $DVGPAR FLANGE  NAME = GD_13  DEID = 13  NODES = ALL
+      SECTION          1:         13
+      $DVGPAR FLANGE  NAME = GD_14  DEID = 14  NODES = ALL
+      SECTION          1:         14
+      $DVGPAR FLANGE  NAME = GD_15  DEID = 15  NODES = ALL
+      SECTION          1:         15
+      $DVGPAR FLANGE  NAME = GD_16  DEID = 16  NODES = ALL
+      SECTION          1:         16
+      $DVGPAR FLANGE  NAME = GD_17  DEID = 17  NODES = ALL
+      SECTION          1:         17
+      $DVGPAR FLANGE  NAME = GD_18  DEID = 18  NODES = ALL
+      SECTION          1:         18
+      $DVGPAR FLANGE  NAME = GD_19  DEID = 19  NODES = ALL
+      SECTION          1:         19
+      $DVGPAR FLANGE  NAME = GD_20  DEID = 20  NODES = ALL
+      SECTION          1:         20
+      $DVGPAR FLANGE  NAME = GD_21  DEID = 21  NODES = ALL
+      SECTION          1:         21
+      $DVGPAR FLANGE  NAME = GD_22  DEID = 22  NODES = ALL
+      SECTION          1:         22
+      $DVGPAR FLANGE  NAME = GD_23  DEID = 23  NODES = ALL
+      SECTION          1:         23
+      $DVGPAR FLANGE  NAME = GD_24  DEID = 24  NODES = ALL
+      SECTION          1:         24
+      $DVGPAR FLANGE  NAME = GD_25  DEID = 25  NODES = ALL
+      SECTION          1:         25
+      $DVGPAR FLANGE  NAME = GD_26  DEID = 26  NODES = ALL
+      SECTION          1:         26
+      $DVGPAR FLANGE  NAME = GD_27  DEID = 27  NODES = ALL
+      SECTION          1:         27
+      $DVGPAR FLANGE  NAME = GD_28  DEID = 28  NODES = ALL
+      SECTION          1:         28
+      $DVGPAR FLANGE  NAME = GD_29  DEID = 29  NODES = ALL
+      SECTION          1:         29
+      $DVGPAR FLANGE  NAME = GD_30  DEID = 30  NODES = ALL
+      SECTION          1:         30
+      $DVGPAR FLANGE  NAME = GD_31  DEID = 31  NODES = ALL
+      SECTION          1:         31
+      $DVGPAR FLANGE  NAME = GD_32  DEID = 32  NODES = ALL
+      SECTION          1:         32
+      $DVGPAR FLANGE  NAME = GD_33  DEID = 33  NODES = ALL
+      SECTION          1:         33
+      $DVGPAR FLANGE  NAME = GD_34  DEID = 34  NODES = ALL
+      SECTION          1:         34
+      $DVGPAR FLANGE  NAME = GD_35  DEID = 35  NODES = ALL
+      SECTION          1:         35
+      $DVGPAR FLANGE  NAME = GD_36  DEID = 36  NODES = ALL
+      SECTION          1:         36
+      $DVGPAR FLANGE  NAME = GD_37  DEID = 37  NODES = ALL
+      SECTION          1:         37
+      $DVGPAR FLANGE  NAME = GD_38  DEID = 38  NODES = ALL
+      SECTION          1:         38
+      $DVGPAR FLANGE  NAME = GD_39  DEID = 39  NODES = ALL
+      SECTION          1:         39
+      $DVGPAR FLANGE  NAME = GD_40  DEID = 40  NODES = ALL
+      SECTION          1:         40
+      $DVGPAR FLANGE  NAME = GD_41  DEID = 41  NODES = ALL
+      SECTION          1:         41
+      $DVGPAR FLANGE  NAME = GD_42  DEID = 42  NODES = ALL
+      SECTION          1:         42
+      $DVGPAR FLANGE  NAME = GD_43  DEID = 43  NODES = ALL
+      SECTION          1:         43
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+!     Lower and upper bounds for cross-sectional areas
+!
+      $DSVLIMIT
+               43  3.870960E+03  2.258060E+04
+                1  3.870960E+03  2.258060E+04
+                2  3.870960E+03  2.258060E+04
+                3  3.870960E+03  2.258060E+04
+                4  3.870960E+03  2.258060E+04
+                5  3.870960E+03  2.258060E+04
+                6  3.870960E+03  2.258060E+04
+                7  3.870960E+03  2.258060E+04
+                8  3.870960E+03  2.258060E+04
+                9  3.870960E+03  2.258060E+04
+               10  3.870960E+03  2.258060E+04
+               11  3.870960E+03  2.258060E+04
+               12  3.870960E+03  2.258060E+04
+               13  3.870960E+03  2.258060E+04
+               14  3.870960E+03  2.258060E+04
+               15  3.870960E+03  2.258060E+04
+               16  3.870960E+03  2.258060E+04
+               17  3.870960E+03  2.258060E+04
+               18  3.870960E+03  2.258060E+04
+               19  3.870960E+03  2.258060E+04
+               20  3.870960E+03  2.258060E+04
+               21  3.870960E+03  2.258060E+04
+               22  3.870960E+03  2.258060E+04
+               23  3.870960E+03  2.258060E+04
+               24  3.870960E+03  2.258060E+04
+               25  3.870960E+03  2.258060E+04
+               26  3.870960E+03  2.258060E+04
+               27  3.870960E+03  2.258060E+04
+               28  3.870960E+03  2.258060E+04
+               29  3.870960E+03  2.258060E+04
+               30  3.870960E+03  2.258060E+04
+               31  3.870960E+03  2.258060E+04
+               32  3.870960E+03  2.258060E+04
+               33  3.870960E+03  2.258060E+04
+               34  3.870960E+03  2.258060E+04
+               35  3.870960E+03  2.258060E+04
+               36  3.870960E+03  2.258060E+04
+               37  3.870960E+03  2.258060E+04
+               38  3.870960E+03  2.258060E+04
+               39  3.870960E+03  2.258060E+04
+               40  3.870960E+03  2.258060E+04
+               41  3.870960E+03  2.258060E+04
+               42  3.870960E+03  2.258060E+04
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        0.000000E+00
+
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_1  LPAT = ALL  DATTYPE = REAL
+      N20_Y       : N20         2      NO        4.310000E+01:        100
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_1  LPAT = ALL  DATTYPE = REAL
+      N30_Y       : N20         2      NO        4.310000E+01:        100
+!
+      $DCFUNCTION CSTID = MAGNITUDE FUNCTION = 100 EQUALITY = NO UPPER = 4.310000E+01
+        1 DCONSTRAINT : N20_Y : 1
+        2 DCONSTRAINT : N30_Y : 1
+!
+!     Minimize weight s.t. a displacement constraint 
+!
+      $DOBJECT  CONSTRAINT = WGT  TARGET = MIN
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+               11  1.000000E-01
+               12  1.000000E-01
+               13  1.000000E-01
+               14  1.000000E-01
+               15  1.000000E-01
+               16  1.000000E-01
+               17  1.000000E-01
+               18  1.000000E-01
+               19  1.000000E-01
+               20  1.000000E-01
+               21  1.000000E-01
+               22  1.000000E-01
+               23  1.000000E-01
+               24  1.000000E-01
+               25  1.000000E-01
+               26  1.000000E-01
+               27  1.000000E-01
+               28  1.000000E-01
+               29  1.000000E-01
+               30  1.000000E-01
+               31  1.000000E-01
+               32  1.000000E-01
+               33  1.000000E-01
+               34  1.000000E-01
+               35  1.000000E-01
+               36  1.000000E-01
+               37  1.000000E-01
+               38  1.000000E-01
+               39  1.000000E-01
+               40  1.000000E-01
+               41  1.000000E-01
+               42  1.000000E-01
+               43  1.000000E-01
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 100
+     F(Y1,Y2) = SQRT(Y1^2+Y2^2)
+
+$EXIT FUNCTION 
+!------------------------------------
+$FIN
