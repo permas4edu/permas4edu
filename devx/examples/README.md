@@ -22,3 +22,4 @@
 
 0011 - [Vibration Reduction on Circular Disks with Vibroacoustic Metamaterials](https://doi.org/10.3390/app14114637)
 
+0012 - [Analysing modal coupling in non‑classically damped systems: beyond Rayleigh’s damping hypothesis—a comparative study](https://doi.org/10.1007/s42107-024-00999-w)
