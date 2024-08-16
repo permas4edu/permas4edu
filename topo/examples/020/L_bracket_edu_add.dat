@@ -1,0 +1,110 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          6        264
+       SFLA2        302          7
+       SFLA2        264        265
+       SFLA2        265        266
+       SFLA2        266        267
+       SFLA2        267        268
+       SFLA2        268        269
+       SFLA2        269        270
+       SFLA2        270        271
+       SFLA2        271        272
+       SFLA2        272        273
+       SFLA2        273        274
+       SFLA2        274        275
+       SFLA2        275        276
+       SFLA2        276        277
+       SFLA2        277        278
+       SFLA2        278        279
+       SFLA2        279        280
+       SFLA2        280        281
+       SFLA2        281        282
+       SFLA2        282        283
+       SFLA2        283        284
+       SFLA2        284        285
+       SFLA2        285        286
+       SFLA2        286        287
+       SFLA2        287        288
+       SFLA2        288        289
+       SFLA2        289        290
+       SFLA2        290        291
+       SFLA2        291        292
+       SFLA2        292        293
+       SFLA2        293        294
+       SFLA2        294        295
+       SFLA2        295        296
+       SFLA2        296        297
+       SFLA2        297        298
+       SFLA2        298        299
+       SFLA2        299        300
+       SFLA2        300        301
+       SFLA2        301        302
+      $LINE GEO  LNID =          2
+       SFLA2        145          4
+       SFLA2        139        140
+       SFLA2        140        141
+       SFLA2        141        142
+       SFLA2        142        143
+       SFLA2        143        144
+       SFLA2        144        145
+!
+      $LNSET NAME = CLAMPED
+                1
+      $LNSET NAME = LOAD
+                2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_BRACKET    1.000000E+00
+!
+      $ELPROP
+       BRACKET       GEODAT = GD_BRACKET    MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ALL_NODES
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOAD LINE2D  LPAT = 1  IDS = ELGEO  FACTOR = -1.0 NODES = ALL  DOFTYPE = DISP
+             4000  2 :  1.000000E+00  0.000000E+00
+             3994  2 :  1.000000E+00  0.000000E+00
+             3995  2 :  1.000000E+00  0.000000E+00
+             3996  2 :  1.000000E+00  0.000000E+00
+             3997  2 :  1.000000E+00  0.000000E+00
+             3998  2 :  1.000000E+00  0.000000E+00
+             3999  2 :  1.000000E+00  0.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.000000E+00
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.000000E+06  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
