@@ -38,4 +38,5 @@
 
 019 . [Achieving self-supported enclosed voids and machinable support structures in topology optimization for additive manufacturing](https://doi.org/10.1007/s00158-024-03858-z)
 
+020 - [An improved evolutionary structure optimization method considering stress minimization and smooth design](https://doi.org/10.1002/nme.7551)
 
