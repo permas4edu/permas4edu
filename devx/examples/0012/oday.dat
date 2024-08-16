@@ -1,0 +1,146 @@
+$DEFVAR M TYPE = REAL LIST = 1.E3
+$DEFVAR K TYPE = REAL LIST = 1.E5
+$DEFVAR XI TYPE = REAL LIST = 0.01 0.15
+
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_3  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_4  PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2
+   $END SITUATION
+
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = SPRING1
+               11        100        101
+               12        101        102
+               13        102        103
+               14        103        104
+               15        104        105
+               16        105        106
+               17        106        107
+               18        107        108
+               19        108        109
+               20        109        110
+!               21        110        111
+      $ELEMENT TYPE = MASS3
+                1        101
+                2        102
+                3        103
+                4        104
+                5        105
+                6        106
+                7        107
+                8        108
+                9        109
+               10        110
+      $ELEMENT TYPE = DAMP1
+               22        101        102
+               23        105        106
+               24        109        110
+!
+      $NSET NAME = GROUND
+              100        111
+      $ESET NAME = C
+               22         23         24
+      $ESET NAME = K
+               11         12         13         14         15         16         17         18         19         20       !  21
+      $ESET NAME = M
+                1          2          3          4          5          6          7          8          9         10
+!
+      $COOR
+              100  0.000000E+00  0.000000E+00  0.000000E+00
+              101  1.000000E+00  0.000000E+00  0.000000E+00
+              102  2.000000E+00  0.000000E+00  0.000000E+00
+              103  3.000000E+00  0.000000E+00  0.000000E+00
+              104  4.000000E+00  0.000000E+00  0.000000E+00
+              105  5.000000E+00  0.000000E+00  0.000000E+00
+              106  6.000000E+00  0.000000E+00  0.000000E+00
+              107  7.000000E+00  0.000000E+00  0.000000E+00
+              108  8.000000E+00  0.000000E+00  0.000000E+00
+              109  9.000000E+00  0.000000E+00  0.000000E+00
+              110  1.000000E+01  0.000000E+00  0.000000E+00
+              111  1.100000E+01  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = M
+       M
+      $PART  NAME = K
+       K
+      $PART  NAME = C
+       C
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS  DOFS = 2,3  DOFTYPE = DISP
+       NODEDISP
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          M(1)
+      $GEODAT SPRING    CONT = STIFF
+       GD_K          K(1)
+!      $GEODAT DAMPER    CONT = FUNCTION
+!       GD_C                  1
+
+      $GEODAT DAMPER CONT = DAMP 
+        GD_C 200.0
+!
+      $ELPROP
+       C             GEODAT = GD_C
+       K             GEODAT = GD_K
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          1.000000E+03  1.000000E+03  1.000000E+03
+      $GEODAT SPRING    CONT = STIFF
+       GD_K          1.000000E+08
+!      $GEODAT DAMPER    CONT = FUNCTION
+!       GD_C                  2
+
+      $GEODAT DAMPER CONT = DAMP 
+        GD_C 3000.0
+!
+      $ELPROP
+       C             GEODAT = GD_C
+       K             GEODAT = GD_K
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION FORMULA  FID =          1  DESCRIPTION = 'LOW DAMPING CASE'
+   F(X)=2*M(1)*SQRT(K(1)/M(1))*XI(1)
+
+   $FUNCTION FORMULA  FID =          2  DESCRIPTION = 'HIGH DAMPING CASE'
+   F(X)=2*M(1)*SQRT(K(1)/M(1))*XI(2)
+
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
