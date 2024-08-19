@@ -11,3 +11,5 @@
 005 - [On the spatial buckling of elastic columns](https://doi.org/10.1142/S0219455425501469)
 
 006 - [Experimental probing of the configuration space of circular, clamped panels](https://doi.org/10.1016/j.ijnonlinmec.2024.104772)
+
+007 - [Predicting the buckling behaviour of thin-walled structural elements using machine learning methods](https://doi.org/10.1016/j.tws.2022.110518)
