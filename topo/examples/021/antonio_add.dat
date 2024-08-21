@@ -1,0 +1,57 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+            13681          2
+            13682          3
+            13683          7
+            13684          8
+!
+      $NSET NAME = MASS
+                2          3          7          8
+      $NSET NAME = SPC
+                1          4          5          6
+      $ESET NAME = M
+            13681      13682      13683      13684
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.500000E+02  2.500000E+02  2.500000E+02
+!
+      $ELPROP
+       M             GEODAT = GD_M
+       DESIGN        MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       SPC
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+10  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

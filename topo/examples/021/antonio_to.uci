@@ -1,0 +1,37 @@
+! DEFAULT SET TOPOVAR = NODAL ! not suitable for free education edition
+!
+!  Antonio Bacciaglia, Alessandro Ceruti, Alfredo Liverani
+!  Voxel‑based evolutionary topological optimization
+!  of connected structures for natural frequency optimization
+!  https://doi.org/10.1007/s10999-024-09722-8
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = antonio.dat
+    READ PERMAS FILE = antonio_add.dat
+    READ PERMAS FILE = antonio_to.dat
+ RETURN
+
+TASK LOOPS = 100
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 4
+    ACT SIT = TO
+    TOPO METHOD = ACP
+EXPORT
+    ITEM CLEAR
+    ITEM EFRATIO
+    GO PERMAS BINARY FILE = 'efratio_%.3(tloop)'
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    GO PERMAS BINARY FILE = 'to_xy_%.3(tloop)'
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = monitoring
+STOP
