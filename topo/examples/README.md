@@ -40,3 +40,5 @@
 
 020 - [An improved evolutionary structure optimization method considering stress minimization and smooth design](https://doi.org/10.1002/nme.7551)
 
+021 - [Voxel‑based evolutionary topological optimization of connected structures for natural frequency optimization](https://doi.org/10.1007/s10999-024-09722-8)
+
