@@ -42,3 +42,5 @@
 
 021 - [Voxel‑based evolutionary topological optimization of connected structures for natural frequency optimization](https://doi.org/10.1007/s10999-024-09722-8)
 
+022 - [A novel numerical manifold method and its application in parameterized LSM-based structural topology optimization](https://doi.org/10.1016/j.cma.2023.116457)
+
