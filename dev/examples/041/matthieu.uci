@@ -1,0 +1,30 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = matthieu.dat
+    READ PERMAS FILE = matthieu_add.dat
+    READ PERMAS FILE = matthieu_attachment.dat
+    READ PERMAS FILE = resonator_position.dat
+RETURN
+
+TASK LOOPS = 10
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = normal_modes
+EXEC   
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+STOP
