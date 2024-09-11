@@ -1,0 +1,250 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1         17
+       SFLA2         88          1
+       SFLA2         34          2
+       SFLA2          2         35
+       SFLA2         52          3
+       SFLA2          3         53
+       SFLA2         70          4
+       SFLA2          4         71
+       SFLA2         25          5
+       SFLA2          5         26
+       SFLA2         79          6
+       SFLA2          6         80
+       SFLA2         61          7
+       SFLA2          7         62
+       SFLA2         43          8
+       SFLA2          8         44
+       SFLA2         17         18
+       SFLA2         18         19
+       SFLA2         19         20
+       SFLA2         20         21
+       SFLA2         21         22
+       SFLA2         22         23
+       SFLA2         23         24
+       SFLA2         24         25
+       SFLA2         26         27
+       SFLA2         27         28
+       SFLA2         28         29
+       SFLA2         29         30
+       SFLA2         30         31
+       SFLA2         31         32
+       SFLA2         32         33
+       SFLA2         33         34
+       SFLA2         35         36
+       SFLA2         36         37
+       SFLA2         37         38
+       SFLA2         38         39
+       SFLA2         39         40
+       SFLA2         40         41
+       SFLA2         41         42
+       SFLA2         42         43
+       SFLA2         44         45
+       SFLA2         45         46
+       SFLA2         46         47
+       SFLA2         47         48
+       SFLA2         48         49
+       SFLA2         49         50
+       SFLA2         50         51
+       SFLA2         51         52
+       SFLA2         53         54
+       SFLA2         54         55
+       SFLA2         55         56
+       SFLA2         56         57
+       SFLA2         57         58
+       SFLA2         58         59
+       SFLA2         59         60
+       SFLA2         60         61
+       SFLA2         62         63
+       SFLA2         63         64
+       SFLA2         64         65
+       SFLA2         65         66
+       SFLA2         66         67
+       SFLA2         67         68
+       SFLA2         68         69
+       SFLA2         69         70
+       SFLA2         71         72
+       SFLA2         72         73
+       SFLA2         73         74
+       SFLA2         74         75
+       SFLA2         75         76
+       SFLA2         76         77
+       SFLA2         77         78
+       SFLA2         78         79
+       SFLA2         80         81
+       SFLA2         81         82
+       SFLA2         82         83
+       SFLA2         83         84
+       SFLA2         84         85
+       SFLA2         85         86
+       SFLA2         86         87
+       SFLA2         87         88
+      $LINE GEO  LNID =          2
+       SFLA2         88          1
+       SFLA2          4         71
+       SFLA2         79          6
+       SFLA2          6         80
+       SFLA2         71         72
+       SFLA2         72         73
+       SFLA2         73         74
+       SFLA2         74         75
+       SFLA2         75         76
+       SFLA2         76         77
+       SFLA2         77         78
+       SFLA2         78         79
+       SFLA2         80         81
+       SFLA2         81         82
+       SFLA2         82         83
+       SFLA2         83         84
+       SFLA2         84         85
+       SFLA2         85         86
+       SFLA2         86         87
+       SFLA2         87         88
+      $LINE GEO  LNID =          3
+       SFLA2          2         35
+       SFLA2         52          3
+       SFLA2         43          8
+       SFLA2          8         44
+       SFLA2         35         36
+       SFLA2         36         37
+       SFLA2         37         38
+       SFLA2         38         39
+       SFLA2         39         40
+       SFLA2         40         41
+       SFLA2         41         42
+       SFLA2         42         43
+       SFLA2         44         45
+       SFLA2         45         46
+       SFLA2         46         47
+       SFLA2         47         48
+       SFLA2         48         49
+       SFLA2         49         50
+       SFLA2         50         51
+       SFLA2         51         52
+!
+      $NSET NAME = N1
+                1
+      $NSET NAME = N2
+                2
+      $LNSET NAME = EDGES
+                1
+      $LNSET NAME = X0
+                2
+      $LNSET NAME = X1
+                3
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $MATREF RSYS
+       PLATE         RSYS =          0  AXES =  1,  2
+!
+      $ELPROP
+       PLATE         MATERIAL = PLY_LAYUP
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 3  DOFTYPE = DISP
+       EDGES
+      $SUPPRESS  LINENODE  DOFS = 5  DOFTYPE = DISP
+       X0           X1
+      $SUPPRESS  DOFS = 1,2,6  DOFTYPE = DISP
+       N1
+      $SUPPRESS  DOFS = 2  DOFTYPE = DISP
+       N2
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOAD LINE2D  LPAT = 1  IDS = ELGEO  NODES = ALL FACTOR = 1.E3 DOFTYPE = DISP
+             1190  2 :  0.000000E+00  1.000000E+00
+              791  2 :  0.000000E+00  1.000000E+00
+              800  2 :  0.000000E+00  1.000000E+00
+             1181  2 :  0.000000E+00  1.000000E+00
+              792  2 :  0.000000E+00  1.000000E+00
+              793  2 :  0.000000E+00  1.000000E+00
+              794  2 :  0.000000E+00  1.000000E+00
+              795  2 :  0.000000E+00  1.000000E+00
+              796  2 :  0.000000E+00  1.000000E+00
+              797  2 :  0.000000E+00  1.000000E+00
+              798  2 :  0.000000E+00  1.000000E+00
+              799  2 :  0.000000E+00  1.000000E+00
+             1182  2 :  0.000000E+00  1.000000E+00
+             1183  2 :  0.000000E+00  1.000000E+00
+             1184  2 :  0.000000E+00  1.000000E+00
+             1185  2 :  0.000000E+00  1.000000E+00
+             1186  2 :  0.000000E+00  1.000000E+00
+             1187  2 :  0.000000E+00  1.000000E+00
+             1188  2 :  0.000000E+00  1.000000E+00
+             1189  2 :  0.000000E+00  1.000000E+00
+             1400  3 :  0.000000E+00  1.000000E+00
+              220  3 :  0.000000E+00  1.000000E+00
+             1220  3 :  0.000000E+00  1.000000E+00
+              400  3 :  0.000000E+00  1.000000E+00
+             1380  3 :  0.000000E+00  1.000000E+00
+             1360  3 :  0.000000E+00  1.000000E+00
+             1340  3 :  0.000000E+00  1.000000E+00
+             1320  3 :  0.000000E+00  1.000000E+00
+             1300  3 :  0.000000E+00  1.000000E+00
+             1280  3 :  0.000000E+00  1.000000E+00
+             1260  3 :  0.000000E+00  1.000000E+00
+             1240  3 :  0.000000E+00  1.000000E+00
+              380  3 :  0.000000E+00  1.000000E+00
+              360  3 :  0.000000E+00  1.000000E+00
+              340  3 :  0.000000E+00  1.000000E+00
+              320  3 :  0.000000E+00  1.000000E+00
+              300  3 :  0.000000E+00  1.000000E+00
+              280  3 :  0.000000E+00  1.000000E+00
+              260  3 :  0.000000E+00  1.000000E+00
+              240  3 :  0.000000E+00  1.000000E+00
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ORTHO
+!
+      $ELASTIC  SHELL  INPUT = DATA
+        1.390000E+11  9.799999E+09  2.800000E-01  4.700000E+09  4.300000E+09  4.700000E+09
+!
+   $END MATERIAL
+!------
+   $LAMINATE  NAME = PLY_LAYUP  DESTYPE = PLY
+!
+      $PLY  ASYM  NPLY = 6
+       MAT_01  1.000000E-03  6.000000E+01 : SHELL
+       MAT_01  1.000000E-03  4.500000E+01 : SHELL
+       MAT_01  1.000000E-03  3.000000E+01 : SHELL
+       MAT_01  1.000000E-03 -3.000000E+01 : SHELL
+       MAT_01  1.000000E-03 -4.500000E+01 : SHELL
+       MAT_01  1.000000E-03 -6.000000E+01 : SHELL
+!
+   $END LAMINATE
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
