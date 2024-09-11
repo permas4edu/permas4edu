@@ -55,3 +55,5 @@
 027 - [A general and efficient harmonic balance method for nonlinear dynamic simulation](https://doi.org/10.1016/j.ijmecsci.2024.109388)
 
 028 - [Frequency response based identification of nonlinear oscillators](https://doi.org/10.1016/j.jsv.2024.118651)
+
+029 - [The application of reduced space harmonic balance method for the nonlinear vibration problem in rotor dynamics](https://doi.org/10.1080/15397734.2018.1519634)
