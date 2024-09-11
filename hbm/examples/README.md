@@ -57,3 +57,5 @@
 028 - [Frequency response based identification of nonlinear oscillators](https://doi.org/10.1016/j.jsv.2024.118651)
 
 029 - [The application of reduced space harmonic balance method for the nonlinear vibration problem in rotor dynamics](https://doi.org/10.1080/15397734.2018.1519634)
+
+030 - [Nonlinear frequency response analysis using MSC Nastran](https://doi.org/10.1002/nme.7588)
