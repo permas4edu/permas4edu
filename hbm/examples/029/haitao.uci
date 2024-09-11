@@ -1,0 +1,36 @@
+!
+! The example is adapted from 
+! Haitao Liao
+! The application of reduced space harmonic balance method
+! for the nonlinear vibration problem in rotor dynamics
+! MECHANICS BASED DESIGN OF STRUCTURES AND MACHINES
+! https://doi.org/10.1080/15397734.2018.1519634
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = haitao.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH &
+                            STARTFREQ    = 0.0        &
+                            RESULTS      = ALL        
+SELECT
+    ACTIVE NSET = RESULTS
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = hbm
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES haitao.py  hbm_resp.csv'
+RETURN
+STOP
+
