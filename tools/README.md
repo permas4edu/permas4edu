@@ -48,6 +48,7 @@
 | pyDOE2 | 1.3.0 | N/A  |
 | pyDOE3 | N/A   | 1.0.4  |
 | pygments | | 2.18.0  |
+| PySide6 | | 6.5.3 |
 | pytest | | 8.3.2 |
 | python-docx | 0.8.11 | 1.1.2 |
 | python-pptx | 0.6.21 | 1.0.2  |
