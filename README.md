@@ -19,6 +19,8 @@ $$\textrm{\color{blue}{If permas4edu helped you please consider adding a star he
 
 Install the free education edition of PERMAS https://www.intes.de/k_permas/overview/academic_license
 
+### PERMAS Control Center
+
 Launch PERMAS Control Center  
 
 ![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center")
