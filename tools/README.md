@@ -46,6 +46,7 @@
 | psutil | | 6.0.0 |
 | pyDOE2 | 1.3.0 | N/A  |
 | pyDOE3 | N/A   | 1.0.4  |
+| pytest | | 8.3.2 |
 | python-docx | 0.8.11 | 1.1.2 |
 | python-pptx | 0.6.21 | 1.0.2  |
 | pywt | 1.3.0 | 1.7.0  |
@@ -55,9 +56,11 @@
 | scipy  | 1.7.3   |  1.14.1|
 | seaborn | 0.11.2 |  0.13.2 |
 | smt | 1.1.0 | 2.6.3 |
+| statsmodels | | 0.14.2 |
 | sympy | 1.10.1 | 1.13.2 |
 | tables | 3.6.1 | 3.10.1 |
 | vitables | 3.0.2 | N/A | 
+| wheel | | 0.44.0 |
 | xlsxwriter | 3.0.3 | 3.2.0 |
 
 Windows users may find a log file of the installation process in %AppData%\Local\Temp
