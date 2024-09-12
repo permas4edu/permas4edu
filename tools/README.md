@@ -55,6 +55,7 @@
 | python-docx | 0.8.11 | 1.1.2 |
 | python-pptx | 0.6.21 | 1.0.2  |
 | pywt | 1.3.0 | 1.7.0  |
+| pyzstd | | 0.16.1 |
 | requests |  | 2.32.3  |
 | scikit-image | 0.19.2 | 0.24.0  |  
 | scikit-learn | 1.0.2 | 1.5.1 |
