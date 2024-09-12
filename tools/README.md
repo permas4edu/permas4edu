@@ -31,6 +31,7 @@
 | hdf5view | N/A | 0.1.1 |
 | h5py   | 3.6.0 | 3.11.0 |
 | imageio | 2.9.0 | 2.35.1 |
+| jinja2 | | 3.1.4 |
 | matplotlib | 3.5.1 | 3.9.2  |
 | meshio | 5.3.4 | 5.3.5 |
 | mplcursors | 0.5.1 | 0.5.3 |  
