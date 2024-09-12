@@ -25,6 +25,7 @@
 | Module | Version V19 | Version V20 |
 |----    | ----    | ---- |
 | bokeh | 2.4.2 | 3.5.2 |
+| conda | | 24.7.1 |
 | contourpy |  | 1.2.1 |
 | cython | N/A | 3.0.11 |
 | derivative | N/A | 0.6.2 |
@@ -63,6 +64,7 @@
 | scikit-learn | 1.0.2 | 1.5.1 |
 | scipy  | 1.7.3   |  1.14.1|
 | seaborn | 0.11.2 |  0.13.2 |
+| setuptools | | |
 | smt | 1.1.0 | 2.6.3 |
 | statsmodels | | 0.14.2 |
 | sympy | 1.10.1 | 1.13.2 |
