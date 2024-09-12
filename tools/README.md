@@ -53,6 +53,8 @@
 | vitables | 3.0.2 | | 
 | xlsxwriter | 3.0.3 |  |
 
+Windows users may find a log file of the installation process in %AppData%\Local\Temp
+
 ### Miscellaneous
 
 #### pack_permas_job
