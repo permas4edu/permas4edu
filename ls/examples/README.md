@@ -35,4 +35,6 @@
 
 017 - [Caveats of three direct linear solvers for finite element analyses](https://doi.org/10.1002/nme.7545)
 
+018 - [Machine Learning Assisted Development of Eight Node Hexahedral Finite Element](http://dx.doi.org/10.1007/978-981-97-1306-6_20)
 
+019 - [Study the Stress Analysis of a Rectangular Plate with a Central Cut for Different Mesh by Ansys ](https://doi.org/10.9756/IAJSE/V10I2/IAJSE1021)
