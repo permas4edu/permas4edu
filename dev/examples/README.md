@@ -82,4 +82,5 @@
 
 041 - [Additional Natural Frequency of the Beam Carrying a Spring-Mass System: Lost and Found](http://dx.doi.org/10.1115/1.4065781)
 
-042 - 
+042 - [Hybrid finite element theory in dynamic analysis of an imperfect plate](https://doi.org/10.1016/j.mechrescom.2024.104324)
+
