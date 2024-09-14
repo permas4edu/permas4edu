@@ -78,8 +78,8 @@
 
 039 - [Physics-guided deep learning based on modal sensitivity for structural damage identification with unseen damage patterns](https://doi.org/10.1016/j.engstruct.2024.118510)
 
-040 -  [A comparative study on the effectiveness of a moving versus a fixed passive damper in beam vibration mitigation](https://doi.org/10.1007/s00707-024-04048-0)
+040 - [A comparative study on the effectiveness of a moving versus a fixed passive damper in beam vibration mitigation](https://doi.org/10.1007/s00707-024-04048-0)
 
-041 - 
+041 - [Additional Natural Frequency of the Beam Carrying a Spring-Mass System: Lost and Found](http://dx.doi.org/10.1115/1.4065781)
 
 042 - 
