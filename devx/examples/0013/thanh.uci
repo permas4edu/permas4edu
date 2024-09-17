@@ -1,0 +1,37 @@
+!
+! The example is adapted from 
+! Thanh X. Nguyen; Dong-Ok Kim; Byoung-Wan Kim; and In-Won Lee
+! Improvement of Eigensolution Method for Nonproportionally
+! Damped Systems by Step Length
+! http://dx.doi.org/10.1061/(ASCE)0733-9399(2005)131:5(542)
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = thanh.dat
+    READ PERMAS FILE = thanh_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 200
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE =  normal_modes
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+PRINT
+    PORT RES REPLACE FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+TASK END
+STOP
