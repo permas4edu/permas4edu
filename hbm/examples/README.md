@@ -59,3 +59,6 @@
 029 - [The application of reduced space harmonic balance method for the nonlinear vibration problem in rotor dynamics](https://doi.org/10.1080/15397734.2018.1519634)
 
 030 - [Nonlinear frequency response analysis using MSC Nastran](https://doi.org/10.1002/nme.7588)
+
+031 - [Uncertainty Analysis of Limit Cycle Oscillations in Nonlinear Dynamical Systems with the Fourier Generalized Polynomial Chaos Expansion](http://dx.doi.org/10.48550/arXiv.2409.11006)
+
