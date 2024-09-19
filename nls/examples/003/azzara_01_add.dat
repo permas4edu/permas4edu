@@ -1,0 +1,161 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $SURFACE ELEMENTS  SURFID =          1  SYSTEM = LOCAL
+                1          5
+                2          5
+                3          5
+                4          5
+                5          5
+                6          5
+                7          5
+                8          5
+                9          5
+               10          5
+               11          5
+               12          5
+               13          5
+               14          5
+               15          5
+               16          5
+               17          5
+               18          5
+               19          5
+               20          5
+               21          5
+               22          5
+               23          5
+               24          5
+               25          5
+               26          5
+               27          5
+               28          5
+               29          5
+               30          5
+               31          5
+               32          5
+               33          5
+               34          5
+               35          5
+               36          5
+               37          5
+               38          5
+               39          5
+               40          5
+               41          5
+               42          5
+               43          5
+               44          5
+               45          5
+               46          5
+               47          5
+               48          5
+      $SURFACE ELEMENTS  SURFID =          2  SYSTEM = LOCAL
+             7633          3
+             7634          3
+             7635          3
+             7636          3
+             7637          3
+             7638          3
+             7639          3
+             7640          3
+             7641          3
+             7642          3
+             7643          3
+             7644          3
+             7645          3
+             7646          3
+             7647          3
+             7648          3
+             7649          3
+             7650          3
+             7651          3
+             7652          3
+             7653          3
+             7654          3
+             7655          3
+             7656          3
+             7657          3
+             7658          3
+             7659          3
+             7660          3
+             7661          3
+             7662          3
+             7663          3
+             7664          3
+             7665          3
+             7666          3
+             7667          3
+             7668          3
+             7669          3
+             7670          3
+             7671          3
+             7672          3
+             7673          3
+             7674          3
+             7675          3
+             7676          3
+             7677          3
+             7678          3
+             7679          3
+             7680          3
+!
+      $NSET NAME = TIP
+             4266
+      $SFSET NAME = CLAMPED
+                1
+      $SFSET NAME = LOAD
+                2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       ANGLE_FRAME   MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOADS SURF3D  LPAT = 1  DOFTYPE = DISP
+       LOAD  0.000000E+00  0.000000E+00  1.000000E+00
+!
+      $NLLOAD  TABLE  TIME = LIST  DOFTYPE = DISP
+                        -1.000000E-01  0.000000E+00  1.000000E+00  2.000000E+00  3.000000E+00  4.000000E+00
+      LPAT = 1           0.000000E+00  0.000000E+00  7.500000E+00  1.750000E+01  2.750000E+01  4.250000E+01
+!
+   $END LOADING
+!------
+   $RESULTS  NAME = R_STEP_1
+!
+      $NLRESULTS  STEPS = EQUI  KIND = ABS  DOFTYPE = DISP
+        0.000000E+00  4.000000E+00  1.000000E-01
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
