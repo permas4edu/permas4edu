@@ -66,6 +66,7 @@
 | seaborn | 0.11.2 |  0.13.2 |
 | setuptools | | |
 | smt | 1.1.0 | 2.6.3 |
+| sphinx |  | 8.0.2 |
 | statsmodels | | 0.14.2 |
 | sympy | 1.10.1 | 1.13.2 |
 | tables | 3.6.1 | 3.10.1 |
@@ -73,7 +74,10 @@
 | wheel | | 0.44.0 |
 | xlsxwriter | 3.0.3 | 3.2.0 |
 
+### Log files from the installation
+
 Windows users may find a log file of the installation process in %AppData%\Local\Temp
+Linux users will find a file ~/.INTESsetupLOG
 
 ### Miscellaneous
 
