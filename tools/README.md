@@ -77,6 +77,7 @@
 ### Log files from the installation
 
 Windows users may find a log file of the installation process in %AppData%\Local\Temp
+
 Linux users will find a file ~/.INTESsetupLOG
 
 ### Miscellaneous
