@@ -1,0 +1,102 @@
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,1,1
+$DEFVAR LOADVAR TYPE = NAME GEN = L_STEP_,1,1
+$DEFVAR F TYPE = REAL LIST = -12.12516 -40.4172 -202.086  -404.172 ! M*A ; A = [0.003, 0.01 , 0.05,  0.1]g
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+   $LOOP I = 1, 4
+       $SITUATION NAME = SITNAME(I)
+           DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_1
+       $END SITUATION
+   $ENDLOOP
+
+   $STRUCTURE
+
+      $NSET NAME = F
+        101
+
+      $NSET NAME = GROUND
+        100
+ 
+      $NODE NSET = ALL_NODES
+        100 0.0 0.0 0.0
+        101 1.0 0.0 0.0
+
+      $ELEMENT TYPE = MASS3 ESET = M
+          1 101
+
+      $ELEMENT TYPE = DAMP1 ESET = C
+          2 100  101
+
+      $ELEMENT TYPE = SPRING1 ESET = K1
+          3 100  101
+
+      $ELEMENT TYPE = NLSTIFF ESET = K3
+          4 100  101
+ 
+   $END STRUCTURE
+
+   $SYSTEM NAME = S_STEP_1
+
+      $GEODAT MASS CONT = MASS
+          GD_M  412.0
+
+      $GEODAT SPRING CONT = STIFF 
+          GD_K1 1.E6
+
+      $GEODAT SPRING CONT = FUNCTION
+          GD_K3 1
+
+      $GEODAT DAMPER CONT = DAMP
+          GD_C 405.95
+
+      $ELPROP 
+          M   GEODAT = GD_M
+          C   GEODAT = GD_C
+          K1  GEODAT = GD_K1
+          K3  GEODAT = GD_K3
+ 
+   $END SYSTEM
+
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 2,3
+        ALL_NODES
+ 
+      $SUPPRESS DOFS = 1
+        GROUND
+
+   $END CONSTRAINTS
+
+   $LOOP I = 1, 4
+
+       $LOADING NAME = LOADVAR(I)
+
+          $CONLOAD LPAT = 1
+             F 1: F(I) 
+
+          $FREQLOAD
+             LPAT = 1 TYPE = COSINE
+ 
+       $END LOADING
+
+   $ENDLOOP
+
+   $RESULTS NAME = R_STEP_1
+
+      $FREQUENCY PRIMARY = EQUI
+          5.0 11.0 0.02
+
+   $END RESULTS
+
+$EXIT COMPONENT
+
+$ENTER FUNCTION
+
+    $DEFVAR K_3 TYPE = REAL LIST = 1.0E9
+ 
+    $FUNCTION FORMULA FID = 1
+        F(X)= K_3(1)*X^3
+
+$EXIT FUNCTION
+$FIN

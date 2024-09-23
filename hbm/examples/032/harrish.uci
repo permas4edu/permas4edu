@@ -1,0 +1,40 @@
+!  
+!  Example is adapted from
+!
+!  Harrish Joseph · Giuseppe Quaranta ·Biagio Carboni · Walter Lacarbonara
+!
+!  Deep learning architectures for data-driven damage
+!  detection in nonlinear dynamic systems under random
+!  vibrations
+!
+!  https://doi.org/10.1007/s11071-024-10270-1
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = harrish.dat
+RETURN
+EXEC
+CLOOP LOOPS = 1,4
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                                ACCURACY     = 5.0        &
+                                NOFHARMONICS = 7          & 
+                                MODE         = FOLLOWPATH &
+                                DIRECTION    = ASCENDING  &
+                                STARTFREQ    = 5.0        &
+                                RESULTS      = ALL
+    SELECT
+        ACTIVE NSET = F
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'harrish_%(cloop)'
+    TASK END
+CLOOP END
+STOP
+
+  
