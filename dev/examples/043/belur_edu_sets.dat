@@ -1,0 +1,24 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ESET NAME = DAMAGE1
+               73         74         75         76         77         78        103        104        105        106        107        108        133        134
+              135        136        137        138        163        164        165        166        167        168        193        194        195        196
+              197        198        223        224        225        226        227        228        253        254        255        256        257        258
+              283        284        285        286        287        288
+      $ESET NAME = DAMAGE2
+              795        796        825        826        855        856        885        886        915        916        945        946        975        976
+             1005       1006
+!
+      $ESET NAME = UNDAMAGED1 RULE = BOOLEAN 
+           PLATE AND NOT DAMAGE1
+
+      $ESET NAME = UNDAMAGED2 RULE = BOOLEAN 
+           PLATE AND NOT DAMAGE2
+
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

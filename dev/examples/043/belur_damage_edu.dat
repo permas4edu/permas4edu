@@ -1,0 +1,29 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE          1.000000E-02
+       GD_DAMAGED_PLATE  1.000000E-04
+!
+      $ELPROP
+       UNDAMAGED1    GEODAT = GD_PLATE          MATERIAL = MAT_01
+       DAMAGE1       GEODAT = GD_DAMAGED_PLATE  MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_3
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE          1.000000E-02
+       GD_DAMAGED_PLATE  1.000000E-04
+!
+      $ELPROP
+       UNDAMAGED2    GEODAT = GD_PLATE          MATERIAL = MAT_01
+       DAMAGE2       GEODAT = GD_DAMAGED_PLATE  MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

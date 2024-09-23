@@ -1,0 +1,44 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = belur_edu.dat
+    READ PERMAS FILE = belur_edu_add.dat
+    READ PERMAS FILE = belur_edu_sets.dat
+    READ PERMAS FILE = belur_damage_edu.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Damage 1'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_damage_1
+EXEC
+    ACT SIT = STEP_3
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Damage 2'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_damage_2
+TASK END
+STOP

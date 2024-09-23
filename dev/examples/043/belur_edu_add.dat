@@ -1,0 +1,75 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1        180
+       SFLA2        152          4
+       SFLA2        153        152
+       SFLA2        154        153
+       SFLA2        155        154
+       SFLA2        156        155
+       SFLA2        157        156
+       SFLA2        158        157
+       SFLA2        159        158
+       SFLA2        160        159
+       SFLA2        161        160
+       SFLA2        162        161
+       SFLA2        163        162
+       SFLA2        164        163
+       SFLA2        165        164
+       SFLA2        166        165
+       SFLA2        167        166
+       SFLA2        168        167
+       SFLA2        169        168
+       SFLA2        170        169
+       SFLA2        171        170
+       SFLA2        172        171
+       SFLA2        173        172
+       SFLA2        174        173
+       SFLA2        175        174
+       SFLA2        176        175
+       SFLA2        177        176
+       SFLA2        178        177
+       SFLA2        179        178
+       SFLA2        180        179
+!
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      1.000000E-02
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.660000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.030000E+10  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
