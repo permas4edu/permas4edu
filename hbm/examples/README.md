@@ -62,3 +62,6 @@
 
 031 - [Uncertainty Analysis of Limit Cycle Oscillations in Nonlinear Dynamical Systems with the Fourier Generalized Polynomial Chaos Expansion](http://dx.doi.org/10.48550/arXiv.2409.11006)
 
+032 - [Deep learning architectures for data-driven damage detection in nonlinear dynamic systems under random vibrations](https://doi.org/10.1007/s11071-024-10270-1)
+
+
