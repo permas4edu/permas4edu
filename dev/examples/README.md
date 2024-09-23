@@ -84,3 +84,5 @@
 
 042 - [Hybrid finite element theory in dynamic analysis of an imperfect plate](https://doi.org/10.1016/j.mechrescom.2024.104324)
 
+043 - [Damage diagnosis of plates and shells through modal parameters reconstruction using inverse finite-element method](http://dx.doi.org/10.1177/14759217241249678)
+
