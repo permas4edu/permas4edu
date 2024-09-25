@@ -1,0 +1,17 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = elliptic.dat
+    READ NEW PERMAS FILE = elliptic_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY
+TASK END
+STOP
