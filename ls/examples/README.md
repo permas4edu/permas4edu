@@ -38,3 +38,6 @@
 018 - [Machine Learning Assisted Development of Eight Node Hexahedral Finite Element](http://dx.doi.org/10.1007/978-981-97-1306-6_20)
 
 019 - [Study the Stress Analysis of a Rectangular Plate with a Central Cut for Different Mesh by Ansys ](https://doi.org/10.9756/IAJSE/V10I2/IAJSE1021)
+
+020 - [Accelerated segregated finite volume solvers for linear elastostatics using machine learning](https://doi.org/10.1016/j.advengsoft.2024.103763)
+
