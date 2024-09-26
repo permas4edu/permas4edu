@@ -1,0 +1,86 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1        154
+       SFLA2        168          4
+       SFLA2        141          5
+       SFLA2          5        155
+       SFLA2          5        309
+       SFLA2        316          8
+       SFLA2        142        141
+       SFLA2        143        142
+       SFLA2        144        143
+       SFLA2        145        144
+       SFLA2        146        145
+       SFLA2        147        146
+       SFLA2        148        147
+       SFLA2        149        148
+       SFLA2        150        149
+       SFLA2        151        150
+       SFLA2        152        151
+       SFLA2        153        152
+       SFLA2        154        153
+       SFLA2        155        156
+       SFLA2        156        157
+       SFLA2        157        158
+       SFLA2        158        159
+       SFLA2        159        160
+       SFLA2        160        161
+       SFLA2        161        162
+       SFLA2        162        163
+       SFLA2        163        164
+       SFLA2        164        165
+       SFLA2        165        166
+       SFLA2        166        167
+       SFLA2        167        168
+       SFLA2        309        310
+       SFLA2        310        311
+       SFLA2        311        312
+       SFLA2        312        313
+       SFLA2        313        314
+       SFLA2        314        315
+       SFLA2        315        316
+!
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      5.000000E-03
+       GD_STIFFENER  5.000000E-03
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = MAT_01
+       STIFFENER     GEODAT = GD_STIFFENER  MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
