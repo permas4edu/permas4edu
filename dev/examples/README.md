@@ -86,3 +86,5 @@
 
 043 - [Damage diagnosis of plates and shells through modal parameters reconstruction using inverse finite-element method](http://dx.doi.org/10.1177/14759217241249678)
 
+044 - [Energy Element Method for Three-Dimensional Vibration Analysis of Stiffened Plates with Complex Geometries](https://doi.org/10.2514/1.J064147)
+
