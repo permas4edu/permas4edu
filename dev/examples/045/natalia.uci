@@ -1,0 +1,59 @@
+!
+! Example is taken from 
+! Natalia García Fernández, Pelayo Fernández Fernandez, 
+! Rune Brincker and Manuel Aenlle López
+! Mass and Stiffness Correlation Using a Transformation Matrix
+! https://doi.org/10.3390/infrastructures9060096
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = natalia.dat
+    READ PERMAS FILE = natalia_add.dat
+RETURN
+
+PORT RES REPLACE FILE = natural_frequencies.txt
+PORT RES RESET
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'CASE 0'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = case_0
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+    GEN MAC SITUATION = STEP_1
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'CASE 1'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT    
+    OPEN PERMAS ASCII FILE = mac_01
+    DATA OBJECT MAC.DISP BLOCKFORM = VALUE
+    ITEM MODL
+    GO PERMAS BINARY FILE = case_1
+EXEC
+    ACT SIT = STEP_3
+    VIBRATION ANALYSIS MODES = 10
+    GEN MAC SITUATION = STEP_1
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'CASE 2'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN PERMAS ASCII FILE = mac_02
+    DATA OBJECT MAC.DISP BLOCKFORM = VALUE
+    ITEM MODL
+    GO PERMAS BINARY FILE = case_2
+TASK END
+STOP
