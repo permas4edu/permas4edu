@@ -88,3 +88,4 @@
 
 044 - [Energy Element Method for Three-Dimensional Vibration Analysis of Stiffened Plates with Complex Geometries](https://doi.org/10.2514/1.J064147)
 
+045 - [Mass and Stiffness Correlation Using a Transformation Matrix]( https://doi.org/10.3390/infrastructures9060096)
