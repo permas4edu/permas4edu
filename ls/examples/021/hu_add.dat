@@ -1,0 +1,111 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+02  0.000000E+00
+                2  0.000000E+00  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+02  0.000000E+00 : -1.000000E+02  0.000000E+00  0.000000E+00
+!
+      $ELSYS RSYS
+       STIFFENER_01  RSYS =          1  AXES =  1,  2
+       STIFFENER_02  RSYS =          1  AXES =  1,  2
+       STIFFENER_03  RSYS =          2  AXES =  1,  2
+       STIFFENER_04  RSYS =          2  AXES =  1,  2
+       STIFFENER_05  RSYS =          2  AXES =  1,  2
+!
+      $LINE GEO  LNID =          1
+       SFLA2          1        165
+       SFLA2        173          6
+       SFLA2          6        174
+       SFLA2        182         11
+       SFLA2         11        183
+       SFLA2        191         16
+       SFLA2        165        166
+       SFLA2        166        167
+       SFLA2        167        168
+       SFLA2        168        169
+       SFLA2        169        170
+       SFLA2        170        171
+       SFLA2        171        172
+       SFLA2        172        173
+       SFLA2        174        175
+       SFLA2        175        176
+       SFLA2        176        177
+       SFLA2        177        178
+       SFLA2        178        179
+       SFLA2        179        180
+       SFLA2        180        181
+       SFLA2        181        182
+       SFLA2        183        184
+       SFLA2        184        185
+       SFLA2        185        186
+       SFLA2        186        187
+       SFLA2        187        188
+       SFLA2        188        189
+       SFLA2        189        190
+       SFLA2        190        191
+!
+      $NSET NAME = F
+                5         10         15         20
+      $LNSET NAME = CLAMPED
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK    OFFSET   NODES = ALL
+       GD_PANEL      5.000000E+00  :  0.000000E+00  0.000000E+00 -5.000000E+00
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_STIFFENER_01          5
+         &        :  1.000000E+01  5.000000E+00
+       GD_STIFFENER_02          5
+         &        :  1.000000E+01  5.000000E+00
+       GD_STIFFENER_03          5
+         &        :  1.000000E+01  5.000000E+00
+       GD_STIFFENER_04          5
+         &        :  1.000000E+01  5.000000E+00
+       GD_STIFFENER_05          5
+         &        :  1.000000E+01  5.000000E+00
+!
+      $ELPROP
+       PANEL         GEODAT = GD_PANEL      MATERIAL = ALUMINUM
+       STIFFENER_01  GEODAT = GD_STIFFENER_01  MATERIAL = ALUMINUM
+       STIFFENER_02  GEODAT = GD_STIFFENER_02  MATERIAL = ALUMINUM
+       STIFFENER_03  GEODAT = GD_STIFFENER_03  MATERIAL = ALUMINUM
+       STIFFENER_04  GEODAT = GD_STIFFENER_04  MATERIAL = ALUMINUM
+       STIFFENER_05  GEODAT = GD_STIFFENER_05  MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3: -5.000000E+01
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
