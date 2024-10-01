@@ -1,0 +1,37 @@
+! Example 6 from
+! Ranislav M. Bulatovic and Firdaus E. Udwadia
+! Decomposition and Uncoupling of Multi-Degree-of-Freedom Gyroscopic Conservative Systems
+! Journal of Applied Mechanics 
+! MARCH 2024, Vol. 91 
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = firdaus.dat
+RETURN
+
+TASK LOOPS = 1
+EXEC
+    ACT SIT = STEP_1 
+    VIBRATION ANALYSIS MODES = 4
+EXPORT
+    ITEM CLEAR
+    ITEM DISP
+    GO PERMAS ASCII FILE = normal_modes
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+STOP
