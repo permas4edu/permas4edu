@@ -89,3 +89,5 @@
 044 - [Energy Element Method for Three-Dimensional Vibration Analysis of Stiffened Plates with Complex Geometries](https://doi.org/10.2514/1.J064147)
 
 045 - [Mass and Stiffness Correlation Using a Transformation Matrix]( https://doi.org/10.3390/infrastructures9060096)
+
+046 - [DIC vibration measurement through smartphone devices](http://dx.doi.org/10.1088/1742-6596/2802/1/012009)
