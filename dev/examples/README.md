@@ -91,3 +91,5 @@
 045 - [Mass and Stiffness Correlation Using a Transformation Matrix]( https://doi.org/10.3390/infrastructures9060096)
 
 046 - [DIC vibration measurement through smartphone devices](http://dx.doi.org/10.1088/1742-6596/2802/1/012009)
+
+047 - [Structural identification based on substructure decoupling technique considering uncertain dynamic model](https://doi.org/10.1016/j.ymssp.2024.111957)
