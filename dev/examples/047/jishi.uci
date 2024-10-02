@@ -1,0 +1,27 @@
+!
+!  The example is taken from 
+!  Structural identification based on substructure decoupling
+!  technique considering uncertain dynamic model
+!  https://doi.org/10.1016/j.ymssp.2024.111957
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = jishi.dat
+    READ PERMAS FILE = jishi_add.dat
+ RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 9
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'RULER A'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
