@@ -16,6 +16,13 @@ A structured mesh was used herein. The finite element model consists of 10545 QU
 
 ![Plate model](plate_model.png "Structured mesh")
 
+![First mode shape](fem_01.gif "First mode shape")
+
+![Second mode shape](fem_02.gif "Second mode shape")
+
+![Third mode shape](fem_03.gif "Third mode shape")
+
+![Fourth mode shape](fem_04.gif "Fourth mode shape")
 
 ## Modal correlation
 
