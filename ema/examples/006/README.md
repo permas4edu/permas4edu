@@ -12,12 +12,14 @@ The circular holes at the 4 corners are each offset inwards by 15 mm from the si
 
 ## Finite element model
 
-A structured mesh was used herein. 
+A structured mesh was used herein. The finite element model consists of 10545 QUAD4 elements and 10896 nodes.
 
 ![Plate model](plate_model.png "Structured mesh")
 
 
 ## Modal correlation
+
+$$MAC(i,j) = \frac{ |x_i^H y_j|^2 }{(x_i^H x_i) (y_j^H y_j)}, \quad 0 \le MAC(i,j) \le 1$$
 
 ## Acknowledgements
 
