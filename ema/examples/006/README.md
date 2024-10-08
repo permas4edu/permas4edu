@@ -14,6 +14,9 @@ The circular holes at the 4 corners are each offset inwards by 15 mm from the si
 
 A structured mesh was used herein. 
 
+![Plate model](plate_model.png "Structured mesh")
+
+
 ## Modal correlation
 
 ## Acknowledgements
