@@ -9,3 +9,5 @@
 004 - [Beam T-junction Model Accuracy Improvement Based on Experimental Modal Analysis](https://doi.org/10.1007/s12239-022-0134-7)
 
 005 - Wing model
+
+006 - Plate model
