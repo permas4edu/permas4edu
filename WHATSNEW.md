@@ -1,8 +1,9 @@
 ## V20
 
 * New procedure MODAL HARMONIC BALANCE
-* New eigensolver
+* New eigensolver MLDR
 * New handling of rigid body modes
+* MAC matrix for complex modes
 * Stress based topology optimization
 * CAD2CAD workflow for topology optimization
 * Enhanced post-processing features
