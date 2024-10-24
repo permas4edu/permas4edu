@@ -7,7 +7,7 @@
 * Stress based topology optimization
 * CAD2CAD workflow for topology optimization
 * Enhanced post-processing features
-  + Rendering of beam and shell elements
+  + Rendering of beam, mass6 and shell elements
   + Orbit and traceline plots
   + Isosurface visualization
   + Stress resultants
