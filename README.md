@@ -23,7 +23,7 @@ Install the free education edition of PERMAS https://www.intes.de/k_permas/overv
 
 Launch PERMAS Control Center  
 
-![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center")
+![PERMAS Control Center](/assets/permascc_edu.png "PERMAS Control Center V20")
 
 #### References
 
