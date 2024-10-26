@@ -1,0 +1,32 @@
+! The example is adapted from
+!
+! E. Ceren Ekinci, M. Bülent Özer, H. Nevzat Özgüven
+! A Novel Approach for Local Structural Modification of Nonlinear Structures
+! 
+NEW
+
+INPUT
+    READ PERMAS FILE = ekinci.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE = 1024 &
+                            ACCURACY = 5.0 &
+                            NOFHARMONICS = 7 &
+                            MODE = FOLLOWPATH &
+                            DIRECTION = ASCENDING &
+                            STARTFREQ =  8.0 &
+                            RESULTS = ALL
+SELECT
+     ACTIVE NSET = FREE
+     XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+     ITEM CLEAR 
+     ITEM XYDATA NAME = RESP
+     GO SPREADSHEET FILE = hbm
+     GO PERMAS BINARY FILE = hbm
+TASK END
+STOP
+    
