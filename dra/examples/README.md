@@ -24,6 +24,7 @@
 
 012 - [A review of automatic time-stepping strategies on numerical time integration for structural dynamics analysis](http://dx.doi.org/10.1016/j.engstruct.2014.08.016)
 
-013 - 
+013 - [Exploratory Structural Modification and Nonlinear Based Analysis of Tuned Mass Dampers](http://dx.doi.org/10.1088/1742-6596/2721/1/012016)
 
-014 - 
+014 - [Sensitivity analysis of frequency response functions with imaginary parts decoupling based on multicomplex-step perturbation](https://doi.org/10.1016/j.apm.2024.115669)
+
