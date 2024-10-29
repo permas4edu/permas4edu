@@ -1,0 +1,97 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2  
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_4 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  LOADING = L_STEP_4 RESULTS = R_STEP_4
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          6          7
+                7          7          8
+!
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = SHAFT
+                1          2          3          4          5          6          7
+!
+      $COOR NSET = SHAFT
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  0.000000E+00  0.000000E+00  9.700000E+01
+                3  0.000000E+00  0.000000E+00  2.120000E+02
+                4  0.000000E+00  0.000000E+00  3.270000E+02
+                5  0.000000E+00  0.000000E+00  4.350000E+02
+                6  0.000000E+00  0.000000E+00  5.430000E+02
+                7  0.000000E+00  0.000000E+00  6.510000E+02
+                8  0.000000E+00  0.000000E+00  7.960000E+02
+      $NODE NSET = GROUND
+              101  0.000000E+00  0.000000E+00  0.000000E+00
+              108  0.000000E+00  0.000000E+00  7.960000E+02
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS DOFS = 3,6
+        SHAFT
+
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+        GROUND
+
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

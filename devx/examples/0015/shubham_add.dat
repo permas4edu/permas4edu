@@ -1,0 +1,165 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELSYS RSYS
+       SHAFT         RSYS =          0  AXES =  1,  2
+!
+      $ELEMENT TYPE = MASS6 ESET = DISC_1
+        8  2
+      $ELEMENT TYPE = MASS6 ESET = DISC_2
+        9  4
+      $ELEMENT TYPE = MASS6 ESET = DISC_3
+       10  7
+!
+      $NSET NAME = DISC_1 RULE = ESET
+        DISC_1
+      $NSET NAME = DISC_2 RULE = ESET
+        DISC_2
+      $NSET NAME = DISC_3 RULE = ESET
+        DISC_3
+
+      $ELEMENT TYPE = SPRING3 ESET = K_1
+       11  1 101
+      $ELEMENT TYPE = SPRING3 ESET = K_2
+       12  8 108
+!
+      $ELEMENT TYPE = DAMP3 ESET = C_1
+       13  1 101
+      $ELEMENT TYPE = DAMP3 ESET = C_2
+       14  8 108
+!
+      $ESET NAME = DISCS
+        DISC_1 DISC_2 DISC_3
+!
+      $ESET NAME = ROTOR
+        SHAFT DISCS
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_LINE1              4 :  2.000000E+01
+       GD_LINE2              4 :  2.000000E+01
+       GD_LINE3              4 :  2.000000E+01
+       GD_LINE4              4 :  2.000000E+01
+       GD_LINE5              4 :  2.000000E+01
+       GD_LINE6              4 :  2.000000E+01
+       GD_LINE7              4 :  8.000000E+00
+!
+      $GEODAT MASS CONT = MASS
+       GD_DISC_1 1.0E-3   1.0E-3   1.0E-3   0.0117E+3 0.0117E+3 0.0234E+3
+       GD_DISC_2 1.0E-3   1.0E-3   1.0E-3   0.0117E+3 0.0117E+3 0.0234E+3
+       GD_DISC_3 1.398E-3 1.398E-3 1.398E-3 0.0162E+3 0.0162E+3 0.0324E+3
+!
+      $GEODAT SPRING CONT = STIFF
+       GD_K_1  1.5 1.5 0.0
+       GD_K_2  8.0 8.0 0.0
+
+      $GEODAT DAMPER CONT = DAMP
+       GD_C_1 24.E-3
+       GD_C_2 55.E-3
+
+      $ELPROP
+       LINE1         GEODAT = GD_LINE1      MATERIAL = MAT_01
+       LINE2         GEODAT = GD_LINE2      MATERIAL = MAT_01
+       LINE3         GEODAT = GD_LINE3      MATERIAL = MAT_01
+       LINE4         GEODAT = GD_LINE4      MATERIAL = MAT_01
+       LINE5         GEODAT = GD_LINE5      MATERIAL = MAT_01
+       LINE6         GEODAT = GD_LINE6      MATERIAL = MAT_01
+       LINE7         GEODAT = GD_LINE7      MATERIAL = MAT_01
+!
+       DISC_1        GEODAT = GD_DISC_1
+       DISC_2        GEODAT = GD_DISC_2
+       DISC_3        GEODAT = GD_DISC_3
+!
+       K_1           GEODAT = GD_K_1 
+       K_2           GEODAT = GD_K_2
+!
+       C_1           GEODAT = GD_C_1 
+       C_2           GEODAT = GD_C_2
+! 
+   $END SYSTEM
+!------
+   $LOADING NAME = L_STEP_1
+ 
+      $INERTIA ROTATION LPAT = 1
+        ROTOR  0.0 0.0 0.0 0.0 0.0 1000.0  10.0
+
+   $END LOADING
+!------
+   $SYSTEM NAME = S_STEP_2
+
+      $ELSTATE LOAD
+         SITUATION = STEP_1 LPAT = 1
+
+      $INSERT VARIANT
+         S_STEP_1
+
+      $ADDMATRIX
+         GEOSTIFF
+         CONVSTIFF
+         GYRO
+
+   $END SYSTEM
+!------
+   $RESULTS NAME = R_STEP_3
+
+      $ROTSPEED PRIMARY = EQUI
+        0.0 300.0 1.0
+
+   $END RESULTS
+!------
+   $LOADING NAME = L_STEP_4
+!
+!     e: eccentricity
+! 
+      $CONLOAD LPAT = 1
+         DISC_1 1: 1.E-3 ! m_1*e
+         DISC_2 1: 1.E-3 ! m_2*e
+         DISC_3 1: 1.398E-3 ! m_3*e
+      $CONLOAD LPAT = 2
+         DISC_1 2: 1.E-3 ! m_1*e
+         DISC_2 2: 1.E-3 ! m_2*e
+         DISC_3 2: 1.398E-3 ! m_3*e
+ 
+      $FREQLOAD
+         LPAT = 1 TYPE = COSINE AMPLITUDE = 1 
+         LPAT = 2 TYPE =   SINE AMPLITUDE = 1
+ 
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_4
+
+      $ROTSPEED PRIMARY = EQUI
+        0.0 300.0 1.0
+
+      $FREQUENCY PRIMARY = ROTSPEED
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION 
+
+   $FUNCTION FORMULA FID = 1
+     F(X) = 4*PI^2*X^2
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
