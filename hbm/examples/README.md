@@ -67,3 +67,5 @@
 033 - [A new numerical path to retrieve isolated branches on large scale nonlinear mechanical systems](https://doi.org/10.1007/s11071-024-10369-5)
 
 034 - [A Novel Approach for Local Structural Modification of Nonlinear Structures](http://dx.doi.org/10.1007/978-3-031-36999-5_20)
+
+035 - [APPLICATION OF NONLINEAR FREQUENCY RESPONSE ANALYSIS FOR WINDMILLING](https://doi.org/10.1115/GT2024-122018)
