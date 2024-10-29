@@ -2,4 +2,6 @@ The example is taken from [Application of thermoelasticity in the frequency-doma
 
 Thanks to Janko Slavic for sharing a gmsh model. His support is greatly appreciated.
 
+![Y-model](Y_model.png "Y-Sample mesh and boundary conditions")
+
 
