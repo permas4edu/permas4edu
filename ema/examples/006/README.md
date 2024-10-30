@@ -28,6 +28,8 @@ A structured mesh was used herein. The finite element model consists of 10545 QU
 
 $$MAC(i,j) = \frac{ |x_i^H y_j|^2 }{(x_i^H x_i) (y_j^H y_j)}, \quad 0 \le MAC(i,j) \le 1$$
 
+![MAC matrix](mac.png "MAC matrix")
+
 ## Conclusions
 
 ## Requirements
