@@ -1,0 +1,151 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $SURFACE ELEMENTS  LABEL = CLAMPED  SYSTEM = LOCAL
+                1          1
+               41          1
+               81          1
+              121          1
+              161          1
+              201          1
+              241          1
+              281          1
+              321          1
+              361          1
+              401          1
+              441          1
+              481          1
+              521          1
+              561          1
+              601          1
+              641          1
+              681          1
+              721          1
+              761          1
+              801          1
+              841          1
+              881          1
+              921          1
+              961          1
+             1001          1
+             1041          1
+             1081          1
+             1121          1
+             1161          1
+             1201          1
+             1241          1
+             1281          1
+             1321          1
+             1361          1
+             1401          1
+             1441          1
+             1481          1
+             1521          1
+             1561          1
+             1601          1
+             1641          1
+             1681          1
+             1721          1
+             1761          1
+             1801          1
+             1841          1
+             1881          1
+             1921          1
+             1961          1
+             2001          1
+             2041          1
+             2081          1
+             2121          1
+             2161          1
+             2201          1
+             2241          1
+             2281          1
+             2321          1
+             2361          1
+             2401          1
+             2441          1
+             2481          1
+             2521          1
+             2561          1
+             2601          1
+             2641          1
+             2681          1
+             2721          1
+             2761          1
+             2801          1
+             2841          1
+             2881          1
+             2921          1
+             2961          1
+             3001          1
+             3041          1
+             3081          1
+             3121          1
+             3161          1
+!
+      $NSET NAME = F
+                7          8
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       BEAM          MATERIAL = MAT_BEAM
+!
+      $ADDMODES SOURCE = LOAD
+       LPAT = ALL
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            2: -1.000000E+05
+!
+   $END LOADING
+!------
+   $LOADING  NAME = L_STEP_3
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            2: -5.000000E+00
+!
+      $FREQLOAD 
+       LPAT = 1 TYPE = SINE
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+       $FREQUENCY PRIMARY = EQUI
+         1.E2 1.E4 1.E2
+
+       $FREQUENCY PRIMARY = EIGCLUS CLUSTER = 3,0.1 BOUNDS = 0.,1E+04
+               
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BEAM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        4.000000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
