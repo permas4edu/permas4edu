@@ -96,6 +96,6 @@
 
 048 - [Application of thermoelasticity in the frequency-domain multiaxial vibration-fatigue criterion](https://doi.org/10.1016/j.ymssp.2024.112002)
 
-049 - 
+049 - [Closely spaced modes identiﬁcation through modiﬁed frequency domain decomposition](https://doi.org/10.1016/j.measurement.2018.07.006)
 
 050 - [Application of Quantum Perturbation Method to Euler-Bernoulli Equation for Frequency Shift in Non-Uniform Cantilever Oscillations](http://dx.doi.org/10.2139/ssrn.4779171)
