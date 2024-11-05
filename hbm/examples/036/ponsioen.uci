@@ -1,0 +1,87 @@
+!
+!  The example is adapted from 
+!  Sten Ponsioen, Shobhit Jan, George Haller
+!  Model reduction to spectral submanifolds and forced-response
+!  calculation in high-dimensional mechanical systems
+!  Journal of Sound and Vibration Vol. 488 (2020)
+!  https://doi.org/10.1016/j.jsv.2020.115640
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = ponsioen.dat
+    READ PERMAS FILE = ponsioen_add.dat
+RETURN
+
+
+TASK
+EXEC
+    ACT SIT = STEP_3
+    ACTIVE NSET = F
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024           &
+                            ACCURACY     = 5.0            &
+                            NOFHARMONICS = 7              &
+                            MODES        = 10             &
+                            MODE         = FOLLOWPATH     &
+                            DIRECTION    = ASCENDING      &
+                            STARTFREQ    = 1.094987e+00   &  ! [Hz]
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = TIP DCOMP = 3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = TIP
+    GO SPREADSHEET FILE = direct_hbm_tip 
+TASK END
+
+TASK
+EXEC
+    ACT SIT = STEP_0
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACTIVE NSET = F
+    MODAL HARMONIC BALANCE SITUATION    = STEP_1         &
+                           PRIMRES      = REDUCED        &
+                           ACCURACY     = 5.0            &
+                           FFTSIZE      = 1024           &
+                           NOFHARMONICS = 7              &
+                           MODE         = FOLLOWPATH     &
+                           DIRECTION    = ASCENDING      &
+                           STARTFREQ    = 1.094987e+00   &  ! [Hz]
+                           RESULTS      = ALL 
+    ACT SIT = STEP_1
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = TIP DCOMP = 3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = TIP
+    GO SPREADSHEET FILE = modal_hbm_tip  
+EXEC
+    ACT SIT = STEP_0
+    ACTIVE NSET = F
+    MODAL FREQUENCY SITUATION = STEP_2 &
+                    PRIMRES   = REDUCED 
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = TIP DCOMP = 3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = TIP
+    GO SPREADSHEET FILE = frf_tip  
+TASK END
+
+USER
+    CALL TOOL6 P1 = 'pyINTES ponsioen.py'
+RETURN
+
+STOP

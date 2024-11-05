@@ -1,0 +1,107 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+02  0.000000E+00
+!
+      $NODE NSET = GROUND
+        999 2700.0 0.0 10.0
+!
+      $ELEMENT TYPE = NLSTIFF ESET = NL_K
+        201 2 999
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = F
+                2
+!
+      $NSET NAME = CLAMPED
+                1
+!
+      $NSET NAME = BEAM RULE = ESET
+          BEAM
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+!     Caution: PERMAS makes use of C = alpha*K + beta*M
+!
+      $COMPDAMP 
+         ALPHA = 2.5E-4  BETA = 1.25E-4
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_BEAM               5
+         &        :  1.000000E+01  1.000000E+01
+         &        :  1.000000E+01  1.000000E+01
+!
+      $GEODAT SPRING CONT = FUNCTION
+         GD_NL_K   1
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = MAT_BEAM
+       NL_K          GEODAT = GD_NL_K
+!
+      $ADDMODES SOURCE = ELEMENTS
+         NL_K
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,4,6  DOFTYPE = DISP
+       BEAM
+!
+      $SUPPRESS  DOFS = 3,5  DOFTYPE = DISP
+       CLAMPED
+!
+      $SUPPRESS DOFS = 1,2,3
+        GROUND
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_1
+
+      $CONLOAD LPAT = 1
+        2 3: 0.002E-3
+
+      $FREQLOAD 
+         LPAT = 1 TYPE = COSINE
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+           6.88 7.12 0.005
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION 
+
+    $DEFVAR KAPPA TYPE = REAL LIST = 4.E-3
+
+    $FUNCTION FORMULA FID = 1
+       F(X) = KAPPA(1)*X^3
+  
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BEAM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.780000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        4.500000E+04  0.000000E+00
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
