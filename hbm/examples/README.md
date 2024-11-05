@@ -69,3 +69,6 @@
 034 - [A Novel Approach for Local Structural Modification of Nonlinear Structures](http://dx.doi.org/10.1007/978-3-031-36999-5_20)
 
 035 - [APPLICATION OF NONLINEAR FREQUENCY RESPONSE ANALYSIS FOR WINDMILLING](https://doi.org/10.1115/GT2024-122018)
+
+036 - [Model reduction to spectral submanifolds and forced-response calculation in high-dimensional mechanical systems](https://doi.org/10.1016/j.jsv.2020.115640)
+
