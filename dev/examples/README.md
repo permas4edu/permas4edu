@@ -93,3 +93,9 @@
 046 - [DIC vibration measurement through smartphone devices](http://dx.doi.org/10.1088/1742-6596/2802/1/012009)
 
 047 - [Structural identification based on substructure decoupling technique considering uncertain dynamic model](https://doi.org/10.1016/j.ymssp.2024.111957)
+
+048 - 
+
+049 - 
+
+050 - [Application of Quantum Perturbation Method to Euler-Bernoulli Equation for Frequency Shift in Non-Uniform Cantilever Oscillations](http://dx.doi.org/10.2139/ssrn.4779171)
