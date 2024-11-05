@@ -94,7 +94,7 @@
 
 047 - [Structural identification based on substructure decoupling technique considering uncertain dynamic model](https://doi.org/10.1016/j.ymssp.2024.111957)
 
-048 - 
+048 - [Application of thermoelasticity in the frequency-domain multiaxial vibration-fatigue criterion](https://doi.org/10.1016/j.ymssp.2024.112002)
 
 049 - 
 
