@@ -1,0 +1,15 @@
+NEW
+
+INPUT
+    READ ANSYS FILE = twistblade_statics.cdb
+RETURN
+
+TASK
+EXEC
+    ACT SIT = DFLT_SIT
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
