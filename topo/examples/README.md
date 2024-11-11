@@ -44,3 +44,6 @@
 
 022 - [A novel numerical manifold method and its application in parameterized LSM-based structural topology optimization](https://doi.org/10.1016/j.cma.2023.116457)
 
+023 - [A one-time training machine learning method for general structural topology optimization](https://doi.org/10.1016/j.tws.2024.112595)
+
+
