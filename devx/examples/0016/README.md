@@ -4,3 +4,4 @@ Thanks to Sébastien Baguet for private communications. His support is greatly a
 
 ![finite_element_rotor.png](finite_element_rotor.png "Multi-DOFs finite element rotor")
 
+![Orbit plot](orbitplot.gif "Orbit plot")
