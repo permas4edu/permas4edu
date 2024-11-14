@@ -29,3 +29,6 @@
 0014 - [Decomposition and Uncoupling of Multi-Degree-of-Freedom Gyroscopic Conservative Systems](http://dx.doi.org/10.1115/1.4063504)
 
 0015 - [Development of Flexible Rotor Balancing Procedure Using Response Matching Technique](http://dx.doi.org/10.1007/s42417-024-01574-y)
+
+0016 - [A comparison of stability computational methods for periodic solution of nonlinear problems with application to rotordynamics](https://doi.org/10.1007/s11071-012-0744-0)
+
