@@ -1,0 +1,196 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS6
+               14          2
+               15          3
+               16          4
+      $ELEMENT TYPE = SPRING6
+               17          1         15
+               18         14         16
+      $ELEMENT TYPE = DAMP6
+               19          1         15
+               20          5         16
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+01  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00
+!
+      $ELSYS RSYS
+       DISK1         RSYS =          0  AXES =  2,  1
+       DISK2         RSYS =          0  AXES =  2,  1
+       DISK3         RSYS =          0  AXES =  2,  1
+       SHAFT         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+               15         16
+!
+      $NSET NAME = SHAFT RULE = ESET
+         SHAFT
+!
+      $ESET NAME = BEARING_K_1
+               17
+      $ESET NAME = BEARING_K_2
+               18
+      $ESET NAME = BEARING_C_1
+               19
+      $ESET NAME = BEARING_C_2
+               20
+      $ESET NAME = DISK1
+               14
+      $ESET NAME = DISK2
+               15
+      $ESET NAME = DISK3
+               16
+!
+      $NSET NAME = DISK1 RULE = ESET
+         DISK1
+      $NSET NAME = DISK2 RULE = ESET
+         DISK2
+      $NSET NAME = DISK3 RULE = ESET
+         DISK3
+!
+      $ESET NAME = DISKS
+         DISK1
+         DISK2
+         DISK3
+! 
+      $ESET NAME = ROTOR
+         DISKS
+         SHAFT
+!
+      $COOR
+               15  0.000000E+00  0.000000E+00  0.000000E+00
+               16  0.000000E+00  1.300000E+00  0.000000E+00
+!
+      $PART  NAME = DISK1
+       DISK1
+      $PART  NAME = DISK2
+       DISK2
+      $PART  NAME = DISK3
+       DISK3
+      $PART  NAME = BEARING_K_1
+       BEARING_K_1
+      $PART  NAME = BEARING_K_2
+       BEARING_K_2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM SECTDIM
+       GD_SHAFT              4 :  1.000000E-01 :  1.000000E-01
+! 
+      $GEODAT SPRING CONT = STIFF
+       GD_BEARING_K_1 5.0E+07 0.0  7.0E+07 0.0 0.0 0.0
+       GD_BEARING_K_2 5.0E+07 0.0  7.0E+07 0.0 0.0 0.0
+
+      $GEODAT DAMPER CONT = DAMP
+       GD_BEARING_C_1 5.0E+02 0.0  7.0E+02 0.0 0.0 0.0
+       GD_BEARING_C_2 5.0E+02 0.0  7.0E+02 0.0 0.0 0.0
+!
+      $GEODAT MASS      CONT = CYLINDER
+       GD_DISK1      7.800000E+03  1.000000E-01  2.400000E-01  5.000000E-02
+       GD_DISK2      7.800000E+03  1.000000E-01  4.000000E-01  5.000000E-02
+       GD_DISK3      7.800000E+03  1.000000E-01  4.000000E-01  6.000000E-02
+!
+      $ELPROP
+       SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_01
+!
+       DISK1         GEODAT = GD_DISK1
+       DISK2         GEODAT = GD_DISK2
+       DISK3         GEODAT = GD_DISK3
+!
+       BEARING_K_1   GEODAT = GD_BEARING_K_1 
+       BEARING_K_2   GEODAT = GD_BEARING_K_2 
+       BEARING_C_1   GEODAT = GD_BEARING_C_1 
+       BEARING_C_2   GEODAT = GD_BEARING_C_2 
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 2,5  DOFTYPE = DISP
+       SHAFT
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $INERTIA ROTATION  LPAT = 1
+        ROTOR 0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+01  0.000000E+00  1.000000E+00
+!
+   $END LOADING
+!------
+   $LOADING  NAME = L_STEP_4
+!
+!     Unbalance load m*e = ?
+!
+      $CONLOAD LPAT = 1
+        DISK2 1: 1.0 ! 
+      $CONLOAD LPAT = 3
+        DISK2 3: 1.0
+
+      $FREQLOAD
+        LPAT = 1 TYPE = COSINE AMPLITUDE = 1
+        LPAT = 3 TYPE =   SINE AMPLITUDE = 1
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $ADDMATRIX
+         GEOSTIFF
+         CONVSTIFF
+         GYRO
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = YES
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_STEP_3
+!
+      $ROTSPEED  PRIMARY = EQUI  DOFTYPE = DISP
+        0.000000E+00  1.000000E+02  1.000000E+00
+!
+   $END RESULTS
+!------
+   $RESULTS  NAME = R_STEP_4
+!
+      $FREQUENCY PRIMARY = ROTSPEED
+!
+      $ROTSPEED  PRIMARY = EQUI  DOFTYPE = DISP
+        0.000000E+00  1.000000E+02  1.000000E+00
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 1
+      F(X) = (2*PI*X)^2
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
