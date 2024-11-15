@@ -131,7 +131,7 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !------
    $LOADING  NAME = L_STEP_4
 !
-!     Unbalance load m*e = ?
+!     Unbalance load m*e = 0.02 [kg m]
 !
       $CONLOAD LPAT = 1
         DISK2 1: 0.02 ! [kg m]
