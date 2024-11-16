@@ -29,3 +29,5 @@
 014 - [Sensitivity analysis of frequency response functions with imaginary parts decoupling based on multicomplex-step perturbation](https://doi.org/10.1016/j.apm.2024.115669)
 
 015 - [Elastodynamic Analysis of Rotating Solids by Novel Nodal Position Finite Element Method](https://doi.org/10.1016/j.euromechsol.2024.105478)
+
+016 - [On a space-time implementation of the wave equation using virtual elements](https://doi.org/10.1007/s00466-024-02556-3)
