@@ -1,0 +1,65 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = GROUND
+                1
+      $NSET NAME = TIP
+                2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_BAR        1.000000E+00
+!
+      $ELPROP
+       BAR           GEODAT = GD_BAR        MATERIAL = MAT_BAR
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 2,3  DOFTYPE = DISP
+       BAR
+
+      $SUPPRESS  DOFS = 1  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD LPAT = 1
+          TIP 1: 1.0
+!
+      $TRANSLOAD
+          LPAT = 1 FUNCTION = 1
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION FORMULA  FID =          1
+   F(T)=SIN(5*T)
+!------
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BAR  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.000000E+00
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.000000E+02  0.000000E+00
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

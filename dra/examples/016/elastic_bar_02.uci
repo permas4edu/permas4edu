@@ -1,0 +1,26 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = elastic_bar_02.dat
+    READ PERMAS FILE = elastic_bar_02_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT TIMEHISTORY LOOPS  = 2200  &
+                       DELTAT = 1.E-2 &
+                       TSTART = 0.0   &
+                       STORE  = ALL   &
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = TIP
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = tip
+TASK END
+STOP
+
+  
