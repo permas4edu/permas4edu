@@ -72,3 +72,4 @@
 
 036 - [Model reduction to spectral submanifolds and forced-response calculation in high-dimensional mechanical systems](https://doi.org/10.1016/j.jsv.2020.115640)
 
+037 - [Experimental, theoretical and optimization studies on multimode vibration reduction of floating raft system based on NES cells](https://doi.org/10.1016/j.oceaneng.2024.118897)
