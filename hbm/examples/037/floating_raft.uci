@@ -1,0 +1,39 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = floating_raft.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_0  
+    VIBRATION ANALYSIS MODES = 4
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH &
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 0.0        &
+                            RESULTS      = ALL   
+SELECT
+    ACTIVE NSET = M_1
+    XYDATA ITEM DISP RESULT = U1 DCOMP = 1
+    XYDATA ITEM ACCE RESULT = A1 DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = U1
+    GO SPREADSHEET FILE = hbm_u1
+    ITEM CLEAR
+    ITEM XYDATA NAME = A1
+    GO SPREADSHEET FILE = hbm_a1
+TASK END
+STOP
