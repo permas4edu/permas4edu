@@ -9,7 +9,7 @@ Python, Computer-Aided Engineering, Structural Dynamics, High Performance Comput
 
 git clone https://github.com/permas4edu/permas4edu.git  
 cd permas4edu  
-Open index.html with your favourite browser  
+Open index.html with your favourite browser to access the former examples from the Researchgate project.   
 
 ### Feedback 
 
