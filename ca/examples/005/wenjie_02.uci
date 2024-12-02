@@ -1,0 +1,26 @@
+!SET CAGEOUP = ON
+
+NEW
+
+INPUT
+    READ PERMAS FILE = wenjie_02.dat
+    READ PERMAS FILE = wenjie_02_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics_without_friction
+EXEC
+    ACT SIT = STEP_2
+    STATIC
+    GEN N P STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics_with_friction
+TASK END
+STOP

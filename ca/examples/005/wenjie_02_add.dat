@@ -1,0 +1,422 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $MPC RIGID  DPDOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+                1 GID     : GROUND
+!
+      $COOR NSET = GID
+             2053  0.000000E+00  0.000000E+00  5.000000E+00
+!
+      $SURFACE ELEMENTS  LABEL = CLAMPED  SYSTEM = LOCAL
+                2          3
+                3          3
+                4          3
+                5          3
+                6          3
+                7          3
+                8          3
+              219          3
+              220          3
+              221          3
+              222          3
+              223          3
+              224          3
+              225          3
+              436          3
+              437          3
+              438          3
+              439          3
+              440          3
+              441          3
+              442          3
+              653          3
+              654          3
+              655          3
+              656          3
+              657          3
+              658          3
+              659          3
+              870          3
+              871          3
+              872          3
+              873          3
+              874          3
+              875          3
+              876          3
+             1087          3
+             1088          3
+             1089          3
+             1090          3
+             1091          3
+             1092          3
+             1093          3
+             1304          3
+             1305          3
+             1306          3
+             1307          3
+             1308          3
+             1309          3
+             1310          3
+      $SURFACE ELEMENTS  LABEL = LOAD  SYSTEM = LOCAL
+              212          5
+              213          5
+              214          5
+              215          5
+              216          5
+              217          5
+              218          5
+              429          5
+              430          5
+              431          5
+              432          5
+              433          5
+              434          5
+              435          5
+              646          5
+              647          5
+              648          5
+              649          5
+              650          5
+              651          5
+              652          5
+              863          5
+              864          5
+              865          5
+              866          5
+              867          5
+              868          5
+              869          5
+             1080          5
+             1081          5
+             1082          5
+             1083          5
+             1084          5
+             1085          5
+             1086          5
+             1297          5
+             1298          5
+             1299          5
+             1300          5
+             1301          5
+             1302          5
+             1303          5
+             1514          5
+             1515          5
+             1516          5
+             1517          5
+             1518          5
+             1519          5
+             1520          5
+      $SURFACE ELEMENTS  LABEL = GROUND  SYSTEM = LOCAL
+                1
+      $SURFACE ELEMENTS  LABEL = SEMICIRCLE  SYSTEM = LOCAL
+                2          4
+                3          4
+                4          4
+                5          4
+                6          4
+                7          4
+                8          4
+                9          4
+               10          4
+               11          4
+               12          4
+               13          4
+               14          4
+               15          4
+               16          4
+               17          4
+               18          4
+               19          4
+               20          4
+               21          4
+               22          4
+               23          4
+               24          4
+               25          4
+               26          4
+               27          4
+               28          4
+               29          4
+               30          4
+               31          4
+               32          4
+               33          4
+               34          4
+               35          4
+               36          4
+               37          4
+               38          4
+               39          4
+               40          4
+               41          4
+               42          4
+               43          4
+               44          4
+               45          4
+               46          4
+               47          4
+               48          4
+               49          4
+               50          4
+               51          4
+               52          4
+               53          4
+               54          4
+               55          4
+               56          4
+               57          4
+               58          4
+               59          4
+               60          4
+               61          4
+               62          4
+               63          4
+               64          4
+               65          4
+               66          4
+               67          4
+               68          4
+               69          4
+               70          4
+               71          4
+               72          4
+               73          4
+               74          4
+               75          4
+               76          4
+               77          4
+               78          4
+               79          4
+               80          4
+               81          4
+               82          4
+               83          4
+               84          4
+               85          4
+               86          4
+               87          4
+               88          4
+               89          4
+               90          4
+               91          4
+               92          4
+               93          4
+               94          4
+               95          4
+               96          4
+               97          4
+               98          4
+               99          4
+              100          4
+              101          4
+              102          4
+              103          4
+              104          4
+              105          4
+              106          4
+              107          4
+              108          4
+              109          4
+              110          4
+              111          4
+              112          4
+              113          4
+              114          4
+              115          4
+              116          4
+              117          4
+              118          4
+              119          4
+              120          4
+              121          4
+              122          4
+              123          4
+              124          4
+              125          4
+              126          4
+              127          4
+              128          4
+              129          4
+              130          4
+              131          4
+              132          4
+              133          4
+              134          4
+              135          4
+              136          4
+              137          4
+              138          4
+              139          4
+              140          4
+              141          4
+              142          4
+              143          4
+              144          4
+              145          4
+              146          4
+              147          4
+              148          4
+              149          4
+              150          4
+              151          4
+              152          4
+              153          4
+              154          4
+              155          4
+              156          4
+              157          4
+              158          4
+              159          4
+              160          4
+              161          4
+              162          4
+              163          4
+              164          4
+              165          4
+              166          4
+              167          4
+              168          4
+              169          4
+              170          4
+              171          4
+              172          4
+              173          4
+              174          4
+              175          4
+              176          4
+              177          4
+              178          4
+              179          4
+              180          4
+              181          4
+              182          4
+              183          4
+              184          4
+              185          4
+              186          4
+              187          4
+              188          4
+              189          4
+              190          4
+              191          4
+              192          4
+              193          4
+              194          4
+              195          4
+              196          4
+              197          4
+              198          4
+              199          4
+              200          4
+              201          4
+              202          4
+              203          4
+              204          4
+              205          4
+              206          4
+              207          4
+              208          4
+              209          4
+              210          4
+              211          4
+              212          4
+              213          4
+              214          4
+              215          4
+              216          4
+              217          4
+              218          4
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       RING          MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GID
+!
+      $CONTACT SURFACE SURFNODE
+                C1 GROUND      : SEMICIRCLE
+!
+   $END CONSTRAINTS
+!------
+   $CONSTRAINTS  NAME = C_STEP_2
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GID
+!
+      $CONTACT SURFACE SURFNODE FRICTION = BOTH
+                C1 GROUND      : SEMICIRCLE
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOADS PRESS  LPAT = 1  FACTOR = 8.0 DOFTYPE = DISP
+       LOAD  5.000000E+01
+!
+      $CONTACT LOAD  LPAT =       1000  GAPWIDTH = ADD
+                C1  0.000000E+00
+!
+      $NLLOAD  TABLE  TIME = LIST  DOFTYPE = DISP
+                         0.000000E+00  1.000000E+00
+      LPAT = 1           0.000000E+00  1.000000E+00 'External load'
+      LPAT = 1000        1.000000E+00  1.000000E+00 'Frictionless contact'
+!
+   $END LOADING
+!------
+   $LOADING  NAME = L_STEP_2
+!
+      $DISLOADS PRESS  LPAT = 1  FACTOR = 8.0 DOFTYPE = DISP
+       LOAD  5.000000E+01
+!
+      $CONTACT LOAD  LPAT =       1000  GAPWIDTH = ADD FRICTION = COULOMB
+                C1  0.000000E+00 : 0.6
+!
+      $NLLOAD  TABLE  TIME = LIST  DOFTYPE = DISP
+                         0.000000E+00  1.000000E+00
+      LPAT = 1           0.000000E+00  1.000000E+00 'External load'
+      LPAT = 1000        1.000000E+00  1.000000E+00 'Frictional contact'
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_1
+!
+      $NLRESULTS  STEPS = EQUI  KIND = ABS  DOFTYPE = DISP
+        0.000000E+00  1.000000E+00  1.000000E-01
+!
+   $END RESULTS
+!------
+   $RESULTS NAME = R_STEP_2
+!
+      $NLRESULTS  STEPS = EQUI  KIND = ABS  DOFTYPE = DISP
+        0.000000E+00  1.000000E+00  1.000000E-01
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
