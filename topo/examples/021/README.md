@@ -2,7 +2,7 @@ The example ia adapted from [Voxel‑based evolutionary topological optimization
 
 ![Finite element model](mesh.png)
 
+# Design Wizard
 
 https://github.com/permas4edu/permas4edu/blob/main/topo/examples/021/design_wizard_edu.mp4
 
-Press play to see the video.
