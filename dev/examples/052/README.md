@@ -2,3 +2,4 @@ The example is adapted from [Isogeometric analysis of architected materials and 
 
 Thanks to Yuri Bazilevs and Ke Ma for sharing a CAD model. Their support is greatly appreciated.
 
+![Unit cell](unit_cell.png)
