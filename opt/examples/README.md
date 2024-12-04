@@ -23,3 +23,7 @@
 011 - [Design, Manufacturing, and Experiments of Additive Manufactured Stiffened Thin-walled Plates](https://doi.org/10.2514/6.2024-2077)
 
 012 - [An efficient algorithm for multi-objective structural optimization problems using an improved pbest-based differential evolution algorithm](https://doi.org/10.1016/j.advengsoft.2024.103752)
+
+013 - [Automated shape and thickness optimization for non‑matching isogeometric shells using free‑form deformation](https://doi.org/10.1007/s00366-024-01947-7)
+
+
