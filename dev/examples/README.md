@@ -102,6 +102,6 @@
 
 051 - [Improved tangential interpolation-based multi-input multi-output modal analysis of a full aircraft](https://doi.org/10.1016/j.euromechsol.2024.105495)
 
-052 - 
+052 - [Isogeometric analysis of architected materials and structures](https://doi.org/10.1007/s00366-024-01979-z)
 
 053 - [Modal Complexity Factors as indexes for modal parameter identification in Operational Modal Analysis of coupled dynamic systems](https://doi.org/10.1016/j.jsv.2024.118860)
