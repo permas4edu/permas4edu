@@ -31,3 +31,7 @@
 015 - [Elastodynamic Analysis of Rotating Solids by Novel Nodal Position Finite Element Method](https://doi.org/10.1016/j.euromechsol.2024.105478)
 
 016 - [On a space-time implementation of the wave equation using virtual elements](https://doi.org/10.1007/s00466-024-02556-3)
+
+017 - [A novel time substep procedure into the classical central diﬀerence scheme to derive fourth-order methods in the complex plane](https://doi.org/10.1016/j.compstruc.2024.107514)
+
+
