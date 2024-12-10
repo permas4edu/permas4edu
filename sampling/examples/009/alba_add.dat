@@ -1,0 +1,181 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = SPRING6
+               16          2         17
+               17          3         18
+!
+      $MPC JOIN  DPDOFS = 1,2  DOFTYPE = DISP
+                1 N2          : N17
+                2 N3          : N18
+!
+      $RSYS CART  FORM = ZX
+                1          1 :          2 :  0.000000E+00  0.000000E+00 -1.000000E+01
+                2         17 :         18 :  0.000000E+00  5.000000E+00 -1.000000E+01
+                3          3 :          4 :  5.000000E+00  0.000000E+00 -1.000000E+01
+!
+      $ELSYS RSYS
+       LINE1         RSYS =          1  AXES =  1,  2
+       LINE2         RSYS =          2  AXES =  1,  2
+       LINE3         RSYS =          3  AXES =  1,  2
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K_ROT_1
+                2          2: K_ROT_2
+!
+      $LINE GEO  LNID = Q
+       SFLA2          9         10
+       SFLA2         17          9
+       SFLA2         10         11
+       SFLA2         11         12
+       SFLA2         12         18
+!
+      $NSET NAME = ALL_NODES
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18
+      $NSET NAME = C
+                3
+      $NSET NAME = D
+                4
+      $NSET NAME = GROUND
+                1          4
+      $NSET NAME = N2
+                2
+      $NSET NAME = N3
+                3
+      $NSET NAME = N17
+               17
+      $NSET NAME = N18
+               18
+      $ESET NAME = K_ROT_1
+               16
+      $ESET NAME = K_ROT_2
+               17
+!
+      $PART  NAME = K_ROT_1
+       K_ROT_1
+      $PART  NAME = K_ROT_2
+       K_ROT_2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_ROT_1    0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+06
+       GD_K_ROT_2    0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+06
+!
+!     Rectangular cross section
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM SECTDIM
+       GD_LINE_1  5 :  3.000000E-01  6.000000E-01 :  3.000000E-01  6.000000E-01
+       GD_LINE_2  5 :  3.000000E-01  6.000000E-01 :  3.000000E-01  6.000000E-01
+       GD_LINE_3  5 :  3.000000E-01  6.000000E-01 :  3.000000E-01  6.000000E-01 
+!
+      $ELPROP
+       LINE1         GEODAT = GD_LINE_1     MATERIAL = STEEL
+       LINE2         GEODAT = GD_LINE_2     MATERIAL = STEEL
+       LINE3         GEODAT = GD_LINE_3     MATERIAL = STEEL
+       K_ROT_1       GEODAT = GD_K_ROT_1
+       K_ROT_2       GEODAT = GD_K_ROT_2
+!
+      $DVGPAR SPRING  NAME = GD_K_ROT_1  DEID = 1
+      STIFF          6:          1
+      $DVGPAR SPRING  NAME = GD_K_ROT_2  DEID = 2
+      STIFF          6:          2
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3,4,5  DOFTYPE = DISP
+       ALL_NODES
+      $SUPPRESS  DOFS = 1,2,6  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+!     Horizontal force
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       N2             4.000000E+04
+!
+!     Uniformly distributed transversal load
+!
+      $DISLOAD LINE3D  LPAT = 2  NODES = ALL  DOFTYPE = DISP
+                7  0.000000E+00 -8.000000E+03  0.000000E+00
+                6  0.000000E+00 -8.000000E+03  0.000000E+00
+                8  0.000000E+00 -8.000000E+03  0.000000E+00
+                9  0.000000E+00 -8.000000E+03  0.000000E+00
+               10  0.000000E+00 -8.000000E+03  0.000000E+00
+!
+!     Superposition of the loads
+!
+      $COMBINE LOADS  LPAT = 999  DOFTYPE = DISP
+      LPAT = 1  FACTOR =  1.000000E+00
+      LPAT = 2  FACTOR =  1.000000E+00
+!
+   $END LOADING
+!------
+   $RESULTS
+!
+      $RSLITEM DISP  TYPE = SET  SITUATION = STEP_1  LPAT = 999
+      U_C          : C              1
+      $RSLITEM REAC  TYPE = SET  SITUATION = STEP_1  LPAT = 999
+      FX_D         : D              1
+!
+!     Stiffness of rotational springs 
+!
+      $VPARVAL  TYPE = DESVAR
+                1  1.000000E+06  1.000000E+08
+                2  1.000000E+06  1.000000E+08
+!
+      $RESEXT  ITEM
+      U_C  : U_C           1
+      FX_D : FX_D          1
+!
+      $RESEXT FUNCTION
+      NONDIM_U_C  : U_C 1  : 1
+      NONDIM_FX_D : FX_D 1 : 2
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $DEFVAR E TYPE = REAL LIST = 2.1E11 ! Youngs modulus
+    $DEFVAR I TYPE = REAL LIST = 0.0054 ! Moment of inertia
+    $DEFVAR L TYPE = REAL LIST = 5.0    ! length
+    $DEFVAR Q TYPE = REAL LIST = 8E3    ! uniformly distributed transversal load
+
+    $FUNCTION FORMULA FID = 1
+      F(X) = X*E(1)*I(1)/(L(1)^4*Q(1))
+
+    $FUNCTION FORMULA FID = 2
+      F(X) = X/(Q(1)*L(1))
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
