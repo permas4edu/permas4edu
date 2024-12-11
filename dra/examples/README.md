@@ -34,4 +34,4 @@
 
 017 - [A novel time substep procedure into the classical central diﬀerence scheme to derive fourth-order methods in the complex plane](https://doi.org/10.1016/j.compstruc.2024.107514)
 
-
+018 - [Improving the accuracy of the Newmark method through backward error analysis](https://doi.org/10.1007/s00466-024-02580-3)
