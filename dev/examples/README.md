@@ -105,3 +105,5 @@
 052 - [Isogeometric analysis of architected materials and structures](https://doi.org/10.1007/s00366-024-01979-z)
 
 053 - [Modal Complexity Factors as indexes for modal parameter identification in Operational Modal Analysis of coupled dynamic systems](https://doi.org/10.1016/j.jsv.2024.118860)
+
+054 - [Analysis of the free vibration of thin rectangular plates with cut-outs using the discrete singular convolution method](https://doi.org/10.1016/j.tws.2019.106529)
