@@ -107,3 +107,6 @@
 053 - [Modal Complexity Factors as indexes for modal parameter identification in Operational Modal Analysis of coupled dynamic systems](https://doi.org/10.1016/j.jsv.2024.118860)
 
 054 - [Analysis of the free vibration of thin rectangular plates with cut-outs using the discrete singular convolution method](https://doi.org/10.1016/j.tws.2019.106529)
+
+055 - [Integrating von Mises and hydrostatic stresses in frequency domain multiaxial fatigue criteria for vibration fatigue analysis](https://doi.org/10.1016/j.ymssp.2024.112229)
+
