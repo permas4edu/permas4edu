@@ -1,0 +1,80 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID = LINE_B
+       SFLA2          1        287
+       SFLA2        295          2
+       SFLA2        287        288
+       SFLA2        288        289
+       SFLA2        289        290
+       SFLA2        290        291
+       SFLA2        291        292
+       SFLA2        292        293
+       SFLA2        293        294
+       SFLA2        294        295
+      $LINE GEO  LNID = LINE_A
+       SFLA2          3        164
+       SFLA2          4        121
+       SFLA2        167          4
+       SFLA2        124          5
+       SFLA2        121        122
+       SFLA2        122        123
+       SFLA2        123        124
+       SFLA2        164        165
+       SFLA2        165        166
+       SFLA2        166        167
+!
+      $NSET NAME = A
+                4
+      $NSET NAME = B
+              291
+      $NSET NAME = LINE_A
+                3          4          5        121        122        123        124        164        165        166        167
+      $NSET NAME = LINE_B
+                1          2        287        288        289        290        291        292        293        294        295
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $PRESCRIBE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       LINE_A       LINE_B
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      0.500000E+00
+!
+      $ELPROP
+       COMPONENT     GEODAT = GD_PLATE      MATERIAL = ALUMINUM_ALLOY
+!
+   $END SYSTEM
+!------
+   $LOADING
+!
+      $PREVAL  LPAT = 1  DOFTYPE = DISP
+       LINE_A         0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00
+       LINE_B         0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM_ALLOY  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.710000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.100000E+04  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
