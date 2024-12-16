@@ -1,0 +1,18 @@
+SET CAGEOUP = ON
+
+NEW
+
+INPUT
+    READ PERMAS FILE = wenjie_01.dat
+    READ PERMAS FILE = wenjie_01_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
