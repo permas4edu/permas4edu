@@ -2,3 +2,4 @@ The example is adapted from [Closed-form analytical solution for local buckling 
 
 Thanks to Cherine El Yaakoubi-Mesbah for private communication. Her support is greatly appreciated.
 
+![FE model](fe_model.png "Panel reinforced with omega-stringer")
