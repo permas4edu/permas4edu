@@ -1,0 +1,64 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1  RESULTS = R_SAMPLING
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: STRINGER_01
+         &      :         14
+                2: STRINGER_02
+         &      :         19
+!
+      $DSVLINK SAME
+                1:          2
+!
+      $DSVNODE
+                1         14:          1
+                2         19:          2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+               14 1 :  1.000000E+00 :          1
+               19 1 : -1.000000E+00 :          2
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+
+      $DSVLIMIT
+          1  -59.8 59.8
+
+   $END MODIFICATION
+!------
+   $RESULTS  NAME = R_SAMPLING
+!
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      EVAL_01
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2
+      EVAL_02
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3
+      EVAL_03
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4
+      EVAL_04
+!
+      $VPARVAL  TYPE = DESVAR
+                1 -5.980000E+01 -5.000000E+01 -4.000000E+01 -3.000000E+01 -2.000000E+01 -1.000000E+01  0.000000E+00  1.000000E+01  2.000000E+01  3.000000E+01
+         &         4.000000E+01  5.000000E+01  5.980000E+01
+!
+      $RESEXT  FUNCTION
+      LSF_01 : EVAL_01          1 :          1
+      LSF_02 : EVAL_02          1 :          1
+      LSF_03 : EVAL_03          1 :          1
+      LSF_04 : EVAL_04          1 :          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

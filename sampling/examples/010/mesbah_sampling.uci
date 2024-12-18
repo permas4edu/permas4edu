@@ -1,0 +1,39 @@
+! DEFAULT SET VERIFICATION = RESULTS ! material reference systems
+NEW
+
+INPUT
+     READ PERMAS FILE = mesbah.dat
+     READ PERMAS FILE = mesbah_shape.dat 
+RETURN
+
+TASK LOOPS = 13
+EXEC
+    ACT SIT = STEP_1
+    INERTIA RELIEF NOFRBM = 1
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = 'statics_%(tloop)'
+EXEC
+    ACT SIT = STEP_2
+    BUCKLING ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = load_scale_factors.txt
+    TEXT = 'Inertia relief'
+    DATA OBJECT BVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = 'buckling_modes_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING 
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES mesbah_sampling.py'
+RETURN
+STOP
