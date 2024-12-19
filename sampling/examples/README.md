@@ -22,3 +22,4 @@
 
 010 - [Closed-form analytical solution for local buckling of omega-stringer-stiffened composite panels under compression](https://doi.org/10.1016/j.compstruct.2024.118716)
 
+011 - [On the importance and application of the extended Galerkin’s method to distributed systems](http://dx.doi.org/10.1177/03064190241298202)
