@@ -17,3 +17,5 @@
 007 - [Uncertain pedestrian load modeling for structural vibration assessment in footbridge design](https://doi.org/10.1016/j.engstruct.2024.118070)
 
 008 . [Shape optimization of non-matching isogeometric shells with moving intersections](https://arxiv.org/abs/2407.00185)
+
+009 - [A novel interval matrix stiffness method for the analysis of steel frames with uncertain semi-rigid connections](https://doi.org/10.1016/j.advengsoft.2024.103629)
