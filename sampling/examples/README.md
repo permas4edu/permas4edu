@@ -19,3 +19,6 @@
 008 . [Shape optimization of non-matching isogeometric shells with moving intersections](https://arxiv.org/abs/2407.00185)
 
 009 - [A novel interval matrix stiffness method for the analysis of steel frames with uncertain semi-rigid connections](https://doi.org/10.1016/j.advengsoft.2024.103629)
+
+010 - [Closed-form analytical solution for local buckling of omega-stringer-stiffened composite panels under compression](https://doi.org/10.1016/j.compstruct.2024.118716)
+
