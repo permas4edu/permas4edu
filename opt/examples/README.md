@@ -26,4 +26,5 @@
 
 013 - [Automated shape and thickness optimization for non‑matching isogeometric shells using free‑form deformation](https://doi.org/10.1007/s00366-024-01947-7)
 
+014 - [Closed-form analytical solution for local buckling of omega-stringer-stiffened composite panels under compression](https://doi.org/10.1016/j.compstruct.2024.118716)
 
