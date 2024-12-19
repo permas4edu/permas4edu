@@ -2,3 +2,4 @@ The example is adapted from [On the importance and application of the extended G
 
 Thanks to Serkan Zeren for private communication. His support is greatly appreciated.
 
+![Natural frequencies](Natural_frequencies.png "Nondimensonal natural frequencies")
