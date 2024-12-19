@@ -1,0 +1,26 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       BEAM          MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.7450000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.300000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
