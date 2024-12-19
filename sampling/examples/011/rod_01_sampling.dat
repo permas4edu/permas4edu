@@ -1,0 +1,63 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DMASS
+                1          1: M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR MASS  NAME = GD_M  DEID = 1
+      MASS          1:          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $VPARVAL TYPE = DESVAR
+        1 0.0785 0.3925 0.785 ! alpha_M = 0.1 0.5 1.0
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4
+      F_4
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5
+      F_5
+!
+      $RESEXT  FUNCTION
+      NONDIM_F_1 : F_1          1 :          1
+      NONDIM_F_2 : F_2          1 :          1
+      NONDIM_F_3 : F_3          1 :          1
+      NONDIM_F_4 : F_4          1 :          1
+      NONDIM_F_5 : F_5          1 :          1
+
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $DEFVAR E   TYPE = REAL LIST = 2.1E11
+   $DEFVAR A   TYPE = REAL LIST = 1.E-4
+   $DEFVAR L   TYPE = REAL LIST = 1.0
+   $DEFVAR RHO TYPE = REAL LIST = 7850.0
+
+   $DEFVAR M   TYPE = REAL LIST = 0.785 ! rho*A*L
+  
+   $FUNCTION FORMULA  FID =          1
+   F(X)=2*PI*X/SQRT(E(1)*A(1)/(M(1)*L(1)^2))
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
