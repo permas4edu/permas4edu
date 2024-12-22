@@ -2,3 +2,5 @@ The example is adapted from [Integrating von Mises and hydrostatic stresses in f
 
 ![L_shaped_beam](L_shaped_beam.png)
 
+![First mode](mode_01.gif)
+
