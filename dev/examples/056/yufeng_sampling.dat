@@ -1,0 +1,58 @@
+$DEFVAR MODE TYPE = INTEGER GEN = 1,1
+$DEFVAR FREQ TYPE = NAME GEN = F_,1,1
+$DEFVAR NONDIM TYPE = NAME GEN = NONDIM_F_,1,1
+
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DQUAD4
+                1          1: PLATE
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SHELL  NAME = GD_PLATE  DEID = 1  NODES = ALL
+      THICK          1:          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $LOOP I = 1, 20
+          $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = MODE(I)
+              FREQ(I)
+      $ENDLOOP
+! 
+      $VPARVAL  TYPE = DESVAR
+                1  1.000000E-02
+!
+      $RESEXT  FUNCTION
+       $LOOP I = 1, 20
+           NONDIM(I) : FREQ(I)          1 :          1
+       $ENDLOOP
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $DEFVAR E TYPE = REAL LIST = 2.1E11 ! Young's modulus
+   $DEFVAR RHO TYPE = REAL LIST = 7850. ! density
+   $DEFVAR A TYPE = REAL LIST = 1.0 ! half-length of square plate
+   $DEFVAR H TYPE = REAL LIST = 0.01 ! thickness of plate
+   $DEFVAR NU TYPE = REAL LIST = 0.33 ! Poisson ratio
+   $DEFVAR D TYPE = REAL LIST = 19638.64886095837   ! E*h^3/(12*(1-nu^2))
+
+   $FUNCTION FORMULA  FID =          1
+   F(X)=2*PI*X*A(1)^2*SQRT(RHO(1)*H(1)/D(1))
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
