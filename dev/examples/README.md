@@ -110,3 +110,5 @@
 
 055 - [Integrating von Mises and hydrostatic stresses in frequency domain multiaxial fatigue criteria for vibration fatigue analysis](https://doi.org/10.1016/j.ymssp.2024.112229)
 
+056 - [Insight Into the Separation-of-Variable Methods for the Closed-Form Solutions of Free Vibration of Rectangular Thin Plates](https://doi.org/10.32604/cmes.2024.056440)
+
