@@ -28,3 +28,4 @@
 
 014 - [Closed-form analytical solution for local buckling of omega-stringer-stiffened composite panels under compression](https://doi.org/10.1016/j.compstruct.2024.118716)
 
+015 - [Bayesian updating using accelerated Hamiltonian Monte Carlo with gradient-enhanced Kriging model](https://doi.org/10.1016/j.compstruc.2024.107598)
