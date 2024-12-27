@@ -1,0 +1,131 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K_1
+                2          2: K_2
+                3          3: K_3
+                4          4: K_4
+                5          5: K_5
+                6          6: K_6
+                7          7: K_7
+                8          8: K_8
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  8.000000E+04
+!
+      $DVGPAR SPRING  NAME = GD_K_1  DEID = 1
+      STIFF          1:          1
+      $DVGPAR SPRING  NAME = GD_K_2  DEID = 2
+      STIFF          1:          2
+      $DVGPAR SPRING  NAME = GD_K_3  DEID = 3
+      STIFF          1:          3
+      $DVGPAR SPRING  NAME = GD_K_4  DEID = 4
+      STIFF          1:          4
+      $DVGPAR SPRING  NAME = GD_K_5  DEID = 5
+      STIFF          1:          5
+      $DVGPAR SPRING  NAME = GD_K_6  DEID = 6
+      STIFF          1:          6
+      $DVGPAR SPRING  NAME = GD_K_7  DEID = 7
+      STIFF          1:          7
+      $DVGPAR SPRING  NAME = GD_K_8  DEID = 8
+      STIFF          1:          8
+
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  8.000000E+04  1.900000E+05
+                2  8.000000E+04  1.900000E+05
+                3  8.000000E+04  1.900000E+05
+                4  8.000000E+04  1.900000E+05
+                5  8.000000E+04  1.900000E+05
+                6  8.000000E+04  1.900000E+05
+                7  8.000000E+04  1.900000E+05
+                8  8.000000E+04  1.900000E+05
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :  5.360000E+00      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2  DATTYPE = REAL
+      F_2          :  1.590000E+01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3  DATTYPE = REAL
+      F_3          :  2.590000E+01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4  DATTYPE = REAL
+      F_4          :  3.502000E+01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5  DATTYPE = REAL
+      F_5          :  4.295000E+01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6  DATTYPE = REAL
+      F_6          :  4.941000E+01      NO
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+!
+      $DCFUNCTION  CSTID = LSTSQ  FUNCTION =          1  EQUALITY = YES
+                1  DCONSTRAINT : F_1
+                2  DCONSTRAINT : F_2
+                3  DCONSTRAINT : F_3
+                4  DCONSTRAINT : F_4
+                5  DCONSTRAINT : F_5
+                6  DCONSTRAINT : F_6
+!
+      $DCONSTRAINT WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+         WGT : NO 40.0
+!
+      $DOBJECT CONSTRAINT = LSTSQ TARGET = MIN
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 2
+        F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 3
+        F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 4
+        F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 5
+        F_5
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 6
+        F_6
+
+      $RESEXT ITEM
+        F_1 : F_1  1
+        F_2 : F_2  1
+        F_3 : F_3  1
+        F_4 : F_4  1
+        F_5 : F_5  1
+        F_6 : F_6  1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION LIB  FID =          1  TYPE = SUMSQDIFF
+     1.000000E+00  1.666000E-01  5.360000E+00  1.666000E-01  1.590000E+01  1.666000E-01  2.590000E+01  1.666000E-01  3.502000E+01  1.666000E-01  4.295000E+01
+      &            1.666000E-01  4.941000E+01
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN

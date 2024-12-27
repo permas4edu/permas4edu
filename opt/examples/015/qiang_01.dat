@@ -1,0 +1,101 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+        $NODE NSET = ALL_NODES
+           100  0.0  0.0   0.0
+           101  0.0  1.0   0.0
+           102  0.0  2.0   0.0
+           103  0.0  3.0   0.0
+           104  0.0  4.0   0.0
+           105  0.0  5.0   0.0
+           106  0.0  6.0   0.0
+           107  0.0  7.0   0.0
+           108  0.0  8.0   0.0
+!
+      $ELEMENT TYPE = MASS3
+                1        101
+                2        102
+                3        103
+                4        104
+                5        105
+                6        106
+                7        107
+                8        108
+      $ELEMENT TYPE = SPRING1 ESET = K_1
+                9        100        101
+      $ELEMENT TYPE = SPRING1 ESET = K_2
+               10        101        102
+      $ELEMENT TYPE = SPRING1 ESET = K_3
+               11        102        103
+      $ELEMENT TYPE = SPRING1 ESET = K_4
+               12        103        104
+      $ELEMENT TYPE = SPRING1 ESET = K_5
+               13        105        104
+      $ELEMENT TYPE = SPRING1 ESET = K_6
+               14        105        106
+      $ELEMENT TYPE = SPRING1 ESET = K_7
+               15        107        106
+      $ELEMENT TYPE = SPRING1 ESET = K_8
+               16        107        108
+!
+      $NSET NAME = FREE
+              101        102        103        104        105        106        107        108
+      $NSET NAME = GROUND
+              100
+      $ESET NAME = K
+                9         10         11         12         13         14         15         16
+      $ESET NAME = M
+                1          2          3          4          5          6          7          8
+!
+      $PART  NAME = M
+       M
+      $PART  NAME = K
+       K
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,3  DOFTYPE = DISP
+       FREE
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          5.00000E+00  5.000000E+00  5.000000E+00
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_1          1.000000E+05
+       GD_K_2          1.000000E+05
+       GD_K_3          1.000000E+05
+       GD_K_4          1.000000E+05
+       GD_K_5          1.000000E+05
+       GD_K_6          1.000000E+05
+       GD_K_7          1.000000E+05
+       GD_K_8          1.000000E+05
+
+!
+      $ELPROP
+       K_1             GEODAT = GD_K_1
+       K_2             GEODAT = GD_K_2
+       K_3             GEODAT = GD_K_3
+       K_4             GEODAT = GD_K_4
+       K_5             GEODAT = GD_K_5
+       K_6             GEODAT = GD_K_6
+       K_7             GEODAT = GD_K_7
+       K_8             GEODAT = GD_K_8
+       M               GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
