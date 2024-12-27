@@ -112,3 +112,4 @@
 
 056 - [Insight Into the Separation-of-Variable Methods for the Closed-Form Solutions of Free Vibration of Rectangular Thin Plates](https://doi.org/10.32604/cmes.2024.056440)
 
+057 - [Bayesian updating using accelerated Hamiltonian Monte Carlo with gradient-enhanced Kriging model](https://doi.org/10.1016/j.compstruc.2024.107598)
