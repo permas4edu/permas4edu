@@ -47,3 +47,5 @@
 023 - [A one-time training machine learning method for general structural topology optimization](https://doi.org/10.1016/j.tws.2024.112595)
 
 024 - [Topology optimization using immersed isogeometric analysis and its software implementation](https://doi.org/10.1016/j.cma.2024.117374)
+
+025 - [An explicit topology and thickness control approach in SIMP-based topology optimization](https://doi.org/10.1016/j.compstruc.2024.107631)
