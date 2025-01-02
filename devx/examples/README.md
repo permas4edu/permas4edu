@@ -32,3 +32,4 @@
 
 0016 - [A comparison of stability computational methods for periodic solution of nonlinear problems with application to rotordynamics](https://doi.org/10.1007/s11071-012-0744-0)
 
+0017 - [Fast stochastic subspace identification of densely instrumented bridges using randomized SVD](https://doi.org/10.1016/j.ymssp.2024.112264)
