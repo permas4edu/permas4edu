@@ -6,12 +6,11 @@ Provide at least the first line of output of visperEDU --version better the firs
 It should look like this 
 
 ```
-VisPER-EDU 19.00.334-Rev.49268 (2023-04-13 05:26:41) / PERMAS (2023-04-11 17:29:40), linux-64
- Libs: Python 3.9.12, Qt 5.15.9, OpenSceneGraph 3.6.4, HDF5-1.10.9, sc.iViz-FW: 0.82, 230413133753
- Copyright 2005-2023 INTES GmbH <visper@intes.de> / Commit 0bed3ad957a704db5d74c563e4586f133024f21b
-Platform: Linux 4.19.0-23-amd64, Machine: x86_64 nils.local
+VisPER-EDU 20.00.267-Rev.51247 (2025-01-02 05:25:41) / PERMAS (2024-12-30 15:48:56), linux-64
+ Libs: Python 3.11.9, Qt 6.5.5, OpenSceneGraph 3.6.5, HDF5-1.14.4, sc.iViz-FW: 0.86, 250102125205
+ Copyright 2005-2025 INTES GmbH <visper@intes.de> / Commit f76bc93c7a4b709f2345ab1f9a07ee155c171df3
+Platform: Linux 5.10.0-33-amd64, Machine: x86_64 nils.local
 ```
-
 ```
 C:\Program Files\INTES\EDU\bin>visperEDU.bat --vers
 VisPER-EDU 20.00.228-Rev.51177 (2024-10-25 10:22:35) / PERMAS (2024-10-24 10:40:43), win64
