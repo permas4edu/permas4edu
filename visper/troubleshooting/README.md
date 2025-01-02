@@ -11,6 +11,14 @@ VisPER-EDU 19.00.334-Rev.49268 (2023-04-13 05:26:41) / PERMAS (2023-04-11 17:29:
  Copyright 2005-2023 INTES GmbH <visper@intes.de> / Commit 0bed3ad957a704db5d74c563e4586f133024f21b
 Platform: Linux 4.19.0-23-amd64, Machine: x86_64 nils.local
 ```
+
+```
+C:\Program Files\INTES\EDU\bin>visperEDU.bat --vers
+VisPER-EDU 20.00.228-Rev.51177 (2024-10-25 10:22:35) / PERMAS (2024-10-24 10:40:43), win64
+ Libs: Python 3.11.9, Qt 6.5.5, OpenSceneGraph 3.6.5, HDF5-1.14.4, sc.iViz-FW: 0.86, 250102124043
+ Copyright 2005-2024 INTES GmbH <visper@intes.de> / Commit 66d85f8fa705cba3da40d3602f4fda489e485099
+```
+
  * Ensure that the problem does not depend on your customized settings (see also below). If the problem arises only with your applied configuration we also need this information.
  * Clear description of misbehavior, if unclear provide your expectations.
  * Exact description what needs to be interactively done to reproduce the observed behavior.
@@ -25,12 +33,12 @@ Therefore, it is very important to ensure that the problem can be reproduced in 
 Since customized settings may change the behavior of VisPER significantly it is important to try to reproduce the observed problem under standard settings where the customized settings on different levels are ignored as much as possible. Otherwise the VisPER developer may not reproduce the described problem on his site. There are several ways to influence the application behavior:
 
 * Session-persistant user-specific settings are stored in
-  + ~/.visper/19.0-EDU/configrc on Linux
+  + ~/.visper/20.0-EDU/configrc on Linux
   + Registry under Computer\HKEY_CURRENT_USER\SOFTWARE\INTES\VisPER on Windows  
   Ignore session-persistant settings via VisPER command line option --no-configrc
 *  User-specific configuration file startup.pm which can be found under
-   + ~/.visper/19.0-EDU/startup.pm on Linux
-   + %APPDATA%/Intes/VisPER/19.0-EDU/startup.pm on Windows  
+   + ~/.visper/20.0-EDU/startup.pm on Linux
+   + %APPDATA%/Intes/VisPER/20.0-EDU/startup.pm on Windows  
   This file may not exist if the user did never provide it. It will not installed by default. But during the first start of a newer VisPER version the configuration files of an older VisPER version may be copied into the corresponding directory.  
   Ignore user-specific startup.pm via VisPER command line option --no-user-config  
 *  Site-specific configuration file which may be provided by the administrator and can be found under the installation path of VisPER under etc/visper.pm - the VisPER installation path may be retrieved by typing PmsIF.getVisperVersionDir() into VisPER -> Extras -> Console
