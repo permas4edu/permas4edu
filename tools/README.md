@@ -22,6 +22,8 @@
 
 ### pyINTES Enhanced Python Interpreter
 
+![pyINTES](pyINTES.png "Enhanced Python interpreter")
+
 | Module | Version V19 | Version V20 |
 |----    | ----    | ---- |
 | bokeh | 2.4.2 | 3.5.2 |
