@@ -6,3 +6,5 @@
 
 ![permasEDU version](permasEDU_vers.png)
 
+![permasEDU info](permasEDU_info.png)
+
