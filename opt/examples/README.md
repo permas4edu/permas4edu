@@ -29,3 +29,5 @@
 014 - [Closed-form analytical solution for local buckling of omega-stringer-stiffened composite panels under compression](https://doi.org/10.1016/j.compstruct.2024.118716)
 
 015 - [Bayesian updating using accelerated Hamiltonian Monte Carlo with gradient-enhanced Kriging model](https://doi.org/10.1016/j.compstruc.2024.107598)
+
+016 -  [FINITE ELEMENT MODEL UPDATING METHOD BASED ON IMPROVED FIREFLY ALGORITHM](https://dx.doi.org/10.6052/j.issn.1000-4750.2021.04.0271)
