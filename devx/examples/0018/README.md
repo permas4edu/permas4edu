@@ -4,3 +4,6 @@ Thanks to Ben-Sheng Xu for private communication.
 
 ![Rotor system](rotor_system.png)
 
+![Campbell diagram](Campbell_diagram.png "Campbell diagram")
+
+![Unbalance response](Unbalance_response.png "Unbalance response @Disc 1")
