@@ -1,0 +1,149 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DBEAM
+                1          1: E_1
+                2          2: E_2
+                3          3: E_3
+                4          4: E_4
+                5          5: E_5
+                6          6: E_6
+                7          7: E_7
+                8          8: E_8
+                9          9: E_9
+               10         10: E_10
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                8  3.000000E+10
+                1  3.000000E+10
+                2  3.000000E+10
+                3  3.000000E+10
+                4  3.000000E+10
+                5  3.000000E+10
+                6  3.000000E+10
+                7  3.000000E+10
+                9  3.000000E+10
+               10  3.000000E+10
+!
+      $DVMPAR  NAME = MAT_BEAM_1  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          1
+      $DVMPAR  NAME = MAT_BEAM_2  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          2
+      $DVMPAR  NAME = MAT_BEAM_3  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          3
+      $DVMPAR  NAME = MAT_BEAM_4  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          4
+      $DVMPAR  NAME = MAT_BEAM_5  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          5
+      $DVMPAR  NAME = MAT_BEAM_6  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          6
+      $DVMPAR  NAME = MAT_BEAM_7  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          7
+      $DVMPAR  NAME = MAT_BEAM_8  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          8
+      $DVMPAR  NAME = MAT_BEAM_9  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          9
+      $DVMPAR  NAME = MAT_BEAM_10  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :         10
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                8  1.980000E+10  4.620000E+10
+                1  1.980000E+10  4.620000E+10
+                2  1.980000E+10  4.620000E+10
+                3  1.980000E+10  4.620000E+10
+                4  1.980000E+10  4.620000E+10
+                5  1.980000E+10  4.620000E+10
+                6  1.980000E+10  4.620000E+10
+                7  1.980000E+10  4.620000E+10
+                9  1.980000E+10  4.620000E+10
+               10  1.980000E+10  4.620000E+10
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :  9.940000E+00      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2  DATTYPE = REAL
+      F_2          :  3.978000E+01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3  DATTYPE = REAL
+      F_3          :  9.696000E+01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4  DATTYPE = REAL
+      F_4          :  1.568700E+02      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 5  DATTYPE = REAL
+      F_5          :  2.559800E+02      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 6  DATTYPE = REAL
+      F_6          :  3.749200E+02      NO
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        6.000000E+03
+!
+      $DOBJECT  CONSTRAINT = LSTSQ
+!
+      $DSVMLIM
+                8  1.000000E-01
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+!
+      $DCFUNCTION  CSTID = LSTSQ  FUNCTION = LSTSQ  EQUALITY = YES  FVAL =  0.000000E+00
+                1  DCONSTRAINT : F_1
+                2  DCONSTRAINT : F_2
+                3  DCONSTRAINT : F_3
+                4  DCONSTRAINT : F_4
+                5  DCONSTRAINT : F_5
+                6  DCONSTRAINT : F_6
+!
+   $END MODIFICATION
+!------
+   $RESULTS
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+         F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+         F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+         F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 4
+         F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 5
+         F_5
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 6
+         F_6
+
+      $RESEXT ITEM
+         F_1 : F_1  1
+         F_2 : F_2  1
+         F_3 : F_3  1
+         F_4 : F_4  1
+         F_5 : F_5  1
+         F_6 : F_6  1
+ 
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION LIB  FID = LSTSQ  TYPE = SUMSQDIFF
+     1.000000E+00  1.660000E-01  9.940000E+00  1.660000E-01  3.978000E+01  1.660000E-01  9.696000E+01  1.660000E-01  1.568700E+02  1.660000E-01  2.559800E+02
+      &            1.660000E-01  3.749200E+02
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN

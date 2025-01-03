@@ -1,0 +1,39 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = liu_gang.dat
+    READ PERMAS FILE = liu_gang_add.dat
+    READ PERMAS FILE = liu_gang_opt.dat
+RETURN
+
+PORT RES REPLACE FILE = natural_frequencies.txt
+PORT RES RESET
+
+TASK LOOPS = 100
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'LOOP: %(tloop)'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT  
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC
+    ACT SIT = OPT
+    OPTIM TOLOBJ = 1.E-4 METHOD = ACP
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    ITEM XYDATA TYPE = DHIS
+    GO PERMAS BINARY FILE = 'opt_xy_%.3(tloop)'
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = monitoring
+STOP
