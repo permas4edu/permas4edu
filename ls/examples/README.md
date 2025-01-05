@@ -43,4 +43,5 @@
 
 021 - [Inverse beam-shell elements for full-field displacement reconstruction of stiffened panel structures](https://doi.org/10.1016/j.finel.2024.104235)
 
+022 - [Geometry physics neural operator solver for solid mechanics](https://doi.org/10.1111/mice.13405)
 
