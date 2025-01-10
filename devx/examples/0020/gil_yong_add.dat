@@ -1,0 +1,315 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3  PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+!------
+   $STRUCTURE
+!
+      $ELSYS RSYS
+       SHAFT         RSYS =          0  AXES =  1,  2
+!
+      $ESET NAME = PART_1 RULE = RANGE
+         1 2
+      $ESET NAME = PART_2 RULE = RANGE
+         3 4
+      $ESET NAME = PART_3 RULE = RANGE
+         5 6
+       $ESET NAME = PART_4 RULE = RANGE
+         7 14
+       $ESET NAME = PART_5 RULE = RANGE
+        15 24
+       $ESET NAME = PART_6 RULE = RANGE
+        25 26
+       $ESET NAME = PART_7 RULE = RANGE
+        27 34
+       $ESET NAME = PART_8 RULE = RANGE
+        35 38
+       $ESET NAME = PART_9 RULE = RANGE
+        39 40
+!
+      $ELEMENT TYPE = MASS6
+               41          3
+!
+      $ELSYS RSYS
+       DISK          RSYS =          0  AXES =  3,  1
+!
+      $ESET NAME = DISK
+               41
+!
+      $PART  NAME = DISK
+       DISK
+!
+      $ESET NAME = ROTOR
+        DISK 
+        SHAFT
+!
+      $ELEMENT TYPE = CONTROL6
+               42          7         42  142
+               43         17         43  143
+               44         27         44  144
+               45         37         45  145
+!
+!      $ELEMENT TYPE = SPRING3
+!               42          7         42
+!               43         17         43
+!               44         27         44
+!               45         37         45
+!      $ELEMENT TYPE = DAMP3
+!               46          7         42
+!               47         17         43
+!               48         27         44
+!               49         37         45
+!
+      $NSET NAME = GROUND
+               42         43         44         45
+              142        143         144       145
+!      $ESET NAME = K_1
+!               42
+!      $ESET NAME = K_2
+!               43
+!      $ESET NAME = K_3
+!               44
+!      $ESET NAME = K_4
+!               45
+!      $ESET NAME = C_1
+!               46
+!      $ESET NAME = C_2
+!               47
+!      $ESET NAME = C_3
+!               48
+!      $ESET NAME = C_4
+!               49
+!
+       $ESET NAME = BEARING_1
+          42
+       $ESET NAME = BEARING_2
+          43
+       $ESET NAME = BEARING_3
+          44
+       $ESET NAME = BEARING_4
+          45
+
+!
+      $COOR
+               42  0.000000E+00  0.000000E+00  5.000000E-01
+               43  0.000000E+00  0.000000E+00  1.500000E+00
+               44  0.000000E+00  0.000000E+00  2.500000E+00
+               45  0.000000E+00  0.000000E+00  3.500000E+00
+              142  0.000000E+00  0.000000E+00  5.000000E-01
+              143  0.000000E+00  0.000000E+00  1.500000E+00
+              144  0.000000E+00  0.000000E+00  2.500000E+00
+              145  0.000000E+00  0.000000E+00  3.500000E+00
+!
+!      $PART  NAME = K_1
+!       K_1
+!      $PART  NAME = K_2
+!       K_2
+!      $PART  NAME = K_3
+!       K_3
+!      $PART  NAME = K_4
+!       K_4
+!      $PART  NAME = C_1
+!       C_1
+!      $PART  NAME = C_2
+!       C_2
+!      $PART  NAME = C_3
+!       C_3
+!      $PART  NAME = C_4
+!       C_4
+
+       $PART NAME = BEARING_1
+          BEARING_1
+       $PART NAME = BEARING_2
+          BEARING_2
+       $PART NAME = BEARING_3
+          BEARING_3
+       $PART NAME = BEARING_4
+          BEARING_4
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+!     Caution C = alpha K + beta M in PERMAS
+!
+      $COMPDAMP
+        ALPHA =  2.E-5
+!
+      $GEODAT MASS      CONT = CYLINDER
+       GD_DISK       8.000000E+03  7.500000E-02  3.000000E-01  2.000000E-01
+!
+      $GEODAT CONTROLW CONT = STIFFKND STIFFLIN DAMPKND DAMPLIN
+       GD_BEARING_1 2 : 
+   &   1.00158107e+08 -8.60458475e+07 0.0 0.0 0.0 0.0
+   &  -2.77935475e+08  4.75371082e+08 0.0 0.0 0.0 0.0
+   &   0.0             0.0            0.0 0.0 0.0 0.0
+   &   0.0             0.0            0.0 0.0 0.0 0.0
+   &   0.0             0.0            0.0 0.0 0.0 0.0
+   &   0.0             0.0            0.0 0.0 0.0 0.0 :
+   &                 2 :
+   &   11092077.2163112 -21562879.2755287 0.0 0.0 0.0 0.0
+   &  -26571771.0806078  75737341.5421437 0.0 0.0 0.0 0.0
+   &          0.0               0.0       0.0 0.0 0.0 0.0   
+   &          0.0               0.0       0.0 0.0 0.0 0.0   
+   &          0.0               0.0       0.0 0.0 0.0 0.0   
+   &          0.0               0.0       0.0 0.0 0.0 0.0   
+!
+      GD_BEARING_2 2 : 
+   &  12102775.8969149    1275899.19683203 0.0 0.0 0.0 0.0
+   & -26842118.6416215    30402941.1033036 0.0 0.0 0.0 0.0
+   &         0.0                 0.0       0.0 0.0 0.0 0.0
+   &         0.0                 0.0       0.0 0.0 0.0 0.0
+   &         0.0                 0.0       0.0 0.0 0.0 0.0
+   &         0.0                 0.0       0.0 0.0 0.0 0.0 :
+   &                 2 :
+   &  2322143.26260803 -1997706.86575567 0.0 0.0 0.0 0.0 
+   & -3502502.12604145  9454844.89673914 0.0 0.0 0.0 0.0
+   &        0.0               0.0        0.0 0.0 0.0 0.0
+   &        0.0               0.0        0.0 0.0 0.0 0.0
+   &        0.0               0.0        0.0 0.0 0.0 0.0
+   &        0.0               0.0        0.0 0.0 0.0 0.0     
+!
+      GD_BEARING_3 2 :      
+   &  1.49440592e+08 -2.62671962e+08  0.0 0.0 0.0 0.0
+   & -5.76275327e+08  1.55834205e+09  0.0 0.0 0.0 0.0
+   &        0.0       0.0             0.0 0.0 0.0 0.0
+   &        0.0       0.0             0.0 0.0 0.0 0.0
+   &        0.0       0.0             0.0 0.0 0.0 0.0
+   &        0.0       0.0             0.0 0.0 0.0 0.0 :     
+   &                 2 :
+   &  9.41643035e+06 -2.54155293e+07  0.0 0.0 0.0 0.0
+   & -3.28767317e+07  1.38319640e+08  0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0 
+!
+      GD_BEARING_4 2 :  
+   &  1.96990923e+08 -2.84287662e+08  0.0 0.0 0.0 0.0
+   & -7.79911587e+08  1.96026359e+09  0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0 :
+   &                 2 :
+   &  1.32338915e+07 -3.89226634e+07  0.0 0.0 0.0 0.0
+   & -4.69893096e+07  2.05575753e+08  0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0
+   &        0.0            0.0        0.0 0.0 0.0 0.0           
+!
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_1        1.000000E+08  1.000000E+08
+       GD_K_2        1.000000E+08  1.000000E+08
+       GD_K_3        1.000000E+08  1.000000E+08
+       GD_K_4        1.000000E+08  1.000000E+08
+!
+      $GEODAT DAMPER   CONT = DAMP
+       GD_C_1        1.000000E+00  1.000000E+00
+       GD_C_2        1.000000E+00  1.000000E+00
+       GD_C_3        1.000000E+00  1.000000E+00
+       GD_C_4        1.000000E+00  1.000000E+00
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_PART_1             4:  7.500000E-02 :  7.500000E-02
+       GD_PART_2             4:  1.000000E-01 :  1.000000E-01
+       GD_PART_3             4:  1.250000E-01 :  1.250000E-01
+       GD_PART_4             4:  1.000000E-01 :  1.000000E-01
+       GD_PART_5             4:  1.250000E-01 :  1.250000E-01
+       GD_PART_6             4:  1.500000E-01 :  1.500000E-01
+       GD_PART_7             4:  4.000000E-01 :  4.000000E-01
+       GD_PART_8             4:  1.500000E-01 :  1.500000E-01
+       GD_PART_9             4:  1.000000E-01 :  1.000000E-01
+!
+      $ELPROP
+       PART_1         GEODAT = GD_PART_1     MATERIAL = MAT_01
+       PART_2         GEODAT = GD_PART_2     MATERIAL = MAT_01
+       PART_3         GEODAT = GD_PART_3     MATERIAL = MAT_01
+       PART_4         GEODAT = GD_PART_4     MATERIAL = MAT_01
+       PART_5         GEODAT = GD_PART_5     MATERIAL = MAT_01
+       PART_6         GEODAT = GD_PART_6     MATERIAL = MAT_01
+       PART_7         GEODAT = GD_PART_7     MATERIAL = MAT_01
+       PART_8         GEODAT = GD_PART_8     MATERIAL = MAT_01
+       PART_9         GEODAT = GD_PART_9     MATERIAL = MAT_01
+!
+       DISK           GEODAT = GD_DISK
+!
+!       K_1           GEODAT = GD_K_1
+!       K_2           GEODAT = GD_K_2       
+!       K_3           GEODAT = GD_K_3
+!       K_4           GEODAT = GD_K_4
+!!
+!       C_1           GEODAT = GD_C_1
+!       C_2           GEODAT = GD_C_2       
+!       C_3           GEODAT = GD_C_3
+!       C_4           GEODAT = GD_C_4
+!
+        BEARING_1     GEODAT = GD_BEARING_1
+        BEARING_2     GEODAT = GD_BEARING_2
+        BEARING_3     GEODAT = GD_BEARING_3
+        BEARING_4     GEODAT = GD_BEARING_4
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ADDMATRIX
+        GEOSTIFF 
+        CONVSTIFF
+        GYRO
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3,6  DOFTYPE = DISP
+       SHAFT
+
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+        GROUND
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $INERTIA ROTATION  LPAT = 1
+       ROTOR  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+01  1.000000E+01
+!
+   $END LOADING
+!------
+   $RESULTS  NAME = R_STEP_3
+!
+      $ROTSPEED  PRIMARY = EQUI  DOFTYPE = DISP
+        1.000000E+00  2.000000E+02  1.000000E+00
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        8.000000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
