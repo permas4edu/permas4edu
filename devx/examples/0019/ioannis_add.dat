@@ -1,0 +1,201 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION NAME = STEP_2
+       DFLT_COMP SYSTEM = S_STEP_2  CONSTRAINTS = C_STEP_1
+   $END SITUATION
+!------
+   $SITUATION NAME = STEP_3  PARENT = STEP_2
+       DFLT_COMP SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+!------
+   $SITUATION NAME = STEP_4  PARENT = STEP_2
+       DFLT_COMP SYSTEM = S_STEP_2  LOADING = L_STEP_4 RESULTS = R_STEP_4
+   $END SITUATION
+!------
+   $STRUCTURE
+!
+      $ESET NAME = ROTOR
+          SHAFT
+          DISK_1
+          DISK_2
+!
+      $NSET NAME = RESPONSE
+          DISK_1
+          DISK_2
+!
+      $ELEMENT TYPE = MASS6
+               91          2
+               92          3
+      $ELEMENT TYPE = SPRING3
+               93          1         92
+               94          4         93
+!
+      $ELEMENT TYPE = DAMP3
+               95          1         92
+               96          4         93
+!
+      $ELSYS RSYS
+       DISK_1        RSYS =          0  AXES =  3,  2
+       DISK_2        RSYS =          0  AXES =  3,  2
+       SHAFT         RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+               92         93
+! 
+      $NSET NAME = DISK_1 RULE = ESET
+        DISK_1
+      $NSET NAME = DISK_2 RULE = ESET
+        DISK_2
+! 
+      $ESET NAME = DISK_1
+               91
+      $ESET NAME = DISK_2
+               92
+      $ESET NAME = K_1
+               93
+      $ESET NAME = K_2
+               94
+      $ESET NAME = C_1
+               95
+      $ESET NAME = C_2
+               96
+!
+      $COOR
+               92  0.000000E+00  0.000000E+00  0.000000E+00
+               93  0.000000E+00  0.000000E+00  4.000000E+02
+!
+      $PART  NAME = DISK_1
+       DISK_1
+      $PART  NAME = DISK_2
+       DISK_2
+      $PART  NAME = K_1
+       K_1
+      $PART  NAME = K_2
+       K_2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_SHAFT              4 :  1.000000E+01 :  1.000000E+01
+      $GEODAT MASS      CONT = CYLINDER
+       GD_DISK_1     7.800000E-09  1.000000E+01  7.500000E+01  2.500000E+01
+       GD_DISK_2     7.800000E-09  1.000000E+01  7.500000E+01  2.500000E+01
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_1        1.000000E+03  1.000000E+03
+       GD_K_2        1.000000E+03  1.000000E+03
+      $GEODAT DAMPER    CONT = DAMP
+       GD_C_1        1.000000E-02  1.000000E-02
+       GD_C_2        1.000000E-02  1.000000E-02
+!
+!     Caution C = alpha*K + beta*M
+!
+      $COMPDAMP
+        ALPHA = 1.E-5
+!
+      $ELPROP
+       SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_SHAFT
+       DISK_1        GEODAT = GD_DISK_1
+       DISK_2        GEODAT = GD_DISK_2
+       K_1           GEODAT = GD_K_1
+       K_2           GEODAT = GD_K_2
+       C_1           GEODAT = GD_C_1
+       C_2           GEODAT = GD_C_2
+!
+   $END SYSTEM
+!------
+   $SYSTEM NAME = S_STEP_2
+ 
+      $INSERT VARIANT 
+         S_STEP_1
+
+      $ELSTATE LOAD
+         SITUATION = STEP_1  LPAT = 1
+
+      $ADDMATRIX
+         GEOSTIFF
+         CONVSTIFF
+         GYRO
+
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS  DOFS = 3,6  DOFTYPE = DISP
+       SHAFT
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_1
+
+      $INERTIA ROTATION LPAT = 1
+!              x_1 y_1 z_1  x_2  y_2  z_2    \omega
+        ROTOR  0.0 0.0 0.0  0.0  0.0  100.0  10.0
+!
+   $END LOADING
+!------
+   $LOADING NAME= L_STEP_4
+!
+!     Unbalance load
+!     m : Unbalance mass
+!     e : ecentricity
+!
+!     m = 1 gram 1.E-6 tons
+!     e = 1 mm
+!
+      $CONLOAD LPAT = 1
+         DISK_1 1: 1.0E-6  ! m*e
+         DISK_2 1: 1.0E-6  ! m*e
+      $CONLOAD LPAT = 2
+         DISK_1 2: 1.0E-6  ! m*e 
+         DISK_2 2: 1.0E-6  ! m*e 
+
+      $FREQLOAD
+         LPAT = 1 TYPE = COSINE  AMPLITUDE = 1
+         LPAT = 2 TYPE = SINE    AMPLITUDE = 1
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+      $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+         0.0 3000.0  10.
+
+   $END RESULTS
+!------
+   $RESULTS NAME = R_STEP_4
+
+      $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+         0.0 3000.0  10.
+
+      $FREQUENCY PRIMARY = ROTSPEED
+
+   $END RESULTS
+
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION 
+
+    $FUNCTION FORMULA FID = 1
+      F(X) = (2*PI*X)^2
+
+$EXIT FUNCTION 
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_SHAFT  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
