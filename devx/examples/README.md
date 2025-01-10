@@ -34,4 +34,6 @@
 
 0017 - [Fast stochastic subspace identification of densely instrumented bridges using randomized SVD](https://doi.org/10.1016/j.ymssp.2024.112264)
 
-0018 -  [Efficient metamodeling and uncertainty propagation for rotor systems by sparse polynomial chaos expansion](https://doi.org/10.1016/j.probengmech.2024.103723)
+0018 - [Efficient metamodeling and uncertainty propagation for rotor systems by sparse polynomial chaos expansion](https://doi.org/10.1016/j.probengmech.2024.103723)
+
+0019 - [Integrated Artificial Intelligent and Physics‑Based Models for Unbalance Estimation in Rotating Systems](https://doi.org/10.1007/s42417-024-01739-9)
