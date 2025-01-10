@@ -37,3 +37,5 @@
 0018 - [Efficient metamodeling and uncertainty propagation for rotor systems by sparse polynomial chaos expansion](https://doi.org/10.1016/j.probengmech.2024.103723)
 
 0019 - [Integrated Artificial Intelligent and Physics‑Based Models for Unbalance Estimation in Rotating Systems](https://doi.org/10.1007/s42417-024-01739-9)
+
+0020 - [Nonlinear vibration analysis of rotor systems with hydrodynamic journal bearings using harmonic balance method](https://doi.org/10.1016/j.ijnonlinmec.2024.104992)
