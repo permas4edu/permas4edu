@@ -13,3 +13,6 @@
 006 - Plate model
 
 007 - Jim beam EMA & FEA
+
+008 - [PRANK: A Singular Value Based Noise Filtering of Multiple Response Datasets for Experimental Dynamics](https://doi.org/10.1007/s40799-024-00774-1)
+
