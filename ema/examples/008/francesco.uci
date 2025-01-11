@@ -1,0 +1,40 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = coarse_mesh.dat
+    READ PERMAS FILE = fine_mesh.dat
+    READ PERMAS FILE = coarse_fine_add.dat
+RETURN
+
+EXEC
+    ACT CONFIG = COARSE
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'Coarse mesh'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_coase_mesh
+TASK END
+
+EXEC
+    ACT CONFIG = FINE
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Fine mesh'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_fine_mesh
+TASK END
+STOP
