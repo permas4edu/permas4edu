@@ -1,0 +1,64 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $SURFACE ELEMENTS  LABEL = CLAMPED  SYSTEM = LOCAL
+                1          1
+              121          1
+              241          1
+              361          1
+              481          1
+              601          1
+              721          1
+              841          1
+              961          1
+             1081          1
+             1201          1
+             1321          1
+             1441          1
+             1561          1
+             1681          1
+             1801          1
+             1921          1
+             2041          1
+             2161          1
+             2281          1
+             2401          1
+             2521          1
+             2641          1
+             2761          1
+             2881          1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       BEAM          MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

@@ -1,0 +1,23 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = javier.dat
+    READ PERMAS FILE = javier_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 20
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+USER 
+    CALL TOOL6 P1 = 'pyINTES javier.py'
+RETURN
+STOP
