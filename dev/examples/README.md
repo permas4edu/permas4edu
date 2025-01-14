@@ -115,3 +115,5 @@
 057 - [Bayesian updating using accelerated Hamiltonian Monte Carlo with gradient-enhanced Kriging model](https://doi.org/10.1016/j.compstruc.2024.107598)
 
 058 - [Modal properties of mechanical systems under geometric variations by perturbation theory](https://doi.org/10.1016/j.jsv.2025.118942)
+
+059 - [Automated damage assessment in truss structures via FE model updating and teaching-learning-based optimization](http://dx.doi.org/10.31462/jseam.2024.04219237)
