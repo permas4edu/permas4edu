@@ -1,0 +1,186 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = FLA2  ESET = TRUSS
+                1          1          2
+                2          2          3
+                3          2          4
+                4          1          3
+                5          1          4
+                6          4          3
+                7          3          5
+                8          3          6
+                9          4          5
+               10          4          6
+               11          6          5
+               12          5          7
+               13          5          8
+               14          6          7
+               15          6          8
+               16          8          7
+               17          7          9
+               18          7         10
+               19          8          9
+               20          8         10
+               21         10          9
+               22          9         11
+               23          9         12
+               24         10         11
+               25         10         12
+               26         12         11
+               27         11         13
+               28         11         14
+               29         12         13
+               30         12         14
+               31         14         13
+!
+      $NSET NAME = SPC
+                1         14
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  0.000000E+00  1.520000E+00  0.000000E+00
+                3  1.520000E+00  1.520000E+00  0.000000E+00
+                4  1.520000E+00  0.000000E+00  0.000000E+00
+                5  3.040000E+00  1.520000E+00  0.000000E+00
+                6  3.040000E+00  0.000000E+00  0.000000E+00
+                7  4.560000E+00  1.520000E+00  0.000000E+00
+                8  4.560000E+00  0.000000E+00  0.000000E+00
+                9  6.080000E+00  1.520000E+00  0.000000E+00
+               10  6.080000E+00  0.000000E+00  0.000000E+00
+               11  7.600000E+00  1.520000E+00  0.000000E+00
+               12  7.600000E+00  0.000000E+00  0.000000E+00
+               13  9.120000E+00  1.520000E+00  0.000000E+00
+               14  9.120000E+00  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = TRUSS
+       TRUSS
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_TRUSS      2.496781E-07
+!
+      $ELPROP
+       TRUSS         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_TRUSS      2.496781E-07
+!
+      $ELPROP
+       1         GEODAT = GD_TRUSS      MATERIAL = MAT_030
+       2         GEODAT = GD_TRUSS      MATERIAL = MAT_020
+      11         GEODAT = GD_TRUSS      MATERIAL = MAT_025
+      16         GEODAT = GD_TRUSS      MATERIAL = MAT_030
+      25         GEODAT = GD_TRUSS      MATERIAL = MAT_015
+
+       3         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+       4         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+       5         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+       6         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+       7         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+       8         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+       9         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      10         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      12         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      13         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      14         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      15         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      17         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      18         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      19         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      20         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      21         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      22         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      23         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      24         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      26         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      27         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      28         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      29         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      30         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+      31         GEODAT = GD_TRUSS      MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       NODEDISP
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       SPC
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+10  2.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.770000E+03
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_015  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        5.950000E+10  2.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.770000E+03
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_020  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        5.600000E+10  2.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.770000E+03
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_025  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        5.250000E+10  2.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.770000E+03
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_030  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        4.900000E+10  2.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.770000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

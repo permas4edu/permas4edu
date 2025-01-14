@@ -1,0 +1,37 @@
+NEW
+
+INPUT
+   READ PERMAS FILE = korhan.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'Healthy structure'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+!
+!   Damage scenario
+!
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+    GEN MAC SITUATION = STEP_1
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT ='Damage scenario'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN PERMAS ASCII FILE = mac
+    DATA OBJECT MAC.DISP BLOCKFORM = VALUE
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
