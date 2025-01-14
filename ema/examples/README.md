@@ -16,3 +16,5 @@
 
 008 - [PRANK: A Singular Value Based Noise Filtering of Multiple Response Datasets for Experimental Dynamics](https://doi.org/10.1007/s40799-024-00774-1)
 
+009 - [Variance estimation of modal parameters from the poly-reference least-squares complex frequency-domain algorithm](https://doi.org/10.1016/j.ymssp.2024.111905)
+
