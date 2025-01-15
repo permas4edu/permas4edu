@@ -73,3 +73,8 @@
 036 - [Model reduction to spectral submanifolds and forced-response calculation in high-dimensional mechanical systems](https://doi.org/10.1016/j.jsv.2020.115640)
 
 037 - [Experimental, theoretical and optimization studies on multimode vibration reduction of floating raft system based on NES cells](https://doi.org/10.1016/j.oceaneng.2024.118897)
+
+038 - [Learning global linear representations of nonlinear dynamics](https://doi.org/10.1007/s11071-024-10843-0)
+
+039 - [Enriching harmonic balance with non‐smooth Bernoulli bases for accelerated convergence of non‐smooth periodic systems](https://doi.org/10.1016/j.taml.2024.100562)
+
