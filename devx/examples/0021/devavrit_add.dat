@@ -1,0 +1,135 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS6
+              154          3
+              155          4
+              156         88
+              157          6
+!
+      $NSET NAME = SHAFT RULE = ESET
+         SHAFT
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00  1.000000E+02
+!
+      $ELSYS RSYS
+       SHAFT         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = SPC
+                1          2
+
+      $ESET NAME = ROTOR
+         SHAFT 
+         DISKS
+
+      $ESET NAME = DISK_1
+              154
+      $ESET NAME = DISK_2
+              155
+      $ESET NAME = DISK_3
+              156
+      $ESET NAME = DISK_4
+              157
+      $ESET NAME = DISKS
+              154        155        156        157
+!
+      $PART  NAME = DISK_1
+       DISK_1
+      $PART  NAME = DISK_2
+       DISK_2
+      $PART  NAME = DISK_3
+       DISK_3
+      $PART  NAME = DISK_4
+       DISK_4
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+!                                 diameter [mm]
+       GD_SHAFT              4:  1.905000E+01
+
+      $GEODAT MASS      CONT = CYLINDER
+!                 density [t/mm^3]    d_i inner diameter  d_o outer diameter  thickness t  [mm]
+       GD_DISK_1     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
+       GD_DISK_2     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
+       GD_DISK_3     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
+       GD_DISK_4     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
+!
+      $ELPROP
+       SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_SHAFT
+       DISK_1        GEODAT = GD_DISK_1
+       DISK_2        GEODAT = GD_DISK_2
+       DISK_3        GEODAT = GD_DISK_3
+       DISK_4        GEODAT = GD_DISK_4
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $ADDMATRIX
+         GEOSTIFF
+         CONVSTIFF
+         GYRO
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 2,3  DOFTYPE = DISP
+       SPC
+!
+      $SUPPRESS DOFS = 1,4
+        SHAFT  
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_1
+
+      $INERTIA ROTATION LPAT = 1
+!                x_1 y_1 z_1 x_2   y_2 z_2  omega
+          ROTOR  0.0 0.0 0.0 100.0 0.0 0.0  10.0
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+       $ROTSPEED PRIMARY = EQUI
+          0.0  8000.0 50.0
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_SHAFT  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.860000E-09 ! [tons/mm^3]
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01 ! [N/mm^2]
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
