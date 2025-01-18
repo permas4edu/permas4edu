@@ -3,3 +3,6 @@
 ![license agreement](license_agreement.png)
 
 ![license_file](license_file.png)
+
+![solver_settings](solver_settings.png)
+
