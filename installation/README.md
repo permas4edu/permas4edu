@@ -24,6 +24,8 @@ Select the license file that you received via email.
 
 ### pyINTES License Agreement
 
+![Python modules](https://github.com/permas4edu/permas4edu/tree/main/tools#pyintes-enhanced-python-interpreter)
+
 ![pyINTES_license](pyINTES_license.png)
 
 ### Additional Python modules
