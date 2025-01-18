@@ -2,7 +2,11 @@
 
 ![license agreement](license_agreement.png)
 
+### License file
+
 ![license_file](license_file.png)
+
+### Solver settings
 
 ![solver_settings](solver_settings.png)
 
