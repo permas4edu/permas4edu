@@ -1,4 +1,4 @@
-## Windows
+# Windows
 
 ![license agreement](license_agreement.png)
 
@@ -23,4 +23,6 @@
 The installation process is completed after approx. 20 minutes.
 
 ![completed](installation_completed.png)
+
+# Linux
 
