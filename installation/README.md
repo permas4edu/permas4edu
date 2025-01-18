@@ -1,5 +1,10 @@
 # Windows
 
+### Registration
+
+![Registration](https://www.intes.de/k_permas/overview/academic_license)
+
+### Download 
 The following link will lead you directly to the software download:
 [User forum](https://meet.intes.de:444/)
 
