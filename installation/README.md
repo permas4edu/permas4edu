@@ -2,6 +2,14 @@
 
 ### Required Files
 
+Before you start the installation process, make sure that the following files are available on the computer.
+
+![required_files](required_files_windows.png)
+
+Double-click on the Base Installer to start the installation.
+
+### License Agreement
+
 ![license agreement](license_agreement.png)
 
 ### License file
