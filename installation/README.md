@@ -48,3 +48,10 @@ $$\textrm{\color{red}{The installation process is completed after approx. 20 min
 
 # Linux
 
+### Registration
+
+PERMAS4EDU can be obtained through [Registration](https://www.intes.de/k_permas/overview/academic_license)
+
+### Download 
+The following link will lead you directly to the software download:
+[User forum](https://meet.intes.de:444/)
