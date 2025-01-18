@@ -1,5 +1,8 @@
 # Windows
 
+The following link will lead you directly to the software download:
+[User forum](https://meet.intes.de:444/)
+
 ### Required Files
 
 Before you start the installation process, make sure that the following files are available on the computer.
