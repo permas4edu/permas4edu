@@ -2,7 +2,7 @@
 
 ### Registration
 
-![Registration](https://www.intes.de/k_permas/overview/academic_license)
+[Registration](https://www.intes.de/k_permas/overview/academic_license)
 
 ### Download 
 The following link will lead you directly to the software download:
