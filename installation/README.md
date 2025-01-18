@@ -20,7 +20,7 @@
 
 ### Installation completed
 
-The installation process is completed after approx. 20 minutes.
+$$\textrm{\color{red}{The installation process is completed after approx. 20 minutes.}}$$ Thank you for your patience.
 
 ![completed](installation_completed.png)
 
