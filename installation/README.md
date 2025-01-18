@@ -14,6 +14,8 @@ Double-click on the Base Installer to start the installation.
 
 ### License file
 
+Select the license file that you received via email.
+
 ![license_file](license_file.png)
 
 ### Solver settings
