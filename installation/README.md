@@ -6,3 +6,5 @@
 
 ![solver_settings](solver_settings.png)
 
+![pyINTES_license](pyINTES_license.png)
+
