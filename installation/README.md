@@ -76,3 +76,7 @@ Before you start the installation process, make sure that the following files ar
 
 ![sh_06](sh_06.png)
 
+![sh_07](sh_07.png)
+
+![sh_08](sh_08.png)
+
