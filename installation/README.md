@@ -62,6 +62,8 @@ Before you start the installation process, make sure that the following files ar
 
 ![required files](required_files_linux.png)
 
+### Shell Scripts
+
 ![sh_01](sh_01.png)
 
 ![sh_02](sh_02.png)
