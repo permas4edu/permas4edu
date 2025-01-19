@@ -59,3 +59,6 @@ The following link will lead you directly to the software download:
 ### Required Files
 
 Before you start the installation process, make sure that the following files are available on the computer.
+
+![required files](required_files_linux.png)
+
