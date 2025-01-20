@@ -62,10 +62,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 
       $GEODAT MASS      CONT = CYLINDER
 !                 density [t/mm^3]    d_i inner diameter  d_o outer diameter  thickness t  [mm]
-       GD_DISK_1     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
-       GD_DISK_2     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
-       GD_DISK_3     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
-       GD_DISK_4     7.860000E-09     1.905000E+01        1.510600E+02        1.000000E+01
+       GD_DISK_1     7.860000E-09     1.905000E+01        1.510600E+02        4.76096329
+       GD_DISK_2     7.860000E-09     1.905000E+01        1.510600E+02        4.76096329
+       GD_DISK_3     7.860000E-09     1.905000E+01        1.510600E+02        4.76096329
+       GD_DISK_4     7.860000E-09     1.905000E+01        1.510600E+02        4.76096329
 !
       $ELPROP
        SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_SHAFT
