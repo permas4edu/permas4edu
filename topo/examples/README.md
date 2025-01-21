@@ -51,3 +51,5 @@
 025 - [An explicit topology and thickness control approach in SIMP-based topology optimization](https://doi.org/10.1016/j.compstruc.2024.107631)
 
 026 - [AMRTO: Automated CAD model reconstruction of topology optimization result](https://doi.org/10.1016/j.cma.2024.117673)
+
+027 - [An efficient cross‑platform multi‑material topology optimization approach occupying enhanced BESO method](https://doi.org/10.1007/s11012-024-01916-w)
