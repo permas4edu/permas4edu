@@ -1,0 +1,26 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = weigui.dat
+    READ PERMAS FILE = weigui_add.dat
+    READ PERMAS FILE = weigui_to.dat
+    READ PERMAS FILE = weigui_symm.dat
+RETURN
+
+TASK LOOPS = 100
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    ACT SIT = TOPO
+    TOPO METHOD = ACP
+EXPORT
+    ITEM CLEAR
+    ITEM EFRATIO
+    GO PERMAS BINARY FILE = 'efratio_%.3(tloop)'
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    GO PERMAS BINARY FILE = 'weigui_xy_%.3(tloop)'
+TASK END
+STOP

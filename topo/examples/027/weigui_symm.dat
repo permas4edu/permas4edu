@@ -1,0 +1,12 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $DESYMM  TYPE = PLANAR
+                1  AXIS =  3,  2
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
