@@ -39,3 +39,5 @@
 019 - [A physics-informed neural networks framework for model parameter identification of beam-like structures](https://doi.org/10.1016/j.ymssp.2024.112189)
 
 020 - [A Generalized Single-Step Multi-Stage Time Integration Formulation and Novel Designs With Improved Stability and Accuracy](https://doi.org/10.1002/nme.7658)
+
+021 - [Scalar Auxiliary Variable (SAV) Stabilization of Implicit-Explicit (IMEX) Time Integration Schemes for Non-Linear Structural Dynamics](https://doi.org/10.1002/nme.7660)
