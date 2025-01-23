@@ -1,0 +1,19 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $DSVLINK SAME
+                1:          2
+!
+   $END STRUCTURE
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  0.000000E+00  1.000000E+02
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
