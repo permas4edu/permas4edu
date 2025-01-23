@@ -13,7 +13,7 @@
 #### Supported file formats
 
  * .hdf
- * .post .post.gz
+ * .post .post.gz .post.zst
  * .csv
  * .xy PERMAS xy gnuplot files
  * .x I-DEAS, MEDINA, Patran xy-data
