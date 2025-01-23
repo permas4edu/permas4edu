@@ -28,3 +28,31 @@ Try to manually set the GL Renderer to use your NVIDIA graphics card instead of 
     + Select a program to customize, e.g. C:\Program Files\INTES\EDU\PermVis\M9v20\bin\visper.exe
     + Select the preferred graphics processor for this program: High-performance NVIDIA processor 
     + Click “Apply”
+
+#### Standard colors
+
+There exists several possibilities to modify standard colors in VisPER by using additional definitions in the startup.pm
+
+* Option I
+  
+```python
+def initColorGenerator(obj):
+    obj.labelOffset = 1
+```
+* Option II
+
+```python
+def getColorIndexOfElemGroup(eg):
+    if not eg:
+        return 0
+    return 317 if (eg.index == 1 and eg.typeName == 'Part') else eg.index
+```
+* Option III
+
+```python
+def getColorOfElemGroup(eg):
+    return Color(200/255,230/255,200/255) if (eg and eg.index == 1) else eg.index
+```
+  
+ 
+    
