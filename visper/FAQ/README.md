@@ -31,7 +31,10 @@ Try to manually set the GL Renderer to use your NVIDIA graphics card instead of 
 
 #### Standard colors
 
-There exists several possibilities to modify standard colors in VisPER by using additional definitions in the startup.pm
+There exists several possibilities to modify standard colors in VisPER by using additional definitions in the startup.pm.
+The user-specific configuration file startup.pm can be found under
+   + ~/.visper/20.0-EDU/startup.pm on Linux
+   + %APPDATA%/Intes/VisPER/20.0-EDU/startup.pm on Windows  
 
 * Option I
   
