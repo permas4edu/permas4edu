@@ -25,3 +25,5 @@
 011 - [On the importance and application of the extended Galerkin’s method to distributed systems](http://dx.doi.org/10.1177/03064190241298202)
 
 012 -[Modal properties of mechanical systems under geometric variations by perturbation theory](https://doi.org/10.1016/j.jsv.2025.118942)
+
+013 - [Efficient Two-Stage Modal Identification for Structures with Closely Spaced Modes by Bayesian Fft and Joint Approximate Diagonalization](http://dx.doi.org/10.2139/ssrn.4956434)
