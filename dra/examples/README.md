@@ -37,3 +37,5 @@
 018 - [Improving the accuracy of the Newmark method through backward error analysis](https://doi.org/10.1007/s00466-024-02580-3)
 
 019 - [A physics-informed neural networks framework for model parameter identification of beam-like structures](https://doi.org/10.1016/j.ymssp.2024.112189)
+
+020 - [A Generalized Single-Step Multi-Stage Time Integration Formulation and Novel Designs With Improved Stability and Accuracy](https://doi.org/10.1002/nme.7658)
