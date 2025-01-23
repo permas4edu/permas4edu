@@ -117,3 +117,5 @@
 058 - [Modal properties of mechanical systems under geometric variations by perturbation theory](https://doi.org/10.1016/j.jsv.2025.118942)
 
 059 - [Automated damage assessment in truss structures via FE model updating and teaching-learning-based optimization](http://dx.doi.org/10.31462/jseam.2024.04219237)
+
+060 - [Vibration Frequencies of Thin Rectangular Plates with Internal, Edge, and Corner Rectangular Cutouts](https://doi.org/10.1142/S0219455426501014)
