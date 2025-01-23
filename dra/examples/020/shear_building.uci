@@ -1,0 +1,75 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = shear_building.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 3
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET 
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL COMPLEX SITUATION = STEP_3 
+    ACT SIT = STEP_3
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+EXEC
+    ACT SIT = STEP_1
+    MODAL TIMEHISTORY SITUATION = STEP_2   &
+                      LOOPS     = 1000     &
+                      DELTAT    = 0.001    &
+                      OUTPUT    = ALL      &
+                      PRIMRES   = COMPLETE &
+                      SOLV      = NEWMARK 
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = N1
+    XYDATA ITEM DISP RESULT = U   DCOMP = 2
+    XYDATA ITEM VELO RESULT = UP  DCOMP = 2
+    XYDATA ITEM ACCE RESULT = UPP DCOMP = 2
+EXPORT
+    ITEM CLEAR 
+    ITEM XYDATA NAME = U
+    GO SPREADSHEET FILE = u1
+    ITEM CLEAR 
+    ITEM XYDATA NAME = UP
+    GO SPREADSHEET FILE = u1p
+    ITEM CLEAR 
+    ITEM XYDATA NAME = UPP
+    GO SPREADSHEET FILE = u1pp
+EXEC
+    ACT SIT = STEP_4
+    DIRECT TIMEHISTORY LOOPS  = 1000    &
+                       DELTAT = 1.E-3   & 
+                       TSTART = 0.0     &
+                       OUTPUT = ALL     &
+                       STORE  = ALL     &
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = N1
+    XYDATA ITEM DISP RESULT = U   DCOMP = 2
+    XYDATA ITEM VELO RESULT = UP  DCOMP = 2
+    XYDATA ITEM ACCE RESULT = UPP DCOMP = 2
+EXPORT
+    ITEM CLEAR 
+    ITEM XYDATA NAME = U
+    GO SPREADSHEET FILE = direct_u1
+    ITEM CLEAR 
+    ITEM XYDATA NAME = UP
+    GO SPREADSHEET FILE = direct_u1p
+    ITEM CLEAR 
+    ITEM XYDATA NAME = UPP
+    GO SPREADSHEET FILE = direct_u1pp                        
+TASK END 
+USER 
+    CALL TOOL6 P1 = 'pyINTES shear_building.py'
+RETURN
+STOP

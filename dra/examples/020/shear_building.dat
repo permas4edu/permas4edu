@@ -1,0 +1,111 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2 PARENT = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1 LOADING = L_STEP_2
+    $END SITUATION
+
+    $SITUATION NAME = STEP_3 PARENT = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_4 
+       DFLT_COMP SYSTEM = S_STEP_1   CONSTRAINTS = C_STEP_1   LOADING = L_STEP_2
+    $END SITUATION
+
+    $STRUCTURE
+
+      $NODE NSET = ALL_NODES
+        101  0.0 3.0 0.0 
+        102  0.0 2.0 0.0 
+        103  0.0 1.0 0.0 
+        200  0.0 0.0 0.0 
+
+      $NSET NAME = N1
+        101
+ 
+      $NSET NAME = F
+        103
+ 
+      $NSET NAME = GROUND
+        200
+
+      $ELEMENT TYPE = MASS3 ESET = M_1
+        1  101
+      $ELEMENT TYPE = MASS3 ESET = M_2
+        2  102
+      $ELEMENT TYPE = MASS3 ESET = M_3
+        3  103
+
+      $ELEMENT TYPE = SPRING1 ESET = K_1
+        4  101 102
+      $ELEMENT TYPE = SPRING1 ESET = K_2
+        5  102 103
+      $ELEMENT TYPE = SPRING1 ESET = K_3
+        6  103 200
+ 
+    $END STRUCTURE
+
+    $SYSTEM  NAME = S_STEP_1
+
+      $GEODAT MASS CONT = MASS
+         GD_M_1  150.E3
+         GD_M_2  150.E3
+         GD_M_3  150.E3
+
+      $GEODAT SPRING CONT = STIFF
+         GD_K_1   1.E8
+         GD_K_2   2.E8
+         GD_K_3   3.E8
+
+      $ELPROP
+         M_1  GEODAT = GD_M_1
+         M_2  GEODAT = GD_M_2
+         M_3  GEODAT = GD_M_3
+!
+         K_1  GEODAT = GD_K_1
+         K_2  GEODAT = GD_K_2
+         K_3  GEODAT = GD_K_3
+!
+     $COMPDAMP
+!
+!     Desired Damping ratio xi = 0.100
+!     
+       ALPHA = 2.456864e-03 BETA = 2.648761e+00
+
+    $END SYSTEM
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,3
+         ALL_NODES
+
+      $SUPPRESS DOFS = 2
+         GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_2
+ 
+       $CONLOAD LPAT = 1
+          F 2: 10.E3
+ 
+       $TRANSLOAD
+           LPAT = 1 FUNCTION = 1
+
+    $END LOADING
+ 
+$EXIT COMPONENT
+!
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1
+       F(T) = COS(T)
+
+$EXIT FUNCTION
+$FIN
