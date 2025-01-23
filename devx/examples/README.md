@@ -41,3 +41,5 @@
 0020 - [Nonlinear vibration analysis of rotor systems with hydrodynamic journal bearings using harmonic balance method](https://doi.org/10.1016/j.ijnonlinmec.2024.104992)
 
 0021 - [Higher-order nonlinear modeling and multi-modal performance of axially restrained diverse flexible shaft-disk assemblies](https://doi.org/10.1080/15397734.2024.2411618)
+
+0022 - [Vibration Analysis of Rotors Under Uncertainty Based on Legendre Series](https://doi.org/10.1007/s42417-018-0078-4)
