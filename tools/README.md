@@ -38,6 +38,7 @@
 | joblib | | 1.4.2 |
 | json | | 2.0.9 |
 | lxml | | 5.3.0 |
+| mamba | N/A | 1.5.8 |
 | matplotlib | 3.5.1 | 3.9.2  |
 | meshio | 5.3.4 | 5.3.5 |
 | mplcursors | 0.5.1 | 0.5.3 |  
