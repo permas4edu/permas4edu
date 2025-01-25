@@ -17,13 +17,10 @@ def print_hdf5_item_structure(g, z, offset='    '):
            u.append(g[:,0])
            v.append(g[:,1])
            w.append(g[:,2])
-           print (u,v,w)
        if re.search('RowDes',g.name):
-           print (g[:])
            nid.append(g[:])
        if re.search('ColDes',g.name):
            freq.append(g[0])
-           print ('Frequency',freq)
     elif isinstance(g,h5py.Group):
         pass
     else:
@@ -35,14 +32,18 @@ def print_hdf5_item_structure(g, z, offset='    '):
             print_hdf5_item_structure(subg, z, offset + '    ') 
 z=0
 for file_name in file_names:
+    print ('Processing %s' %file_name)
     file = h5py.File(file_name, 'r')
     item = file 
     z += 1
     print_hdf5_item_structure(item,z)
 ofile = open('inival.dat','w')
+print ('Initial values for displacements as superimposed mode shapes')
 ofile.write('$INIVAL DISP SOURCE = INPUT  DOFTYPE = DISP\n')
 for i in range(nid[0].shape[0]):
     tmpu = 0.01*(u[0][i]+0.05*u[1][i])
     tmpv = 0.01*(v[0][i]+0.05*v[1][i])
-    ofile.write('%i %e %e 0.0\n' %(nid[0][i],tmpu,tmpv))
+    tmpw = 0.01*(w[0][i]+0.05*w[1][i])
+    ofile.write('%10i %13.6e %13.6e %13.6e\n' %(nid[0][i],tmpu,tmpv,tmpw))
 ofile.close()
+print ('Finished')
