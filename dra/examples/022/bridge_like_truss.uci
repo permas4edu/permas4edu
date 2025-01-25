@@ -1,0 +1,55 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = bridge_like_truss.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 158
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+    ITEM CLEAR
+    CURRENT COLUMNS = 1
+    ITEM DISP
+    GO PERMAS ASCII FILE = mode_001
+    GO PERMAS BINARY FILE = mode_001
+    ITEM CLEAR
+    CURRENT COLUMNS = 158
+    ITEM DISP
+    GO PERMAS ASCII FILE = mode_158
+    GO PERMAS BINARY FILE = mode_158
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+PRINT
+    PORT RES REPLACE FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET    
+EXPORT 
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_3     &
+                      LOOPS     = 500        &
+                      DELTAT    = 1.E-3      &
+                      TSTART    = 0.0        &
+                      SOLV      = NEWMARK    
+    ACT SIT = STEP_3
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 2
+EXPORT
+    ITEM CLEAR XYDATA
+    GO PERMAS BINARY FILE = modal_response
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = modal_response
+TASK END
+STOP
