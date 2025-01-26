@@ -1,0 +1,35 @@
+! Parameter Estimation of Nonlinear Structural Systems Using
+! Bayesian Filtering Methods
+! https://doi.org/10.3390/vibration8010001
+!
+NEW
+
+INPUT
+    READ PERMAS FILE = kalil.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1 
+    DIRECT TIMEHISTORY LOOPS = 1000  &
+                       DELTAT = 0.05 &
+                       TSTART = 0.0  &
+                       OUTPUT = ALL  &
+                       STORE  = ALL  & 
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = URESP DCOMP = 1
+    XYDATA ITEM VELO RESULT = VRESP DCOMP = 1
+EXPORT
+    ITEM  CLEAR
+    ITEM XYDATA NAME = URESP
+    GO SPREADSHEET FILE = u_direct
+    ITEM CLEAR
+    ITEM XYDATA NAME = VRESP
+    GO SPREADSHEET FILE = up_direct
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES kalil.py'
+RETURN
+STOP
