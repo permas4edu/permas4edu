@@ -10,7 +10,12 @@ In the future, new functions in PERMAS will be supported by the preprocessing ea
 
 ### Reporting
 
-You might want to create reports of your finite element models. A startup.pm is required to extend the VisPER GUI with two new icons that support export to Word and Excel.
+You might want to create reports of your finite element models. A **startup.pm** is required to extend the VisPER GUI with two new icons that support export to Word and Excel.
+
+*  User-specific configuration file **startup.pm** which can be found under
+   + ~/.visper/20.0-EDU/startup.pm on Linux
+   + %APPDATA%/Intes/VisPER/20.0-EDU/startup.pm on Windows
+   
 
 ```python
 from visper import app, ComponentUtils, DOFBitmask, SPCs
