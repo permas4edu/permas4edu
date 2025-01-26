@@ -10,6 +10,8 @@
 
 ### Starting permasCC via command line
 
+![permasCC](permasCC_via_pyINTES.png)
+
 ### Starting permasgraph via command line
 
 ![permasgraph](permasgraph_via_pyINTES.png)
