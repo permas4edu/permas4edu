@@ -7,3 +7,58 @@ VisPER can also be used for model verification and post-processing tasks.
 A specific user interface greatly simplifies the modeling and hence increases the efficiency of the user. 
 VisPER directly accesses the PERMAS data structures achieving an unmatched data consistency between graphical user interface and PERMAS. 
 In the future, new functions in PERMAS will be supported by the preprocessing earlier than today.
+
+### Reporting
+
+You might want to create reports of your finite element models. A startup.pm is required to extend the VisPER GUI with two new icons that support export to Word and Excel.
+
+```python
+from visper import app, ComponentUtils, DOFBitmask, SPCs
+from annotation import defNodeAnnotation, defElementAnnotation, format_current_column
+import annotation
+import re
+
+def initColorGenerator(obj):
+    obj.labelOffset = 1
+    
+def initGUIConfig(obj):
+    settings = dict(timePerStep=50)
+    obj.enumAnimationSettings = settings
+    obj.objectAnimationSettings = settings
+    obj.sliderAnimationSettings = settings
+    
+def initGfxSettings(obj):
+    obj.visibleMPCTypes = []
+    obj.undeformedStructureContourMode="None"
+
+def setupMenu(mw):
+    try:
+        mnWizards.insertItemBefore(acwAssemblyWizard, acwBrakeWizard.menuText)
+        mnWizards.insertSeparator(mnWizards.getItemIndexOf(acwBrakeWizard.menuText))
+    except:
+        pass
+    try:
+        menuExtras=mw(type='Menu')(type='Menu',name='&Extras')
+        if menuExtras is not None:
+            mnConnect=menuExtras.insertMenu("Co&nnection")
+            mnConnect.insertItem(gEstablishConnection)
+            mnConnect.insertItem(gReleaseConnection)
+    except:
+        pass
+    
+def setupToolBar(mw):
+    try:
+        tb = mw('Visualization','ToolBar')
+        act = app.find('DispDlgShowHide', 'Action')
+        if tb != None and act != None:
+            tb.insertItem(act)
+    except:
+        pass  
+    myToolbarName = 'ExtTB'
+    global myTB
+    myTB = mw.find(type='Toolbar',name=myToolbarName)
+    if myTB == None:
+        myTB = mw.newToolBar(myToolbarName)
+    myTB.insertItem(kaCreateReportDOCX)
+    myTB.insertItem(kaCreateReportXLSX)
+```
