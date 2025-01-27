@@ -1,0 +1,60 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $BASVAR
+               4 NAME = LPAT_1       TYPE = LOADFAC  PDF = 4
+           &    DESCRIPTION = 'Samples LPAT 4 via CL LPAT 1            '
+               5 NAME = LPAT_2       TYPE = LOADFAC  PDF = 5
+           &    DESCRIPTION = 'Samples LPAT 5 via CL LPAT 2            '
+               6 NAME = LPAT_3       TYPE = LOADFAC  PDF = 6
+           &    DESCRIPTION = 'Samples LPAT 6 via CL LPAT 3            '
+!
+      $PDFUNCTION  PDF = 4  TYPE = NORMAL  DATA = MOMENTS
+        1.000000E+00  1.000000E-01
+      $PDFUNCTION  PDF = 5  TYPE = NORMAL  DATA = MOMENTS
+        1.000000E+00  1.000000E-01
+      $PDFUNCTION  PDF = 6  TYPE = NORMAL  DATA = MOMENTS
+        1.000000E+00  1.000000E-01
+!
+   $END STRUCTURE
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $COMBINE LOADS  LPAT = 1  DOFTYPE = DISP
+      LPAT = 4  BASVAR = 4
+      $COMBINE LOADS  LPAT = 2  DOFTYPE = DISP
+      LPAT = 5  BASVAR = 5
+      $COMBINE LOADS  LPAT = 3  DOFTYPE = DISP
+      LPAT = 6  BASVAR = 6
+!
+   $END LOADING
+!------
+   $RESULTS
+!
+      $RSLITEM DISP  TYPE = COMPONENT  SITUATION = STEP_1  LPAT = 1
+      V_LP1            :   2
+      $RSLITEM DISP  TYPE = COMPONENT  SITUATION = STEP_1  LPAT = 2
+      V_LP2            :   2
+      $RSLITEM DISP  TYPE = COMPONENT  SITUATION = STEP_1  LPAT = 3
+      V_LP3            :   2
+!
+      $VPARVAL  TYPE = BASVAR INPUT = LIST
+                4  1.000000E+03 2.000000E+03
+                5  1.000000E+03 2.000000E+03
+                6  1.000000E+03 2.000000E+03
+!
+      $RESEXT  ITEM
+      V_LP1_MAX : V_LP1          1
+      V_LP2_MAX : V_LP2          1
+      V_LP3_MAX : V_LP3          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
