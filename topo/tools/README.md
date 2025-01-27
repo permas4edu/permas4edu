@@ -4,3 +4,6 @@ Following topology optimisation, the element filling ratio distribution can be d
 
 ![uci template](uci_template.png)
 
+### 3D histogram
+
+![histogram](PERMAS_Topology_Optimization.png)
