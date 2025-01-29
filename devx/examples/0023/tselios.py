@@ -1,0 +1,47 @@
+import os, sys
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+df1 = pd.read_csv('campbell_rsfrq.csv',delimiter=';')
+df2 = pd.read_csv('unbalance_dresp.csv',delimiter=';') # Disks
+df3 = pd.read_csv('unbalance_bresp.csv',delimiter=';') # Bearings
+df4 = pd.read_csv('orbit_sdisp.csv',delimiter=';')
+fig, axs = plt.subplots(3,1,sharex=True)
+axs[0].plot(60*df1['Rot.Freq.'],df1['Mode 5'])
+axs[0].plot(60*df1['Rot.Freq.'],df1['Mode 7'])
+axs[0].plot(60*df1['Rot.Freq.'],df1['Mode 9'],label='BW-2')
+axs[0].plot(60*df1['Rot.Freq.'],df1['Mode 11'],label='FW-2')
+axs[0].plot(60*df1['Rot.Freq.'],df1['Mode 13'],label='BW-3')
+axs[0].plot(60*df1['Rot.Freq.'],df1['Mode 15'],label='FW-3')
+axs[0].plot(60*df1['Rot.Freq.'],df1['Rot.Freq.'],alpha=0.4,c='k',label=r'$\Omega=f$')
+axs[0].set_xlabel('Rotational speed [rpm]')
+axs[0].legend(shadow=True).set_draggable(True)
+axs[0].grid()
+axs[0].set_ylabel('Damped natural frequency')
+axs[1].plot(60*df2['Frequency'],df2['N3,u'],label='Disk1 N3,u')
+axs[1].plot(60*df2['Frequency'],df2['N3,v'],label='Disk1 N3,v')
+axs[2].plot(60*df3['Frequency'],df3['N2,u'],label='Bearing1 N3,u')
+axs[2].plot(60*df3['Frequency'],df3['N2,v'],label='Bearing1 N3,v')
+axs[1].set_xlabel('Rotational speed [rpm]')
+axs[1].set_ylabel(r'Unbalance response [mm]')
+axs[2].set_ylabel(r'Unbalance response [mm]')
+axs[1].legend(shadow=True).set_draggable(True)
+axs[2].legend(shadow=True).set_draggable(True)
+axs[1].grid()
+axs[2].grid()
+axs[0].set_xlim(0.,5E3)
+fig1,axs1 = plt.subplots(2,1)
+axs1[0].plot(1.E-3*df4['N2,u'],1.E-3*df4['N2,v'],label ='Left bearing') 
+axs1[0].set_title(r'Rotor orbit on the left bearing $\Omega = 1500$ [rpm]')
+axs1[0].set_xlabel(r'Horizontal displacement $u$ [m]')
+axs1[0].set_ylabel(r'Vertical displacement $v$ [m]')
+axs1[0].legend(shadow=True).set_draggable(True)
+axs1[0].grid()
+axs1[1].plot(df4['Time'],1.E+3*df4['N2,u'])
+axs1[1].set_xlabel(r'Time $t$ [s]')
+axs1[1].set_ylabel(r'Horizontal displacement [$\mu$ m]')
+axs1[1].grid()
+plt.tight_layout()
+plt.show()
+

@@ -1,0 +1,83 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS6
+               55          3
+               56          4
+!
+      $ELSYS RSYS
+       DISK_1        RSYS =          0  AXES =  3,  1
+       DISK_2        RSYS =          0  AXES =  3,  1
+       SHAFT         RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+               56         57
+      $NSET NAME = DUMMY
+               58         59
+      $ESET NAME = DISK_1
+               55
+      $ESET NAME = DISK_2
+               56
+! 
+      $ESET NAME = ROTOR
+         SHAFT 
+         DISK_1 
+         DISK_2
+!
+      $COOR
+               56  0.000000E+00  0.000000E+00  3.000000E+01
+               57  0.000000E+00  0.000000E+00  4.800000E+02
+               58  0.000000E+00  0.000000E+00  3.000000E+01
+               59  0.000000E+00  0.000000E+00  4.800000E+02
+!
+      $PART  NAME = DISK_1
+       DISK_1
+      $PART  NAME = DISK_2
+       DISK_2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_SHAFT              4 : 1.000000E+01 :  1.000000E+01
+!
+      $GEODAT MASS      CONT = CYLINDER
+!                      rho           d_i             d_o           t
+       GD_DISK_1     7.870000E-09  1.000000E+01  7.800000E+01  1.500000E+01
+       GD_DISK_2     7.870000E-09  1.000000E+01  7.800000E+01  1.500000E+01
+!
+      $ELPROP
+       SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_SHAFT
+       DISK_1        GEODAT = GD_DISK_1
+       DISK_2        GEODAT = GD_DISK_2
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3,6  DOFTYPE = DISP
+       SHAFT
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_SHAFT  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.870000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.080000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
