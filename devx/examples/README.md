@@ -43,3 +43,7 @@
 0021 - [Higher-order nonlinear modeling and multi-modal performance of axially restrained diverse flexible shaft-disk assemblies](https://doi.org/10.1080/15397734.2024.2411618)
 
 0022 - [Vibration Analysis of Rotors Under Uncertainty Based on Legendre Series](https://doi.org/10.1007/s42417-018-0078-4)
+
+0023 - [Identification of Unbalance in a Rotating System Using Artificial Neural Networks](https://doi.org/10.1007/978-3-031-49791-9_22)
+
+0024 - [Modal analysis of multi-disk rotor system](http://dx.doi.org/10.3126/jiee.v7i1.66238)
