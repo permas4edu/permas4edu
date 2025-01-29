@@ -1,0 +1,38 @@
+DEFAULT SET VERIFICATION = MODEL
+NEW
+!
+! Example is adapted from
+! Sunil Pradhana, Mahesh Chandra Luintel
+! Modal analysis of multi-disk rotor system
+! http://dx.doi.org/10.3126/jiee.v7i1.66238
+!
+INPUT
+    READ PERMAS FILE = sunil.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    WEIGHT ANALYSIS SETS = ALL
+    STATIC
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = statics
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 20
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL 
+    GO PERMAS BINARY FILE = complex_modes
+    ITEM CLEAR
+    ITEM XYDATA NAME = RSFRQ
+    GO SPREADSHEET FILE = campbell
+TASK END
+STOP
