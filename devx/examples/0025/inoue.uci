@@ -1,0 +1,43 @@
+!
+! Example is taken from
+! Goto, Daiki and Inoue, Tsuyoshi and Kimura, Shogo and Heya, Akira and Nakamura, 
+! Shinsaku and Watanabe, Yusuke 
+! Operational Modal Analysis Method for Separating Whirl Direction for Rotating Machinery
+! Available at SSRN: https://ssrn.com/abstract=4753499 or http://dx.doi.org/10.2139/ssrn.4753499 
+! 
+NEW
+
+INPUT
+    READ PERMAS FILE = inoue.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1 
+    VIBRATION ANALYSIS MODES = 2
+EXPORT
+    ITEM CLEAR
+    ITEM DISP
+    GO PERMAS ASCII FILE = normal_modes
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+!    MODAL COMPLEX SITUATION = STEP_2
+    MODAL ROTATING SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    GO PERMAS BINARY FILE = campbell
+    GO SPREADSHEET FILE = campbell
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSDRT
+    GO PERMAS BINARY FILE = damping_ratio
+    GO SPREADSHEET FILE = damping_ratio
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES inoue.py campbell_rsfrq.csv damping_ratio_rsdrt.csv'
+RETURN
+STOP
