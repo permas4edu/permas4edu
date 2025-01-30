@@ -1,0 +1,69 @@
+!
+! Example is taken from
+! Goto, Daiki and Inoue, Tsuyoshi and Kimura, Shogo and Heya, Akira and Nakamura, 
+! Shinsaku and Watanabe, Yusuke 
+! Operational Modal Analysis Method for Separating Whirl Direction for Rotating Machinery
+! Available at SSRN: https://ssrn.com/abstract=4753499 or http://dx.doi.org/10.2139/ssrn.4753499 
+! 
+NEW
+
+INPUT
+    READ PERMAS FILE = inoue_01.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1 
+    VIBRATION ANALYSIS FREQLIM = 46. ! MODES = 4 
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN MATLAB ASCII FILE = matrices
+    DATA OBJECT BKLL BLOCKFORM = VALUE
+    DATA OBJECT BMLL BLOCKFORM = VALUE
+    ITEM CLEAR
+    ITEM DISP
+    GO PERMAS ASCII FILE = normal_modes
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+!    MODAL COMPLEX SITUATION = STEP_2
+    MODAL ROTATING SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    OPEN MATLAB ASCII FILE = damping_matrices
+!   ...gyroscopic matrix
+    DATA OBJECT BYLL BLOCKFORM = VALUE 
+!   ...viscous damping
+    DATA OBJECT BDLL BLOCKFORM = VALUE
+PRINT
+    PORT RES REPLACE FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM CLEAR XYDATA
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    GO PERMAS BINARY FILE = campbell
+    GO SPREADSHEET FILE = campbell
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSDRT
+    GO PERMAS BINARY FILE = damping_ratio
+    GO SPREADSHEET FILE = damping_ratio
+EXEC
+    ACT SIT = STEP_1
+!    MODAL COMPLEX SITUATION = STEP_3
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+PRINT
+    PORT RES SWITCH TO FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES inoue_01.py campbell_rsfrq.csv damping_ratio_rsdrt.csv'
+RETURN
+STOP

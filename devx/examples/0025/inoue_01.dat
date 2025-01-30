@@ -1,0 +1,109 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+!
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SITUATION
+!
+    $SITUATION NAME = STEP_2  PARENT = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  RESULTS = R_STEP_2
+    $END SITUATION
+!
+!   Complex eigenvalue problem for a single rotational speed  
+!
+    $SITUATION NAME = STEP_3  PARENT = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  RESULTS = R_STEP_3
+    $END SITUATION
+!
+    $STRUCTURE
+        $NODE NSET = ALL_NODES
+          100  1.0  0.0  0.0
+          101  1.0  0.0  0.0
+          102  1.0  0.0  0.0
+
+        $ELEMENT TYPE = MASS3 ESET = M_R
+            1   101 
+        $ELEMENT TYPE = MASS3 ESET = M_S
+            2   102
+
+        $ELEMENT TYPE = SPRING3 ESET = K_R
+            3   101  102  ! spring between rotor and stator
+        $ELEMENT TYPE = SPRING3 ESET = K_S
+            4   100  102  ! stator spring to ground
+
+        $ELEMENT TYPE = DAMP3 ESET = C_R
+             5   100  101  ! damper to ground
+!            5   101  102  ! damper between rotor and stator
+
+        $ELEMENT TYPE = DAMP3 ESET = C_S
+            6   100  102  ! stator damper to ground
+
+        $NSET NAME = GROUND
+          100 
+ 
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+!
+!       Table 3 Theoretical model parameter 
+!
+        $GEODAT MASS CONT = MASS
+           GD_M_R   5.0  ! Mass of rotor
+           GD_M_S  40.0  ! Mass of casing (stator)          
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K_R  2.1E5  2.1E5 0.0 ! Stiffness coefficient of rotor
+           GD_K_S  2.8E6  2.8E6 0.0 ! Stiffness coefficient of casing
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_C_R    20.2E+00  20.2E+00 0.0 ! Damping coefficient of rotor
+           GD_C_S   211.7E+00 211.7E+00 0.0 ! Damping coefficient of casing
+
+        $ELPROP
+!
+           M_R GEODAT = GD_M_R
+           M_S GEODAT = GD_M_S
+!
+           K_R GEODAT = GD_K_R 
+           K_S GEODAT = GD_K_S
+!
+           C_R GEODAT = GD_C_R
+           C_S GEODAT = GD_C_S
+!
+        $MATRIX GYRO FORMAT = SKEW
+           101, 1 101, 2 : 0.95  ! Gyroscopic coefficient
+ 
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+ 
+        $SUPPRESS DOFS = 3
+            ALL_NODES
+
+        $SUPPRESS DOFS = 1,2
+            GROUND
+
+    $END CONSTRAINTS
+
+    $RESULTS NAME = R_STEP_2
+
+       $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+           0.0 1200.0 50.0  ! Rotational speed
+ 
+    $END RESULTS
+
+    $RESULTS NAME = R_STEP_3
+
+       $ROTSPEED PRIMARY = LIST XTYPE = RPM
+           600.0  ! Rotational speed
+ 
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1
+       F(X)=(2*PI*X)^2
+
+$EXIT FUNCTION
+
+$FIN
