@@ -47,3 +47,5 @@
 0023 - [Identification of Unbalance in a Rotating System Using Artificial Neural Networks](https://doi.org/10.1007/978-3-031-49791-9_22)
 
 0024 - [Modal analysis of multi-disk rotor system](http://dx.doi.org/10.3126/jiee.v7i1.66238)
+
+0025 - [Operational Modal Analysis Method for Separating Whirl Direction for Rotating Machinery](https://dx.doi.org/10.2139/ssrn.4753499)
