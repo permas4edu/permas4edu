@@ -1,0 +1,70 @@
+NEW
+
+INPUT
+    READ PERMAS FILE  = tmd_02.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS FREQLIM = 1.0 ! MODES = 3
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    OPEN MATLAB ASCII FILE = matrices
+    DATA OBJECT BMLL BLOCKFORM = VALUE
+    DATA OBJECT BKLL BLOCKFORM = VALUE
+    DATA OBJECT BDLL BLOCKFORM = VALUE
+EXEC
+    ACT SIT = STEP_3
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024 &
+                            ACCURACY     = 5.0 &
+                            NOFHARMONICS = 7 &
+                            MODE         = FOLLOWPATH &               
+                            DIRECTION    = ASCENDING &
+                            STARTFREQ    = 0.09549297 &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = U DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = U
+    GO SPREADSHEET FILE = hbm
+    GO PERMAS BINARY FILE = hbm
+EXEC
+    ACT SIT = STEP_4
+    DIRECT TIMEHISTORY LOOPS = 200 &
+                       DELTAT = 0.07391982714328925  &
+                       TSTART = 0.0 &
+                       HBSIT  = STEP_3 &
+                       HBFREQ = 0.1352817 ! 0.88 [rad/s]
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = U DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = U
+    GO PERMAS BINARY FILE = periodic_1
+EXEC
+    ACT SIT = STEP_5
+    DIRECT TIMEHISTORY LOOPS = 200 &
+                       DELTAT = 0.07757018897752575  &
+                       TSTART = 0.0 &
+                       HBSIT  = STEP_3 &
+                       HBFREQ = 0.1289155 ! 0.81 [rad/s]
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = U DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = U
+    GO PERMAS BINARY FILE = periodic_2    
+TASK END
+
+STOP
