@@ -27,3 +27,7 @@
 012 -[Modal properties of mechanical systems under geometric variations by perturbation theory](https://doi.org/10.1016/j.jsv.2025.118942)
 
 013 - [Efficient Two-Stage Modal Identification for Structures with Closely Spaced Modes by Bayesian Fft and Joint Approximate Diagonalization](http://dx.doi.org/10.2139/ssrn.4956434)
+
+014 - 
+
+015 - [A reduced order finite element‑informed surrogate model for approximating global high‑fidelity simulation](https://doi.org/10.1007/s00158-024-03935-3)
