@@ -28,6 +28,6 @@
 
 013 - [Efficient Two-Stage Modal Identification for Structures with Closely Spaced Modes by Bayesian Fft and Joint Approximate Diagonalization](http://dx.doi.org/10.2139/ssrn.4956434)
 
-014 - 
+014 - [Physics-informed deep operator networks with stiffness-based loss functions for structural response prediction](https://doi.org/10.1016/j.engappai.2025.110097)
 
 015 - [A reduced order finite element‑informed surrogate model for approximating global high‑fidelity simulation](https://doi.org/10.1007/s00158-024-03935-3)
