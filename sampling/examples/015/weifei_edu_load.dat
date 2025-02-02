@@ -1,0 +1,36 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $BASVAR
+               2 NAME = LPAT_1       TYPE = LOADFAC  PDF = 2
+           &    DESCRIPTION = 'Samples LPAT 2 via CL LPAT 1            '
+!
+      $PDFUNCTION  PDF = 2  TYPE = NORMAL  DATA = MOMENTS
+        1.000000E+00  1.000000E-01
+!
+   $END STRUCTURE
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $COMBINE LOADS  LPAT = 1  DOFTYPE = DISP
+      LPAT = 2  BASVAR = 2
+!
+   $END LOADING
+!------
+   $RESULTS 
+
+      $VPARVAL TYPE = BASVAR INPUT = LIST
+        2 0.1 0.5 1.0
+
+      $RSLITEM DISP TYPE = SET SITUATION = STEP_1 LPAT = 1
+        V_F : F  2
+
+      $RESEXT ITEM 
+        V_F : V_F 1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
