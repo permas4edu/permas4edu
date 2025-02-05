@@ -2,3 +2,4 @@ The example is adapted from [Application of machine learning for,‘what if?’ 
 
 Thanks to Bemin Sheen for private communication.
 
+![Hole diameter](hole_diameter.gif "Varying hole diameter by mesh morphing")
