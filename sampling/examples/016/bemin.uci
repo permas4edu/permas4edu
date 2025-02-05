@@ -1,0 +1,29 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = bemin.dat
+    READ PERMAS FILE = bemin_sampling.dat
+RETURN
+
+TASK LOOPS = 11
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = 'statics_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO PERMAS BINARY FILE = sampling
+    GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES bemin.py sampling_srhis.csv'
+RETURN
+STOP
