@@ -1,0 +1,130 @@
+$DEFVAR M TYPE = REAL LIST = 1.0 0.8 1.2
+$DEFVAR K TYPE = REAL LIST = 2.0E+04 3.5E+04  5.0E+04 8.0E+04
+$DEFVAR C TYPE = REAL LIST = 8.0
+$DEFVAR K_NL TYPE = REAL LIST = 1.0E+08
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1  LOADING = L_STEP_1  RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+        $NSET NAME = GROUND
+           100  104
+
+        $NSET NAME = FREE RULE = RANGE
+           101  103
+
+        $NODE NSET = ALL_NODES
+          100  0.0 0.0 0.0
+          101  1.0 0.0 0.0
+          102  2.0 0.0 0.0
+          103  3.0 0.0 0.0
+          104  4.0 0.0 0.0
+
+        $ELEMENT TYPE = MASS3 ESET = M_1
+            1  101  
+        $ELEMENT TYPE = MASS3 ESET = M_2
+            2  102
+        $ELEMENT TYPE = MASS3 ESET = M_3
+            3  103
+
+        $ELEMENT TYPE = SPRING1 ESET = K_1
+            4  100  101
+        $ELEMENT TYPE = SPRING1 ESET = K_2
+            5  101  102
+        $ELEMENT TYPE = SPRING1 ESET = K_3
+            6  102  103
+        $ELEMENT TYPE = SPRING1 ESET = K_4
+            7  103  104
+
+        $ELEMENT TYPE = DAMP1 ESET = C_1
+            8  100  101
+        $ELEMENT TYPE = DAMP1 ESET = C_2
+            9  101  102
+        $ELEMENT TYPE = DAMP1 ESET = C_3
+           10  102  103
+        $ELEMENT TYPE = DAMP1 ESET = C_4
+           11  103  104
+    
+        $ELEMENT TYPE = NLSTIFF ESET = K_NL
+           12  103  104
+ 
+    $END STRUCTURE
+ 
+    $SYSTEM NAME = S_STEP_1
+
+         $GEODAT MASS CONT = MASS
+            GD_M_1   M(1)
+            GD_M_2   M(2)
+            GD_M_3   M(3)
+
+         $GEODAT SPRING CONT = STIFF
+            GD_K_1   K(1)
+            GD_K_2   K(2)
+            GD_K_3   K(3)
+            GD_K_4   K(4)
+
+         $GEODAT DAMPER CONT = DAMP
+            GD_C     C(1)
+
+         $GEODAT SPRING CONT = FUNCTION
+            GD_K_NL   1
+
+         $ELPROP
+            M_1  GEODAT = GD_M_1
+            M_2  GEODAT = GD_M_2
+            M_3  GEODAT = GD_M_3
+
+            K_1  GEODAT = GD_K_1
+            K_2  GEODAT = GD_K_2
+            K_3  GEODAT = GD_K_3
+            K_4  GEODAT = GD_K_4
+
+            C_1  GEODAT = GD_C
+            C_2  GEODAT = GD_C
+            C_3  GEODAT = GD_C
+            C_4  GEODAT = GD_C
+
+            K_NL GEODAT = GD_K_NL 
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+         $SUPPRESS DOFS = 2,3
+            ALL_NODES
+
+         $SUPPRESS DOFS = 1
+            GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+        $CONLOAD LPAT = 1
+            FREE 1: 50.0
+
+        $FREQLOAD
+            LPAT = 1 TYPE = COSINE
+ 
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI
+          5.0  100.0 0.2
+
+    $END RESULTS
+
+$EXIT COMPONENT
+
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 1 DESCRIPTION = 'Duffing'
+      F(X) = K_NL(1)*X^3
+
+$EXIT FUNCTION
+$FIN
