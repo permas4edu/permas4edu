@@ -55,3 +55,7 @@
 027 - [An efficient cross‑platform multi‑material topology optimization approach occupying enhanced BESO method](https://doi.org/10.1007/s11012-024-01916-w)
 
 028 - [Shape Optimization of Structures by Biological Growth Method](https://doi.org/10.3390/app14146245)
+
+029 - [A novel design update framework for topology optimization with quantum annealing: Application to truss and continuum structures](https://doi.org/10.1016/j.cma.2025.117746)
+
+
