@@ -22,4 +22,7 @@ EXPORT
     ITEM XYDATA NAME = HBM
     GO SPREADSHEET FILE = hbm
 TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES classens.py hbm_hbm.csv'
+RETURN
 STOP
