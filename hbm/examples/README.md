@@ -81,3 +81,5 @@
 040 - [Modal Analysis for Localization in Multiple Nonlinear Tuned Mass Dampers Installed on a Structure](http://dx.doi.org/10.1115/1.4067582)
 
 041 - [Locating nonlinearities in mechanical systems: A frequency-domain dynamic network perspective](https://doi.org/10.1016/j.ymssp.2024.112124)
+
+042 - [Influence of additional mass and connection of nonlinear energy sinks on vibration reduction performance](https://doi.org/10.1016/j.ymssp.2024.112123)
