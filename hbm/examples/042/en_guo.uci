@@ -1,0 +1,42 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = en_guo.dat
+RETURN
+
+
+TASK
+EXEC
+    ACT SIT = STEP_0
+    VIBRATION ANALYSIS MODES = 6
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 5.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH &
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 30.23944   &
+                            RESULTS      = ALL 
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = HBM DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = HBM
+    GO SPREADSHEET FILE = hbm
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES en_guo.py hbm_hbm.csv'
+RETURN
+STOP
