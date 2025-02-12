@@ -45,3 +45,5 @@
 
 022 - [Geometry physics neural operator solver for solid mechanics](https://doi.org/10.1111/mice.13405)
 
+023 - [Computational Structural Engineering](https://www.cgcae.com/the-fem-handbook/)
+
