@@ -1,0 +1,38 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = baqir_01.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_01
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_2 &
+                      LOOPS     = 500 &
+                      DELTAT    = 0.002 &
+                      TSTART    = 0.0  &
+                      OUTPUT    = ALL  &
+                      SOLV      = NEWMARK
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP
+    GO SPREADSHEET FILE = modal_response_01 
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES baqir_01.py modal_response_01_resp.csv'
+RETURN
+STOP
+
