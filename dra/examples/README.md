@@ -44,6 +44,6 @@
 
 022 - [On the novel zero-order overshooting LMS algorithms by design for computational dynamics](https://doi.org/10.1016/j.cma.2024.117522)
 
-023 - 
+023 - [Parameter Estimation of Nonlinear Structural Systems Using Bayesian Filtering Methods]( https://doi.org/10.3390/vibration8010001)
 
 024 - [Method for Reduced-Order Modeling with Mode Selection Criterion](https://doi.org/10.2514/1.J064414)
