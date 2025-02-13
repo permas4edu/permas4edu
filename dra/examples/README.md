@@ -42,7 +42,7 @@
 
 021 - [Scalar Auxiliary Variable (SAV) Stabilization of Implicit-Explicit (IMEX) Time Integration Schemes for Non-Linear Structural Dynamics](https://doi.org/10.1002/nme.7660)
 
-022 - 
+022 - [On the novel zero-order overshooting LMS algorithms by design for computational dynamics](https://doi.org/10.1016/j.cma.2024.117522)
 
 023 - 
 
