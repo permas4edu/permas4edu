@@ -3,3 +3,6 @@ The examples are adapted from [Method for Reduced-Order Modeling with Mode Selec
 ![nonmatching mesh](nonmatching_mesh.png)
 
 ![Transient  response](Transient_response.png)
+
+![Cylindrical shell](cylindrical_shell.png)
+
