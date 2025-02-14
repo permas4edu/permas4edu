@@ -32,4 +32,6 @@
 
 015 - [A reduced order finite element‑informed surrogate model for approximating global high‑fidelity simulation](https://doi.org/10.1007/s00158-024-03935-3)
 
+016 - [Application of machine learning for,‘what if?’ stress analysis](https://doi.org/10.1177/03093247241293499)
+
 017 -  [Exploring the Predictive Performance of Simple Regression Models and ANN in 2D Truss Analysis](https://doi.org/10.1007/978-3-031-69626-8_123)
