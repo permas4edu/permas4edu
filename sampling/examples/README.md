@@ -31,3 +31,5 @@
 014 - [Physics-informed deep operator networks with stiffness-based loss functions for structural response prediction](https://doi.org/10.1016/j.engappai.2025.110097)
 
 015 - [A reduced order finite element‑informed surrogate model for approximating global high‑fidelity simulation](https://doi.org/10.1007/s00158-024-03935-3)
+
+017 -  [Exploring the Predictive Performance of Simple Regression Models and ANN in 2D Truss Analysis](https://doi.org/10.1007/978-3-031-69626-8_123)
