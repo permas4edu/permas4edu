@@ -13,3 +13,7 @@
 006 - [Experimental probing of the configuration space of circular, clamped panels](https://doi.org/10.1016/j.ijnonlinmec.2024.104772)
 
 007 - [Predicting the buckling behaviour of thin-walled structural elements using machine learning methods](https://doi.org/10.1016/j.tws.2022.110518)
+
+008 - [Shear buckling behaviour of beams with partial-depth stiffeners at the support](https://doi.org/10.1016/j.tws.2024.112622)
+
+009 - [Artificial neural networks for random fields to predict the buckling load of geometrically imperfect structures](https://doi.org/10.1007/s00466-024-02595-w)
