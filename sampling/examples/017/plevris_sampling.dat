@@ -1,0 +1,64 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DFLA
+                1          1: I_1
+                2          2: I_2
+                3          3: I_3
+                4          4: I_4
+                5          5: I_5
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR FLANGE  NAME = GD_I_1  DEID = 1  NODES = ALL
+      SECTION          1:          1
+      $DVGPAR FLANGE  NAME = GD_I_2  DEID = 2  NODES = ALL
+      SECTION          1:          2
+      $DVGPAR FLANGE  NAME = GD_I_3  DEID = 3  NODES = ALL
+      SECTION          1:          3
+      $DVGPAR FLANGE  NAME = GD_I_4  DEID = 4  NODES = ALL
+      SECTION          1:          4
+      $DVGPAR FLANGE  NAME = GD_I_5  DEID = 5  NODES = ALL
+      SECTION          1:          5
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM DISP  TYPE = SET  SITUATION = STEP_1  LPAT = 1
+      V_P          : ALL_NODES              2
+!
+      $RSLITEM ELSTRESS TYPE = SET SITUATION = STEP_1 LPAT = 1
+       SIG : TRUSS  4 ! \sigma_{11} principal stress
+
+      $VPARVAL  TYPE = DESVAR  INPUT = FUNCTION
+                1          1
+                2          2
+                3          3
+                4          4
+                5          5
+!
+      $RESEXT  ITEM
+      V_P     : V_P   1  -1 ! minimum displacement
+      SIG_MAX : SIG   1  +1 ! maximum stress
+      SIG_MIN : SIG   1  -1 ! minimum stress
+
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+    $INCLUDE FILE = 'plevris_uniform.dat'
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN

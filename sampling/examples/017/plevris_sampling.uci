@@ -1,0 +1,48 @@
+NEW
+
+USER
+    CALL TOOL6 P1 = 'pyINTES plevris.py 100'
+RETURN
+
+INPUT
+    READ PERMAS FILE = plevris.dat
+    READ PERMAS FILE = plevris_sampling.dat
+RETURN
+
+PORT RES REPLACE FILE = elstress.txt
+PORT RES RESET
+
+TASK LOOPS = 100
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+IF ('%(tloop)' <= 2) THEN
+    GEN EL STRESS
+    GEN STRESS RES
+    PRINT
+       ACTIVE ESET = TRUSS
+       PORT RES SWITCH FILE = elstress.txt
+       TEXT = 'Loop %(tloop)'
+       ITEM EL STRESS
+       PORT RES RESET
+    EXPORT
+       ITEM MODL
+       ITEM EL STRESS
+       ITEM STRESS RES
+       GO PERMAS ASCII  FILE = 'statics_%.3(tloop)' 
+       GO PERMAS BINARY FILE = 'statics_%.3(tloop)'
+ENDIF    
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING METHOD = LHC NSAMPLES = 100
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+    GO PERMAS BINARY FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES plevris_sampling.py sampling_srhis.csv'
+RETURN
+STOP
