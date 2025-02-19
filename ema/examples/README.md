@@ -10,7 +10,7 @@
 
 005 - Wing model
 
-006 - Plate model
+006 - Plate model provided by Polytec
 
 007 - Jim beam EMA & FEA
 
