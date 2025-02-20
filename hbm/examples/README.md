@@ -83,3 +83,5 @@
 041 - [Locating nonlinearities in mechanical systems: A frequency-domain dynamic network perspective](https://doi.org/10.1016/j.ymssp.2024.112124)
 
 042 - [Influence of additional mass and connection of nonlinear energy sinks on vibration reduction performance](https://doi.org/10.1016/j.ymssp.2024.112123)
+
+043 - [An indirect harmonic balance method based on frequency response functions simplification for periodical response analysis of local nonlinearity systems](https://doi.org/10.1016/j.compstruc.2025.107663)
