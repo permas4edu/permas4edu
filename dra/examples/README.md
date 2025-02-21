@@ -47,3 +47,5 @@
 023 - [Parameter Estimation of Nonlinear Structural Systems Using Bayesian Filtering Methods]( https://doi.org/10.3390/vibration8010001)
 
 024 - [Method for Reduced-Order Modeling with Mode Selection Criterion](https://doi.org/10.2514/1.J064414)
+
+025 - [A high-order implicit time integration method for linear and nonlinear dynamics with efficient computation of accelerations](https://doi.org/10.1016/j.cma.2025.117831)
