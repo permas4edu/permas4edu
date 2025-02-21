@@ -1,0 +1,48 @@
+DEFAULT SET MASS = DIAGONAL ! lumped mass matrix
+
+NEW
+
+INPUT
+    READ PERMAS FILE = ning_32.dat
+    READ NEW PERMAS FILE = ning_32_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS FREQLIM = 10.0
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies_32.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    OPEN MATLAB ASCII FILE = matrices_32
+    DATA OBJECT BMLL BLOCKFORM = VALUE ! Mass matrix
+    DATA OBJECT BKLL BLOCKFORM = VALUE ! Stiffness matrix
+EXEC
+    ACT SIT = STEP_2
+!    DIRECT FREQUENCY
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    OPEN MATLAB ASCII FILE = damping_32
+    DATA OBJECT BDLL BLOCKFORM = VALUE ! Damping matrix
+EXEC
+    ACT SIT = STEP_3
+    DIRECT HARMONIC BALANCE FFTSIZE = 1024 &
+                            ACCURACY = 5.0 &
+                            NOFHARMONICS = 7 &
+                            MODE = FOLLOWPATH &
+                            DIRECTION = ASCENDING &
+                            STARTFREQ = 0.0   &
+                            RESULTS = ALL
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = HBM DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = HBM
+    GO SPREADSHEET FILE = hbm_32 
+    GO PERMAS BINARY FILE = hbm_32
+TASK END
+STOP
