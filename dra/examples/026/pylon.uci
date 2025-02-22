@@ -1,0 +1,62 @@
+SET TLPLOT = ON
+
+NEW
+
+INPUT
+    READ PERMAS FILE = pylon.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+PRINT
+    PORT RES REPLACE FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+EXEC
+    ACT SIT = STEP_1
+    MODAL TIMEHISTORY SITUATION = STEP_3 &
+                      LOOPS     = 1000   &
+                      DELTAT    = 0.001  &
+                      TSTART    = 0.0    &
+                      SOLV      = NEWMARK
+    ACT SIT = STEP_3
+SELECT
+    ACTIVE NSET = P_L
+    XYDATA ITEM DISP RESULT = P_L DCOMP = 2
+EXPORT 
+    ITEM CLEAR
+    ITEM XYDATA NAME = P_L
+    GO SPREADSHEET FILE = modal_disp
+    GO PERMAS BINARY FILE = modal_disp
+EXEC
+    ACT SIT = STEP_4
+    DIRECT TIMEHISTORY LOOPS = 1000     &
+                       DELTAT = 0.001   &
+                       TSTART = 0.0     &
+                       STORE  = ALL     &
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = P_L
+    XYDATA ITEM DISP RESULT = P_L DCOMP = 2
+EXPORT 
+    ITEM CLEAR
+    ITEM XYDATA NAME = P_L
+    GO SPREADSHEET FILE = direct_disp
+    GO PERMAS BINARY FILE = direct_disp
+TASK END
+STOP
