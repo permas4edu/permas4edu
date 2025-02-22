@@ -49,3 +49,5 @@
 024 - [Method for Reduced-Order Modeling with Mode Selection Criterion](https://doi.org/10.2514/1.J064414)
 
 025 - [A high-order implicit time integration method for linear and nonlinear dynamics with efficient computation of accelerations](https://doi.org/10.1016/j.cma.2025.117831)
+
+026 - [A New Model-Based Integration Method with Controllable Numerical Damping for Structural Dynamic Problems](https://doi.org/10.1142/S0219455426500963)
