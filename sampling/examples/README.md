@@ -35,3 +35,7 @@
 016 - [Application of machine learning for,‘what if?’ stress analysis](https://doi.org/10.1177/03093247241293499)
 
 017 -  [Exploring the Predictive Performance of Simple Regression Models and ANN in 2D Truss Analysis](https://doi.org/10.1007/978-3-031-69626-8_123)
+
+018 - [Optimization algorithm for uncertain model updating based on interval overlap ratios and Chebyshev polynomials](https://doi.org/10.1016/j.apm.2024.115864)
+
+
