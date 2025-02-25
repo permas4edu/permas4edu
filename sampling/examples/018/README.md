@@ -2,3 +2,4 @@ The example is adapted from [Optimization algorithm for uncertain model updating
 
 ### Well-separated modes
 
+![Pairplot](pairplot.png)
