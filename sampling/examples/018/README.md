@@ -2,7 +2,8 @@ The example is adapted from [Optimization algorithm for uncertain model updating
 
 ### Well-separated modes
 
-![Pairplot](pairplot.png)
+![Pairplot](pairplot.png "Well-separated modes")
 
 ### Close modes
 
+![Pairplot](pairplot_close_modes.png "Close modes")
