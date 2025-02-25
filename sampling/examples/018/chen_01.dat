@@ -1,0 +1,91 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+       $NSET NAME = GROUND
+         100
+!
+       $ESET NAME = DESIGN_1
+          K2
+       $ESET NAME = DESIGN_2
+          K4
+       $ESET NAME = DESIGN_3
+          K5
+!
+       $NODE NSET = ALL_NODES
+         100  0.0  0.0  0.0
+         101  1.0  0.0  0.0
+         102  2.0  0.0  0.0
+         103  3.0  0.0  0.0
+
+      $ELEMENT TYPE = MASS3 ESET = M1
+           1  101
+      $ELEMENT TYPE = MASS3 ESET = M2
+           2  102
+      $ELEMENT TYPE = MASS3 ESET = M3
+           3  103
+ 
+!      $ELEMENT TYPE = SPRING1 ESET = K1
+!           4  100  101
+      $ELEMENT TYPE = SPRING1 ESET = K2
+           5  100  102
+!      $ELEMENT TYPE = SPRING1 ESET = K3
+!           6  100  103
+      $ELEMENT TYPE = SPRING1 ESET = K4
+           7  101  102
+      $ELEMENT TYPE = SPRING1 ESET = K5
+           8  102  103
+      $ELEMENT TYPE = SPRING1 ESET = K6
+           9  101  103
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+ 
+       $GEODAT MASS CONT = MASS
+         GD_M1  1.0
+         GD_M2  4.0
+         GD_M3  1.0
+
+       $GEODAT SPRING CONT = STIFF
+!         GD_K1  0.0
+!         GD_K3  0.0
+         GD_K6  1.0
+!
+!      Uncertain parameters
+!
+       $GEODAT SPRING CONT = STIFF
+         GD_K2  8.0
+         GD_K4  2.0
+         GD_K5  2.0
+
+       $ELPROP
+         M1  GEODAT = GD_M1
+         M2  GEODAT = GD_M2
+         M3  GEODAT = GD_M3
+
+!         K1  GEODAT = GD_K1
+         K2  GEODAT = GD_K2
+!         K3  GEODAT = GD_K3
+         K4  GEODAT = GD_K4
+         K5  GEODAT = GD_K5
+         K6  GEODAT = GD_K6
+  
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3
+         ALL_NODES
+
+       $SUPPRESS DOFS = 1
+         GROUND
+
+    $END CONSTRAINTS
+
+$EXIT COMPONENT
+$FIN

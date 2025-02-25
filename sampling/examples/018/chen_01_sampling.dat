@@ -1,0 +1,62 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: DESIGN_1
+                2          2: DESIGN_2
+                3          3: DESIGN_3
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 1
+      STIFF          1:          1
+      $DVGPAR SPRING  NAME = GD_K4  DEID = 2
+      STIFF          1:          2
+      $DVGPAR SPRING  NAME = GD_K5  DEID = 3
+      STIFF          1:          3
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+!
+      $VPARVAL  TYPE = DESVAR  INPUT = EQUI
+                1  6.500000E+00  9.500000E+00  1.000000E-01
+                2  1.600000E+00  2.400000E+00  1.000000E-01
+                3  1.600000E+00  2.400000E+00  1.000000E-01
+!
+!      $RESEXT  ITEM
+!      F_1 : F_1          1 
+!      F_2 : F_2          1
+!      F_3 : F_3          1
+!
+      $RESEXT FUNCTION
+      L_1 : F_1 1 : 100
+      L_2 : F_2 1 : 100
+      L_3 : F_3 1 : 100
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 100
+       F(X)=(2*PI*X)^2
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN
