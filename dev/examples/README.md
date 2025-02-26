@@ -119,3 +119,5 @@
 059 - [Automated damage assessment in truss structures via FE model updating and teaching-learning-based optimization](http://dx.doi.org/10.31462/jseam.2024.04219237)
 
 060 - [Vibration Frequencies of Thin Rectangular Plates with Internal, Edge, and Corner Rectangular Cutouts](https://doi.org/10.1142/S0219455426501014)
+
+061 - [Fast evaluation of central moments for non-Gaussian random loads in vibration fatigue](https://doi.org/10.1016/j.ymssp.2025.112434)
