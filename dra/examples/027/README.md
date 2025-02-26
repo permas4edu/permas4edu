@@ -7,3 +7,5 @@ The example is adapated from [Sequential sensor placement for damage detection u
 ![Forced response](frf_5Hz.gif "Forced response @5 Hz")
 
 ### Two cylinders: 18 connections
+
+![18 connections](18_connections.png)
