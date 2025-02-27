@@ -18,3 +18,5 @@
 
 009 - [Variance estimation of modal parameters from the poly-reference least-squares complex frequency-domain algorithm](https://doi.org/10.1016/j.ymssp.2024.111905)
 
+010 - [Finite Element Modelling and Updating of Welded Thin-Walled Beam](http://dx.doi.org/10.15282/ijame.15.4.2018.12.0449)
+
