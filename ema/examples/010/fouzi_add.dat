@@ -1,0 +1,41 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PART_01    1.300000E+00
+       GD_PART_02    1.300000E+00
+!
+      $ELPROP
+       PART_01       GEODAT = GD_PART_01    MATERIAL = MAT_01
+       PART_02       GEODAT = GD_PART_02    MATERIAL = MAT_02
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.900000E+05  2.650000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_02  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        1.900000E+05  2.650000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
