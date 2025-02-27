@@ -1,0 +1,37 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = vuillod_01.dat
+RETURN
+
+EXEC
+CLOOP LOOPS = 1, 5
+
+    TASK 
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        NLMATERIAL TSTART = -0.1 TINCI = 0.1 TEND = 2.0 NLGEOM = YES
+    EXPORT
+        ITEM MODL
+        GO PERMAS BINARY FILE = 'nl_statics_%.3(cloop)'
+    SELECT 
+        ACTIVE NSET = F
+        XYDATA ITEM DISP RESULT = RESP DCOMP = 1,3
+        ACTIVE NSET = CLAMPED
+        SUM REAC NSETBIN = CLAMPED
+        XYDATA SUM REAC DCOMP = 3
+EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = RESP
+        GO SPREADSHEET FILE = 'resp_%.3(cloop)'
+        ITEM CLEAR
+        ITEM XYDATA TYPE = SUMREAC
+        GO SPREADSHEET FILE = 'sum_reac_%.3(cloop)'
+    TASK END
+
+CLOOP END
+USER
+    CALL TOOL6 P1 = 'pyINTES vuillod.py'
+RETURN
+
+STOP
