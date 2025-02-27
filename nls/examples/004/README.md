@@ -2,5 +2,7 @@ The example is adapted from [A surrogate model based on NURBS entities for engin
 
 Thanks to Bruno Vuillod for private communication.
 
-Remark:Material nonlinearities are neglected for convenience.
+Remark: Material nonlinearities are neglected for convenience.
+
+![Load_deflection](Load_deflection.png)
 
