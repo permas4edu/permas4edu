@@ -38,4 +38,4 @@
 
 018 - [Optimization algorithm for uncertain model updating based on interval overlap ratios and Chebyshev polynomials](https://doi.org/10.1016/j.apm.2024.115864)
 
-
+019 - [Maximization of fundamental frequency for small satellite components layout design](https://doi.org/10.1016/j.asr.2024.11.079)
