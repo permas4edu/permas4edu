@@ -1,0 +1,80 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP POTE MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: CYLINDER_01
+         &      :         24
+                2: CYLINDER_02
+         &      :       3992
+                3: CYLINDER_03
+         &      :       7523
+                4: CYLINDER_04
+         &      :      11054
+!
+      $DSVLINK SAME
+                1:           3          5        7  
+                2:           4          6        8
+!
+      $DSVNODE
+                1         24:          1
+                2         24:          1
+                3       3992:          2
+                4       3992:          2
+                5       7523:          3
+                6       7523:          3
+                7      11054:          4
+                8      11054:          4
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+               24 1 :  1.000000E+00 :          1
+               24 2 :  1.000000E+00 :          2
+             3992 2 :  1.000000E+00 :          4
+             3992 1 : -1.000000E+00 :          3
+             7523 1 : -1.000000E+00 :          5
+             7523 2 : -1.000000E+00 :          6
+            11054 1 :  1.000000E+00 :          7
+            11054 2 : -1.000000E+00 :          8
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+
+   $END MODIFICATION
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+!
+      $VPARVAL  TYPE = DESVAR
+                1 -0.2 -0.1 0.000000E+00 0.1 0.2 0.3
+                2 -0.2 -0.1 0.000000E+00 0.1 0.2 0.3
+
+!                2  0.000000E+00  2.000000E-01
+!                3  0.000000E+00  2.000000E-01
+!                4  0.000000E+00  2.000000E-01
+!                5  0.000000E+00  2.000000E-01
+!                6  0.000000E+00  2.000000E-01
+!                7  0.000000E+00  2.000000E-01
+!                8  0.000000E+00  2.000000E-01
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
