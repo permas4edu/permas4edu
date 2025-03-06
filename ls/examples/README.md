@@ -50,3 +50,5 @@
 024 - [Deriving analytical solutions using symbolic matrix structural analysis: Part 2 – Plane trusses](https://doi.org/10.1016/j.heliyon.2025.e42372)
 
 025 - [Sequential sensor placement for damage detection under frequency-domain dynamics](https://doi.org/10.1016/j.finel.2025.104315)
+
+026 - [Data Completion, Model Correction and Enrichment Based on Sparse Identification and Data Assimilation]( https://doi.org/10.3390/app12157458)
