@@ -121,3 +121,5 @@
 060 - [Vibration Frequencies of Thin Rectangular Plates with Internal, Edge, and Corner Rectangular Cutouts](https://doi.org/10.1142/S0219455426501014)
 
 061 - [Fast evaluation of central moments for non-Gaussian random loads in vibration fatigue](https://doi.org/10.1016/j.ymssp.2025.112434)
+
+062 - [An iterative reduced-order substructuring approach to the calculation of eigensolutions and eigensensitivities](https://doi.org/10.1016/j.ymssp.2019.05.006)
