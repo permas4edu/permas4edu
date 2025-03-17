@@ -1,5 +1,6 @@
-The example illustrates FEMU of a beam.
+The example illustrates FEMU of a beam. The measurements were carried out by Dmitri Tcherniak. Many thanks for providing the data.
 Two accelerometers are attached to the beam.
+
 
 Design variables
 
