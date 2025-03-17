@@ -1,0 +1,103 @@
+$ENTER COMPONENT NAME = DFLT_COMP 
+
+    $SITUATION NAME = STEP_0
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+       $NSET NAME = GROUND
+         100  105
+ 
+       $NSET NAME = RESPONSE
+         102
+
+       $NODE NSET = ALL_NODES
+         100  0.0  0.0  0.0
+         101  1.0  0.0  0.0
+         102  2.0  0.0  0.0
+         103  3.0  0.0  0.0
+         104  4.0  0.0  0.0
+         105  5.0  0.0  0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+           1  101
+           2  102
+           3  103
+           4  104
+
+       $ELEMENT TYPE = SPRING1 ESET = K
+           5  100 101
+           6  101 102
+           7  102 103
+           8  103 104
+           9  104 105
+       $ELEMENT TYPE = NLSTIFF ESET = NL_K
+          10  100 101
+          11  101 102
+          12  102 103
+          13  103 104
+          14  104 105
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $COMPDAMP 
+          G = 0.01
+
+        $GEODAT MASS CONT = MASS
+          GD_M  1.0
+
+        $GEODAT SPRING CONT = STIFF
+          GD_K  2500.0
+
+        $GEODAT SPRING CONT = FUNCTION
+          GD_NL_K  1
+
+        $ELPROP
+           M    GEODAT = GD_M
+           K    GEODAT = GD_K
+           NL_K GEODAT = GD_NL_K
+ 
+    $END SYSTEM
+ 
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 2,3 
+          ALL_NODES
+ 
+        $SUPPRESS DOFS = 1
+          GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+        $CONLOAD LPAT = 1
+          102  1:  120.0
+
+        $FREQLOAD
+          LPAT = 1 TYPE = SINE
+
+    $END LOADING 
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI
+          3.5 18.5 0.05
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION 
+
+   $FUNCTION FORMULA FID = 1 
+      F(X) = 1000*X^3
+
+$EXIT FUNCTION
+$FIN
