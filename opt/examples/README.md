@@ -33,3 +33,5 @@
 016 -  [FINITE ELEMENT MODEL UPDATING METHOD BASED ON IMPROVED FIREFLY ALGORITHM](https://dx.doi.org/10.6052/j.issn.1000-4750.2021.04.0271)
 
 017 - [Shape optimization applied in minimizing stress concentration factors: a case study for manufacturable shaft design](https://doi.org/10.1007/s40430-024-05355-2)
+
+018 - Digital Twins
