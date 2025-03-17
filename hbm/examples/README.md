@@ -85,3 +85,5 @@
 042 - [Influence of additional mass and connection of nonlinear energy sinks on vibration reduction performance](https://doi.org/10.1016/j.ymssp.2024.112123)
 
 043 - [An indirect harmonic balance method based on frequency response functions simplification for periodical response analysis of local nonlinearity systems](https://doi.org/10.1016/j.compstruc.2025.107663)
+
+044 - [ON THE SOLUTION OF NONLINEAR ALGEBRAIC EQUATIONS FOLLOWING PERIODIC FORCED RESPONSE ANALYSIS OF NONLINEAR STRUCTURES USING DIFFERENT NONLINEAR SOLVERS](https://doi.org/10.1007/978-3-030-47626-7_20)
