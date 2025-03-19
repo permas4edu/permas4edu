@@ -49,3 +49,5 @@
 0024 - [Modal analysis of multi-disk rotor system](http://dx.doi.org/10.3126/jiee.v7i1.66238)
 
 0025 - [Operational Modal Analysis Method for Separating Whirl Direction for Rotating Machinery](https://dx.doi.org/10.2139/ssrn.4753499)
+
+0026 - [Bayesian modal identification of non-classically damped systems using time-domain data](https://doi.org/10.1016/j.ymssp.2023.110349)
