@@ -1,0 +1,36 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_PLATE      2.000000E+01
+!
+      $ELPROP
+       PLATE         GEODAT = GD_PLATE      MATERIAL = PMMA
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 6  DOFTYPE = DISP
+                1
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = PMMA  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.198000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        4.960000E+03  4.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
