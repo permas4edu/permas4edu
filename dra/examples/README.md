@@ -53,3 +53,5 @@
 026 - [A New Model-Based Integration Method with Controllable Numerical Damping for Structural Dynamic Problems](https://doi.org/10.1142/S0219455426500963)
 
 027 - [Sequential sensor placement for damage detection under frequency-domain dynamics](https://doi.org/10.1016/j.finel.2025.104315)
+
+028 - [Unified vibration modeling of shell and plate structures with resonators](https://doi.org/10.1016/j.ijmecsci.2025.109921)
