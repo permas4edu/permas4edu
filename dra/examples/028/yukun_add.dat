@@ -1,0 +1,450 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION NAME = STEP_2 PARENT = STEP_1
+      DFLT_COMP SYSTEM = S_STEP_1 LOADING = L_STEP_2 RESULTS = R_STEP_2
+   $END SITUATION
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = SPRING1
+             5003       1550       5152
+             5004       5152       5153
+      $ELEMENT TYPE = SPRING1
+             5005       3951       5154
+             5006       5154       5155
+      $ELEMENT TYPE = MASS3
+             5001       5152
+             5002       5153
+      $ELEMENT TYPE = MASS3
+             5007       5154
+             5008       5155
+!
+      $RSYS CART  FORM = XY
+                1          2 :          5 :          3
+!
+      $LINE GEO  LNID = X1
+       SFLA2        252          5
+       SFLA2          6        300
+       SFLA2        253        252
+       SFLA2        254        253
+       SFLA2        255        254
+       SFLA2        256        255
+       SFLA2        257        256
+       SFLA2        258        257
+       SFLA2        259        258
+       SFLA2        260        259
+       SFLA2        261        260
+       SFLA2        262        261
+       SFLA2        263        262
+       SFLA2        264        263
+       SFLA2        265        264
+       SFLA2        266        265
+       SFLA2        267        266
+       SFLA2        268        267
+       SFLA2        269        268
+       SFLA2        270        269
+       SFLA2        271        270
+       SFLA2        272        271
+       SFLA2        273        272
+       SFLA2        274        273
+       SFLA2        275        274
+       SFLA2        276        275
+       SFLA2        277        276
+       SFLA2        278        277
+       SFLA2        279        278
+       SFLA2        280        279
+       SFLA2        281        280
+       SFLA2        282        281
+       SFLA2        283        282
+       SFLA2        284        283
+       SFLA2        285        284
+       SFLA2        286        285
+       SFLA2        287        286
+       SFLA2        288        287
+       SFLA2        289        288
+       SFLA2        290        289
+       SFLA2        291        290
+       SFLA2        292        291
+       SFLA2        293        292
+       SFLA2        294        293
+       SFLA2        295        294
+       SFLA2        296        295
+       SFLA2        297        296
+       SFLA2        298        297
+       SFLA2        299        298
+       SFLA2        300        299
+      $LINE GEO  LNID = X0
+       SFLA2          1        202
+       SFLA2        154          4
+       SFLA2        155        154
+       SFLA2        156        155
+       SFLA2        157        156
+       SFLA2        158        157
+       SFLA2        159        158
+       SFLA2        160        159
+       SFLA2        161        160
+       SFLA2        162        161
+       SFLA2        163        162
+       SFLA2        164        163
+       SFLA2        165        164
+       SFLA2        166        165
+       SFLA2        167        166
+       SFLA2        168        167
+       SFLA2        169        168
+       SFLA2        170        169
+       SFLA2        171        170
+       SFLA2        172        171
+       SFLA2        173        172
+       SFLA2        174        173
+       SFLA2        175        174
+       SFLA2        176        175
+       SFLA2        177        176
+       SFLA2        178        177
+       SFLA2        179        178
+       SFLA2        180        179
+       SFLA2        181        180
+       SFLA2        182        181
+       SFLA2        183        182
+       SFLA2        184        183
+       SFLA2        185        184
+       SFLA2        186        185
+       SFLA2        187        186
+       SFLA2        188        187
+       SFLA2        189        188
+       SFLA2        190        189
+       SFLA2        191        190
+       SFLA2        192        191
+       SFLA2        193        192
+       SFLA2        194        193
+       SFLA2        195        194
+       SFLA2        196        195
+       SFLA2        197        196
+       SFLA2        198        197
+       SFLA2        199        198
+       SFLA2        200        199
+       SFLA2        201        200
+       SFLA2        202        201
+      $LINE GEO  LNID = Y1
+       SFLA2          3        105
+       SFLA2          3        349
+       SFLA2        153          4
+       SFLA2        301          6
+       SFLA2        105        106
+       SFLA2        106        107
+       SFLA2        107        108
+       SFLA2        108        109
+       SFLA2        109        110
+       SFLA2        110        111
+       SFLA2        111        112
+       SFLA2        112        113
+       SFLA2        113        114
+       SFLA2        114        115
+       SFLA2        115        116
+       SFLA2        116        117
+       SFLA2        117        118
+       SFLA2        118        119
+       SFLA2        119        120
+       SFLA2        120        121
+       SFLA2        121        122
+       SFLA2        122        123
+       SFLA2        123        124
+       SFLA2        124        125
+       SFLA2        125        126
+       SFLA2        126        127
+       SFLA2        127        128
+       SFLA2        128        129
+       SFLA2        129        130
+       SFLA2        130        131
+       SFLA2        131        132
+       SFLA2        132        133
+       SFLA2        133        134
+       SFLA2        134        135
+       SFLA2        135        136
+       SFLA2        136        137
+       SFLA2        137        138
+       SFLA2        138        139
+       SFLA2        139        140
+       SFLA2        140        141
+       SFLA2        141        142
+       SFLA2        142        143
+       SFLA2        143        144
+       SFLA2        144        145
+       SFLA2        145        146
+       SFLA2        146        147
+       SFLA2        147        148
+       SFLA2        148        149
+       SFLA2        149        150
+       SFLA2        150        151
+       SFLA2        151        152
+       SFLA2        152        153
+       SFLA2        302        301
+       SFLA2        303        302
+       SFLA2        304        303
+       SFLA2        305        304
+       SFLA2        306        305
+       SFLA2        307        306
+       SFLA2        308        307
+       SFLA2        309        308
+       SFLA2        310        309
+       SFLA2        311        310
+       SFLA2        312        311
+       SFLA2        313        312
+       SFLA2        314        313
+       SFLA2        315        314
+       SFLA2        316        315
+       SFLA2        317        316
+       SFLA2        318        317
+       SFLA2        319        318
+       SFLA2        320        319
+       SFLA2        321        320
+       SFLA2        322        321
+       SFLA2        323        322
+       SFLA2        324        323
+       SFLA2        325        324
+       SFLA2        326        325
+       SFLA2        327        326
+       SFLA2        328        327
+       SFLA2        329        328
+       SFLA2        330        329
+       SFLA2        331        330
+       SFLA2        332        331
+       SFLA2        333        332
+       SFLA2        334        333
+       SFLA2        335        334
+       SFLA2        336        335
+       SFLA2        337        336
+       SFLA2        338        337
+       SFLA2        339        338
+       SFLA2        340        339
+       SFLA2        341        340
+       SFLA2        342        341
+       SFLA2        343        342
+       SFLA2        344        343
+       SFLA2        345        344
+       SFLA2        346        345
+       SFLA2        347        346
+       SFLA2        348        347
+       SFLA2        349        348
+      $LINE GEO  LNID = Y0
+       SFLA2          1          7
+       SFLA2         55          2
+       SFLA2          2        203
+       SFLA2        251          5
+       SFLA2          7          8
+       SFLA2          8          9
+       SFLA2          9         10
+       SFLA2         10         11
+       SFLA2         11         12
+       SFLA2         12         13
+       SFLA2         13         14
+       SFLA2         14         15
+       SFLA2         15         16
+       SFLA2         16         17
+       SFLA2         17         18
+       SFLA2         18         19
+       SFLA2         19         20
+       SFLA2         20         21
+       SFLA2         21         22
+       SFLA2         22         23
+       SFLA2         23         24
+       SFLA2         24         25
+       SFLA2         25         26
+       SFLA2         26         27
+       SFLA2         27         28
+       SFLA2         28         29
+       SFLA2         29         30
+       SFLA2         30         31
+       SFLA2         31         32
+       SFLA2         32         33
+       SFLA2         33         34
+       SFLA2         34         35
+       SFLA2         35         36
+       SFLA2         36         37
+       SFLA2         37         38
+       SFLA2         38         39
+       SFLA2         39         40
+       SFLA2         40         41
+       SFLA2         41         42
+       SFLA2         42         43
+       SFLA2         43         44
+       SFLA2         44         45
+       SFLA2         45         46
+       SFLA2         46         47
+       SFLA2         47         48
+       SFLA2         48         49
+       SFLA2         49         50
+       SFLA2         50         51
+       SFLA2         51         52
+       SFLA2         52         53
+       SFLA2         53         54
+       SFLA2         54         55
+       SFLA2        203        204
+       SFLA2        204        205
+       SFLA2        205        206
+       SFLA2        206        207
+       SFLA2        207        208
+       SFLA2        208        209
+       SFLA2        209        210
+       SFLA2        210        211
+       SFLA2        211        212
+       SFLA2        212        213
+       SFLA2        213        214
+       SFLA2        214        215
+       SFLA2        215        216
+       SFLA2        216        217
+       SFLA2        217        218
+       SFLA2        218        219
+       SFLA2        219        220
+       SFLA2        220        221
+       SFLA2        221        222
+       SFLA2        222        223
+       SFLA2        223        224
+       SFLA2        224        225
+       SFLA2        225        226
+       SFLA2        226        227
+       SFLA2        227        228
+       SFLA2        228        229
+       SFLA2        229        230
+       SFLA2        230        231
+       SFLA2        231        232
+       SFLA2        232        233
+       SFLA2        233        234
+       SFLA2        234        235
+       SFLA2        235        236
+       SFLA2        236        237
+       SFLA2        237        238
+       SFLA2        238        239
+       SFLA2        239        240
+       SFLA2        240        241
+       SFLA2        241        242
+       SFLA2        242        243
+       SFLA2        243        244
+       SFLA2        244        245
+       SFLA2        245        246
+       SFLA2        246        247
+       SFLA2        247        248
+       SFLA2        248        249
+       SFLA2        249        250
+       SFLA2        250        251
+!
+      $NSET NAME = P
+         80
+
+      $NSET NAME = R
+         4539
+!
+      $NSET NAME = M_1_1
+             5153
+      $NSET NAME = M_2_1
+             5152
+      $NSET NAME = M_2_2
+             5154
+      $NSET NAME = M_1_2
+             5155
+
+      $ESET NAME = K_1
+             5004  5005
+      $ESET NAME = K_2
+             5003  5006
+      $ESET NAME = M_1
+             5002 5007
+      $ESET NAME = M_2
+             5001 5008
+!
+      $COOR
+             5152  5.000000E-01  5.000000E-01  1.000000E-02
+             5153  5.000000E-01  5.000000E-01  2.000000E-02
+             5154  1.428010E+00  5.000000E-01  2.5866E-01
+             5155  1.423010E+00  5.000000E-01  2.67321E-01
+!
+      $PART  NAME = M_2
+       M_2
+      $PART  NAME = M_1
+       M_1
+      $PART  NAME = K_2
+       K_2
+      $PART  NAME = K_1
+       K_1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SHELL     CONT = THICK      NODES = ALL
+       GD_A          5.000000E-03
+       GD_B          5.000000E-03
+      $GEODAT MASS      CONT = MASS
+       GD_M_1        4.992000E-01  4.992000E-01  4.992000E-01
+       GD_M_2        4.992000E-01  4.992000E-01  4.992000E-01
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_1        1.520000E+05
+       GD_K_2        1.520000E+05
+!
+      $ELPROP
+       A             GEODAT = GD_A          MATERIAL = STEEL
+       B             GEODAT = GD_B          MATERIAL = STEEL
+       M_1           GEODAT = GD_M_1
+       M_2           GEODAT = GD_M_2
+       K_1           GEODAT = GD_K_1
+       K_2           GEODAT = GD_K_2
+!
+      $COMPDAMP 
+        G = 0.003
+!
+      $ADDMODES SOURCE = LOAD
+        LPAT = ALL
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       M_1_1        M_2_1
+
+      $ROTB RSYS = 1
+        M_1_2 M_2_2
+
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       M_1_2        M_2_2
+
+      $SUPPRESS  LINENODE  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       Y0           Y1
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_2
+
+       $CONLOAD LPAT = 1
+          P 3: 10.0
+
+       $FREQLOAD 
+          LPAT = 1 TYPE = TOTAL
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_2
+
+       $FREQUENCY PRIMARY = EQUI
+          0.0 160.0 0.5
+
+       $FREQUENCY PRIMARY = EIGCLUS BOUNDS = 0.,160. CLUSTER = 3,0.1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
