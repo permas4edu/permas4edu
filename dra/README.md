@@ -19,3 +19,10 @@ $$ (-\Omega^2 M + \textrm{i} \Omega C + K) \hat{u} = \hat{f} $$
 
 * Modal solution
 * Direct solution 
+
+### Damping models
+
+* Modal damping $$\xi$$
+* Rayleigh damping $$C = \alpha K + \beta M$$
+* Material damping
+* Discrete damper elements
