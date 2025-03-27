@@ -4,7 +4,7 @@ The example is adapted from [Unified vibration modeling of shell and plate struc
 
 ![L_shaped_plate](L_shaped_plate.png)
 
-###
+### Open cylinders with Type 4 resonators
 
 ### Coupled shell-plate structure
 
