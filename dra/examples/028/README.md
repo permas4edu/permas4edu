@@ -7,3 +7,5 @@ The example is adapted from [Unified vibration modeling of shell and plate struc
 ###
 
 ### Coupled shell-plate structure
+
+![Coupled shell-plate](coupled_shell_plate_structure.png)
