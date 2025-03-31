@@ -1,0 +1,37 @@
+SET MODETRACKING = LASTITER
+NEW
+
+INPUT
+    READ PERMAS FILE = weilong.dat
+    READ PERMAS FILE = weilong_add.dat
+    READ PERMAS FILE = weilong_sampling.dat
+RETURN
+
+PORT RES REPLACE FILE = natural_frequencies.txt
+PORT RES RESET 
+
+TASK LOOPS = 14
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Loop: %(tloop)'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES weilong.py sampling_xdhis.csv sampling_srhis.csv'
+RETURN
+STOP
