@@ -62,6 +62,6 @@ def getColorOfElemGroup(eg):
   Adjust Windows Display Scaling. **Right-click** on the desktop and select **Display settings**.
   Under **Scale & layout**, choose a recommended scaling level i.e. 100%
 
-  
+  ![Appearance](appearance.png "Extras --> Customize --> General --> Appearance")
  
     
