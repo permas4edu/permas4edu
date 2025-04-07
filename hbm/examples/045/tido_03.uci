@@ -1,0 +1,29 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = tido_03.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024         &
+                            ACCURACY     = 5.0          &
+                            NOFHARMONICS = 7            &
+                            MODE         = FOLLOWPATH   &
+                            DIRECTION    = ASCENDING    &
+!                           STARTFREQ    = 1.114085E-01 &
+                            STARTFREQ    = 0.0          &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = HBM DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = HBM
+    GO SPREADSHEET 
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES tido_03.py tido_03_hbm.csv'
+RETURN
+STOP
