@@ -60,8 +60,11 @@ def getColorOfElemGroup(eg):
   ### 4K Monitor
 
   Adjust Windows Display Scaling. **Right-click** on the desktop and select **Display settings**.
-  Under **Scale & layout**, choose a recommended scaling level i.e. 100%
+  Under **Scale & layout**, choose a recommended scaling level e.g. 100% or 150%
 
   ![Appearance](appearance.png "Extras --> Customize --> General --> Appearance")
  
-    
+### Fusion style
+
+![Fusion style](fusion_style.png)
+
