@@ -68,3 +68,6 @@ def getColorOfElemGroup(eg):
 
 ![Fusion style](fusion_style.png)
 
+### Rendering of beam and shell elements
+
+
