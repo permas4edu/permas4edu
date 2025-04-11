@@ -70,4 +70,8 @@ def getColorOfElemGroup(eg):
 
 ### Rendering of beam and shell elements
 
+![Beam](rendering_beam.png)
+
+![Shell](rendering_shell.png)
+
 
