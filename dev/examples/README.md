@@ -123,3 +123,7 @@
 061 - [Fast evaluation of central moments for non-Gaussian random loads in vibration fatigue](https://doi.org/10.1016/j.ymssp.2025.112434)
 
 062 - [An iterative reduced-order substructuring approach to the calculation of eigensolutions and eigensensitivities](https://doi.org/10.1016/j.ymssp.2019.05.006)
+
+063 - [Free vibration solutions of rotationally restrained stepped thick rectangular plates utilizing a symplectic analytical framework](https://doi.org/10.1016/j.apm.2025.116044)
+
+064 - 
