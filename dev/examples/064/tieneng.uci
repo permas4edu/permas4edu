@@ -1,0 +1,31 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = tieneng.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'Clamped support'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = clamped_support
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'ELastic support'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = elastic_support
+TASK END
+STOP

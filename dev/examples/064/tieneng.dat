@@ -1,0 +1,141 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_2  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1          3
+                2          3          4
+                3          4          5
+                4          5          6
+                5          6          7
+                6          7          8
+                7          8          9
+                8          9         10
+                9         10         11
+               10         11         12
+               11         12         13
+               12         13         14
+               13         14         15
+               14         15         16
+               15         16         17
+               16         17         18
+               17         18         19
+               18         19         20
+               19         20         21
+               20         21          2
+      $ELEMENT TYPE = SPRING6
+               21          1         22
+!
+      $NSET NAME = BEAM RULE = ESET
+          BEAM
+!
+      $NSET NAME = CLAMPED
+           1       
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+01
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+               22
+      $ESET NAME = BEAM
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20
+      $ESET NAME = K
+               21
+      $ESET NAME = LINE1
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  1.200000E+00  0.000000E+00  0.000000E+00
+                3  6.000000E-02  0.000000E+00  0.000000E+00
+                4  1.200000E-01  0.000000E+00  0.000000E+00
+                5  1.800000E-01  0.000000E+00  0.000000E+00
+                6  2.400000E-01  0.000000E+00  0.000000E+00
+                7  3.000000E-01  0.000000E+00  0.000000E+00
+                8  3.600000E-01  0.000000E+00  0.000000E+00
+                9  4.200000E-01  0.000000E+00  0.000000E+00
+               10  4.800000E-01  0.000000E+00  0.000000E+00
+               11  5.400000E-01  0.000000E+00  0.000000E+00
+               12  6.000000E-01  0.000000E+00  0.000000E+00
+               13  6.600000E-01  0.000000E+00  0.000000E+00
+               14  7.200000E-01  0.000000E+00  0.000000E+00
+               15  7.800000E-01  0.000000E+00  0.000000E+00
+               16  8.400000E-01  0.000000E+00  0.000000E+00
+               17  9.000000E-01  0.000000E+00  0.000000E+00
+               18  9.600000E-01  0.000000E+00  0.000000E+00
+               19  1.020000E+00  0.000000E+00  0.000000E+00
+               20  1.080000E+00  0.000000E+00  0.000000E+00
+               21  1.140000E+00  0.000000E+00  0.000000E+00
+               22  0.000000E+00  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = K
+       K
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_BEAM               5
+         &        :  2.500000E-01  1.000000E-01
+      $GEODAT SPRING    CONT = STIFF
+       GD_K          0.000000E+00  1.010000E+03  0.000000E+00  0.000000E+00  0.000000E+00  1.01000E+03
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = STEEL
+       K             GEODAT = GD_K
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS DOFS = 1,3,4,5  DOFTYPE = DISP
+        BEAM
+!
+   $END CONSTRAINTS
+!------
+   $CONSTRAINTS  NAME = C_STEP_2
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS DOFS = 1,3,4,5  DOFTYPE = DISP
+        BEAM
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
