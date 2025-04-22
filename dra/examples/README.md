@@ -55,3 +55,6 @@
 027 - [Sequential sensor placement for damage detection under frequency-domain dynamics](https://doi.org/10.1016/j.finel.2025.104315)
 
 028 - [Unified vibration modeling of shell and plate structures with resonators](https://doi.org/10.1016/j.ijmecsci.2025.109921)
+
+029 - [Separation and quantification of damage-induced and non-damage-induced vibro-acoustic modulation and the problem of contrary modulations](https://doi.org/10.1016/j.ymssp.2025.112708)
+
