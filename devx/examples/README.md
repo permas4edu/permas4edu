@@ -51,3 +51,5 @@
 0025 - [Operational Modal Analysis Method for Separating Whirl Direction for Rotating Machinery](https://dx.doi.org/10.2139/ssrn.4753499)
 
 0026 - [Bayesian modal identification of non-classically damped systems using time-domain data](https://doi.org/10.1016/j.ymssp.2023.110349)
+
+0027 - [Self-similar eigenvalue distribution of a binary tree-structured mass-spring-damper system](https://doi.org/10.1016/j.jsv.2025.119111)
