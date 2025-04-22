@@ -1,0 +1,199 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION NAME = STEP_2 PARENT = STEP_1
+      DFLT_COMP SYSTEM = S_STEP_1 LOADING = L_STEP_2  RESULTS = R_STEP_2
+   $END SITUATION
+!------
+   $STRUCTURE
+!
+      $SURFACE ELEMENTS  LABEL = CLAMPED  SYSTEM = LOCAL
+             6601          5
+             6602          5
+             6603          5
+             6604          5
+             6605          5
+             6606          5
+             6607          5
+             6608          5
+             6609          5
+             6610          5
+             6611          5
+             6612          5
+             6613          5
+             6614          5
+             6615          5
+             6616          5
+             6617          5
+             6618          5
+             6619          5
+             6620          5
+             6621          5
+             6622          5
+             6623          5
+             6624          5
+             6625          5
+             6626          5
+             6627          5
+             6628          5
+             6629          5
+             6630          5
+             8701          5
+             8702          5
+             8703          5
+             8704          5
+             8705          5
+             8706          5
+             8707          5
+             8708          5
+             8709          5
+             8710          5
+             8711          5
+             8712          5
+             8713          5
+             8714          5
+             8715          5
+             8716          5
+             8717          5
+             8718          5
+             8719          5
+             8720          5
+             8721          5
+             8722          5
+             8723          5
+             8724          5
+             8725          5
+             8726          5
+             8727          5
+             8728          5
+             8729          5
+             8730          5
+      $SURFACE ELEMENTS  LABEL = TIP  SYSTEM = LOCAL
+             2071          3
+             2072          3
+             2073          3
+             2074          3
+             2075          3
+             2076          3
+             2077          3
+             2078          3
+             2079          3
+             2080          3
+             2081          3
+             2082          3
+             2083          3
+             2084          3
+             2085          3
+             2086          3
+             2087          3
+             2088          3
+             2089          3
+             2090          3
+             2091          3
+             2092          3
+             2093          3
+             2094          3
+             2095          3
+             2096          3
+             2097          3
+             2098          3
+             2099          3
+             2100          3
+             4771          3
+             4772          3
+             4773          3
+             4774          3
+             4775          3
+             4776          3
+             4777          3
+             4778          3
+             4779          3
+             4780          3
+             4781          3
+             4782          3
+             4783          3
+             4784          3
+             4785          3
+             4786          3
+             4787          3
+             4788          3
+             4789          3
+             4790          3
+             4791          3
+             4792          3
+             4793          3
+             4794          3
+             4795          3
+             4796          3
+             4797          3
+             4798          3
+             4799          3
+             4800          3
+!
+      $NSET NAME = SENSING_NODE
+               29
+!
+      $NSET NAME = TIP
+                2          3         12         20         21         26        193        194        195        196        197        198        199        200
+              201        202        203        204        205        206        207        208        209        210        740        741        742        743
+              744        745        746        747        748        829        830        831        832        887        888        889        890        891
+              892        893        894        895        974        975       4647       4648       4649       4650       4651       4652       4653       4654
+             4655       4656       4657       4658       4659       4660       4661       4662       4663       4664       5705       5706       5707       5708
+             5709       5710       5711       5712       5713       5714       5715       5716       5717       5718       5719       5720       5721       5722
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $COMPDAMP
+          ALPHA = 1.38E-8  BETA = 80.0
+!
+      $ELPROP
+       BEAM          MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $PRESCRIBE  DOFS = 1  DOFTYPE = DISP
+       TIP
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  SURFNODE  DOFS = 2,3  DOFTYPE = DISP
+       TIP
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_2
+!
+      $PREVAL  LPAT = 1  DOFTYPE = DISP
+       TIP            2.000000E-01
+
+      $FREQLOAD
+        LPAT = 1 TYPE = COSINE
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_2
+
+       $FREQUENCY PRIMARY = EQUI
+            0.0 1.E3 2.0
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.752000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.300000E+04  2.960000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
