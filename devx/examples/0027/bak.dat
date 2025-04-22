@@ -1,0 +1,133 @@
+$DEFVAR M TYPE = REAL LIST = 1. 2. 2. 4. 4. 4. 4.
+$DEFVAR K TYPE = REAL LIST = 1. 2. 2. 4. 4. 4. 4. 
+$DEFVAR C TYPE = REAL GEN  = 0.001, 0.0
+$ENTER COMPONENT NAME = DFLT_COMP  DOFTYPE = DISP
+
+    $SITUATION NAME = STEP_1
+      DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2  PARENT = STEP_1
+      DFLT_COMP SYSTEM = S_STEP_1   
+    $END SITUATION
+
+    $STRUCTURE
+!
+       $NSET NAME = GROUND
+         100  
+!
+       $NODE NSET = ALL_NODES
+         100   0.0  0.0   0.0
+         101   1.0  0.0   0.0
+         102   2.0  0.0   0.0
+         103   3.0  0.0   0.0
+         104   4.0  0.0   0.0
+         105   5.0  0.0   0.0
+         106   6.0  0.0   0.0
+         107   7.0  0.0   0.0
+!
+       $ELEMENT TYPE = MASS3 ESET = M1
+           1   101
+       $ELEMENT TYPE = MASS3 ESET = M2
+           2   102
+       $ELEMENT TYPE = MASS3 ESET = M3
+           3   103
+       $ELEMENT TYPE = MASS3 ESET = M4
+           4   104
+       $ELEMENT TYPE = MASS3 ESET = M5
+           5   105
+       $ELEMENT TYPE = MASS3 ESET = M6
+           6   106
+       $ELEMENT TYPE = MASS3 ESET = M7
+           7   107
+!
+       $ELEMENT TYPE = SPRING1 ESET = K1
+           8  100  101
+       $ELEMENT TYPE = SPRING1 ESET = K2
+           9  101  102
+       $ELEMENT TYPE = SPRING1 ESET = K3
+          10  101  103
+       $ELEMENT TYPE = SPRING1 ESET = K4
+          11  102  104
+       $ELEMENT TYPE = SPRING1 ESET = K5
+          12  102  105
+       $ELEMENT TYPE = SPRING1 ESET = K6
+          13  103  106 
+       $ELEMENT TYPE = SPRING1 ESET = K7
+          14  103  107
+!
+       $ELEMENT TYPE = DAMP1 ESET = C4
+          15  102  104
+       $ELEMENT TYPE = DAMP1 ESET = C5
+          16  102  105
+       $ELEMENT TYPE = DAMP1 ESET = C6
+          17  103  106
+       $ELEMENT TYPE = DAMP1 ESET = C7
+          18  103  107
+                
+!
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+!
+       $GEODAT MASS CONT = MASS
+          GD_M1  M(1)
+          GD_M2  M(2)
+          GD_M3  M(3)
+          GD_M4  M(4)
+          GD_M5  M(5)
+          GD_M6  M(6)
+          GD_M7  M(7)
+!
+       $GEODAT SPRING CONT = STIFF
+          GD_K1  K(1)
+          GD_K2  K(2)
+          GD_K3  K(3)
+          GD_K4  K(4)
+          GD_K5  K(5)
+          GD_K6  K(6)
+          GD_K7  K(7)
+
+       $GEODAT DAMPER CONT = DAMP
+          GD_C4 C(4)
+          GD_C5 C(5)
+          GD_C6 C(6)
+          GD_C7 C(7)
+!
+       $ELPROP
+       M1  GEODAT = GD_M1
+       M2  GEODAT = GD_M2
+       M3  GEODAT = GD_M3
+       M4  GEODAT = GD_M4
+       M5  GEODAT = GD_M5
+       M6  GEODAT = GD_M6
+       M7  GEODAT = GD_M7
+!
+       K1  GEODAT = GD_K1
+       K2  GEODAT = GD_K2
+       K3  GEODAT = GD_K3
+       K4  GEODAT = GD_K4
+       K5  GEODAT = GD_K5
+       K6  GEODAT = GD_K6
+       K7  GEODAT = GD_K7
+!
+       C4  GEODAT = GD_C4
+       C5  GEODAT = GD_C5
+       C6  GEODAT = GD_C6
+       C7  GEODAT = GD_C7
+      
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+         $SUPPRESS DOFS = 1
+           GROUND
+ 
+    $END CONSTRAINTS
+ 
+$EXIT COMPONENT
+$FIN
+ 
