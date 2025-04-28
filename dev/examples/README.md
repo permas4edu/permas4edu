@@ -127,3 +127,5 @@
 063 - [Free vibration solutions of rotationally restrained stepped thick rectangular plates utilizing a symplectic analytical framework](https://doi.org/10.1016/j.apm.2025.116044)
 
 064 - [Identification method on stiffness weak part of cantilever structure on machine tool based on flexibility matrix](https://doi.org/10.1177/09544062221104432)
+
+065 - [Probabilistic uncertainty modeling at the elemental level for linear structural dynamics](https://doi.org/10.1007/s00466-025-02615-3)
