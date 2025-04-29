@@ -1,0 +1,58 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP  MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = HEMISPHERE RULE = ESET
+         HEMISPHERE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: HEMISPHERE : HEMISPHERE
+!
+      $DSVNODE
+                1 HEMISPHERE    :          1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+       HEMISPHERE     1  SURFACE = LOAD :  1.000000E+00 :          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      EV_01
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2
+      EV_02
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3
+      EV_03
+      $RSLITEM EVAL  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4
+      EV_04
+!
+      $VPARVAL  TYPE = DESVAR
+                1 -9.E+02 -8.E+02 -7.E+02 -6.E+02 -5.000000E+02 -4.000000E+02 -3.000000E+02 -2.000000E+02 -1.000000E+02  0.000000E+00
+!
+      $RESEXT  FUNCTION
+      LSF_01 : EV_01          1 :          1
+      LSF_02 : EV_02          1 :          1
+      LSF_03 : EV_03          1 :          1
+      LSF_04 : EV_04          1 :          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION FORMULA  FID =          1
+   F(X)=-1/X
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN

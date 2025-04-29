@@ -1,0 +1,30 @@
+DEFAULT SET VERIFICATION = ON
+NEW
+
+INPUT
+    READ PERMAS FILE = hemisphere_02.dat
+    READ PERMAS FILE = hemisphere_02_radial.dat
+RETURN
+
+TASK LOOPS = 10
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    ACT SIT = STEP_2
+    BUCKLING ANALYSIS MODES = 10 SIGN = POSITIVE ITERATIONS = 400
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = 'buckling_modes_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES hemisphere_02_radial.py sampling_xdhis.csv sampling_srhis.csv'
+RETURN
+STOP
