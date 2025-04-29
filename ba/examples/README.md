@@ -17,3 +17,5 @@
 008 - [Shear buckling behaviour of beams with partial-depth stiffeners at the support](https://doi.org/10.1016/j.tws.2024.112622)
 
 009 - [Artificial neural networks for random fields to predict the buckling load of geometrically imperfect structures](https://doi.org/10.1007/s00466-024-02595-w)
+
+010 - [UNCERTAINTY QUANTIFICATION OF BUCKLING PROPERTIES FOR IMPERFECT SPHERICAL SHELL SUBJECTED TO EXTERNAL PRESSURE](http://dx.doi.org/10.55579/jaec.202591.477)
