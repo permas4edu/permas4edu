@@ -68,7 +68,7 @@
 | scikit-learn | 1.0.2 | 1.5.1 |     |
 | scipy  | 1.7.3   |  1.14.1|     |
 | seaborn | 0.11.2 |  0.13.2 |     |
-| setuptools | | |    |
+| setuptools | | 72.2.0 |    |
 | smt | 1.1.0 | 2.6.3 |    |
 | sphinx |  | 8.0.2 |    |
 | statsmodels | | 0.14.2 |    |
