@@ -1,0 +1,57 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = yong.dat
+RETURN
+
+TASK
+EXEC
+!
+!   Healthy structure
+!
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_01
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'damaged structure'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_02
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_3  &
+                      LOOPS     = 1000    &
+                      DELTAT    = 0.001   & 
+                      TSTART    = 0.0     &
+                      SOLV      = NEWMARK          
+    ACT SIT = STEP_3 
+SELECT
+    ACTIVE NSET = SENSORS
+    XYDATA ITEM DISP RESULT = SENSU DCOMP = 2                       
+    XYDATA ITEM ACCE RESULT = SENSA DCOMP = 2                       
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DISP NAME = SENSU
+    GO PERMAS BINARY FILE = displacement_sensors
+    GO SPREADSHEET FILE = displacement_sensors
+    ITEM CLEAR
+    ITEM XYDATA TYPE = ACCE NAME = SENSA
+    GO PERMAS BINARY FILE = acceleration_sensors
+    GO SPREADSHEET FILE = acceleration_sensors
+EXEC
+    ACT SIT = STEP_2
+    MODAL COMPLEX SITUATION = STEP_4
+    ACT SIT = STEP_4
+PRINT
+    PORT RES REPLACE FILE =  complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+TASK END
+STOP
