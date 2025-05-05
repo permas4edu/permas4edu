@@ -58,3 +58,4 @@
 
 029 - [Separation and quantification of damage-induced and non-damage-induced vibro-acoustic modulation and the problem of contrary modulations](https://doi.org/10.1016/j.ymssp.2025.112708)
 
+030 - [Modal, static, harmonic, transient-dynamic and random vibration analyses of a two degree of freedom system by MatLAB and ANSYS](https://doi.org/10.1177/03064190251333545)
