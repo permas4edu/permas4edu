@@ -1,0 +1,40 @@
+{%- do set_defaults(TOPOVAR="NODAL") %}
+{%- do request_licence("MQA", "LS", "TOPO") %}
+{%- do task_options(task, static_situation=Object(objType="Situation", specialObject="*")) %}
+
+{%- do task_options(task, topo_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, topo_method=Choice("ACP|GCA|SCP|SLP|SQP|SCPS|SLPS|SQPS",default="ACP",explicitDefault=True)) %} 
+
+{%- do task_options(task, file_name_xy=Filename(default="monitoring", explicitDefault=True)) %}
+{%- do task_ucipos(task, "post") %}
+!
+TASK LOOPS = 250
+
+EXEC
+{%- if task_params.static_situation %}
+    ACT SIT = {{ task_params.static_situation }}
+    STATIC
+{%- endif %}
+!
+    ACT SIT = {{ task_params.topo_situation }}
+{%- if task_params.topo_method == "ACP" %}
+    TOPO METHOD = {{ task_params.topo_method }}  
+{%- else %}
+    TOPO 
+{%- endif %}
+EXPORT
+    ITEM CLEAR
+    ITEM EFRATIO
+    GO PERMAS BINARY FILE = 'efratio_%.3(tloop)'
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    GO PERMAS BINARY FILE = 'to_xy_%.3(tloop)'
+TASK END
+
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = {{ task_params.file_name_xy }}
