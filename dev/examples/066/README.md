@@ -2,6 +2,8 @@ The examples are adapted from [Vibration energy transfer in nonlinear coupled ne
 
 ### Solid model
 
+![Coupled cantilevers solid](coupled_cantilevers_solid.png "Solid model")
 
 ### Shell model
 
+![Coupled cantilevers shell](coupled_cantilevers_shell.png "Shell model")
