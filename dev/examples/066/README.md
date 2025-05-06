@@ -4,6 +4,11 @@ The examples are adapted from [Vibration energy transfer in nonlinear coupled ne
 
 ![Coupled cantilevers solid](coupled_cantilevers_solid.png "Solid model")
 
+![Mode 01](mode_01.gif "First mode shape")
+
+![Mode 02](mode_02.gif "Second mode shape")
+
+
 ### Shell model
 
 ![Coupled cantilevers shell](coupled_cantilevers_shell.png "Shell model")
