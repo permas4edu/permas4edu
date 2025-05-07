@@ -15,3 +15,6 @@ The examples are adapted from [Vibration energy transfer in nonlinear coupled ne
 
 ### Beam model
 
+![Beam model 01](beam_01.gif)
+
+![Beam model 02](beam_02.gif)
