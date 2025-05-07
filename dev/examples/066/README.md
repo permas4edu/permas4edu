@@ -12,3 +12,6 @@ The examples are adapted from [Vibration energy transfer in nonlinear coupled ne
 ### Shell model
 
 ![Coupled cantilevers shell](coupled_cantilevers_shell.png "Shell model")
+
+### Beam model
+
