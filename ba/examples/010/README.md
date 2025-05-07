@@ -6,7 +6,7 @@ The example is adapted from [UNCERTAINTY QUANTIFICATION OF BUCKLING PROPERTIES F
 
 ### Acknowledgment
 
-Thanks to Ts. Dr.-Ing. Ilyani Akmar Abu Bakar for sharing some finite element models and proviate communication. His support is greatly appreciated.
+Thanks to Ts. Dr.-Ing. Ilyani Akmar Abu Bakar for sharing some finite element models and private communication. His support is greatly appreciated.
 
 ![First buckling mode](buckling_mode_01.gif)
 
