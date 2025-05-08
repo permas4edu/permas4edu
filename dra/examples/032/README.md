@@ -10,3 +10,4 @@ The example is adapted from  [Forced vibration analysis of isogeometric Reissner
 
 ### Cylindrical shell with clamped-free ends
 
+![Cylindrical shell](cylindrical_shell_with_clamped_free_ends.png)
