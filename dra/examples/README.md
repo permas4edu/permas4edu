@@ -61,3 +61,5 @@
 030 - [Modal, static, harmonic, transient-dynamic and random vibration analyses of a two degree of freedom system by MatLAB and ANSYS](https://doi.org/10.1177/03064190251333545)
 
 031 - [Joint load-parameter-response identification using a physics-encoded neural network](https://doi.org/10.1016/j.ymssp.2025.112597)
+
+032 - [Forced vibration analysis of isogeometric Reissner-Mindlin shells using modal superposition methods](https://doi.org/10.1016/j.tws.2025.113360)
