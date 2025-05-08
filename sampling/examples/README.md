@@ -41,3 +41,5 @@
 019 - [Maximization of fundamental frequency for small satellite components layout design](https://doi.org/10.1016/j.asr.2024.11.079)
 
 020 - [Vibro-acoustic characteristics of rectangular plates with any number of point masses and translational springs](https://doi.org/10.1177/10775463241281766)
+
+021 - [Stochastic static finite element model updating using the Bayesian method integrating homotopy surrogate model](https://doi.org/10.1016/j.compstruc.2025.107769)
