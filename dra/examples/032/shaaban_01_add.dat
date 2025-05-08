@@ -1,0 +1,43 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_2  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1  LOADING = L_STEP_2  RESULTS = R_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = F
+             5301
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $COMPDAMP
+      ALPHA =  1.000000E-03  BETA =  1.000000E-03
+!
+      $ADDMODES SOURCE = LOAD
+        LPAT = 1
+!
+   $END SYSTEM
+!------
+   $LOADING  NAME = L_STEP_2
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3:  1.000000E+03
+!
+      $FREQLOAD  DOFTYPE = DISP
+      LPAT =          1  TYPE = COSINE
+!
+   $END LOADING
+!------
+   $RESULTS  NAME = R_STEP_2
+!
+      $FREQUENCY  PRIMARY = EQUI  DOFTYPE = DISP
+        0.000000E+00  1.800000E+01  5.000000E-02
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
