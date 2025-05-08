@@ -8,3 +8,5 @@ The example is adapted from  [Forced vibration analysis of isogeometric Reissner
 
 ![L-Shape](L_shaped_plate.png)
 
+### Cylindrical shell with clamped-free ends
+
