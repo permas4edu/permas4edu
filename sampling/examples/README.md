@@ -43,3 +43,5 @@
 020 - [Vibro-acoustic characteristics of rectangular plates with any number of point masses and translational springs](https://doi.org/10.1177/10775463241281766)
 
 021 - [Stochastic static finite element model updating using the Bayesian method integrating homotopy surrogate model](https://doi.org/10.1016/j.compstruc.2025.107769)
+
+022 - [Certified interval model updating using scenario optimization](https://doi.org/10.2514/1.J064161)
