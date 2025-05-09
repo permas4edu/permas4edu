@@ -1,0 +1,18 @@
+{%- do task_options(task, modal_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, num_modes=Int()) %}
+{%- do task_options(task, freq_limit=Float()) %}
+{%- do task_ucipos(task, "post") %}
+TASK
+EXEC
+    ACT SIT = {{ task_params.modal_situation }}
+    VIBRATION ANALYSIS MODES = {{ task_params.num_modes }} 
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL 
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+
+
