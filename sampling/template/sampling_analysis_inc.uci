@@ -1,0 +1,57 @@
+{%- do task_options(task, num_loops=Int()) %}
+{%- do task_options(task, static_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, vibration_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, num_modes=Int()) %}
+{%- do task_options(task, buckling_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, num_modes_ba=Int()) %}
+
+{%- do task_options(task, sampling_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, sampling_method=Choice("DIRECT|LHC",default="DIRECT",explicitDefault=True)) %} 
+{%- do task_options(task, num_samples=Int()) %}
+
+{%- do task_options(task, file_name_res =Filename(default="statistics.res", explicitDefault=True)) %}
+{%- do task_options(task, file_name_xy=Filename(default="sampling", explicitDefault=True)) %}
+{%- do task_ucipos(task, "post") %}
+!
+{%- if task_params.num_samples %}
+TASK LOOPS = {{ task_params.num_samples }}
+{%- else %}
+TASK LOOPS = {{ task_params.num_loops }}
+{%- endif %}
+
+EXEC
+{%- if task_params.static_situation %}
+    ACT SIT = {{ task_params.static_situation }}
+    STATIC
+{%- endif %}
+
+{%- if task_params.buckling_situation %}
+    ACT SIT = {{ task_params.buckling_situation }}
+    BUCKLING ANALYSIS MODES = {{ task_params.num_modes_ba }}
+{%- endif %}
+!
+{%- if task_params.vibration_situation %}
+    ACT SIT = {{ task_params.vibration_situation }}
+    VIBRATION ANALYSIS  MODES = {{ task_params.num_modes }}
+{%- endif %}
+!
+    ACT SIT = {{ task_params.sampling_situation }}
+{%- if task_params.sampling_method == "LHC" %}
+    SAMPLING METHOD = {{ task_params.sampling_method }}  NSAMPLES = {{ task_params.num_samples }}
+{%- else %}
+    SAMPLING 
+{%- endif %}
+
+TASK END
+
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = {{ task_params.file_name_xy }}
+PRINT
+    PORT RES SWITCH TO FILE = {{ task_params.file_name_res }}
+    SUMMARY ALL  
+    CONTENTS OFF
+    ITEM XYDATA TYPE = SRHIS
+    PORT RES RESET    
