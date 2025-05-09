@@ -21,5 +21,5 @@ Save both files, i.e. sampling_analysis.uci and sampling_analysis_inc.uci in ~/.
 
  * File -> Create UCI
  * Deactivate the checkbox for predefined Templates
- * Select TOPO_STATIC from the Combobox
+ * Select SAMPLING_ANALYSIS from the Combobox
  
