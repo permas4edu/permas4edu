@@ -1,0 +1,25 @@
+{%- do request_licence("MQA", "LS", "BA") %}
+{%- do task_options(task, static_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, buckling_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, num_modes=Int()) %}
+{%- do task_options(task, sign=Choice("BOTH|POSITIVE|NEGATIVE",default="BOTH",explicitDefault=True)) %}
+{%- do task_options(task, alpha=Choice("YES|NO",default="YES",explicitDefault=True)) %} 
+{%- do task_options(task, shift_algorithm=Choice("AUTO|OFF",default="AUTO",explicitDefault=True)) %} 
+{%- do task_options(task, file_name=Filename(default="buckling_modes", explicitDefault=True)) %}
+{%- do task_ucipos(task, "post") %}
+TASK
+EXEC
+    ACT SIT = {{ task_params.static_situation }} 
+    STATIC
+    ACT SIT = {{ task_params.buckling_situation }}
+   BUCKLING ANALYSIS MODES = {{ task_params.num_modes }} SIGN = {{ task_params.sign }} ALPHA = {{  task_params.alpha }} KSHIFT = {{ task_params.shift_algorithm }}
+PRINT
+    PORT RES SWITCH TO FILE = bvaltab.res
+    DATA OBJECT BVALTAB.RES
+    PORT RES RESET
+EXPORT
+    ITEM CLEAR
+    ITEM DISP
+    GO PERMAS BINARY FILE = {{ task_params.file_name }}
+TASK END
+ 
