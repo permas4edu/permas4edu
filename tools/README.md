@@ -2,7 +2,7 @@
 
  * Enhanced text editor  
  * Syntax Highlighting  
- * Direct link to the manual via the F1 key / pause key
+ * Direct link to the users manual (UM-450) via the F1 key / pause key
  * Convenient jumping to specific messages
  * Show and Hide (all) DAT contents
  * Many shortcuts, e.g. function keys F4, F5, F6 to name a few
