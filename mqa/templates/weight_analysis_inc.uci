@@ -1,0 +1,20 @@
+{%- do task_options(task, eset=Object(default="*", explicitDefault=True, objType="ElementSet", specialObject="*")) %}
+{%- do task_options(task, doftype=Choice("DISP|TEMP|PRES|POTE", default="DISP", explicitDefault=True)) %}
+{%- do task_options(task, esetbin=Object(objType="ElementSetBin", specialObject="*")) %}
+{%- do task_options(task, file_name=Filename(default="weight", explicitDefault=True)) %}
+{%- do task_options(task, file_name_xy=Filename(default="weights_xy", explicitDefault=True)) %}
+{%- do task_ucipos(task, "post") %}
+TASK
+EXEC
+    ACTIVE ESET = {{ task_params.eset }} 
+    WEIGHT ANALYSIS TYPE = ELEMENTAL SETS = ALL DOFTYPE = {{ task_params.doftype }} 
+SELECT
+    SUM ITEM WEIGHT ESETBIN = {{ task_params.esetbin }}
+EXPORT
+    ITEM CLEAR
+    ITEM WEIGHT SUMMARY
+    GO PERMAS FILE = {{ task_params.file_name }}
+    ITEM CLEAR
+    ITEM SUM TYPE = WEIGHT
+    GO PERMAS BINARY FILE = {{ task_params.file_name_xy }}    
+TASK END
