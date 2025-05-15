@@ -1,0 +1,60 @@
+{%- do request_licence("MQA", "LS", "DEV", "DEVX") %}
+{%- do task_options(task, static_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, real_modes_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, num_modes=Int()) %}
+{%- do task_options(task, freqlim=Float()) %}
+{#%- do task_options(task, nset=Object(objType="NodeSet", specialObject="*")) %#}
+{%- do task_options(task, child_situation=Object(objType="Situation", specialObject="*")) %}
+{%- do task_options(task, file_name=Filename(default="complex_modes", explicitDefault=True)) %}
+{%- do task_options(task, file_name_xy_01=Filename(default="campbell", explicitDefault=True)) %}
+{%- do task_options(task, file_name_xy_02=Filename(default="campbell_unstable", explicitDefault=True)) %}
+{%- do task_ucipos(task, "post") %}
+TASK
+EXEC
+    ACT SIT = {{ task_params.static_situation }}
+    STATIC
+EXPORT
+    GO PERMAS BINARY 
+EXEC
+    ACT SIT = {{ task_params.real_modes_situation }}
+    VIBRATION ANALYSIS{{- " MODES = " + task_params.num_modes|int|string if task_params.num_modes and task_params.num_modes != 0 }}{{- " FREQLIM = " + task_params.freqlim|float|string if task_params.freqlim and task_params.freqlim != 0.0 }}
+EXPORT
+    ITEM CLEAR
+    ITEM DISP
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL ROTATING SITUATION = {{ task_params.child_situation }} MODESEL = POSREL 
+    ACT SIT = {{ task_params.child_situation }}
+SELECT
+    MODAL CONTRIBUTION FACTOR ITEM DISP
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    ITEM XYDATA TYPE = RSDRT
+    ITEM XYDATA TYPE = RSDMP
+!#if (version > 16.10)
+    ITEM XYDATA TYPE = RSDFQ
+!#endif
+    GO SPREADSHEET FILE = {{ task_params.file_name_xy_01 }}
+!
+    ITEM CLEAR
+!   CURRENT COLUMNS = 1, 10
+    ITEM DISP
+    GO PERMAS BINARY FILE = {{ task_params.file_name }}
+!
+    ITEM CLEAR
+    ITEM MODAL CONTRIBUTION FACTOR TYPE = DISP
+    GO PERMAS FILE = modal_contrib
+!
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RXFRQ
+    ITEM XYDATA TYPE = RXDRT
+    ITEM XYDATA TYPE = RXDMP
+    GO SPREADSHEET FILE = {{ task_params.file_name_xy_02 }}
+!
+    CURRENT CFREQ = UNSTABLE
+    ITEM CLEAR
+    ITEM DISP
+    GO PERMAS BINARY FILE = unstable_modes
+!
+TASK END
