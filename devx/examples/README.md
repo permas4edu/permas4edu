@@ -53,3 +53,5 @@
 0026 - [Bayesian modal identification of non-classically damped systems using time-domain data](https://doi.org/10.1016/j.ymssp.2023.110349)
 
 0027 - [Self-similar eigenvalue distribution of a binary tree-structured mass-spring-damper system](https://doi.org/10.1016/j.jsv.2025.119111)
+
+0028 -  [Internal Damping Instability of Rotors with Isotropic and Anisotropic Supports based on Complex Coordinates Formulation](https://doi.org/10.21205/deufmd.2025278012)
