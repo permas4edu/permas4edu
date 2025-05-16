@@ -1,0 +1,39 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = furkan.dat
+    READ PERMAS FILE = furkan_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL ROTATING SITUATION = STEP_3 RFREQ = EIGFREQ
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR XYDATA 
+    ITEM MODL 
+    GO PERMAS BINARY FILE = complex_modes
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ
+    ITEM XYDATA TYPE = RSDRT  ! Damping ratios over spin speed
+    ITEM XYDATA TYPE = RSDMP  ! Damping coefficients over spin speed
+    ITEM XYDATA TYPE = RSLRE  ! Real part 
+    GO PERMAS BINARY FILE = campbell
+    GO SPREADSHEET FILE = campbell
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES furkan.py campbell_rsfrq.csv campbell_rslre.csv'
+RETURN
+STOP
