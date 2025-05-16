@@ -45,3 +45,5 @@
 021 - [Stochastic static finite element model updating using the Bayesian method integrating homotopy surrogate model](https://doi.org/10.1016/j.compstruc.2025.107769)
 
 022 - [Certified interval model updating using scenario optimization](https://doi.org/10.2514/1.J064161)
+
+023 - [Data-driven stochastic model updating and damage detection with deep generative model](https://doi.org/10.1016/j.ymssp.2025.112743)
