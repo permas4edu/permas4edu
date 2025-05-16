@@ -131,3 +131,7 @@
 065 - [Probabilistic uncertainty modeling at the elemental level for linear structural dynamics](https://doi.org/10.1007/s00466-025-02615-3)
 
 066 - [Vibration energy transfer in nonlinear coupled near-identical systems](https://doi.org/10.1016/j.ymssp.2025.112786)
+
+067 - [The effects of uniform motion on the sound radiation directivity of train wheels](https://pub.dega-akustik.de/DAS-DAGA_2025/files/upload/paper/540.pdf)
+
+068 - 
