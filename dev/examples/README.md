@@ -129,3 +129,5 @@
 064 - [Identification method on stiffness weak part of cantilever structure on machine tool based on flexibility matrix](https://doi.org/10.1177/09544062221104432)
 
 065 - [Probabilistic uncertainty modeling at the elemental level for linear structural dynamics](https://doi.org/10.1007/s00466-025-02615-3)
+
+066 - [Vibration energy transfer in nonlinear coupled near-identical systems](https://doi.org/10.1016/j.ymssp.2025.112786)
