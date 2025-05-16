@@ -135,3 +135,6 @@
 067 - [The effects of uniform motion on the sound radiation directivity of train wheels](https://pub.dega-akustik.de/DAS-DAGA_2025/files/upload/paper/540.pdf)
 
 068 - [A Loewner-Based System Identification and Structural Health Monitoring Approach for Mechanical Systems](https://doi.org/10.1155/2023/1891062)
+
+069 - [Noise-robust modal parameter identification and damage assessment for aero-structures](http://dx.doi.org/10.1108/AEAT-06-2024-0178)
+
