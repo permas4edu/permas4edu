@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import matplotlib as mpl
+mpl.use('Agg')
 mpl.rcParams['savefig.directory']=os.getcwd()
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -12,8 +13,6 @@ num_samples = 1000  # You can change the number of random samples
 num_variables = 3 # Number of variables
 # Generate random numbers from the Gaussian distribution
 samples = np.sort(np.random.normal(loc=mean, scale=std_dev, size=(num_samples,num_variables)),axis=0)
-
-print(samples[:10,:num_variables]) # Print the first 10 samples
 ofile = open('tairan_distribution.dat','w')
 fig = plt.figure('Random',figsize=(12,5))
 x=np.arange(1,num_samples+1)
