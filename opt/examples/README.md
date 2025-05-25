@@ -35,3 +35,6 @@
 017 - [Shape optimization applied in minimizing stress concentration factors: a case study for manufacturable shaft design](https://doi.org/10.1007/s40430-024-05355-2)
 
 018 - Digital Twins
+
+019 - [Automatic shape optimisation of structural parts driven by BGM and RBF mesh morphing](https://doi.org/10.1016/j.ijmecsci.2020.105976)
+
