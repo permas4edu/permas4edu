@@ -1,0 +1,173 @@
+
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+!
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  0.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1 -8.000000E+01  8.000000E+01
+!
+      $DCONSTRAINT NPSTRESS  TYPE = SET  SITUATION = STEP_1  LPAT = 2  DATTYPE = REAL
+      NPST         : ABA_NALL_INP   2      NO        0.000000E+00:        100
+!
+      $DOBJECT  CONSTRAINT = NPST
+!
+      $DSVMLIM
+                1  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS  
+!
+     $RSLITEM REAC TYPE = SET SITUATION = STEP_1 LPAT = 1
+        RX : BOUND 1
+     $RSLITEM REAC TYPE = SET SITUATION = STEP_1 LPAT = 1
+        RY : BOUND 2
+     $RSLITEM REAC TYPE = SET SITUATION = STEP_1 LPAT = 1
+        RZ : BOUND 3
+
+     $RESEXT FUNCTION
+        SUM_RX : RX 121 : 1
+        SUM_RY : RY 121 : 1
+        SUM_RZ : RZ 121 : 1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION 
+
+    $FUNCTION LIB FID = 1 TYPE = WSUMLIN
+       0.0 
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0 
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+&      1.0
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN

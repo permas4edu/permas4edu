@@ -1,0 +1,41 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = stefano.dat
+    READ PERMAS FILE = stefano_mpc.dat
+    READ PERMAS FILE = stefano_opt.dat
+    READ PERMAS FILE = stefano_add_opt.dat
+RETURN
+
+TASK LOOPS = 30
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+EXPORT
+    ITEM CLEAR
+    ITEM N P STRESS
+    GO PERMAS BINARY FILE = 'nodal_point_stress_%.3(tloop)'
+EXEC
+    ACT SIT = OPT
+    OPTIM TOLOBJ = 1.E-3 METHOD = ACP
+EXPORT
+    ITEM CLEAR
+    ITEM COOR MOD
+    GO PERMAS BINARY FILE = 'coor_mod_%.3(tloop)'
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = RHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = DHIS
+    GO PERMAS BINARY FILE = 'opt_xy_%.3(tloop)'
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = new_coor
+    ITEM CLEAR
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = monitoring
+RETURN
+STOP
