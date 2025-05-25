@@ -19,3 +19,5 @@
 009 - [Artificial neural networks for random fields to predict the buckling load of geometrically imperfect structures](https://doi.org/10.1007/s00466-024-02595-w)
 
 010 - [UNCERTAINTY QUANTIFICATION OF BUCKLING PROPERTIES FOR IMPERFECT SPHERICAL SHELL SUBJECTED TO EXTERNAL PRESSURE](http://dx.doi.org/10.55579/jaec.202591.477)
+
+011 - [The relevance of analytical formulations predicting stiffener tripping](https://doi.org/10.59972/bcxbuxm0)
