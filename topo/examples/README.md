@@ -59,3 +59,5 @@
 029 - [A novel design update framework for topology optimization with quantum annealing: Application to truss and continuum structures](https://doi.org/10.1016/j.cma.2025.117746)
 
 030 - [Increasing boundary resolution in topology optimization using a novel formulation of partial elements](https://doi.org/10.1007/s00158-025-04009-8)
+
+031 - [Topology Optimization of Periodic Structures Subject to Self-Weight Loading Using a Heuristic Method](https://doi.org/10.3390/ma17225652)
