@@ -1,0 +1,121 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $RSYS CART  FORM = XY
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+02  0.000000E+00
+                2  0.000000E+00  0.000000E+00  2.500000E+02 :  1.000000E+02  0.000000E+00  2.500000E+02 :  0.000000E+00  1.000000E+02  2.500000E+02
+                3  0.000000E+00  0.000000E+00  5.000000E+02 :  1.000000E+02  0.000000E+00  5.000000E+02 :  0.000000E+00  1.000000E+02  5.000000E+02
+                4  0.000000E+00  0.000000E+00  7.500000E+02 :  1.000000E+02  0.000000E+00  7.500000E+02 :  0.000000E+00  1.000000E+02  7.500000E+02
+                5  0.000000E+00  0.000000E+00  1.000000E+03 :  1.000000E+02  0.000000E+00  1.000000E+03 :  0.000000E+00  1.000000E+02  1.000000E+03
+                6  0.000000E+00  0.000000E+00  1.250000E+03 :  1.000000E+02  0.000000E+00  1.250000E+03 :  0.000000E+00  1.000000E+02  1.250000E+03
+                7  0.000000E+00  0.000000E+00  1.500000E+03 :  1.000000E+02  0.000000E+00  1.500000E+03 :  0.000000E+00  1.000000E+02  1.500000E+03
+                8  0.000000E+00  0.000000E+00  1.750000E+03 :  1.000000E+02  0.000000E+00  1.750000E+03 :  0.000000E+00  1.000000E+02  1.750000E+03
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : SURFACE11
+                2 DESET.2     : SURFACE27
+                3 DESET.3     : SURFACE39
+                4 DESET.4     : SURFACE51
+                5 DESET.5     : SURFACE63
+                6 DESET.6     : SURFACE75
+                7 DESET.7     : SURFACE87
+                8 DESET.8     : SURFACE99
+!
+      $DELINK  DEID = 1 RSYS = 1
+                2  RSYS =          2  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+                3  RSYS =          3  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+                4  RSYS =          4  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+                5  RSYS =          5  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+                6  RSYS =          6  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+                7  RSYS =          7  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+                8  RSYS =          8  SCAL =  1.000000E+00,  1.000000E+00,  1.000000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       5.000000E-01
+       DESET.2       5.000000E-01
+       DESET.3       5.000000E-01
+       DESET.4       5.000000E-01
+       DESET.5       5.000000E-01
+       DESET.6       5.000000E-01
+       DESET.7       5.000000E-01
+       DESET.8       5.000000E-01
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 2  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 3  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 4  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 5  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 6  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 7  KIND = POWER  FILL = VAR
+        3.000000E+00
+      $DVTPAR  DEID = 8  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+       DESET.2       1.000000E-02  1.000000E+00
+       DESET.3       1.000000E-02  1.000000E+00
+       DESET.4       1.000000E-02  1.000000E+00
+       DESET.5       1.000000E-02  1.000000E+00
+       DESET.6       1.000000E-02  1.000000E+00
+       DESET.7       1.000000E-02  1.000000E+00
+       DESET.8       1.000000E-02  1.000000E+00
+!
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  LPAT = 2  DATTYPE = REAL
+      CMPL_2       :  0.000000E+00      NO
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      VOLFRAC_1    :          1      NO        4.000000E-01
+      VOLFRAC_2    :          2      NO        4.000000E-01
+      VOLFRAC_3    :          3      NO        4.000000E-01
+      VOLFRAC_4    :          4      NO        4.000000E-01
+      VOLFRAC_5    :          5      NO        4.000000E-01
+      VOLFRAC_6    :          6      NO        4.000000E-01
+      VOLFRAC_7    :          7      NO        4.000000E-01
+      VOLFRAC_8    :          8      NO        4.000000E-01
+!
+      $DOBJECT  CONSTRAINT = CMPL_2
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+       DESET.2       1.000000E-01
+       DESET.3       1.000000E-01
+       DESET.4       1.000000E-01
+       DESET.5       1.000000E-01
+       DESET.6       1.000000E-01
+       DESET.7       1.000000E-01
+       DESET.8       1.000000E-01
+!
+      $DSVFILT  TYPE = TOPO
+                1  2.500000E+01
+                2  2.500000E+01
+                3  2.500000E+01
+                4  2.500000E+01
+                5  2.500000E+01
+                6  2.500000E+01
+                7  2.500000E+01
+                8  2.500000E+01
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
