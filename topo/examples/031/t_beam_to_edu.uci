@@ -1,4 +1,4 @@
-DEFAULT SET TOPOVAR = NODAL ! not suitable for edu
+!DEFAULT SET TOPOVAR = NODAL ! not suitable for edu
 
 NEW
 
