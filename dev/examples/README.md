@@ -138,3 +138,4 @@
 
 069 - [Noise-robust modal parameter identification and damage assessment for aero-structures](http://dx.doi.org/10.1108/AEAT-06-2024-0178)
 
+070 - [The ROTMAC Concept: An Experimental Application](https://iomac2025.sciencesconf.org/590944/document)
