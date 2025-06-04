@@ -1,0 +1,59 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = SPRING1
+               11         12         13
+!
+      $MPC ILINE  DPDOFS = 1,2,3  DPITYP = NODE  DOFTYPE = DISP
+                1 BEAM        : ATTACHMENT
+!
+      $LINE GEO  LNID = BEAM
+       SFLA2          1          3
+       SFLA2         11          2
+       SFLA2          3          4
+       SFLA2          4          5
+       SFLA2          5          6
+       SFLA2          6          7
+       SFLA2          7          8
+       SFLA2          8          9
+       SFLA2          9         10
+       SFLA2         10         11
+!
+      $NSET NAME = ATTACHMENT
+               12
+      $NSET NAME = GROUND
+               13
+      $ESET NAME = K_X
+               11
+!
+      $COOR
+               12  0.000000E+00  1.000000E+02  0.000000E+00
+               13  2.000000E+02  1.000000E+02  0.000000E+00
+!
+      $PART  NAME = K_X
+       K_X
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_X        8.000000E+01
+!      GD_K_X        2.000000E+03
+!
+      $ELPROP
+       K_X           GEODAT = GD_K_X
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
