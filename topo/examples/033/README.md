@@ -1,0 +1,1 @@
+The example is adapted from [BESO Topology Optimization Driven by an ABAQUS-MATLAB Cooperative Framework with Engineering Applications](https://doi.org/10.3390/app15094924)
