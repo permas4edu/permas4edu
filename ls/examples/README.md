@@ -54,3 +54,6 @@
 026 - [Data Completion, Model Correction and Enrichment Based on Sparse Identification and Data Assimilation]( https://doi.org/10.3390/app12157458)
 
 027 - [Stochastic static finite element model updating using the Bayesian method integrating homotopy surrogate model](https://doi.org/10.1016/j.compstruc.2025.107769)
+
+028 - [Shell finite element formulations of ovalized thin-walled pipes](https://doi.org/10.1080/15397734.2025.2505190)
+
