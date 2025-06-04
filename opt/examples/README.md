@@ -39,3 +39,5 @@
 019 - [Automatic shape optimisation of structural parts driven by BGM and RBF mesh morphing](https://doi.org/10.1016/j.ijmecsci.2020.105976)
 
 020 - [Optimization-free design of stiffened thin-walled structures guided by data-rich buckling modes](https://doi.org/10.1016/j.ast.2024.109287)
+
+021 - [A differentiable structural analysis framework for high-performance design optimization](https://doi.org/10.1016/j.istruc.2025.109292)
