@@ -1,0 +1,23 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+!
+   $RESULTS
+!
+      $RSLITEM COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  LPAT = 1
+      CMPL
+!
+      $VPARVAL  TYPE = DESVAR
+                1  0.000000E+00  1.000000E-02
+                2  0.000000E+00
+                3  0.000000E+00
+                4  0.000000E+00
+                5  0.000000E+00
+!
+      $RESEXT  ITEM
+      CMPL : CMPL          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

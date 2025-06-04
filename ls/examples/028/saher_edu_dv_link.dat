@@ -1,0 +1,13 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+!
+   $STRUCTURE
+!
+      $DSVLINK LINEAR
+        5.000000E-01,          1:          2
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
