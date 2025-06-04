@@ -63,3 +63,5 @@
 031 - [Topology Optimization of Periodic Structures Subject to Self-Weight Loading Using a Heuristic Method](https://doi.org/10.3390/ma17225652)
 
 032 -  [Topology Optimization With Quadrilateral Elements: A Comparative Study, Codes, and Tutorials](https://doi.org/10.1002/cae.70031)
+
+033 - [BESO Topology Optimization Driven by an ABAQUS-MATLAB Cooperative Framework with Engineering Applications](https://doi.org/10.3390/app15094924)
