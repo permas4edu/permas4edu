@@ -1,0 +1,16 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = warren.dat
+    READ PERMAS FILE = warren_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
