@@ -8,6 +8,13 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
       $NSET NAME = F
                 2          3          4          5          6          7          8          9         10         11         12
+
+      $NSET NAME = SPCS
+               SPC_12  SPC_2
+
+      $NSET NAME = FREE RULE = BOOLEAN
+           ALL_NODES AND NOT SPCS
+
       $NSET NAME = SPC_2
                13
       $NSET NAME = SPC_12
@@ -29,11 +36,56 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
    $SYSTEM  NAME = S_STEP_1
 !
       $GEODAT FLANGE    CONT = SECTION    NODES = ALL
-!      GD_TRUSS      1.000000E-02
-       GD_TRUSS      1.500000E-01
+       GD_DE_01      1.500000E-01
+       GD_DE_02      1.500000E-01
+       GD_DE_03      1.500000E-01
+       GD_DE_04      1.500000E-01
+       GD_DE_05      1.500000E-01
+       GD_DE_06      1.500000E-01
+       GD_DE_07      1.500000E-01
+       GD_DE_08      1.500000E-01
+       GD_DE_09      1.500000E-01
+       GD_DE_10      1.500000E-01
+       GD_DE_11      1.500000E-01
+       GD_DE_12      1.500000E-01
+       GD_DE_13      1.500000E-01
+       GD_DE_14      1.500000E-01
+       GD_DE_15      1.500000E-01
+       GD_DE_16      1.500000E-01
+       GD_DE_17      1.500000E-01
+       GD_DE_18      1.500000E-01
+       GD_DE_19      1.500000E-01
+       GD_DE_20      1.500000E-01
+       GD_DE_21      1.500000E-01
+       GD_DE_22      1.500000E-01
+       GD_DE_23      1.500000E-01
+       GD_DE_24      1.500000E-01
 !
       $ELPROP
-       TRUSS         GEODAT = GD_TRUSS      MATERIAL = MAT_TRUSS
+       DE_01         GEODAT = GD_DE_01      MATERIAL = MAT_TRUSS
+       DE_02         GEODAT = GD_DE_02      MATERIAL = MAT_TRUSS
+       DE_03         GEODAT = GD_DE_03      MATERIAL = MAT_TRUSS
+       DE_04         GEODAT = GD_DE_04      MATERIAL = MAT_TRUSS
+       DE_05         GEODAT = GD_DE_05      MATERIAL = MAT_TRUSS
+       DE_06         GEODAT = GD_DE_06      MATERIAL = MAT_TRUSS
+       DE_07         GEODAT = GD_DE_07      MATERIAL = MAT_TRUSS
+       DE_08         GEODAT = GD_DE_08      MATERIAL = MAT_TRUSS
+       DE_09         GEODAT = GD_DE_09      MATERIAL = MAT_TRUSS
+       DE_10         GEODAT = GD_DE_10      MATERIAL = MAT_TRUSS
+       DE_11         GEODAT = GD_DE_11      MATERIAL = MAT_TRUSS
+       DE_12         GEODAT = GD_DE_12      MATERIAL = MAT_TRUSS
+       DE_13         GEODAT = GD_DE_13      MATERIAL = MAT_TRUSS
+       DE_14         GEODAT = GD_DE_14      MATERIAL = MAT_TRUSS
+       DE_15         GEODAT = GD_DE_15      MATERIAL = MAT_TRUSS
+       DE_16         GEODAT = GD_DE_16      MATERIAL = MAT_TRUSS
+       DE_17         GEODAT = GD_DE_17      MATERIAL = MAT_TRUSS
+       DE_18         GEODAT = GD_DE_18      MATERIAL = MAT_TRUSS
+       DE_19         GEODAT = GD_DE_19      MATERIAL = MAT_TRUSS
+       DE_20         GEODAT = GD_DE_20      MATERIAL = MAT_TRUSS
+       DE_21         GEODAT = GD_DE_21      MATERIAL = MAT_TRUSS
+       DE_22         GEODAT = GD_DE_22      MATERIAL = MAT_TRUSS
+       DE_23         GEODAT = GD_DE_23      MATERIAL = MAT_TRUSS
+       DE_24         GEODAT = GD_DE_24      MATERIAL = MAT_TRUSS
 !
    $END SYSTEM
 !------
@@ -51,10 +103,10 @@ $ENTER MATERIAL
    $MATERIAL  NAME = MAT_TRUSS  TYPE = ISO
 !
       $DENSITY  GENERAL  INPUT = DATA
-        1.000000E+03
+        7.850000E+03
 !
       $ELASTIC  GENERAL  INPUT = DATA
-        2.000000E+08  0.000000E+00
+        2.000000E+11  0.000000E+00
 !
    $END MATERIAL
 !------
