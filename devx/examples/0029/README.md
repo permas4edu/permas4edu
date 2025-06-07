@@ -1,5 +1,6 @@
 The example is adapted from [Transient and Steady State Analysis of a Flexible Coaxial-Rotor System Considering the Effect of Internal Damping on System Stability](https://doi.org/10.1007/s13369-024-09871-0)
-Thanks to Shashank S. Singh for private communication.
+
+Thanks to Dr. Shashank S. Singh for private communication.
 
 ![Coaxial rotor system](crs.png "Rao's coaxial rotor systen")
 
