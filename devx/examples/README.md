@@ -55,3 +55,5 @@
 0027 - [Self-similar eigenvalue distribution of a binary tree-structured mass-spring-damper system](https://doi.org/10.1016/j.jsv.2025.119111)
 
 0028 -  [Internal Damping Instability of Rotors with Isotropic and Anisotropic Supports based on Complex Coordinates Formulation](https://doi.org/10.21205/deufmd.2025278012)
+
+0029 - [Transient and Steady State Analysis of a Flexible Coaxial-Rotor System Considering the Effect of Internal Damping on System Stability](https://doi.org/10.1007/s13369-024-09871-0)
