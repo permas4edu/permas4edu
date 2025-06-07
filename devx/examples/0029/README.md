@@ -1,1 +1,3 @@
 The example is adapted from [Transient and Steady State Analysis of a Flexible Coaxial-Rotor System Considering the Effect of Internal Damping on System Stability](https://doi.org/10.1007/s13369-024-09871-0)
+
+![Campbell diagram](Campbell.png "Campbell diagram")
