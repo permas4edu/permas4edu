@@ -1,0 +1,247 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1          2
+                2          2         11
+                3         11          3
+                4          3         12
+                5         12          4
+                6          4          5
+                7          5          6
+                8          7          8
+                9          8         13
+               10         13          9
+               11          9         10
+      $ELEMENT TYPE = SPRING3
+               12          4          7
+      $ELEMENT TYPE = MASS6
+               13          2
+               14          9
+               15          8
+               16          5
+      $ELEMENT TYPE = SPRING3
+               17          1         14
+               18          6         15
+               19         10         16
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+02
+!
+      $ELSYS RSYS
+       INNER         RSYS =          1  AXES =  1,  2
+       OUTER         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = ABA_NALL_INP
+                1          2          3          4          5          6          7          8          9         10         11         12         13
+      $NSET NAME = GROUND
+               14         15         16
+      $ESET NAME = B1
+               17
+      $ESET NAME = B2
+               18
+      $ESET NAME = B3
+               19
+      $ESET NAME = B4
+               12
+      $ESET NAME = D1
+               13
+      $ESET NAME = D2
+               14
+      $ESET NAME = D3
+               15
+      $ESET NAME = D4
+               16
+      $ESET NAME = INNER
+                1          2          3          4          5          6          7
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2          3
+      $ESET NAME = LINE3
+                4          5
+      $ESET NAME = LINE4
+                6
+      $ESET NAME = LINE5
+                7
+      $ESET NAME = LINE6
+                8
+      $ESET NAME = LINE7
+                9         10
+      $ESET NAME = LINE8
+               11
+      $ESET NAME = OUTER
+                8          9         10         11
+!
+      $NSET NAME = INNER RULE = ESET
+           INNER
+      $NSET NAME = OUTER RULE = ESET
+           OUTER
+      $ESET NAME = INNER_ROTOR
+         INNER 
+         D1
+         D4
+      $ESET NAME = OUTER_ROTOR
+         OUTER
+         D2
+         D3     
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  7.620000E+01  0.000000E+00  0.000000E+00
+                3  2.540000E+02  0.000000E+00  0.000000E+00
+                4  4.064000E+02  0.000000E+00  0.000000E+00
+                5  4.572000E+02  0.000000E+00  0.000000E+00
+                6  5.080000E+02  0.000000E+00  0.000000E+00
+                7  4.064000E+02  0.000000E+00  0.000000E+00  !
+                8  3.556000E+02  0.000000E+00  0.000000E+00  !
+                9  2.032000E+02  0.000000E+00  0.000000E+00  !
+               10  1.524000E+02  0.000000E+00  0.000000E+00  !
+               11  1.651000E+02  0.000000E+00  0.000000E+00
+               12  3.302000E+02  0.000000E+00  0.000000E+00
+               13  2.794000E+02  0.000000E+01  0.000000E+00  !
+               14  0.000000E+00  0.000000E+00  0.000000E+00
+               15  5.080000E+02  0.000000E+00  0.000000E+00
+               16  1.524000E+02  0.000000E+00  0.000000E+00  !
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = B4
+       B4
+      $PART  NAME = D1
+       D1
+      $PART  NAME = D2
+       D2
+      $PART  NAME = D3
+       D3
+      $PART  NAME = D4
+       D4
+      $PART  NAME = B1
+       B1
+      $PART  NAME = B2
+       B2
+      $PART  NAME = B3
+       B3
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+!     Missing information about diameters and thickness of the hollow outer shaft ...
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_INNER              4
+         &        :  1.500000E+01
+         &        :  1.500000E+01
+       GD_OUTER              2
+         &        :  2.500000E+01  2.000000E+00
+         &        :  2.500000E+01  2.000000E+00
+      $GEODAT SPRING    CONT = STIFF
+       GD_B4         0.000000E+00  8.760000E+03  8.760000E+03
+       GD_B1         0.000000E+00  2.795000E+04  2.795000E+04
+       GD_B2         0.000000E+00  1.752000E+04  1.752000E+04
+       GD_B3         0.000000E+00  1.752000E+04  1.752000E+04
+      $GEODAT MASS      CONT = MASS
+       GD_D1         4.904000E-03  4.904000E-03  4.904000E-03  2.800000E+01  1.400000E+01  1.400000E+01
+       GD_D2         3.327000E-03  3.327000E-03  3.327000E-03  1.500000E+01  7.000000E+00  7.000000E+00
+       GD_D3         2.227000E-03  2.227000E-03  2.227000E-03  9.000000E+00  5.000000E+00  5.000000E+00
+       GD_D4         4.203000E-03  4.203000E-03  4.203000E-03  2.000000E+01  1.000000E+01  1.000000E+01
+!
+      $ELPROP
+       B1            GEODAT = GD_B1
+       B2            GEODAT = GD_B2
+       B3            GEODAT = GD_B3
+       B4            GEODAT = GD_B4
+       D1            GEODAT = GD_D1
+       D2            GEODAT = GD_D2
+       D3            GEODAT = GD_D3
+       D4            GEODAT = GD_D4
+       INNER         GEODAT = GD_INNER      MATERIAL = STEEL
+       OUTER         GEODAT = GD_OUTER      MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+   $SYSTEM NAME = S_STEP_2
+
+     $INSERT VARIANT
+        S_STEP_1
+
+     $ELSTATE LOAD
+        SITUATION = STEP_1  LPAT = 1
+
+     $ADDMATRIX
+        GEOSTIFF
+        CONVSTIFF
+        GYRO
+ 
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS DOFS = 1,4
+        INNER
+      $SUPPRESS DOFS = 1,4
+        OUTER 
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $INERTIA ROTATION LPAT = 1
+          INNER_ROTOR 0.0 0.0 0.0  100.0 0.0 0.0  1.0
+          OUTER_ROTOR 0.0 0.0 0.0  100.0 0.0 0.0  2.0 
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+        $ROTSPEED PRIMARY = EQUI XTYPE = OMEGA
+           0.0  2500.0  100.
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
