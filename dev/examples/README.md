@@ -139,3 +139,5 @@
 069 - [Noise-robust modal parameter identification and damage assessment for aero-structures](http://dx.doi.org/10.1108/AEAT-06-2024-0178)
 
 070 - [The ROTMAC Concept: An Experimental Application](https://iomac2025.sciencesconf.org/590944/document)
+
+071 - [Experimental and theoretical approaches to vibration models for multi-domain asymmetrical stepped cylindrical shells: Customizing mass distribution](http://dx.doi.org/10.1177/10775463251345006)
