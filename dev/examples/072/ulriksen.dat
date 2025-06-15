@@ -1,0 +1,231 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = FLA2
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          6          7
+                7          1          8
+                8          8          9
+                9          9         10
+               10         10         11
+               11         11         12
+               12          2          8
+               13          2          9
+               14          3          9
+               15          3         10
+               16          4         10
+               17          5         10
+               18          5         11
+               19          6         11
+               20          6         12
+               21          7         12
+      $ELEMENT TYPE = SPRING1
+               22          3         13
+               23          5         14
+      $ELEMENT TYPE = MASS3
+               24          2
+               25          4
+               26          6
+!
+      $NSET NAME = TRUSS RULE = ESET
+          TRUSS
+!
+      $NSET NAME = ATTACHMENT
+                3          5
+      $NSET NAME = GROUND
+               13         14
+      $NSET NAME = SPC
+                1          7
+      $ESET NAME = K_S1
+               22
+      $ESET NAME = K_S2
+               23
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = LINE8
+                8
+      $ESET NAME = LINE9
+                9
+      $ESET NAME = LINE10
+               10
+      $ESET NAME = LINE11
+               11
+      $ESET NAME = LINE12
+               12
+      $ESET NAME = LINE13
+               13
+      $ESET NAME = LINE14
+               14
+      $ESET NAME = LINE15
+               15
+      $ESET NAME = LINE16
+               16
+      $ESET NAME = LINE17
+               17
+      $ESET NAME = LINE18
+               18
+      $ESET NAME = LINE19
+               19
+      $ESET NAME = LINE20
+               20
+      $ESET NAME = LINE21
+               21
+      $ESET NAME = M_S1
+               24
+      $ESET NAME = M_S2
+               25
+      $ESET NAME = M_S3
+               26
+      $ESET NAME = TRUSS
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  1.600000E+01  0.000000E+00  0.000000E+00
+                3  3.200000E+01  0.000000E+00  0.000000E+00
+                4  4.800000E+01  0.000000E+00  0.000000E+00
+                5  6.400000E+01  0.000000E+00  0.000000E+00
+                6  8.000000E+01  0.000000E+00  0.000000E+00
+                7  9.600000E+01  0.000000E+00  0.000000E+00
+                8  1.600000E+01  1.600000E+01  0.000000E+00
+                9  3.200000E+01  1.600000E+01  0.000000E+00
+               10  4.800000E+01  1.600000E+01  0.000000E+00
+               11  6.400000E+01  1.600000E+01  0.000000E+00
+               12  8.000000E+01  1.600000E+01  0.000000E+00
+               13  3.200000E+01 -2.000000E+00  0.000000E+00
+               14  6.400000E+01 -2.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = LINE9
+       LINE9
+      $PART  NAME = LINE10
+       LINE10
+      $PART  NAME = LINE11
+       LINE11
+      $PART  NAME = LINE12
+       LINE12
+      $PART  NAME = LINE13
+       LINE13
+      $PART  NAME = LINE14
+       LINE14
+      $PART  NAME = LINE15
+       LINE15
+      $PART  NAME = LINE16
+       LINE16
+      $PART  NAME = LINE17
+       LINE17
+      $PART  NAME = LINE18
+       LINE18
+      $PART  NAME = LINE19
+       LINE19
+      $PART  NAME = LINE20
+       LINE20
+      $PART  NAME = LINE21
+       LINE21
+      $PART  NAME = K_S1
+       K_S1
+      $PART  NAME = K_S2
+       K_S2
+      $PART  NAME = M_S1
+       M_S1
+      $PART  NAME = M_S2
+       M_S2
+      $PART  NAME = M_S3
+       M_S3
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_TRUSS      1.000000E-04
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_S1       1.000000E+05
+       GD_K_S2       1.000000E+05
+      $GEODAT MASS      CONT = MASS
+       GD_M_S1       5.000000E+00
+       GD_M_S2       8.000000E+00
+       GD_M_S3       3.000000E+00
+!
+      $ELPROP
+       K_S1          GEODAT = GD_K_S1
+       K_S2          GEODAT = GD_K_S2
+       M_S1          GEODAT = GD_M_S1
+       M_S2          GEODAT = GD_M_S2
+       M_S3          GEODAT = GD_M_S3
+       TRUSS         GEODAT = GD_TRUSS      MATERIAL = MAT_TRUSS
+!
+      $MODDAMP  TYPE = RATIO  KIND = FUNCTION  DOFTYPE = DISP
+        2.000000E-02
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       TRUSS
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       SPC
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_TRUSS  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  0.000000E+00
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        8.000000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
