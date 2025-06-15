@@ -101,6 +101,7 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                25
       $ESET NAME = M_S3
                26
+
       $ESET NAME = TRUSS
                 1          2          3          4          5          6          7          8          9         10         11         12         13         14
                15         16         17         18         19         20         21
@@ -121,58 +122,12 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                13  3.200000E+01 -2.000000E+00  0.000000E+00
                14  6.400000E+01 -2.000000E+00  0.000000E+00
 !
-      $PART  NAME = LINE1
-       LINE1
-      $PART  NAME = LINE2
-       LINE2
-      $PART  NAME = LINE3
-       LINE3
-      $PART  NAME = LINE4
-       LINE4
-      $PART  NAME = LINE5
-       LINE5
-      $PART  NAME = LINE6
-       LINE6
-      $PART  NAME = LINE7
-       LINE7
-      $PART  NAME = LINE8
-       LINE8
-      $PART  NAME = LINE9
-       LINE9
-      $PART  NAME = LINE10
-       LINE10
-      $PART  NAME = LINE11
-       LINE11
-      $PART  NAME = LINE12
-       LINE12
-      $PART  NAME = LINE13
-       LINE13
-      $PART  NAME = LINE14
-       LINE14
-      $PART  NAME = LINE15
-       LINE15
-      $PART  NAME = LINE16
-       LINE16
-      $PART  NAME = LINE17
-       LINE17
-      $PART  NAME = LINE18
-       LINE18
-      $PART  NAME = LINE19
-       LINE19
-      $PART  NAME = LINE20
-       LINE20
-      $PART  NAME = LINE21
-       LINE21
-      $PART  NAME = K_S1
-       K_S1
-      $PART  NAME = K_S2
-       K_S2
-      $PART  NAME = M_S1
-       M_S1
-      $PART  NAME = M_S2
-       M_S2
-      $PART  NAME = M_S3
-       M_S3
+      $PART  NAME = TRUSS
+       TRUSS
+      $PART  NAME = SPRING
+       K_S1  K_S2
+      $PART  NAME = MASS
+       M_S1  M_S2  M_S3
 !
    $END STRUCTURE
 !------
