@@ -141,3 +141,5 @@
 070 - [The ROTMAC Concept: An Experimental Application](https://iomac2025.sciencesconf.org/590944/document)
 
 071 - [Experimental and theoretical approaches to vibration models for multi-domain asymmetrical stepped cylindrical shells: Customizing mass distribution](http://dx.doi.org/10.1177/10775463251345006)
+
+072 . [Sensitivity-based model updating with parameter rejection](https://doi.org/10.1016/j.apm.2025.116253)
