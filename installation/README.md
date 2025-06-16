@@ -14,6 +14,9 @@ Before you start the installation process, make sure that the following files ar
 
 ![required_files](required_files_windows.png)
 
+A new bugfix release is available, i.e. 
+![bugfix](bugfix_release_20_00_333.png "First Bugfix release")
+
 Double-click on the Base Installer to start the installation.
 
 ### License Agreement
