@@ -1,0 +1,1 @@
+The example is adapted from [Inverse finite element methodology for high-resolution mode shape reconstruction of plates and shells under random excitation](https://doi.org/10.1016/j.compstruc.2025.107721)
