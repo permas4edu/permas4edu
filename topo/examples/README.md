@@ -66,6 +66,6 @@
 
 033 - [BESO Topology Optimization Driven by an ABAQUS-MATLAB Cooperative Framework with Engineering Applications](https://doi.org/10.3390/app15094924)
 
-034 - 
+034 - [Quantum-Classical Hybrid Genetic Evolutionary Algorithm for Topology Optimization of Continuum Structures](http://dx.doi.org/10.1002/nme.70073)
 
 035 - [A Parameterized Level Set Method for Topology Optimization of Spatially Curved Shell Structures](https://doi.org/10.1016/j.tws.2025.113680)
