@@ -65,3 +65,7 @@
 032 -  [Topology Optimization With Quadrilateral Elements: A Comparative Study, Codes, and Tutorials](https://doi.org/10.1002/cae.70031)
 
 033 - [BESO Topology Optimization Driven by an ABAQUS-MATLAB Cooperative Framework with Engineering Applications](https://doi.org/10.3390/app15094924)
+
+034 - 
+
+035 - [A Parameterized Level Set Method for Topology Optimization of Spatially Curved Shell Structures](https://doi.org/10.1016/j.tws.2025.113680)
