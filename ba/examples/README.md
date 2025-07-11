@@ -22,6 +22,6 @@
 
 011 - [The relevance of analytical formulations predicting stiffener tripping](https://doi.org/10.59972/bcxbuxm0)
 
-012 - 
+012 -  [Straightforward Superposition: An Analytic Framework to Buckling in Orthotropic Rectangular Plates](https://doi.org/10.1061/JENMDT.EMENG-8554)
 
-013 -  [Straightforward Superposition: An Analytic Framework to Buckling in Orthotropic Rectangular Plates](https://doi.org/10.1061/JENMDT.EMENG-8554)
+013 - 
