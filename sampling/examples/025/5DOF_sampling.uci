@@ -38,4 +38,7 @@ EXPORT
     ITEM XYDATA TYPE = SRHIS
     GO PERMAS BINARY FILE = sampling
     GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES 5DOF.py sampling_xdhis.csv sampling_srhis.csv'
+RETURN
 STOP
