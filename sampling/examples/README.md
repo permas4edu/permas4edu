@@ -47,3 +47,5 @@
 022 - [Certified interval model updating using scenario optimization](https://doi.org/10.2514/1.J064161)
 
 023 - [Data-driven stochastic model updating and damage detection with deep generative model](https://doi.org/10.1016/j.ymssp.2025.112743)
+
+024 - [Optimization-free design of stiffened thin-walled structures guided by data-rich buckling modes](https://doi.org/10.1016/j.ast.2024.109287)
