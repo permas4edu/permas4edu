@@ -63,3 +63,5 @@
 031 - [Joint load-parameter-response identification using a physics-encoded neural network](https://doi.org/10.1016/j.ymssp.2025.112597)
 
 032 - [Forced vibration analysis of isogeometric Reissner-Mindlin shells using modal superposition methods](https://doi.org/10.1016/j.tws.2025.113360)
+
+033 - [Exploitation of Modal Superposition Toward Forced Vibration Localization in a Coupled Symmetric Oscillator Array](https://doi.org/10.3390/s25103106)
