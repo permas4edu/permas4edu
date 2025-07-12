@@ -49,3 +49,5 @@
 023 - [Data-driven stochastic model updating and damage detection with deep generative model](https://doi.org/10.1016/j.ymssp.2025.112743)
 
 024 - [Optimization-free design of stiffened thin-walled structures guided by data-rich buckling modes](https://doi.org/10.1016/j.ast.2024.109287)
+
+025 - [Exploitation of Modal Superposition Toward Forced Vibration Localization in a Coupled Symmetric Oscillator Array](https://doi.org/10.3390/s25103106)
