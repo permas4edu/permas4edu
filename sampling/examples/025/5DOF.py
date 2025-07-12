@@ -2,6 +2,7 @@ import os, sys
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
+mpl.rcParams['savefig.directory']=os.getcwd()
 import matplotlib.pyplot as plt
 csv1 = sys.argv[1]
 csv2 = sys.argv[2]
@@ -18,7 +19,7 @@ ax.plot(df1['DV_1']/k,df2['L_3'],label=r'$\lambda_3$')
 ax.plot(df1['DV_1']/k,df2['L_4'],label=r'$\lambda_4$')
 ax.plot(df1['DV_1']/k,df2['L_5'],label=r'$\lambda_5$')
 ax.set_xlabel(r'Parameter $\varepsilon$')
-ax.set_ylabel(r'$\lambda_i$')
+ax.set_ylabel(r'$\lambda_i=\omega_i^2$')
 ax.set_xlim(0.,0.5)
 ax.legend(shadow=True).set_draggable(True)
 ax.set_yticks(1.E11*np.linspace(0.5,3,6))
