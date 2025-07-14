@@ -51,3 +51,5 @@
 024 - [Optimization-free design of stiffened thin-walled structures guided by data-rich buckling modes](https://doi.org/10.1016/j.ast.2024.109287)
 
 025 - [Exploitation of Modal Superposition Toward Forced Vibration Localization in a Coupled Symmetric Oscillator Array](https://doi.org/10.3390/s25103106)
+
+026 - [Investigation of the critical buckling load of a column with linearly varying moment of inertia using analytical, numerical, and hybrid machine learning approaches](https://doi.org/10.1177/03093247251337987)
