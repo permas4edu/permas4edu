@@ -96,4 +96,4 @@
 
 048 - [Exploring localization in nonlinear oscillator systems through network-based predictions](https://doi.org/10.1063/5.0265366)
 
-049 -
+049 - [A Koopman-Hill framework for the bifurcation analysis of nonlinear dynamical systems in codimension-1 and -2](http://dx.doi.org/10.21203/rs.3.rs-7048070/v1)
