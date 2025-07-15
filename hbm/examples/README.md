@@ -91,3 +91,9 @@
 045 - [Investigation of existing and new approaches to step size control in a continuation framework](https://doi.org/10.1016/j.compstruc.2025.107747)
 
 046 - [Isolated sub-harmonic resonance branch in the frequency response of an oscillator with slight asymmetry in the clearance](https://doi.org/10.1016/j.jsv.2007.12.040)
+
+047 - [On the combined iteration scheme of harmonic balance-pseudo arclength-extrapolation method applied to the nonlinear systems with nonlinear damping and time delay](https://doi.org/10.1007/s11071-025-11284-z)
+
+048 - 
+
+049 -
