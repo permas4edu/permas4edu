@@ -89,3 +89,5 @@
 044 - [ON THE SOLUTION OF NONLINEAR ALGEBRAIC EQUATIONS FOLLOWING PERIODIC FORCED RESPONSE ANALYSIS OF NONLINEAR STRUCTURES USING DIFFERENT NONLINEAR SOLVERS](https://doi.org/10.1007/978-3-030-47626-7_20)
 
 045 - [Investigation of existing and new approaches to step size control in a continuation framework](https://doi.org/10.1016/j.compstruc.2025.107747)
+
+046 - [Isolated sub-harmonic resonance branch in the frequency response of an oscillator with slight asymmetry in the clearance](https://doi.org/10.1016/j.jsv.2007.12.040)
