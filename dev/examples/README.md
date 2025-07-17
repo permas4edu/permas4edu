@@ -147,3 +147,5 @@
 073 - [Inverse finite element methodology for high-resolution mode shape reconstruction of plates and shells under random excitation](https://doi.org/10.1016/j.compstruc.2025.107721)
 
 074 - [Bayesian FFT modal identification for multi-setup experimental modal analysis](https://doi.org/10.1016/j.ymssp.2025.112931)
+
+075 - [Multiple Tuned Mass Damper Design for the Mitigation of Cantilever Beam Response](http://dx.doi.org/10.1061/AJRUA6.RUENG-1502)
