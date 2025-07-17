@@ -145,3 +145,5 @@
 072 . [Sensitivity-based model updating with parameter rejection](https://doi.org/10.1016/j.apm.2025.116253)
 
 073 - [Inverse finite element methodology for high-resolution mode shape reconstruction of plates and shells under random excitation](https://doi.org/10.1016/j.compstruc.2025.107721)
+
+074 -  [Bayesian FFT modal identification for multi-setup experimental modal analysis](Bayesian FFT modal identification for multi-setup experimental modal analysis)
