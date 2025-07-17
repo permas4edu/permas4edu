@@ -4,6 +4,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
    $END SITUATION
 !
+   $SITUATION  NAME = STEP_2 PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
    $STRUCTURE
 !
       $NSET NAME = BEAM RULE = ESET
@@ -89,6 +93,21 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                72         67
       $ELEMENT TYPE = MASS3 ESET = M
                73          7
+!
+      $ELEMENT TYPE = DAMP1 ESET = C1
+               74          2          62
+      $ELEMENT TYPE = DAMP1 ESET = C2
+               75          3          63
+      $ELEMENT TYPE = DAMP1 ESET = C3
+               76          4          64
+      $ELEMENT TYPE = DAMP1 ESET = C4
+               77          5          65
+      $ELEMENT TYPE = DAMP1 ESET = C5
+               78          6          66
+      $ELEMENT TYPE = DAMP1 ESET = C6
+               79          7          67
+  
+
 !
       $RSYS CART  FORM = ZX
                 1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00 -1.000000E+01  0.000000E+00
@@ -238,6 +257,18 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        K5
       $PART  NAME = K6
        K6
+      $PART  NAME = C1
+       C1
+      $PART  NAME = C2
+       C2
+      $PART  NAME = C3
+       C3
+      $PART  NAME = C4
+       C4
+      $PART  NAME = C5
+       C5
+      $PART  NAME = C6
+       C6
       $PART  NAME = M1
        M1
       $PART  NAME = M2
@@ -265,12 +296,21 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        GD_BEAM  5 : 0.22360679774997896 0.22360679774997896
 
       $GEODAT SPRING    CONT = STIFF
-       GD_K1         1.000000E+03
-       GD_K2         1.000000E+03
-       GD_K3         1.000000E+03
-       GD_K4         1.000000E+03
-       GD_K5         1.000000E+03
-       GD_K6         1.000000E+03
+       GD_K1         4.500000E+04
+       GD_K2         4.500000E+04
+       GD_K3         4.500000E+04
+       GD_K4         4.500000E+04
+       GD_K5         4.500000E+04
+       GD_K6         4.500000E+04
+!
+      $GEODAT DAMPER CONT = DAMP 
+       GD_C1         4.5E3
+       GD_C2         4.5E3
+       GD_C3         4.5E3
+       GD_C4         4.5E3
+       GD_C5         4.5E3
+       GD_C6         4.5E3
+  
 !
       $GEODAT MASS      CONT = MASS
        GD_M          1.000000E+02  
@@ -292,6 +332,13 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        K4            GEODAT = GD_K4
        K5            GEODAT = GD_K5
        K6            GEODAT = GD_K6
+!
+       C1            GEODAT = GD_C1
+       C2            GEODAT = GD_C2
+       C3            GEODAT = GD_C3
+       C4            GEODAT = GD_C4
+       C5            GEODAT = GD_C5
+       C6            GEODAT = GD_C6
 !
        M1            GEODAT = GD_M1
        M2            GEODAT = GD_M2
