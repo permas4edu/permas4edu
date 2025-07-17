@@ -1,0 +1,405 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2 PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1  LOADING = L_STEP_3  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $NSET NAME = BEAM RULE = ESET
+         BEAM
+!
+      $NSET NAME = F
+                7
+!
+      $NSET NAME = FREE RULE = BOOLEAN
+         BEAM AND NOT CLAMPED
+!
+      $ELEMENT TYPE = BECOS
+                1          1          8
+                2          8          9
+                3          9         10
+                4         10         11
+                5         11         12
+                6         12         13
+                7         13         14
+                8         14         15
+                9         15         16
+               10         16          2
+               11          2         17
+               12         17         18
+               13         18         19
+               14         19         20
+               15         20         21
+               16         21         22
+               17         22         23
+               18         23         24
+               19         24         25
+               20         25          3
+               21          3         26
+               22         26         27
+               23         27         28
+               24         28         29
+               25         29         30
+               26         30         31
+               27         31         32
+               28         32         33
+               29         33         34
+               30         34          4
+               31          4         35
+               32         35         36
+               33         36         37
+               34         37         38
+               35         38         39
+               36         39         40
+               37         40         41
+               38         41         42
+               39         42         43
+               40         43          5
+               41          5         44
+               42         44         45
+               43         45         46
+               44         46         47
+               45         47         48
+               46         48         49
+               47         49         50
+               48         50         51
+               49         51         52
+               50         52          6
+               51          6         53
+               52         53         54
+               53         54         55
+               54         55         56
+               55         56         57
+               56         57         58
+               57         58         59
+               58         59         60
+               59         60         61
+               60         61          7
+      $ELEMENT TYPE = SPRING1
+               61          2         62
+               62          3         63
+               63          4         64
+               64          5         65
+               65          6         66
+               66          7         67
+      $ELEMENT TYPE = MASS3
+               67         62
+               68         63
+               69         64
+               70         65
+               71         66
+               72         67
+      $ELEMENT TYPE = MASS3 ESET = M
+               73          7
+!
+      $ELEMENT TYPE = DAMP1 ESET = C1
+               74          2          62
+      $ELEMENT TYPE = DAMP1 ESET = C2
+               75          3          63
+      $ELEMENT TYPE = DAMP1 ESET = C3
+               76          4          64
+      $ELEMENT TYPE = DAMP1 ESET = C4
+               77          5          65
+      $ELEMENT TYPE = DAMP1 ESET = C5
+               78          6          66
+      $ELEMENT TYPE = DAMP1 ESET = C6
+               79          7          67
+  
+
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00 -1.000000E+01  0.000000E+00
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = ATTACHMENT
+                2          3          4          5          6          7
+      $NSET NAME = CLAMPED
+                1
+      $NSET NAME = TMDS
+               62         63         64         65         66         67
+      $ESET NAME = BEAM
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34         35         36         37         38         39         40         41         42
+               43         44         45         46         47         48         49         50         51         52         53         54         55         56
+               57         58         59         60
+      $ESET NAME = K1
+               61
+      $ESET NAME = K2
+               62
+      $ESET NAME = K3
+               63
+      $ESET NAME = K4
+               64
+      $ESET NAME = K5
+               65
+      $ESET NAME = K6
+               66
+      $ESET NAME = LINE1
+                1          2          3          4          5          6          7          8          9         10
+      $ESET NAME = LINE2
+               11         12         13         14         15         16         17         18         19         20
+      $ESET NAME = LINE3
+               21         22         23         24         25         26         27         28         29         30
+      $ESET NAME = LINE4
+               31         32         33         34         35         36         37         38         39         40
+      $ESET NAME = LINE5
+               41         42         43         44         45         46         47         48         49         50
+      $ESET NAME = LINE6
+               51         52         53         54         55         56         57         58         59         60
+      $ESET NAME = M1
+               67
+      $ESET NAME = M2
+               68
+      $ESET NAME = M3
+               69
+      $ESET NAME = M4
+               70
+      $ESET NAME = M5
+               71
+      $ESET NAME = M6
+               72
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  1.000000E+00  0.000000E+00  0.000000E+00
+                3  2.000000E+00  0.000000E+00  0.000000E+00
+                4  3.000000E+00  0.000000E+00  0.000000E+00
+                5  4.000000E+00  0.000000E+00  0.000000E+00
+                6  5.000000E+00  0.000000E+00  0.000000E+00
+                7  6.000000E+00  0.000000E+00  0.000000E+00
+                8  1.000000E-01  0.000000E+00  0.000000E+00
+                9  2.000000E-01  0.000000E+00  0.000000E+00
+               10  3.000000E-01  0.000000E+00  0.000000E+00
+               11  4.000000E-01  0.000000E+00  0.000000E+00
+               12  5.000000E-01  0.000000E+00  0.000000E+00
+               13  6.000000E-01  0.000000E+00  0.000000E+00
+               14  7.000000E-01  0.000000E+00  0.000000E+00
+               15  8.000000E-01  0.000000E+00  0.000000E+00
+               16  9.000000E-01  0.000000E+00  0.000000E+00
+               17  1.100000E+00  0.000000E+00  0.000000E+00
+               18  1.200000E+00  0.000000E+00  0.000000E+00
+               19  1.300000E+00  0.000000E+00  0.000000E+00
+               20  1.400000E+00  0.000000E+00  0.000000E+00
+               21  1.500000E+00  0.000000E+00  0.000000E+00
+               22  1.600000E+00  0.000000E+00  0.000000E+00
+               23  1.700000E+00  0.000000E+00  0.000000E+00
+               24  1.800000E+00  0.000000E+00  0.000000E+00
+               25  1.900000E+00  0.000000E+00  0.000000E+00
+               26  2.100000E+00  0.000000E+00  0.000000E+00
+               27  2.200000E+00  0.000000E+00  0.000000E+00
+               28  2.300000E+00  0.000000E+00  0.000000E+00
+               29  2.400000E+00  0.000000E+00  0.000000E+00
+               30  2.500000E+00  0.000000E+00  0.000000E+00
+               31  2.600000E+00  0.000000E+00  0.000000E+00
+               32  2.700000E+00  0.000000E+00  0.000000E+00
+               33  2.800000E+00  0.000000E+00  0.000000E+00
+               34  2.900000E+00  0.000000E+00  0.000000E+00
+               35  3.100000E+00  0.000000E+00  0.000000E+00
+               36  3.200000E+00  0.000000E+00  0.000000E+00
+               37  3.300000E+00  0.000000E+00  0.000000E+00
+               38  3.400000E+00  0.000000E+00  0.000000E+00
+               39  3.500000E+00  0.000000E+00  0.000000E+00
+               40  3.600000E+00  0.000000E+00  0.000000E+00
+               41  3.700000E+00  0.000000E+00  0.000000E+00
+               42  3.800000E+00  0.000000E+00  0.000000E+00
+               43  3.900000E+00  0.000000E+00  0.000000E+00
+               44  4.100000E+00  0.000000E+00  0.000000E+00
+               45  4.200000E+00  0.000000E+00  0.000000E+00
+               46  4.300000E+00  0.000000E+00  0.000000E+00
+               47  4.400000E+00  0.000000E+00  0.000000E+00
+               48  4.500000E+00  0.000000E+00  0.000000E+00
+               49  4.600000E+00  0.000000E+00  0.000000E+00
+               50  4.700000E+00  0.000000E+00  0.000000E+00
+               51  4.800000E+00  0.000000E+00  0.000000E+00
+               52  4.900000E+00  0.000000E+00  0.000000E+00
+               53  5.100000E+00  0.000000E+00  0.000000E+00
+               54  5.200000E+00  0.000000E+00  0.000000E+00
+               55  5.300000E+00  0.000000E+00  0.000000E+00
+               56  5.400000E+00  0.000000E+00  0.000000E+00
+               57  5.500000E+00  0.000000E+00  0.000000E+00
+               58  5.600000E+00  0.000000E+00  0.000000E+00
+               59  5.700000E+00  0.000000E+00  0.000000E+00
+               60  5.800000E+00  0.000000E+00  0.000000E+00
+               61  5.900000E+00  0.000000E+00  0.000000E+00
+               62  1.000000E+00  0.000000E+00  2.000000E-01
+               63  2.000000E+00  0.000000E+00  2.000000E-01
+               64  3.000000E+00  0.000000E+00  2.000000E-01
+               65  4.000000E+00  0.000000E+00  2.000000E-01
+               66  5.000000E+00  0.000000E+00  2.000000E-01
+               67  6.000000E+00  0.000000E+00  2.000000E-01
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = K1
+       K1
+      $PART  NAME = K2
+       K2
+      $PART  NAME = K3
+       K3
+      $PART  NAME = K4
+       K4
+      $PART  NAME = K5
+       K5
+      $PART  NAME = K6
+       K6
+      $PART  NAME = C1
+       C1
+      $PART  NAME = C2
+       C2
+      $PART  NAME = C3
+       C3
+      $PART  NAME = C4
+       C4
+      $PART  NAME = C5
+       C5
+      $PART  NAME = C6
+       C6
+      $PART  NAME = M1
+       M1
+      $PART  NAME = M2
+       M2
+      $PART  NAME = M3
+       M3
+      $PART  NAME = M4
+       M4
+      $PART  NAME = M5
+       M5
+      $PART  NAME = M6
+       M6
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+!      $GEODAT BEAM      CONT = AREA     BEND
+!       GD_BEAM       5.000000E-02
+!         &        :  2.080000E-04  2.080000E-04
+!
+       $GEODAT BEAM  CONT = SECTTYPE SECTDIM
+       GD_BEAM  5 : 0.22360679774997896 0.22360679774997896
+
+      $GEODAT SPRING    CONT = STIFF
+       GD_K1         4.500000E+04
+       GD_K2         4.500000E+04
+       GD_K3         4.500000E+04
+       GD_K4         4.500000E+04
+       GD_K5         4.500000E+04
+       GD_K6         4.500000E+04
+!
+      $GEODAT DAMPER CONT = DAMP 
+       GD_C1         4.5E3
+       GD_C2         4.5E3
+       GD_C3         4.5E3
+       GD_C4         4.5E3
+       GD_C5         4.5E3
+       GD_C6         4.5E3
+  
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          1.000000E+02  
+
+      $GEODAT MASS      CONT = MASS
+       GD_M1         1.000000E+00 
+       GD_M2         1.000000E+00 
+       GD_M3         1.000000E+00 
+       GD_M4         1.000000E+00 
+       GD_M5         1.000000E+00 
+       GD_M6         1.000000E+00 
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = MAT_BEAM
+!
+       K1            GEODAT = GD_K1
+       K2            GEODAT = GD_K2
+       K3            GEODAT = GD_K3
+       K4            GEODAT = GD_K4
+       K5            GEODAT = GD_K5
+       K6            GEODAT = GD_K6
+!
+       C1            GEODAT = GD_C1
+       C2            GEODAT = GD_C2
+       C3            GEODAT = GD_C3
+       C4            GEODAT = GD_C4
+       C5            GEODAT = GD_C5
+       C6            GEODAT = GD_C6
+!
+       M1            GEODAT = GD_M1
+       M2            GEODAT = GD_M2
+       M3            GEODAT = GD_M3
+       M4            GEODAT = GD_M4
+       M5            GEODAT = GD_M5
+       M6            GEODAT = GD_M6
+!
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       TMDS
+      $SUPPRESS DOFS = 1,2,4,6
+       FREE 
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_3
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       F            3: -1.000000E+00
+!
+      $FREQLOAD  DOFTYPE = DISP
+      LPAT =          1  TYPE = COSINE
+!
+   $END LOADING
+!------
+   $RESULTS  NAME = R_STEP_3
+!
+      $FREQUENCY  PRIMARY = EQUI  DOFTYPE = DISP
+        0.000000E+00  1.000000E+02  5.000000E-01
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BEAM  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.060000E+11  0.000000E+00
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

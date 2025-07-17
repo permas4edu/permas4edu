@@ -1,0 +1,160 @@
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+!#                                         Result file written by VisPER Education Edition Build 20.00.333-Rev.51348
+!#                                                               Distributed by INTES Stuttgart
+!#                                                                  Date: 17-Jul-25 14:56:30
+!#..............................................................................................................................................................
+!#                                                                       P r o j e c t
+!#                                                                            mtmd
+!#..............................................................................................................................................................
+!#                                                                      Site: INTES GmbH
+!#                                                       Host: NILS-MOBIL / Windows 11 Pro-AMD64-26100
+!#                                                                    Code: M9v20 (32 bpw)
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1 STEP_2 STEP_3
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DMASS
+                1          1: M1
+                2          2: M2
+                3          3: M3
+                4          4: M4
+                5          5: M5
+                6          6: M6
+      $DELEMENT TYPE = DSPRING
+                7          7: K1
+                8          8: K2
+                9          9: K3
+               10         10: K4
+               11         11: K5
+               12         12: K6
+      $DELEMENT TYPE = DDAMP
+               13         13: C1 
+               14         14: C2 
+               15         15: C3 
+               16         16: C4 
+               17         17: C5 
+               18         18: C6 
+!
+      $NSET NAME = TIP
+                7
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR MASS  NAME = GD_M1  DEID = 1
+      MASS          1:          1
+      $DVGPAR MASS  NAME = GD_M2  DEID = 2
+      MASS          1:          2
+      $DVGPAR MASS  NAME = GD_M3  DEID = 3
+      MASS          1:          3
+      $DVGPAR MASS  NAME = GD_M4  DEID = 4
+      MASS          1:          4
+      $DVGPAR MASS  NAME = GD_M5  DEID = 5
+      MASS          1:          5
+      $DVGPAR MASS  NAME = GD_M6  DEID = 6
+      MASS          1:          6
+!
+      $DVGPAR SPRING NAME = GD_K1  DEID = 7
+      STIFF         1:          7
+      $DVGPAR SPRING NAME = GD_K2  DEID = 8
+      STIFF         1:          8
+      $DVGPAR SPRING NAME = GD_K3  DEID = 9
+      STIFF         1:          9
+      $DVGPAR SPRING NAME = GD_K4  DEID =10
+      STIFF         1:         10
+      $DVGPAR SPRING NAME = GD_K5  DEID =11
+      STIFF         1:         11
+      $DVGPAR SPRING NAME = GD_K6  DEID =12
+      STIFF         1:         12
+!
+      $DVGPAR DAMPER NAME = GD_C1 DEID = 13
+      DAMP          1:         13 
+      $DVGPAR DAMPER NAME = GD_C2 DEID = 14
+      DAMP          1:         14 
+      $DVGPAR DAMPER NAME = GD_C3 DEID = 15
+      DAMP          1:         15 
+      $DVGPAR DAMPER NAME = GD_C4 DEID = 16
+      DAMP          1:         16 
+      $DVGPAR DAMPER NAME = GD_C5 DEID = 17
+      DAMP          1:         17 
+      $DVGPAR DAMPER NAME = GD_C6 DEID = 18
+      DAMP          1:         18 
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  1.000000E-12  3.000000E+01
+                2  1.000000E-12  3.000000E+01
+                3  1.000000E-12  3.000000E+01
+                4  1.000000E-12  3.000000E+01
+                5  1.000000E-12  3.000000E+01
+                6  1.000000E-12  3.000000E+01
+!
+                7  1.E-8         9.E4
+                8  1.E-8         9.E4
+                9  1.E-8         9.E4
+               10  1.E-8         9.E4
+               11  1.E-8         9.E4
+               12  1.E-8         9.E4
+!
+               13  1.E-8         9.E3
+               14  1.E-8         9.E3
+               15  1.E-8         9.E3
+               16  1.E-8         9.E3
+               17  1.E-8         9.E3
+               18  1.E-8         9.E3
+
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+               11  1.000000E-01
+               12  1.000000E-01
+               13  1.000000E-01
+               14  1.000000E-01
+               15  1.000000E-01
+               16  1.000000E-01
+               17  1.000000E-01
+               18  1.000000E-01
+!
+      $DCFUNCTION  CSTID = SUM_M  FUNCTION =          1  EQUALITY = NO  UPPER =  1.120000E+02
+                1  DESVAR      : 1
+                2  DESVAR      : 2
+                3  DESVAR      : 3
+                4  DESVAR      : 4
+                5  DESVAR      : 5
+                6  DESVAR      : 6
+!
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_3  FREQUENCY = ALL  DATTYPE = AMPLITUDE
+      TIP          : TIP            3      NO        0.000000E+00:        100
+!
+      $DOBJECT  CONSTRAINT = TIP
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION LIB  FID =          1  TYPE = WSUMLIN
+     0.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
