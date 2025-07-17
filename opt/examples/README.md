@@ -41,3 +41,5 @@
 020 - [Optimization-free design of stiffened thin-walled structures guided by data-rich buckling modes](https://doi.org/10.1016/j.ast.2024.109287)
 
 021 - [A differentiable structural analysis framework for high-performance design optimization](https://doi.org/10.1016/j.istruc.2025.109292)
+
+022 - [Multiple Tuned Mass Damper Design for the Mitigation of Cantilever Beam Response](http://dx.doi.org/10.1061/AJRUA6.RUENG-1502)
