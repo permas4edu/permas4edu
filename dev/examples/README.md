@@ -146,4 +146,4 @@
 
 073 - [Inverse finite element methodology for high-resolution mode shape reconstruction of plates and shells under random excitation](https://doi.org/10.1016/j.compstruc.2025.107721)
 
-074 -  [Bayesian FFT modal identification for multi-setup experimental modal analysis](Bayesian FFT modal identification for multi-setup experimental modal analysis)
+074 - [Bayesian FFT modal identification for multi-setup experimental modal analysis](https://doi.org/10.1016/j.ymssp.2025.112931)
