@@ -491,13 +491,21 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
 !       h = 40. 
 !
-        GD_M1  0.01944
-        GD_M2  0.01944
-        GD_M3  0.01944
-        GD_M4  0.01944
-        GD_M5  0.01944
-        GD_M6  0.01944
-
+!        GD_M1  0.01944
+!        GD_M2  0.01944
+!        GD_M3  0.01944
+!        GD_M4  0.01944
+!        GD_M5  0.01944
+!        GD_M6  0.01944
+!
+!       h = 10.
+!
+         GD_M1   0.00486
+         GD_M2   0.00486
+         GD_M3   0.00486
+         GD_M4   0.00486
+         GD_M5   0.00486
+         GD_M6   0.00486
 !
       $GEODAT BEAM      CONT = AREA     BEND     TORS
        GD_COLUMN_01  1.650000E+01
