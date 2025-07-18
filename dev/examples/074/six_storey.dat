@@ -414,66 +414,27 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
               129  0.000000E+00  0.000000E+00  1.000000E+03
               130  0.000000E+00  0.000000E+00  1.200000E+03
 !
-      $PART  NAME = LINE25
-       LINE25
-      $PART  NAME = LINE26
-       LINE26
-      $PART  NAME = LINE27
-       LINE27
-      $PART  NAME = LINE28
-       LINE28
-      $PART  NAME = LINE29
-       LINE29
-      $PART  NAME = LINE30
-       LINE30
-      $PART  NAME = LINE31
-       LINE31
-      $PART  NAME = LINE32
-       LINE32
-      $PART  NAME = LINE33
-       LINE33
-      $PART  NAME = LINE34
-       LINE34
-      $PART  NAME = LINE35
-       LINE35
-      $PART  NAME = LINE36
-       LINE36
-      $PART  NAME = LINE37
-       LINE37
-      $PART  NAME = LINE38
-       LINE38
-      $PART  NAME = LINE39
-       LINE39
-      $PART  NAME = LINE40
-       LINE40
-      $PART  NAME = LINE41
-       LINE41
-      $PART  NAME = LINE42
-       LINE42
-      $PART  NAME = LINE43
-       LINE43
-      $PART  NAME = LINE44
-       LINE44
-      $PART  NAME = LINE45
-       LINE45
-      $PART  NAME = LINE46
-       LINE46
-      $PART  NAME = LINE47
-       LINE47
-      $PART  NAME = LINE48
-       LINE48
-      $PART  NAME = SURFACE1
-       SURFACE1
-      $PART  NAME = SURFACE2
-       SURFACE2
-      $PART  NAME = SURFACE3
-       SURFACE3
-      $PART  NAME = SURFACE4
-       SURFACE4
-      $PART  NAME = SURFACE5
-       SURFACE5
-      $PART  NAME = SURFACE6
-       SURFACE6
+      $PART  NAME = COLUMN_01
+       COLUMN_01
+      $PART  NAME = COLUMN_02
+       COLUMN_02
+      $PART  NAME = COLUMN_03
+       COLUMN_03
+      $PART  NAME = COLUMN_04
+       COLUMN_04
+!
+      $PART  NAME = FLOOR_01
+       FLOOR_01
+      $PART  NAME = FLOOR_02
+       FLOOR_02
+      $PART  NAME = FLOOR_03
+       FLOOR_03
+      $PART  NAME = FLOOR_04
+       FLOOR_04
+      $PART  NAME = FLOOR_05
+       FLOOR_05
+      $PART  NAME = FLOOR_06
+       FLOOR_06
 !
    $END STRUCTURE
 !------
