@@ -1,0 +1,106 @@
+$ENTER COMPONENT NAME = DFLT_COMP DOFTYPE = DISP
+
+    $SITUATION NAME = STEP_1 
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1  LOADING = L_STEP_1  RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+       $NODE NSET = ALL_NODES
+         100 0.0  0.0  0.0
+         101 1.0  0.0  0.0
+         102 2.0  0.0  0.0
+
+       $NSET NAME = FREE RULE = RANGE
+         101  102
+ 
+       $ELEMENT TYPE = MASS3 ESET = M1
+           1 101
+       $ELEMENT TYPE = MASS3 ESET = M2
+           2 102
+!
+       $ELEMENT TYPE = DAMP1 ESET = C1
+           3  100 101
+       $ELEMENT TYPE = DAMP1 ESET = C2
+           4  101 102
+!
+       $ELEMENT TYPE = SPRING1 ESET = K1
+           5  100 101
+       $ELEMENT TYPE = SPRING1 ESET = K2
+           6  101 102
+!
+       $ELEMENT TYPE = NLSTIFF ESET = K_NL1
+           7  100 101
+       $ELEMENT TYPE = NLSTIFF ESET = K_NL2
+           8  101 102
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+ 
+        $GEODAT MASS CONT = MASS
+           GD_M1  1.0
+           GD_M2  0.05
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_C1  0.002
+           GD_C2  0.0128
+
+        $GEODAT SPRING CONT = STIFF
+          GD_K1   1.0
+          GD_K2   0.0454
+      
+        $GEODAT SPRING CONT = FUNCTION 
+          GD_K_NL1  1
+          GD_K_NL2  2
+
+        $ELPROP
+          M1    GEODAT = GD_M1 
+          M2    GEODAT = GD_M2 
+          C1    GEODAT = GD_C1 
+          C2    GEODAT = GD_C2 
+          K1    GEODAT = GD_K1 
+          K2    GEODAT = GD_K2
+          K_NL1 GEODAT = GD_K_NL1  
+          K_NL2 GEODAT = GD_K_NL2
+  
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 2,3
+        ALL_NODES
+
+      $SUPPRESS DOFS = 1
+        100
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+      $CONLOAD LPAT = 1
+         101 1: 0.11
+
+      $FREQLOAD
+         LPAT = 1 TYPE = COSINE
+
+    $END LOADING  
+
+    $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+          0.0  2.5  0.005
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 1
+      F(X) = X^3
+
+   $FUNCTION FORMULA FID = 2
+      F(X) = 0.0042*X^3
+
+$EXIT FUNCTION
+$FIN
