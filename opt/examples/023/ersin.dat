@@ -1,0 +1,175 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_2  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+
+   $SITUATION  NAME = STEP_3  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1  LOADING = L_STEP_3  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BEAM2
+                1          1          3
+                2          3          4
+                3          4          5
+                4          5          6
+                5          6          7
+                6          7          2
+      $ELEMENT TYPE = SPRING1
+                7          3          9
+                8          4         10
+                9          5         11
+               10          6         12
+               11          7         13
+               12          2          8
+      $ELEMENT TYPE = MASS3
+               13          2
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00 -1.000000E+01  0.000000E+00
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = CLAMPED
+                1
+      $NSET NAME = FREE
+                2          3          4          5          6          7
+      $NSET NAME = GROUND
+                8          9         10         11         12         13
+      $ESET NAME = BEAM
+                1          2          3          4          5          6
+      $ESET NAME = K1
+                7
+      $ESET NAME = K2
+                8
+      $ESET NAME = K3
+                9
+      $ESET NAME = K4
+               10
+      $ESET NAME = K5
+               11
+      $ESET NAME = K6
+               12
+      $ESET NAME = LINE1
+                1          2          3          4          5          6
+      $ESET NAME = M
+               13
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  6.000000E+00  0.000000E+00  0.000000E+00
+                3  1.000000E+00  0.000000E+00  0.000000E+00
+                4  2.000000E+00  0.000000E+00  0.000000E+00
+                5  3.000000E+00  0.000000E+00  0.000000E+00
+                6  4.000000E+00  0.000000E+00  0.000000E+00
+                7  5.000000E+00  0.000000E+00  0.000000E+00
+                8  6.000000E+00  0.000000E+00  5.000000E-01
+                9  1.000000E+00  0.000000E+00  5.000000E-01
+               10  2.000000E+00  0.000000E+00  5.000000E-01
+               11  3.000000E+00  0.000000E+00  5.000000E-01
+               12  4.000000E+00  0.000000E+00  5.000000E-01
+               13  5.000000E+00  0.000000E+00  5.000000E-01
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = K1
+       K1
+      $PART  NAME = K2
+       K2
+      $PART  NAME = K3
+       K3
+      $PART  NAME = K4
+       K4
+      $PART  NAME = K5
+       K5
+      $PART  NAME = K6
+       K6
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $MODDAMP TYPE = RATIO KIND = DISCRETE
+          1, 0.02
+          2, 0.02
+          3, 0.02
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_BEAM               5
+         &        :  2.236068E-01  2.236068E-01
+         &        :  2.236070E-01  2.236070E-01
+      $GEODAT MASS      CONT = MASS
+       GD_M          1.000000E+02
+      $GEODAT SPRING    CONT = STIFF
+       GD_K1         3.804000E+05
+       GD_K2         3.804000E+05
+       GD_K3         3.804000E+05
+       GD_K4         3.804000E+05
+       GD_K5         3.804000E+05
+       GD_K6         3.804000E+05
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = MAT_BEAM
+       K1            GEODAT = GD_K1
+       K2            GEODAT = GD_K2
+       K3            GEODAT = GD_K3
+       K4            GEODAT = GD_K4
+       K5            GEODAT = GD_K5
+       K6            GEODAT = GD_K6
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS  DOFS = 1,2,4,6  DOFTYPE = DISP
+       FREE
+!
+   $END CONSTRAINTS
+!------
+   $LOADING NAME = L_STEP_3
+
+      $CONLOAD LPAT = 1
+         TIP 3: 1.0E3
+
+      $FREQLOAD
+         LPAT = 1 TYPE = COSINE
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+      $FREQUENCY PRIMARY = EIG BOUNDS = 0., 100.
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BEAM  TYPE = TRANS
+!
+      $ELASTIC  BEAM  INPUT = DATA
+        2.060000E+11  7.940000E+10
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

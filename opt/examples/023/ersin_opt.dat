@@ -1,0 +1,89 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1 STEP_2 STEP_3
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K1
+                2          2: K2
+                3          3: K3
+                4          4: K4
+                5          5: K5
+                6          6: K6
+!
+      $NSET NAME = TIP
+                2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  3.804000E+05
+                2  3.804000E+05
+                3  3.804000E+05
+                4  3.804000E+05
+                5  3.804000E+05
+                6  3.804000E+05
+!
+      $DVGPAR SPRING  NAME = GD_K6  DEID = 6
+      STIFF          1:          6
+      $DVGPAR SPRING  NAME = GD_K5  DEID = 5
+      STIFF          1:          5
+      $DVGPAR SPRING  NAME = GD_K4  DEID = 4
+      STIFF          1:          4
+      $DVGPAR SPRING  NAME = GD_K3  DEID = 3
+      STIFF          1:          3
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 2
+      STIFF          1:          2
+      $DVGPAR SPRING  NAME = GD_K1  DEID = 1
+      STIFF          1:          1
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  0.000000E+00  2.282400E+06
+                2  0.000000E+00  2.282400E+06
+                3  0.000000E+00  2.282400E+06
+                4  0.000000E+00  2.282400E+06
+                5  0.000000E+00  2.282400E+06
+                6  0.000000E+00  2.282400E+06
+!
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_3  FREQUENCY = ALL  DATTYPE = AMPLITUDE
+      TIP          : TIP            3      NO        0.000000E+00:        100
+!
+      $DOBJECT  CONSTRAINT = TIP
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+!
+      $DCFUNCTION  CSTID = SUM_K  FUNCTION = SUM_K  EQUALITY = YES  FVAL =  2.282400E+06
+                1  DESVAR      : 1
+                2  DESVAR      : 2
+                3  DESVAR      : 3
+                4  DESVAR      : 4
+                5  DESVAR      : 5
+                6  DESVAR      : 6
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION LIB  FID = SUM_K  TYPE = WSUMLIN
+     0.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00  1.000000E+00
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
