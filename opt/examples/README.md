@@ -43,3 +43,5 @@
 021 - [A differentiable structural analysis framework for high-performance design optimization](https://doi.org/10.1016/j.istruc.2025.109292)
 
 022 - [Multiple Tuned Mass Damper Design for the Mitigation of Cantilever Beam Response](http://dx.doi.org/10.1061/AJRUA6.RUENG-1502)
+
+023 - [Minimum dynamic response of cantilever beams supported by optimal elastic springs](http://dx.doi.org/10.12989/sem.2014.51.3.377)
