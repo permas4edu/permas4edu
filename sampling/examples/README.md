@@ -55,3 +55,5 @@
 026 - [Investigation of the critical buckling load of a column with linearly varying moment of inertia using analytical, numerical, and hybrid machine learning approaches](https://doi.org/10.1177/03093247251337987)
 
 027 - [Control Variates Method to Estimate Stochastic Buckling Loads](https://doi.org/10.1002/nme.70070)
+
+028 - [Numerical prediction and experimental validation of on onboard rotor under bending](https://doi.org/10.1007/s11012-021-01392-6)
