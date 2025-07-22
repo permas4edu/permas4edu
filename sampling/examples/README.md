@@ -57,3 +57,5 @@
 027 - [Control Variates Method to Estimate Stochastic Buckling Loads](https://doi.org/10.1002/nme.70070)
 
 028 - [Numerical prediction and experimental validation of on onboard rotor under bending](https://doi.org/10.1007/s11012-021-01392-6)
+
+029 - [Numerical investigation on the dynamic behavior of an onboard rotor system by using the FEM approach](https://doi.org/10.1007/s40430-016-0640-5)
