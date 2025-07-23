@@ -45,3 +45,5 @@
 022 - [Multiple Tuned Mass Damper Design for the Mitigation of Cantilever Beam Response](http://dx.doi.org/10.1061/AJRUA6.RUENG-1502)
 
 023 - [Minimum dynamic response of cantilever beams supported by optimal elastic springs](http://dx.doi.org/10.12989/sem.2014.51.3.377)
+
+024 - [Artificial neural network–infused polar fox algorithm for optimal design of vehicle suspension components](https://doi.org/10.1515/mt-2025-0043)
