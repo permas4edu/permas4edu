@@ -57,3 +57,5 @@
 0028 -  [Internal Damping Instability of Rotors with Isotropic and Anisotropic Supports based on Complex Coordinates Formulation](https://doi.org/10.21205/deufmd.2025278012)
 
 0029 - [Transient and Steady State Analysis of a Flexible Coaxial-Rotor System Considering the Effect of Internal Damping on System Stability](https://doi.org/10.1007/s13369-024-09871-0)
+
+0030 - [Periodic solutions in rotor dynamic systems with nonlinear supports: A general approach](https://doi.org/10.1115/1.3269840)
