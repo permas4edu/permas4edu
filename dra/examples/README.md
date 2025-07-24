@@ -65,3 +65,5 @@
 032 - [Forced vibration analysis of isogeometric Reissner-Mindlin shells using modal superposition methods](https://doi.org/10.1016/j.tws.2025.113360)
 
 033 - [Exploitation of Modal Superposition Toward Forced Vibration Localization in a Coupled Symmetric Oscillator Array](https://doi.org/10.3390/s25103106)
+
+034 - LinkedIn post
