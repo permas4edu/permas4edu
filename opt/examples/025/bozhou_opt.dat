@@ -52,6 +52,34 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
    $END MODIFICATION
 !------
+   $RESULTS 
+ 
+       $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+           WGT
+
+       $RESEXT ITEM
+           WGT : WGT  1
+
+       $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 1
+           CMPL_1
+       $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 2
+           CMPL_2
+       $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 3
+           CMPL_3
+       $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 4
+           CMPL_4
+       $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 5
+           CMPL_5
+
+       $RESEXT ITEM
+           CMPL_1 : CMPL_1 1
+           CMPL_2 : CMPL_2 1
+           CMPL_3 : CMPL_3 1
+           CMPL_4 : CMPL_4 1
+           CMPL_5 : CMPL_5 1
+
+   $END RESULTS
+!------
 $EXIT COMPONENT
 !------------------------------------
 $FIN
