@@ -1,0 +1,27 @@
+$ENTER COMPONENT NAME = DFLT_COMP DOFTYPE = DISP MATH
+    $STRUCTURE
+        $NSET NAME = ROLLER_NODES
+         11
+         86
+         44
+         70
+         28
+    $END STRUCTURE
+    $CONSTRAINTS NAME = C_STEP_1
+        $SUPPRESS DOFS = 2
+            ROLLER_NODES 
+    $END CONSTRAINTS
+    $LOADING NAME = L_STEP_1
+        $CONLOAD LPAT = 1
+            56 2: -2.470031e+05
+        $CONLOAD LPAT = 2
+            75 2: -3.528720e+05
+        $CONLOAD LPAT = 3
+            33 2: -3.484542e+05
+        $CONLOAD LPAT = 4
+            2 2: -2.732581e+05
+        $CONLOAD LPAT = 5
+            69 2: -3.288445e+05
+    $END LOADING
+$EXIT COMPONENT
+$FIN

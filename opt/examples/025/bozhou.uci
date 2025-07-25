@@ -1,0 +1,19 @@
+NEW
+USER
+    CALL TOOL6 P1 = 'pyINTES bozhou.py'
+RETURN
+
+INPUT
+    READ PERMAS FILE = bozhou.dat
+    READ PERMAS FILE = bozhou_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP

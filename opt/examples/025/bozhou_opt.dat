@@ -1,0 +1,57 @@
+$DEFVAR EID    TYPE = INTEGER GEN = 1,1
+$DEFVAR GD     TYPE = NAME    GEN = GD_,1,1
+$DEFVAR DSVID  TYPE = INTEGER GEN = 1,1
+$DEFVAR DESIGN TYPE = NAME    GEN = DE_,1,1
+$ECHO GEN
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DBEAM
+           $LOOP I = 1, 100
+             EID(I)     DSVID(I) : DESIGN(I)
+           $ENDLOOP
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+           $LOOP I = 1, 100
+              DSVID(I) 0.1
+           $ENDLOOP
+!
+      $LOOP I = 1, 100
+          $DVGPAR BEAM  NAME = GD(I)  DEID = EID(I)
+             SECTDIM          1:          DSVID(I)
+             SECTDIM          2:          DSVID(I)
+      $ENDLOOP
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+            $LOOP I = 1, 100
+               DSVID(I)  1.000000E-02  1.000000E+00
+             $ENDLOOP
+!
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  LPAT = ALL  DATTYPE = REAL
+      CMPL         :  0.000000E+00      NO
+!
+      $DOBJECT  CONSTRAINT = CMPL
+!
+      $DSVMLIM
+           $LOOP I = 1, 100
+               DSVID(I) 0.1
+           $ENDLOOP    
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
