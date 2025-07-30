@@ -1,0 +1,107 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $SURFACE ELEMENTS  LABEL = CLAMPED  SYSTEM = LOCAL
+             1623          2
+             1624          2
+             1625          2
+             1629          4
+             1633          4
+             1636          2
+             1637          2
+             1638          2
+             1642          4
+             1646          4
+             1649          2
+             1650          2
+             1651          2
+             1655          4
+             1659          4
+             1662          5
+             1663          5
+             1664          5
+             1668          3
+             1672          3
+             1675          5
+             1676          5
+             1677          5
+             1681          3
+             1685          3
+             1688          5
+             1689          5
+             1690          5
+             1694          3
+             1698          3
+             1701          5
+             1702          5
+             1703          5
+             1707          3
+             1711          3
+             1714          5
+             1715          5
+             1716          5
+             1720          3
+             1724          3
+             1727          5
+             1728          5
+             1729          5
+             1733          3
+             1737          3
+             1740          2
+             1741          2
+             1742          2
+             1746          4
+             1750          4
+             1753          2
+             1754          2
+             1755          2
+             1759          4
+             1763          4
+             1766          2
+             1767          2
+             1768          2
+             1772          4
+             1776          4
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  SURFNODE  DOFS = 1,2,3  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       BRACKET       MATERIAL = ALUMINUM
+       COLUMNS       MATERIAL = ALUMINUM
+       FLOOR_01      MATERIAL = ALUMINUM
+       FLOOR_02      MATERIAL = ALUMINUM
+       FLOOR_03      MATERIAL = ALUMINUM
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = ALUMINUM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        2.700000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        7.000000E+04  3.300000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
