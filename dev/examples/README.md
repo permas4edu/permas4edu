@@ -20,7 +20,7 @@
 
 010 - [The Accuracy and Computational Efficiency of the Loewner Framework for the System Identification of Mechanical Systems](https://doi.org/10.3390/aerospace10060571)
 
-011 - 
+011 - [Free vibration of arbitrarily shaped plates with complex cutouts](https://doi.org/10.1016/j.tws.2023.110979)
 
 012 - [A robust poly-reference frequency-domain identiﬁcation method to extract dynamic properties from vibration data](https://doi.org/10.1038/s44172-023-00122-y)
 
