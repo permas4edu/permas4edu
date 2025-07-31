@@ -105,3 +105,5 @@
 052 - [Approximating piecewise nonlinearities in dynamic systems with sigmoid functions: advantages and limitations](https://doi.org/10.1007/s11071-023-08293-1)
 
 053 - [Nonlinear vibration localisation in a symmetric system of two coupled beams](https://doi.org/10.1007/s11071-020-05760-x)
+
+054 - [Avoidance of artifacts in harmonicbalance solutions for nonlinear dynamical systems](http://dx.doi.org/10.15632/jtam-pl/118161)
