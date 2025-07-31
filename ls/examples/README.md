@@ -57,3 +57,7 @@
 
 028 - [Shell finite element formulations of ovalized thin-walled pipes](https://doi.org/10.1080/15397734.2025.2505190)
 
+029 - Quiz on LinkedIn
+
+030 - [Consideration of Body Forces within Finite Element Analysis](http://dx.doi.org/10.5545/sv-jme.2017.5081)
+
