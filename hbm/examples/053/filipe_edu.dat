@@ -1,0 +1,144 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_0
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_1 PARENT = STEP_0
+       DFLT_COMP SYSTEM = S_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_2
+    $END SITUATION
+
+    $SITUATION NAME = STEP_3
+       DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_3
+    $END SITUATION
+
+    $STRUCTURE
+ 
+       $NSET NAME = ALL_NODES RULE = ALL
+
+       $NSET NAME = RESULTS
+          101 102
+
+       $COOR
+          100 0.0 0.0 0.0
+          101 1.0 0.0 0.0
+          102 2.0 0.0 0.0
+          103 3.0 0.0 0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+            1 101
+            2 102
+
+       $ELEMENT TYPE = SPRING1
+            3 100 101
+            4 101 102
+            5 102 103
+
+       $ELEMENT TYPE = DAMP1
+            6 100 101
+            7 102 103
+
+       $ELEMENT TYPE = NLSTIFF
+            8 100 101
+            9 102 103
+
+       $ESET NAME = C
+            6  7
+
+       $ESET NAME = K_L
+            3  5
+
+       $ESET NAME = K_C
+            4
+
+       $ESET NAME = K_NL
+            8  9
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+           GD_M 1.0
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_C   0.005
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K_L 1.0
+           GD_K_C 0.05
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_K_NL 101
+
+        $DEFVAR S TYPE = REAL LIST = 1.0 ! gap dimension
+        $DEFVAR K_NL TYPE = REAL LIST = 1.0
+
+        $DEFVAR ALPHA TYPE = REAL LIST = 3.0
+        $FUNCTION FORMULA FID = 101
+           
+           f(x) = (x-tanh(ALPHA(1)*x))*(1-0.5*(tanh(ALPHA(1)*(x+1))-tanh(ALPHA(1)*(x-1))))
+!          f(x) = K_NL(1)*(x-S(1)) !  x >  s(1)
+!          f(x) = K_NL(1)*(x+S(1)) !  x < -s(1)
+!          f(x) = 0                ! |x| < s(1)
+
+
+        $ELPROP
+           M    GEODAT = GD_M
+           K_L  GEODAT = GD_K_L
+           K_C  GEODAT = GD_K_C
+           C    GEODAT = GD_C
+           K_NL GEODAT = GD_K_NL
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 2,3
+           ALL_NODES
+
+        $PRESCRIBE DOFS = 1
+           100 103
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+        $PREVAL LPAT = 1
+            100 1:  0.025
+            103 1:  0.025
+!            100 1:  0.15
+!            103 1:  0.15
+        $FREQLOAD
+            LPAT = 1 TYPE = COSINE PRESCRIBED = DISP
+
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI
+           0.1432 0.1989 0.0016
+
+        $FREQUENCY PRIMARY = EIGCLUS CLUSTER = 5, 0.001
+    $END RESULTS
+
+    $RESULTS NAME = R_STEP_2
+
+        $FREQUENCY PRIMARY = EQUI 
+           0.1432 0.22 0.0016
+
+    $END RESULTS
+
+    $RESULTS NAME = R_STEP_3
+
+        $FREQUENCY PRIMARY = EQUI
+           0.1432 0.22 0.0016
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$FIN
