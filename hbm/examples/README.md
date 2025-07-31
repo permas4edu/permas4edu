@@ -99,3 +99,5 @@
 049 - [A Koopman-Hill framework for the bifurcation analysis of nonlinear dynamical systems in codimension-1 and -2](http://dx.doi.org/10.21203/rs.3.rs-7048070/v1)
 
 050 - [A Two-step Discretization Framework Bridging Quasi-Periodic and Periodic Solutions in Nonlinear Dynamics](https://dx.doi.org/10.2139/ssrn.5208291)
+
+051 - [Normal form analysis of nonlinear oscillator equations with automated arbitrary order expansions](http://dx.doi.org/10.46298/jtcam.13234)
