@@ -103,3 +103,5 @@
 051 - [Normal form analysis of nonlinear oscillator equations with automated arbitrary order expansions](http://dx.doi.org/10.46298/jtcam.13234)
 
 052 - [Approximating piecewise nonlinearities in dynamic systems with sigmoid functions: advantages and limitations](https://doi.org/10.1007/s11071-023-08293-1)
+
+053 - [Nonlinear vibration localisation in a symmetric system of two coupled beams](https://doi.org/10.1007/s11071-020-05760-x)
