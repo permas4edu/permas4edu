@@ -101,3 +101,5 @@
 050 - [A Two-step Discretization Framework Bridging Quasi-Periodic and Periodic Solutions in Nonlinear Dynamics](https://dx.doi.org/10.2139/ssrn.5208291)
 
 051 - [Normal form analysis of nonlinear oscillator equations with automated arbitrary order expansions](http://dx.doi.org/10.46298/jtcam.13234)
+
+052 - [Approximating piecewise nonlinearities in dynamic systems with sigmoid functions: advantages and limitations](https://doi.org/10.1007/s11071-023-08293-1)
