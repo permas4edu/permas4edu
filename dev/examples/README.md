@@ -153,3 +153,5 @@
 076 - Why Your Shell Model Might Still Have a Rigid Body Motion? LinkedIn post
 
 077 - [Digital twins as self-models for intelligent structures](http://dx.doi.org/10.13140/RG.2.2.24121.28006)
+
+078 - [A hybrid data-physics framework with conformal GNN for enhanced damage identification](https://doi.org/10.1016/j.aei.2025.103718)
