@@ -1,0 +1,130 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $STRUCTURE
+!
+      $RSYS CART  FORM = ZX
+                1         10 :         11 :         13
+                2         20 :         21 :         19
+!
+      $ELSYS RSYS
+       BEAM_X        RSYS =          1  AXES =  1,  2
+       BEAM_Y        RSYS =          2  AXES =  1,  2
+       COLUMNS       RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = CLAMPED
+                1          2          3          4          5          6          7          8          9
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_BRACES     1.400000E-04
+!
+      $GEODAT BEAM      CONT = AREA     BEND     TORS
+       GD_COLUMN     1.130000E-03 :  1.970000E-06  6.600000E-07 :  6.600000E-10
+       GC_BEAM       1.430000E-03 :  1.220000E-06  8.010000E-06 :  3.820000E-08
+!
+      $ELPROP
+       BRACES        GEODAT = GD_BRACES     MATERIAL = MAT_BRACES
+       COLUMNS       GEODAT = GD_COLUMN     MATERIAL = MAT_COLUMN
+       BEAM_X        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+       BEAM_Y        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_BRACES     1.400000E-04
+!
+      $GEODAT BEAM      CONT = AREA     BEND     TORS
+       GD_COLUMN     1.130000E-03 :  6.600000E-07  1.970000E-06 :  6.600000E-10
+       GC_BEAM       1.430000E-03 :  8.010000E-06  1.220000E-06 :  3.820000E-08
+!
+      $ELPROP
+       BRACES        GEODAT = GD_BRACES     MATERIAL = MAT_BRACES
+       COLUMNS       GEODAT = GD_COLUMN     MATERIAL = MAT_COLUMN
+       BEAM_X        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+       BEAM_Y        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_3
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_BRACES     1.400000E-04
+!
+      $GEODAT BEAM      CONT = AREA     BEND     TORS
+       GD_COLUMN     1.130000E-03 :  6.600000E-07  1.970000E-06 :  6.600000E-10
+       GC_BEAM       1.430000E-03 :  1.220000E-06  8.010000E-06 :  3.820000E-08
+!
+      $ELPROP
+       BRACES        GEODAT = GD_BRACES     MATERIAL = MAT_BRACES
+       COLUMNS       GEODAT = GD_COLUMN     MATERIAL = MAT_COLUMN
+       BEAM_X        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+       BEAM_Y        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_4
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_BRACES     1.400000E-04
+!
+      $GEODAT BEAM      CONT = AREA     BEND     TORS
+       GD_COLUMN     1.130000E-03 :  6.600000E-07  1.970000E-06 :  6.600000E-10
+       GC_BEAM       1.430000E-03 :  8.010000E-06  1.220000E-06 :  3.820000E-08
+!
+      $ELPROP
+       BRACES        GEODAT = GD_BRACES     MATERIAL = MAT_BRACES
+       COLUMNS       GEODAT = GD_COLUMN     MATERIAL = MAT_COLUMN
+       BEAM_X        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+       BEAM_Y        GEODAT = GC_BEAM       MATERIAL = MAT_BEAM
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BRACES  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_COLUMN  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_BEAM  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

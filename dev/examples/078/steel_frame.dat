@@ -1,0 +1,452 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_3
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_4
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_4
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          4         13
+                2         13         22
+                3         22         31
+                4         31         40
+                5          5         14
+                6         14         23
+                7         23         32
+                8         32         41
+                9          1         10
+               10         10         19
+               11         19         28
+               12         28         37
+               13          7         16
+               14         16         25
+               15         25         34
+               16         34         43
+               17          9         18
+               18         18         27
+               19         27         36
+               20         36         45
+               21          8         17
+               22         17         26
+               23         26         35
+               24         35         44
+               25          3         12
+               26         12         21
+               27         21         30
+               28         30         39
+               29          6         15
+               30         15         24
+               31         24         33
+               32         33         42
+               33          2         11
+               34         11         20
+               35         20         29
+               36         29         38
+               37         13         14
+               38         14         10
+               39         22         23
+               40         23         19
+               41         31         32
+               42         32         28
+               43         40         41
+               44         41         37
+               45         16         18
+               46         18         17
+               47         25         27
+               48         27         26
+               49         34         36
+               50         36         35
+               51         43         45
+               52         45         44
+               53         12         15
+               54         15         11
+               55         21         24
+               56         24         20
+               57         30         33
+               58         33         29
+               59         39         42
+               60         42         38
+               61         13         16
+               62         16         12
+               63         14         18
+               64         18         15
+               65         10         17
+               66         17         11
+               67         22         25
+               68         25         21
+               69         23         27
+               70         27         24
+               71         19         26
+               72         26         20
+               73         31         34
+               74         34         30
+               75         32         36
+               76         36         33
+               77         28         35
+               78         35         29
+               79         40         43
+               80         43         39
+               81         41         45
+               82         45         42
+               83         37         44
+               84         44         38
+      $ELEMENT TYPE = FLA2
+               85          4         14
+               86         14          1
+               87         13         23
+               88         23         10
+               89         22         32
+               90         32         19
+               91         31         41
+               92         41         28
+               93          1         17
+               94         17          2
+               95         10         26
+               96         26         11
+               97         19         35
+               98         35         20
+               99         28         44
+              100         44         29
+              101          2         15
+              102         15          3
+              103         11         24
+              104         24         12
+              105         20         33
+              106         33         21
+              107         29         42
+              108         42         30
+              109          3         16
+              110         16          4
+              111         12         25
+              112         25         13
+              113         21         34
+              114         34         22
+              115         30         43
+              116         43         31
+!
+      $NSET NAME = ABA_NALL_INP
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34         35         36         37         38         39         40         41         42
+               43         44         45
+      $ESET NAME = BEAM_X
+               61         62         63         64         65         66         67         68         69         70         71         72         73         74
+               75         76         77         78         79         80         81         82         83         84
+      $ESET NAME = BEAM_Y
+               37         38         39         40         41         42         43         44         45         46         47         48         49         50
+               51         52         53         54         55         56         57         58         59         60
+      $ESET NAME = BRACES
+               85         86         87         88         89         90         91         92         93         94         95         96         97         98
+               99        100        101        102        103        104        105        106        107        108        109        110        111        112
+              113        114        115        116
+      $ESET NAME = COLUMNS
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34         35         36
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = LINE8
+                8
+      $ESET NAME = LINE9
+                9
+      $ESET NAME = LINE10
+               10
+      $ESET NAME = LINE11
+               11
+      $ESET NAME = LINE12
+               12
+      $ESET NAME = LINE13
+               13
+      $ESET NAME = LINE14
+               14
+      $ESET NAME = LINE15
+               15
+      $ESET NAME = LINE16
+               16
+      $ESET NAME = LINE17
+               17
+      $ESET NAME = LINE18
+               18
+      $ESET NAME = LINE19
+               19
+      $ESET NAME = LINE20
+               20
+      $ESET NAME = LINE21
+               21
+      $ESET NAME = LINE22
+               22
+      $ESET NAME = LINE23
+               23
+      $ESET NAME = LINE24
+               24
+      $ESET NAME = LINE25
+               25
+      $ESET NAME = LINE26
+               26
+      $ESET NAME = LINE27
+               27
+      $ESET NAME = LINE28
+               28
+      $ESET NAME = LINE29
+               29
+      $ESET NAME = LINE30
+               30
+      $ESET NAME = LINE31
+               31
+      $ESET NAME = LINE32
+               32
+      $ESET NAME = LINE33
+               33
+      $ESET NAME = LINE34
+               34
+      $ESET NAME = LINE35
+               35
+      $ESET NAME = LINE36
+               36
+      $ESET NAME = LINE37
+               37
+      $ESET NAME = LINE38
+               38
+      $ESET NAME = LINE39
+               39
+      $ESET NAME = LINE40
+               40
+      $ESET NAME = LINE41
+               41
+      $ESET NAME = LINE42
+               42
+      $ESET NAME = LINE43
+               43
+      $ESET NAME = LINE44
+               44
+      $ESET NAME = LINE45
+               45
+      $ESET NAME = LINE46
+               46
+      $ESET NAME = LINE47
+               47
+      $ESET NAME = LINE48
+               48
+      $ESET NAME = LINE49
+               49
+      $ESET NAME = LINE50
+               50
+      $ESET NAME = LINE51
+               51
+      $ESET NAME = LINE52
+               52
+      $ESET NAME = LINE53
+               53
+      $ESET NAME = LINE54
+               54
+      $ESET NAME = LINE55
+               55
+      $ESET NAME = LINE56
+               56
+      $ESET NAME = LINE57
+               57
+      $ESET NAME = LINE58
+               58
+      $ESET NAME = LINE59
+               59
+      $ESET NAME = LINE60
+               60
+      $ESET NAME = LINE61
+               61
+      $ESET NAME = LINE62
+               62
+      $ESET NAME = LINE63
+               63
+      $ESET NAME = LINE64
+               64
+      $ESET NAME = LINE65
+               65
+      $ESET NAME = LINE66
+               66
+      $ESET NAME = LINE67
+               67
+      $ESET NAME = LINE68
+               68
+      $ESET NAME = LINE69
+               69
+      $ESET NAME = LINE70
+               70
+      $ESET NAME = LINE71
+               71
+      $ESET NAME = LINE72
+               72
+      $ESET NAME = LINE73
+               73
+      $ESET NAME = LINE74
+               74
+      $ESET NAME = LINE75
+               75
+      $ESET NAME = LINE76
+               76
+      $ESET NAME = LINE77
+               77
+      $ESET NAME = LINE78
+               78
+      $ESET NAME = LINE79
+               79
+      $ESET NAME = LINE80
+               80
+      $ESET NAME = LINE81
+               81
+      $ESET NAME = LINE82
+               82
+      $ESET NAME = LINE83
+               83
+      $ESET NAME = LINE84
+               84
+      $ESET NAME = LINE85
+               85
+      $ESET NAME = LINE86
+               86
+      $ESET NAME = LINE87
+               87
+      $ESET NAME = LINE88
+               88
+      $ESET NAME = LINE89
+               89
+      $ESET NAME = LINE90
+               90
+      $ESET NAME = LINE91
+               91
+      $ESET NAME = LINE92
+               92
+      $ESET NAME = LINE93
+               93
+      $ESET NAME = LINE94
+               94
+      $ESET NAME = LINE95
+               95
+      $ESET NAME = LINE96
+               96
+      $ESET NAME = LINE97
+               97
+      $ESET NAME = LINE98
+               98
+      $ESET NAME = LINE99
+               99
+      $ESET NAME = LINE100
+              100
+      $ESET NAME = LINE101
+              101
+      $ESET NAME = LINE102
+              102
+      $ESET NAME = LINE103
+              103
+      $ESET NAME = LINE104
+              104
+      $ESET NAME = LINE105
+              105
+      $ESET NAME = LINE106
+              106
+      $ESET NAME = LINE107
+              107
+      $ESET NAME = LINE108
+              108
+      $ESET NAME = LINE109
+              109
+      $ESET NAME = LINE110
+              110
+      $ESET NAME = LINE111
+              111
+      $ESET NAME = LINE112
+              112
+      $ESET NAME = LINE113
+              113
+      $ESET NAME = LINE114
+              114
+      $ESET NAME = LINE115
+              115
+      $ESET NAME = LINE116
+              116
+!
+      $COOR
+                1 -2.500000E+00 -2.500000E+00  0.000000E+00
+                2  2.500000E+00 -2.500000E+00  0.000000E+00
+                3  2.500000E+00  2.500000E+00  0.000000E+00
+                4 -2.500000E+00  2.500000E+00  0.000000E+00
+                5 -2.500000E+00  0.000000E+00  0.000000E+00
+                6  2.500000E+00  0.000000E+00  0.000000E+00
+                7  0.000000E+00  2.500000E+00  0.000000E+00
+                8  0.000000E+00 -2.500000E+00  0.000000E+00
+                9  0.000000E+00  0.000000E+00  0.000000E+00
+               10 -2.500000E+00 -2.500000E+00  3.600000E+00
+               11  2.500000E+00 -2.500000E+00  3.600000E+00
+               12  2.500000E+00  2.500000E+00  3.600000E+00
+               13 -2.500000E+00  2.500000E+00  3.600000E+00
+               14 -2.500000E+00  0.000000E+00  3.600000E+00
+               15  2.500000E+00  0.000000E+00  3.600000E+00
+               16  0.000000E+00  2.500000E+00  3.600000E+00
+               17  0.000000E+00 -2.500000E+00  3.600000E+00
+               18  0.000000E+00  0.000000E+00  3.600000E+00
+               19 -2.500000E+00 -2.500000E+00  7.200000E+00
+               20  2.500000E+00 -2.500000E+00  7.200000E+00
+               21  2.500000E+00  2.500000E+00  7.200000E+00
+               22 -2.500000E+00  2.500000E+00  7.200000E+00
+               23 -2.500000E+00  0.000000E+00  7.200000E+00
+               24  2.500000E+00  0.000000E+00  7.200000E+00
+               25  0.000000E+00  2.500000E+00  7.200000E+00
+               26  0.000000E+00 -2.500000E+00  7.200000E+00
+               27  0.000000E+00  0.000000E+00  7.200000E+00
+               28 -2.500000E+00 -2.500000E+00  1.080000E+01
+               29  2.500000E+00 -2.500000E+00  1.080000E+01
+               30  2.500000E+00  2.500000E+00  1.080000E+01
+               31 -2.500000E+00  2.500000E+00  1.080000E+01
+               32 -2.500000E+00  0.000000E+00  1.080000E+01
+               33  2.500000E+00  0.000000E+00  1.080000E+01
+               34  0.000000E+00  2.500000E+00  1.080000E+01
+               35  0.000000E+00 -2.500000E+00  1.080000E+01
+               36  0.000000E+00  0.000000E+00  1.080000E+01
+               37 -2.500000E+00 -2.500000E+00  1.440000E+01
+               38  2.500000E+00 -2.500000E+00  1.440000E+01
+               39  2.500000E+00  2.500000E+00  1.440000E+01
+               40 -2.500000E+00  2.500000E+00  1.440000E+01
+               41 -2.500000E+00  0.000000E+00  1.440000E+01
+               42  2.500000E+00  0.000000E+00  1.440000E+01
+               43  0.000000E+00  2.500000E+00  1.440000E+01
+               44  0.000000E+00 -2.500000E+00  1.440000E+01
+               45  0.000000E+00  0.000000E+00  1.440000E+01
+!
+      $PART  NAME = BRACES
+       BRACES
+      $PART  NAME = COLUMNS
+       COLUMNS
+      $PART  NAME = BEAM_X
+       BEAM_X
+      $PART  NAME = BEAM_Y
+       BEAM_Y
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
