@@ -107,3 +107,5 @@
 053 - [Nonlinear vibration localisation in a symmetric system of two coupled beams](https://doi.org/10.1007/s11071-020-05760-x)
 
 054 - [Avoidance of artifacts in harmonicbalance solutions for nonlinear dynamical systems](http://dx.doi.org/10.15632/jtam-pl/118161)
+
+055 - [On Large Amplitude Vibrations of the Softening Duffing Oscillator at Low Excitation Frequencies—Some Fundamental Considerations](https://doi.org/10.3390/app142311411)
