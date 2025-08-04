@@ -1,0 +1,121 @@
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,1,1
+$DEFVAR SYSVAR  TYPE = NAME GEN = S_STEP_,1,1
+$DEFVAR F_E TYPE = REAL LIST = 100.0
+$DEFVAR FID TYPE = NAME GEN = F_,1,1
+
+$ENTER COMPONENT NAME = DFLT_COMP DOFTYPE = DISP
+
+    $LOOP I = 1, 5
+        $SITUATION NAME = SITNAME(I)
+            DFLT_COMP SYSTEM = SYSVAR(I)  CONSTRAINTS = C_STEP_1  LOADING = L_STEP_1  RESULTS = R_STEP_1
+        $END SITUATION
+    $ENDLOOP
+
+    $SITUATION NAME = STEP_6
+       DFLT_COMP SYSTEM = S_STEP_2  CONSTRAINTS = C_STEP_1 LOADING = L_STEP_6
+    $END SITUATION
+
+    $STRUCTURE
+ 
+       $NODE NSET = ALL_NODES
+         100   0.0  0.0  0.0
+         101   1.0  0.0  0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+           1   101
+
+       $ELEMENT TYPE = SPRING1 ESET = K
+           2   100  101
+
+       $ELEMENT TYPE = DAMP1 ESET = C
+           3   100  101
+
+       $ELEMENT TYPE = NLSTIFF  ESET = NL_K
+           4   100  101
+
+       $NSET NAME = GROUND
+           100
+
+       $NSET NAME = FREE
+           101 
+  
+    $END STRUCTURE
+
+    $LOOP I = 1, 5
+        $SYSTEM NAME = SYSVAR(I)
+
+           $GEODAT MASS CONT = MASS
+              GD_M    1.0
+!
+           $GEODAT SPRING CONT = STIFF
+              GD_K   40.0
+
+           $GEODAT DAMPER CONT = DAMP
+              GD_C   0.632455532033676 ! 0.1*np.sqrt(40)
+!
+           $GEODAT SPRING CONT = FUNCTION
+              GD_NL_K  FID(I)
+
+           $ELPROP
+              M     GEODAT = GD_M
+              C     GEODAT = GD_C
+              K     GEODAT = GD_K
+              NL_K  GEODAT = GD_NL_K
+  
+       $END SYSTEM
+    $ENDLOOP
+
+    $CONSTRAINTS NAME = C_STEP_1
+ 
+       $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+       $SUPPRESS DOFS = 1
+          GROUND
+ 
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+        $CONLOAD LPAT = 1
+          FREE 1: F_E(1)
+
+         $FREQLOAD
+           LPAT = 1 TYPE = SINE
+ 
+    $END LOADING
+
+    $LOADING NAME = L_STEP_6
+
+        $CONLOAD LPAT = 1
+          FREE 1: F_E(1)
+
+         $TRANSLOAD
+           LPAT = 1 FUNCTION = 6
+ 
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI  XTYPE = OMEGA
+         0.0   20.0  0.05
+           
+    $END RESULTS
+ 
+$EXIT COMPONENT
+
+$ENTER FUNCTION
+
+    $DEFVAR G TYPE = REAL LIST = 10.0 ! Gap
+    $DEFVAR K_Y TYPE = REAL LIST = 10. 100. 1000. 10000. 100000.
+
+    $LOOP I = 1, 5
+        $FUNCTION FORMULA LABEL = FID(I) DESCRIPTION = 'GAP'
+            F(X) = 0.5*K_Y(I)*(x-G(1))*(TANH(100*(x-G(1)))+1)
+    $ENDLOOP
+
+    $FUNCTION FORMULA FID = 6
+       F(T) = SIN(30.1612*T)
+
+$EXIT FUNCTION
+$FIN
