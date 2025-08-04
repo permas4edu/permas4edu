@@ -109,3 +109,5 @@
 054 - [Avoidance of artifacts in harmonicbalance solutions for nonlinear dynamical systems](http://dx.doi.org/10.15632/jtam-pl/118161)
 
 055 - [On Large Amplitude Vibrations of the Softening Duffing Oscillator at Low Excitation Frequencies—Some Fundamental Considerations](https://doi.org/10.3390/app142311411)
+
+056 - [Local Sensitivity Analysis of Steady-State Response of Rotors with Rub-Impact to Parameters of Rubbing Interfaces](https://doi.org/10.3390/app11031307)
