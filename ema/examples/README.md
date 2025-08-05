@@ -20,4 +20,6 @@
 
 010 - [Finite Element Modelling and Updating of Welded Thin-Walled Beam](http://dx.doi.org/10.15282/ijame.15.4.2018.12.0449)
 
+011 - [Test analysis verification using open software](http://www.sandv.com/downloads/1406bran.pdf).
+
 012 - [Effects of similarity measures and assignment methods on mode pairing for the application of timber plates](https://www.researchgate.net/publication/393077775_Effects_of_similarity_measures_and_assignment_methods_on_mode_pairing_for_the_application_of_timber_plates)
