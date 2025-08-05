@@ -1,0 +1,60 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+
+   $STRUCTURE
+  
+       $NSET NAME = ALL_NODES RULE = ALL
+
+   $END STRUCTURE
+
+   $SYSTEM  NAME = BAS
+!
+      $ELPROP
+       VOLUME1       MATERIAL = MAT_01
+       VOLUME2       MATERIAL = MAT_01
+       VOLUME3       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1  DOFTYPE = DISP
+       X
+      $SUPPRESS  DOFS = 2  DOFTYPE = DISP
+       Y
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       Z0           Z1
+!
+   $END CONSTRAINTS
+
+   $LOADING NAME = L_STEP_1
+
+      $DISLOADN TEMP LPAT = 1
+         ALL_NODES 1.0, 100
+
+      $FUNCTION LIB FID = 100 TYPE = 9
+!      c_0 c_1 c_2 c_3 c_4 c_5 c_6 c_7 c_8 c_9 c_10
+       0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0     
+
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+      $THERMEXP  GENERAL  INPUT = DATA
+        2.300000E-04
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
