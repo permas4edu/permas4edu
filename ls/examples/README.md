@@ -61,3 +61,8 @@
 
 030 - [Consideration of Body Forces within Finite Element Analysis](http://dx.doi.org/10.5545/sv-jme.2017.5081)
 
+031 - NAFEMS Benchmark Example LE1
+
+032 - NAFEMS Benchmark Example LE10
+
+033 - NAFEMS Benchmark Example LE11
