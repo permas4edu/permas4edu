@@ -59,3 +59,5 @@
 0029 - [Transient and Steady State Analysis of a Flexible Coaxial-Rotor System Considering the Effect of Internal Damping on System Stability](https://doi.org/10.1007/s13369-024-09871-0)
 
 0030 - [Periodic solutions in rotor dynamic systems with nonlinear supports: A general approach](https://doi.org/10.1115/1.3269840)
+
+0031 - [Optimization Design and Experimental Study of a1 Two-disk Rotor System Based on Multi-Island Genetic Algorithm](http://dx.doi.org/10.1515/tjj-2017-0010)
