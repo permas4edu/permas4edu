@@ -67,3 +67,5 @@
 033 - [Exploitation of Modal Superposition Toward Forced Vibration Localization in a Coupled Symmetric Oscillator Array](https://doi.org/10.3390/s25103106)
 
 034 - LinkedIn post
+
+035 - [Multibody Models Generated from Natural Language](http://dx.doi.org/10.1007/s11044-023-09962-0)
