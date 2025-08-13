@@ -69,3 +69,5 @@
 034 - [Quantum-Classical Hybrid Genetic Evolutionary Algorithm for Topology Optimization of Continuum Structures](http://dx.doi.org/10.1002/nme.70073)
 
 035 - [A Parameterized Level Set Method for Topology Optimization of Spatially Curved Shell Structures](https://doi.org/10.1016/j.tws.2025.113680)
+
+036 - [Structural topology optimization based on an immersed FEM Level‑Set method](https://doi.org/10.1007/s00158-025-04083-y)
