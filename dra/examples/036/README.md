@@ -2,4 +2,6 @@ The example is adapted from [An effective reduction method with Caughey damping 
 
 $$c=\sqrt{\frac{E}{\rho}},\quad \Delta t = \frac{L_E}{c}$$
 
+![Transient response](Transient_response.png)
+
 ![Wave propagation](wave_propagation.gif "Wave propagation")
