@@ -71,3 +71,5 @@
 035 - [A Parameterized Level Set Method for Topology Optimization of Spatially Curved Shell Structures](https://doi.org/10.1016/j.tws.2025.113680)
 
 036 - [Structural topology optimization based on an immersed FEM Level‑Set method](https://doi.org/10.1007/s00158-025-04083-y)
+
+037 - [Topology optimization of eigenvalues for elastic structures by topological derivatives and time domain response](http://dx.doi.org/10.1299/mej.25-00129)
