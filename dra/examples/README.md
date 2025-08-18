@@ -70,6 +70,6 @@
 
 035 - [Multibody Models Generated from Natural Language](http://dx.doi.org/10.1007/s11044-023-09962-0)
 
-036 -
+036 - [An effective reduction method with Caughey damping for spurious oscillations in dynamic problems](https://doi.org/10.1007/s11012-025-02036-9)
 
 037 - [FE reduced-order model-informed neural operator for structural dynamic response prediction](https://doi.org/10.1016/j.neunet.2025.107437)
