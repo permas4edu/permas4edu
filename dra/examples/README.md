@@ -69,3 +69,7 @@
 034 - LinkedIn post
 
 035 - [Multibody Models Generated from Natural Language](http://dx.doi.org/10.1007/s11044-023-09962-0)
+
+036 -
+
+037 - [FE reduced-order model-informed neural operator for structural dynamic response prediction](https://doi.org/10.1016/j.neunet.2025.107437)
