@@ -1,0 +1,44 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = laihao.dat
+    READ PERMAS FILE = laihao_add.dat
+    READ PERMAS FILE = laihao_sets.dat
+RETURN
+
+TASK 
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+EXEC
+CLOOP LOOPS = 2,9
+    TASK
+    EXEC
+        ACTIVE NSET = F
+        MODAL TIMEHISTORY SITUATION = 'STEP_%(cloop)'  &
+                          LOOPS     = 1000             &
+                          DELTAT    = 0.0004           &
+                          TSTART    = 0.0              &
+                          OUTPUT    = ALL              &
+                          PRIMRES   = REDUCED          &
+                          SOLV      = NEWMARK
+        ACT SIT = 'STEP_%(cloop)'
+    SELECT
+        ACTIVE NSET = F
+        XYDATA ITEM DISP RESULT = TIP DCOMP = 3
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA NAME = TIP
+        GO SPREADSHEET FILE = 'transient_%.3(cloop)'
+        GO PERMAS BINARY FILE = 'transient_tip_%.3(cloop)'  
+    TASK END
+CLOOP END
+STOP

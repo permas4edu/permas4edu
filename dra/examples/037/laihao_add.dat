@@ -1,0 +1,126 @@
+$DEFVAR LOADVAR TYPE = NAME  GEN = L_STEP_,1,1
+$DEFVAR FID TYPE = INTEGER GEN = 1,1
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,2,1
+ 
+$ECHO GEN
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $LOOP I = 1, 8
+       $SITUATION  NAME = SITNAME(I)  PARENT = STEP_1
+          DFLT_COMP  SYSTEM = S_STEP_1  LOADING = LOADVAR(I) 
+       $END SITUATION
+   $ENDLOOP
+!
+   $STRUCTURE
+!
+      $MPC ISURFACE  DPDOFS = 1,2,3  DPITYP = NODE  DOFTYPE = DISP
+                1 TIP         : F
+!
+      $SURFACE ELEMENTS  LABEL = TIP  SYSTEM = LOCAL
+             2656          3
+             2657          3
+             2658          3
+             2659          3
+             2660          3
+             2661          3
+             2662          3
+             2663          3
+             2664          3
+             2665          3
+             2666          3
+             2667          3
+             2668          3
+             2669          3
+             2670          3
+             2671          3
+             2672          3
+             2673          3
+             2674          3
+             2675          3
+             2676          3
+             2677          3
+             2678          3
+             2679          3
+             2680          3
+             2681          3
+             2682          3
+             2683          3
+             2684          3
+             2685          3
+             2686          3
+             2687          3
+             2688          3
+             2689          3
+             2690          3
+             2691          3
+             2692          3
+             2693          3
+             2694          3
+             2695          3
+             2696          3
+             2697          3
+             2698          3
+             2699          3
+             2700          3
+!
+      $NSET NAME = F
+             3905
+!
+      $COOR
+             3905  6.000000E+01  7.500000E+00  1.500000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $COMPDAMP
+      ALPHA =  7.800000E-04  BETA =  1.540000E-01
+!
+   $END SYSTEM
+!------
+   $LOOP I = 1, 8
+       $LOADING  NAME = LOADVAR(I)
+!
+          $CONLOAD  LPAT = 1  DOFTYPE = DISP
+          F            3: -1.000000E+00
+!
+          $TRANSLOAD  DOFTYPE = DISP
+          LPAT =          1  FUNCTION = FID(I)
+!
+          $INIVAL DISP
+           FREE 0.0
+          $INIVAL VELO
+           FREE 0.0
+!
+       $END LOADING
+   $ENDLOOP
+
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!
+!   Low frequency excitation
+!
+    $FUNCTION FORMULA FID = 1 DESCRIPTION = 'F_S1'
+       F(T) = 10*SIN(2*PI*5*T)
+    $FUNCTION FORMULA FID = 2 DESCRIPTION = 'F_S2'
+       F(T) = 10*SIN(2*PI*10*T)
+    $FUNCTION FORMULA FID = 3 DESCRIPTION = 'F_S3'
+       F(T) = 10*SIN(2*PI*15*T)
+    $FUNCTION FORMULA FID = 4 DESCRIPTION = 'F_S4'
+       F(T) = 10*SIN(2*PI*20*T)
+!
+!   High frequency excitation 
+!
+    $FUNCTION FORMULA FID = 5 DESCRIPTION = 'F_S5'
+       F(T) = 10*SIN(2*PI*95*T)
+    $FUNCTION FORMULA FID = 6 DESCRIPTION = 'F_S6'
+       F(T) = 10*SIN(2*PI*100*T)
+    $FUNCTION FORMULA FID = 7 DESCRIPTION = 'F_S7'
+       F(T) = 10*SIN(2*PI*105*T)
+    $FUNCTION FORMULA FID = 8 DESCRIPTION = 'F_S8'
+       F(T) = 10*SIN(2*PI*110*T)    
+$EXIT FUNCTION
+!------------------------------------
+$FIN
