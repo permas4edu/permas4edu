@@ -155,3 +155,5 @@
 077 - [Digital twins as self-models for intelligent structures](http://dx.doi.org/10.13140/RG.2.2.24121.28006)
 
 078 - [A hybrid data-physics framework with conformal GNN for enhanced damage identification](https://doi.org/10.1016/j.aei.2025.103718)
+
+079 - [Dynamic response analysis of acoustic black hole plates with cutouts under arbitrary boundary constraints](https://doi.org/10.1016/j.tws.2025.113859)
