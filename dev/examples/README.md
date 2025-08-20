@@ -157,3 +157,5 @@
 078 - [A hybrid data-physics framework with conformal GNN for enhanced damage identification](https://doi.org/10.1016/j.aei.2025.103718)
 
 079 - [Dynamic response analysis of acoustic black hole plates with cutouts under arbitrary boundary constraints](https://doi.org/10.1016/j.tws.2025.113859)
+
+080 -  [Modal Analysis of a High-Speed Train Gearbox Housing Using Smoothed Finite Element Method](https://doi.org/10.1142/S0219876223500378)
