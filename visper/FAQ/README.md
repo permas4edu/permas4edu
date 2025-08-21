@@ -1,5 +1,15 @@
 ### Frequently Asked Questions
 
+#### Which graphics card is recommended for VisPER?
+
+Nvidia graphics card is preferred.
+
+Whether a computer has multiple graphics cards can usually be determined via the operating system, special software or physical inspection.
+Many laptops with ‘hybrid graphics’ typically have both an integrated graphics unit (iGPU) and a dedicated graphics card (dGPU).
+
+In Windows, you can specify which programme should use which graphics card by using the Windows graphics settings or the graphics card manufacturer's software.
+In modern versions of Windows (Windows 10, version 2004 and later), the Windows settings usually take precedence.
+
 #### Semi-transparent RenderArea shows other windows behind the VisPER MainWindow
 
 On KDE desktops you can look for the Compositor Settings in the System Settings Module and uncheck the checkbox at Enable compositor at startup.  
