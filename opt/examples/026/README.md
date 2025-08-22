@@ -1,5 +1,7 @@
 The example is adapted from [MULTIMODAL ROTOR-DYNAMIC OPTIMIZATION BASED ON TRANSFER MATRIX METHOD FOR DIFFERENT ROTOR STRUCTURES](http://dx.doi.org/10.1115/GT2025-152092)
 
+![hollow shaft](hollow_shaft.png)
+
 Design variables
 
 $$x_1 = d^{(1)}_o$$
