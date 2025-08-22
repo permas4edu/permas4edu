@@ -63,3 +63,5 @@
 0031 - [Optimization Design and Experimental Study of a Two-disk Rotor System Based on Multi-Island Genetic Algorithm](http://dx.doi.org/10.1515/tjj-2017-0010)
 
 0032 - [Multi-Objective Optimization of Three-Stage Turbomachine Rotor Based on Complex Transfer Matrix Method](https://doi.org/10.3390/app142210445)
+
+0033 - [MULTIMODAL ROTOR-DYNAMIC OPTIMIZATION BASED ON TRANSFER MATRIX METHOD FOR DIFFERENT ROTOR STRUCTURES](http://dx.doi.org/10.1115/GT2025-152092)
