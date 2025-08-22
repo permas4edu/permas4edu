@@ -61,3 +61,5 @@
 029 - [Numerical investigation on the dynamic behavior of an onboard rotor system by using the FEM approach](https://doi.org/10.1007/s40430-016-0640-5)
 
 030 -  [Axisymmetric Buckling of Stepped Cylindrical Shells under Axial Compression](https://doi.org/10.1016/j.tws.2025.113836)
+
+031 - [A singular value decomposition component mode synthesis method for built-up structures](https://doi.org/10.1016/j.tws.2025.113826)
