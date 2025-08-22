@@ -1,0 +1,68 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1          2: K
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SPRING  NAME = GD_K  DEID = 1
+      STIFF          1:          1
+      STIFF          2:          1
+      STIFF          3:          1
+      STIFF          4:          2
+      STIFF          5:          2
+      STIFF          6:          2
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_11
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_12
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_13
+
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      F_21
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2
+      F_22
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3
+      F_23
+!
+      $VPARVAL  TYPE = DESVAR
+                1  1.000000E+06  1.000000E+07  1.000000E+08  1.000000E+09
+                2  1.000000E+10  1.000000E+11  1.000000E+12
+!
+      $RESEXT  ITEM
+      F_11 : F_11          1
+      F_12 : F_12          1
+      F_13 : F_13          1
+      F_21 : F_21          1
+      F_22 : F_22          1
+      F_23 : F_23          1
+!
+      $RESEXT FUNCTION
+       DELTAF : F_11 1 : F_21 1 : F_12 1 : F_22 1 : F_13 1 : F_23 1 : 1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION 
+
+   $FUNCTION FORMULA FID = 1
+    F(X1,X2,X3,X4,X5,X6) = (X1-X2)^2/X1^2 + (X3-X4)^2/X3^2 + (X5-X6)^2/X5^2
+ 
+$EXIT FUNCTION
+!------------------------------------
+$FIN

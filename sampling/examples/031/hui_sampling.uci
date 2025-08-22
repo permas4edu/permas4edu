@@ -1,0 +1,42 @@
+NEW
+
+USER
+    CALL TOOL6 P1 = 'pyINTES hui.py' ! generate spring elements along the interface
+RETURN
+
+INPUT
+    READ PERMAS FILE = hui.dat
+    READ PERMAS FILE = hui_spring.dat
+    READ PERMAS FILE = hui_sampling.dat
+RETURN
+
+TASK LOOPS = 12
+EXEC
+
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+IF ('%(tloop)' == 1) THEN 
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_baseline
+ENDIF
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 10
+    GEN MAC SITUATION = STEP_1
+EXPORT
+    OPEN PERMAS ASCII FILE = 'mac_%.3(tloop)'
+    DATA OBJECT MAC.DISP BLOCKFORM = VALUE
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC 
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = SRHIS
+    ITEM XYDATA TYPE = DHIS
+    GO PERMAS BINARY FILE = sampling
+
+STOP
