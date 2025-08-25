@@ -1,0 +1,292 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_4 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  LOADING = L_STEP_4  RESULTS = R_STEP_4
+   $END SITUATION
+
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1          7
+                2          7          8
+                3          8          9
+                4          9          4
+                5          4         10
+                6         10         11
+                7         11         12
+                8         12         13
+                9         13         14
+               10         14         15
+               11         15         16
+               12         16          2
+               13          2         17
+               14         17         18
+               15         18         19
+               16         19         20
+               17         20         21
+               18         21         22
+               19         22         23
+               20         23         24
+               21         24         25
+               22         25         26
+               23         26         27
+               24         27          3
+               25          3         28
+               26         28         29
+               27         29         30
+               28         30         31
+               29         31         32
+               30         32         33
+               31         33          5
+               32          5          6
+      $ELEMENT TYPE = MASS6
+               33          2
+               34          3
+      $ELEMENT TYPE = SPRING3
+               35          4         34
+               36          5         35
+      $ELEMENT TYPE = DAMP3
+               37          4         34
+               38          5         35
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+02
+!
+      $ELSYS RSYS
+       SHAFT         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+               34         35
+      $NSET NAME = SHAFT
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33
+      $ESET NAME = DISC1
+               33
+      $ESET NAME = DISC2
+               34
+      $NSET NAME = DISC1 RULE = ESET
+         DISC1
+      $NSET NAME = DISC2 RULE = ESET
+         DISC2
+      $ESET NAME = K1
+               35
+      $ESET NAME = K2
+               36
+      $ESET NAME = C1
+               37
+      $ESET NAME = C2
+               38
+      $ESET NAME = LINE1
+                1          2          3          4
+      $ESET NAME = LINE2
+                5          6          7          8          9         10         11         12
+      $ESET NAME = LINE3
+               13         14         15         16         17         18         19         20         21         22         23         24
+      $ESET NAME = LINE4
+               25         26         27         28         29         30         31
+      $ESET NAME = LINE5
+               32
+      $ESET NAME = ROTOR
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34
+      $ESET NAME = SHAFT
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  3.450000E+02  0.000000E+00  0.000000E+00
+                3  6.570000E+02  0.000000E+00  0.000000E+00
+                4  1.240000E+02  0.000000E+00  0.000000E+00
+                5  8.620000E+02  0.000000E+00  0.000000E+00
+                6  9.140000E+02  0.000000E+00  0.000000E+00
+                7  3.100000E+01  0.000000E+00  0.000000E+00
+                8  6.200000E+01  0.000000E+00  0.000000E+00
+                9  9.300000E+01  0.000000E+00  0.000000E+00
+               10  1.516250E+02  0.000000E+00  0.000000E+00
+               11  1.792500E+02  0.000000E+00  0.000000E+00
+               12  2.068750E+02  0.000000E+00  0.000000E+00
+               13  2.345000E+02  0.000000E+00  0.000000E+00
+               14  2.621250E+02  0.000000E+00  0.000000E+00
+               15  2.897500E+02  0.000000E+00  0.000000E+00
+               16  3.173750E+02  0.000000E+00  0.000000E+00
+               17  3.710000E+02  0.000000E+00  0.000000E+00
+               18  3.970000E+02  0.000000E+00  0.000000E+00
+               19  4.230000E+02  0.000000E+00  0.000000E+00
+               20  4.490000E+02  0.000000E+00  0.000000E+00
+               21  4.750000E+02  0.000000E+00  0.000000E+00
+               22  5.010000E+02  0.000000E+00  0.000000E+00
+               23  5.270000E+02  0.000000E+00  0.000000E+00
+               24  5.530000E+02  0.000000E+00  0.000000E+00
+               25  5.790000E+02  0.000000E+00  0.000000E+00
+               26  6.050000E+02  0.000000E+00  0.000000E+00
+               27  6.310000E+02  0.000000E+00  0.000000E+00
+               28  6.862857E+02  0.000000E+00  0.000000E+00
+               29  7.155715E+02  0.000000E+00  0.000000E+00
+               30  7.448572E+02  0.000000E+00  0.000000E+00
+               31  7.741428E+02  0.000000E+00  0.000000E+00
+               32  8.034285E+02  0.000000E+00  0.000000E+00
+               33  8.327143E+02  0.000000E+00  0.000000E+00
+               34  1.240000E+02  0.000000E+00  0.000000E+00
+               35  8.620000E+02  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = DISC1
+       DISC1
+      $PART  NAME = DISC2
+       DISC2
+      $PART  NAME = K1
+       K1
+      $PART  NAME = K2
+       K2
+      $PART  NAME = C1
+       C1
+      $PART  NAME = C2
+       C2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_SHAFT              4
+         &        :  1.900000E+01
+!
+      $GEODAT SPRING CONT = STIFF
+         GD_K1  0.0 1.E6  1.E6
+         GD_K2  0.0 1.E6  1.E6
+
+      $GEODAT DAMPER CONT = DAMP
+         GD_C1  0.0 1.E2  1.E2
+         GD_C2  0.0 1.E2  1.E2
+!
+      $GEODAT MASS      CONT = CYLINDER
+       GD_DISC1      7.850000E-09  1.900000E+01  1.500000E+02  2.000000E+01
+       GD_DISC2      7.850000E-09  1.900000E+01  1.500000E+02  2.000000E+01
+!
+      $ELPROP
+       DISC1         GEODAT = GD_DISC1
+       DISC2         GEODAT = GD_DISC2
+!
+       K1            GEODAT = GD_K1
+       K2            GEODAT = GD_K2
+!
+       C1            GEODAT = GD_C1
+       C2            GEODAT = GD_C2
+!
+       SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_SHAFT
+!
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $ADDMATRIX
+         GEOSTIFF
+         CONVSTIFF
+         GYRO
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS  DOFS = 1,4  DOFTYPE = DISP
+       SHAFT
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $INERTIA ROTATION  LPAT = 1
+       ROTOR  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+02  0.000000E+00  0.000000E+00  1.000000E+01
+!
+   $END LOADING
+!------
+   $LOADING NAME = L_STEP_4
+
+       $CONLOAD LPAT = 1
+         DISC1 2: 1.E-3
+!         DISC2 2: 1.E-3
+       $CONLOAD LPAT = 2
+         DISC1 3: 1.E-3
+!         DISC2 3: 1.E-3
+
+       $FREQLOAD
+         LPAT = 1 TYPE = COSINE AMPLITUDE = 1
+         LPAT = 2 TYPE =   SINE AMPLITUDE = 1
+
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+      $ROTSPEED PRIMARY = EQUI
+         0.0  6500.0 50.0
+
+   $END RESULTS
+!------
+   $RESULTS NAME = R_STEP_4
+
+      $FREQUENCY PRIMARY = ROTSPEED
+
+      $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+         0.0  6500.0 50.0
+
+      $ROTSPEED PRIMARY = EIG XTYPE = RPM BOUNDS = 1.0, 6500.0 CLUSTER=5,0.1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1
+      F(X)=(2*PI*X)^2
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_SHAFT  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.170000E+05  2.900000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E-09
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
