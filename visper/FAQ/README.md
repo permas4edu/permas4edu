@@ -10,7 +10,53 @@ Many laptops with ‘hybrid graphics’ typically have both an integrated graphi
 In Windows, you can specify which programme should use which graphics card by using the Windows graphics settings or the graphics card manufacturer's software.
 In modern versions of Windows (Windows 10, version 2004 and later), the Windows settings usually take precedence.
 
-#### Semi-transparent RenderArea shows other windows behind the VisPER MainWindow
+### How can I select the preferred graphics processor on Windows, e.g. Nvidia or Radeon? 
+
+#### Method 1: Windows Graphics Settings (Recommended)
+
+Beginning with Windows 10 (version 2004 and later) and Windows 11, the operating system's built-in Graphics settings are the primary way to select a preferred GPU for a specific application. This method overrides the settings in the GPU manufacturer's control panel.
+
+    Open the Start Menu and type Graphics settings.
+
+Select the Graphics settings result.
+
+Under "Choose an app to set preference", select either Desktop app (for applications you've installed yourself) or Microsoft Store app (for apps from the Microsoft Store).
+
+If the app is a Desktop app, click Browse and navigate to the .exe file for the program.
+
+Once the app is in the list, click on it and then select Options.
+
+A pop-up will appear with three choices. Select High performance to use your dedicated GPU (e.g., NVIDIA or AMD Radeon) and click Save.
+
+Restart the application for the changes to take effect.
+
+#### Method 2: NVIDIA Control Panel
+
+While Windows Graphics settings are now the primary method, the NVIDIA Control Panel still offers a way to configure GPU preferences.
+
+    Right-click on your desktop and select NVIDIA Control Panel.
+
+In the left-hand menu, go to 3D Settings > Manage 3D Settings.
+
+On the Program Settings tab, select the application from the drop-down list. If the app isn't listed, click Add and browse for its .exe file.
+
+Under "Select the preferred graphics processor for this program", choose High-performance NVIDIA processor.
+
+Click Apply.
+
+#### Method 3: AMD Radeon Software
+
+Similar to NVIDIA, AMD's software allows for GPU selection, particularly for "switchable graphics" laptops.
+
+    Right-click on your desktop and select AMD Radeon Software.
+
+    Navigate to Gaming > Games. 
+    You can either select an application that is already listed or use the "Add a Game" button to add a new one.
+
+    Once you select a game, a new panel will appear with various settings. 
+    Under "Graphics Profile", choose "Radeon GPU" (for high performance).
+
+### Semi-transparent RenderArea shows other windows behind the VisPER MainWindow
 
 On KDE desktops you can look for the Compositor Settings in the System Settings Module and uncheck the checkbox at Enable compositor at startup.  
 On Gnome desktops you may use the environment variable setting
