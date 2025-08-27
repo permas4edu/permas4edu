@@ -1,0 +1,80 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DNODE
+                8: TRUSS
+         &      :          3          4          5          6          7
+!
+      $DSVLINK SAME
+                8:          9
+               10:         11
+!
+      $DSVNODE
+                8          3:          8
+                9          7:          8
+               10          4:          8
+               11          6:          8
+               12          5:          8
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVCOOR  KIND = DIRECT
+                3 1 : -1.000000E+00 :          8
+                7 1 :  1.000000E+00 :          9
+                4 2 :  1.000000E+00 :         10
+                6 2 :  1.000000E+00 :         11
+                5 2 :  1.000000E+00 :         12
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                8 -1.000000E+00  0.000000E+00
+               10  0.000000E+00  1.000000E+00
+               12  0.000000E+00  1.000000E+00
+!
+      $DSVMLIM
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+               11  1.000000E-01
+               12  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS  
+!
+      $RSLITEM DISP TYPE = SET SITUATION = STEP_1  LPAT = 1
+         V1 : P 2
+!
+      $RESEXT ITEM
+         V1 : V1 1
+!
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1 LPAT = 1
+        CMPL
+
+      $RESEXT ITEM
+        CMPL : CMPL 1
+!
+      $RSLITEM ELSTRESS TYPE = COMPONENT SITUATION = STEP_1 LPAT = 1
+        SIGMA :  4
+!
+      $RESEXT ITEM
+        SIGMAX : SIGMA 1 +1
+        SIGMIN : SIGMA 1 -1
+!
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1 
+        WGT
+!
+      $RESEXT ITEM
+        WGT : WGT 1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

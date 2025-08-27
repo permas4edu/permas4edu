@@ -1,0 +1,54 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = michell.dat
+    READ PERMAS FILE = michell_sizing.dat
+    READ PERMAS FILE = michell_shape.dat
+RETURN
+
+TASK LOOPS = 100
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN STRESS RES
+    GEN EL STRESS
+EXPORT
+    ITEM CLEAR
+    ITEM STRESS RES VEC
+    GO PERMAS BINARY FILE = 'stress_resultants_%.3(tloop)'
+    GO PERMAS FILE = 'stress_resultants_%.3(tloop)'
+EXEC
+    ACT SIT = OPT
+    OPTIM TOLOBJ = 1.E-3 TOLDV = 1.E-2 METHOD = ACP
+    GEN EPRES
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    ITEM XYDATA TYPE = MHIS
+    ITEM XYDATA TYPE = DHIS
+    GO PERMAS BINARY FILE = 'opt_xy_%.3(tloop)'
+    ITEM CLEAR
+    CURRENT COLUMNS = 1
+    ITEM EPRES GEDATYPE = FLANGE
+    GO PERMAS BINARY FILE = 'epres_%.3(tloop)'
+    ITEM CLEAR
+    ITEM COOR MOD
+    GO PERMAS BINARY FILE = 'coor_mod_%.3(tloop)'
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM MODL NEWCOOR
+    CURRENT COLUMNS = 1
+    ITEM EPRES GEDATYPE = FLANGE
+    GO PERMAS BINARY FILE = newcoor_epres
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO PERMAS BINARY FILE = monitoring
+    GO SPREADSHEET FILE = monitoring
+USER
+    CALL TOOL6 P1 = 'pyINTES michell.py monitoring_xdhis.csv monitoring_srhis.csv'
+RETURN
+STOP
