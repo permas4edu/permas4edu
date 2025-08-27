@@ -49,3 +49,7 @@
 024 - [Artificial neural network–infused polar fox algorithm for optimal design of vehicle suspension components](https://doi.org/10.1515/mt-2025-0043)
 
 025 - [OpenPyStruct: Open-source toolkit for machine learning-driven structural optimization](https://doi.org/10.1016/j.engstruct.2025.120869)
+
+026 - [MULTIMODAL ROTOR-DYNAMIC OPTIMIZATION BASED ON TRANSFER MATRIX METHOD FOR DIFFERENT ROTOR STRUCTURES](http://dx.doi.org/10.1115/GT2025-152092)
+
+027 - [Combined shape and sizing optimization of truss structures](https://doi.org/10.1007/s00466-002-0343-x)
