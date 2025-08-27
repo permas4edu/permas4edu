@@ -24,4 +24,6 @@
 
 012 -  [Straightforward Superposition: An Analytic Framework to Buckling in Orthotropic Rectangular Plates](https://doi.org/10.1061/JENMDT.EMENG-8554)
 
-013 - 
+013 - Thermal buckling (LinkedIn)
+
+014 - [On a remarkable geometric-mechanical synergism based on a novel linear eigenvalue problem](https://doi.org/10.1007/s00707-021-03091-5)
