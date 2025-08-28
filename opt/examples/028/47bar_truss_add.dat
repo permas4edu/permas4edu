@@ -1,0 +1,98 @@
+$DEFVAR EID TYPE = INTEGER GEN = 1,1
+$DEFVAR GD  TYPE = NAME GEN = GD_,1,1
+$DEFVAR ESET TYPE = NAME GEN = E_,1,1
+
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+
+      $LOOP I = 1, 47
+         $ESET NAME = ESET(I)
+            EID(I)
+      $ENDLOOP
+
+   $END STRUCTURE
+
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       N17            2.669000E+04
+       N22          2: -6.227000E+04
+      $CONLOAD  LPAT = 2  DOFTYPE = DISP
+       N17            2.669000E+04
+      $CONLOAD  LPAT = 3  DOFTYPE = DISP
+       N22          2: -6.227000E+04
+!
+   $END LOADING
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       SPC
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ALL_NODES
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       $LOOP I = 1, 27
+             GD(I)      0.0032258
+       $ENDLOOP
+!
+      $ELPROP
+       TRUSS         MATERIAL = MAT_TRUSS
+       DE_01  GEODAT = GD_1
+       DE_02  GEODAT = GD_2
+       DE_03  GEODAT = GD_3
+       DE_04  GEODAT = GD_4
+       DE_05  GEODAT = GD_5
+       DE_06  GEODAT = GD_6
+       DE_07  GEODAT = GD_7
+       DE_08  GEODAT = GD_8
+       DE_09  GEODAT = GD_9
+       DE_10  GEODAT = GD_10
+       DE_11  GEODAT = GD_11
+       DE_12  GEODAT = GD_12
+       DE_13  GEODAT = GD_13
+       DE_14  GEODAT = GD_14
+       DE_15  GEODAT = GD_15
+       DE_16  GEODAT = GD_16
+       DE_17  GEODAT = GD_17
+       DE_18  GEODAT = GD_18
+       DE_19  GEODAT = GD_19
+       DE_20  GEODAT = GD_20
+       DE_21  GEODAT = GD_21
+       DE_22  GEODAT = GD_22
+       DE_23  GEODAT = GD_23
+       DE_24  GEODAT = GD_24
+       DE_25  GEODAT = GD_25
+       DE_26  GEODAT = GD_26
+       DE_27  GEODAT = GD_27
+ 
+       $ENDLOOP
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_TRUSS  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        8.303970E+03
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.068427E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN

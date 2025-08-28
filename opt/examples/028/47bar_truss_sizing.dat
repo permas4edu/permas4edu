@@ -1,0 +1,175 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DFLA
+                1          1: DE_01
+                2          2: DE_02
+                3          3: DE_03
+                4          4: DE_04
+                5          5: DE_05
+                6          6: DE_06
+                7          7: DE_07
+                8          8: DE_08
+                9          9: DE_09
+               10         10: DE_10
+               11         11: DE_11
+               12         12: DE_12
+               13         13: DE_13
+               14         14: DE_14
+               15         15: DE_15
+               16         16: DE_16
+               17         17: DE_17
+               18         18: DE_18
+               19         19: DE_19
+               20         20: DE_20
+               21         21: DE_21
+               22         22: DE_22
+               23         23: DE_23
+               24         24: DE_24
+               25         25: DE_25
+               26         26: DE_26
+               27         27: DE_27
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR FLANGE  NAME = GD_1  DEID = 1  NODES = ALL
+      SECTION          1:          1
+      $DVGPAR FLANGE  NAME = GD_2  DEID = 2  NODES = ALL
+      SECTION          1:          2
+      $DVGPAR FLANGE  NAME = GD_3  DEID = 3  NODES = ALL
+      SECTION          1:          3
+      $DVGPAR FLANGE  NAME = GD_4  DEID = 4  NODES = ALL
+      SECTION          1:          4
+      $DVGPAR FLANGE  NAME = GD_5  DEID = 5  NODES = ALL
+      SECTION          1:          5
+      $DVGPAR FLANGE  NAME = GD_6  DEID = 6  NODES = ALL
+      SECTION          1:          6
+      $DVGPAR FLANGE  NAME = GD_7  DEID = 7  NODES = ALL
+      SECTION          1:          7
+      $DVGPAR FLANGE  NAME = GD_8  DEID = 8  NODES = ALL
+      SECTION          1:          8
+      $DVGPAR FLANGE  NAME = GD_9  DEID = 9  NODES = ALL
+      SECTION          1:          9
+      $DVGPAR FLANGE  NAME = GD_10  DEID = 10  NODES = ALL
+      SECTION          1:         10
+      $DVGPAR FLANGE  NAME = GD_11  DEID = 11  NODES = ALL
+      SECTION          1:         11
+      $DVGPAR FLANGE  NAME = GD_12  DEID = 12  NODES = ALL
+      SECTION          1:         12
+      $DVGPAR FLANGE  NAME = GD_13  DEID = 13  NODES = ALL
+      SECTION          1:         13
+      $DVGPAR FLANGE  NAME = GD_14  DEID = 14  NODES = ALL
+      SECTION          1:         14
+      $DVGPAR FLANGE  NAME = GD_15  DEID = 15  NODES = ALL
+      SECTION          1:         15
+      $DVGPAR FLANGE  NAME = GD_16  DEID = 16  NODES = ALL
+      SECTION          1:         16
+      $DVGPAR FLANGE  NAME = GD_17  DEID = 17  NODES = ALL
+      SECTION          1:         17
+      $DVGPAR FLANGE  NAME = GD_18  DEID = 18  NODES = ALL
+      SECTION          1:         18
+      $DVGPAR FLANGE  NAME = GD_19  DEID = 19  NODES = ALL
+      SECTION          1:         19
+      $DVGPAR FLANGE  NAME = GD_20  DEID = 20  NODES = ALL
+      SECTION          1:         20
+      $DVGPAR FLANGE  NAME = GD_21  DEID = 21  NODES = ALL
+      SECTION          1:         21
+      $DVGPAR FLANGE  NAME = GD_22  DEID = 22  NODES = ALL
+      SECTION          1:         22
+      $DVGPAR FLANGE  NAME = GD_23  DEID = 23  NODES = ALL
+      SECTION          1:         23
+      $DVGPAR FLANGE  NAME = GD_24  DEID = 24  NODES = ALL
+      SECTION          1:         24
+      $DVGPAR FLANGE  NAME = GD_25  DEID = 25  NODES = ALL
+      SECTION          1:         25
+      $DVGPAR FLANGE  NAME = GD_26  DEID = 26  NODES = ALL
+      SECTION          1:         26
+      $DVGPAR FLANGE  NAME = GD_27  DEID = 27  NODES = ALL
+      SECTION          1:         27
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  6.451600E-05  3.225800E-03
+                2  6.451600E-05  3.225800E-03
+                3  6.451600E-05  3.225800E-03
+                4  6.451600E-05  3.225800E-03
+                5  6.451600E-05  3.225800E-03
+                6  6.451600E-05  3.225800E-03
+                7  6.451600E-05  3.225800E-03
+                8  6.451600E-05  3.225800E-03
+                9  6.451600E-05  3.225800E-03
+               10  6.451600E-05  3.225800E-03
+               11  6.451600E-05  3.225800E-03
+               12  6.451600E-05  3.225800E-03
+               13  6.451600E-05  3.225800E-03
+               14  6.451600E-05  3.225800E-03
+               15  6.451600E-05  3.225800E-03
+               16  6.451600E-05  3.225800E-03
+               17  6.451600E-05  3.225800E-03
+               18  6.451600E-05  3.225800E-03
+               19  6.451600E-05  3.225800E-03
+               20  6.451600E-05  3.225800E-03
+               21  6.451600E-05  3.225800E-03
+               22  6.451600E-05  3.225800E-03
+               23  6.451600E-05  3.225800E-03
+               24  6.451600E-05  3.225800E-03
+               25  6.451600E-05  3.225800E-03
+               26  6.451600E-05  3.225800E-03
+               27  6.451600E-05  3.225800E-03
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        0.000000E+00
+!
+      $DCONSTRAINT ELSTRESS  TYPE = SET  SITUATION = STEP_1  LPAT = 1  DATTYPE = REAL
+      SIGMA_1      : TRUSS          4 -1.034210E+08  1.378952E+08:         47
+      $DCONSTRAINT ELSTRESS  TYPE = SET  SITUATION = STEP_1  LPAT = 2  DATTYPE = REAL
+      SIGMA_2      : TRUSS          4 -1.034210E+08  1.378952E+08:         47
+      $DCONSTRAINT ELSTRESS  TYPE = SET  SITUATION = STEP_1  LPAT = 3  DATTYPE = REAL
+      SIGMA_3      : TRUSS          4 -1.034210E+08  1.378952E+08:         47
+!
+      $DOBJECT  CONSTRAINT = WGT
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+               11  1.000000E-01
+               12  1.000000E-01
+               13  1.000000E-01
+               14  1.000000E-01
+               15  1.000000E-01
+               16  1.000000E-01
+               17  1.000000E-01
+               18  1.000000E-01
+               19  1.000000E-01
+               20  1.000000E-01
+               21  1.000000E-01
+               22  1.000000E-01
+               23  1.000000E-01
+               24  1.000000E-01
+               25  1.000000E-01
+               26  1.000000E-01
+               27  1.000000E-01
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
