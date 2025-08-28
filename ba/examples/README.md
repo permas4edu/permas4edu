@@ -27,3 +27,5 @@
 013 - Thermal buckling (LinkedIn)
 
 014 - [On a remarkable geometric-mechanical synergism based on a novel linear eigenvalue problem](https://doi.org/10.1007/s00707-021-03091-5)
+
+015 - [Are the terms stiffening/softening structures mechanically unambiguous?](https://doi.org/10.1016/j.euromechsol.2022.104756)
