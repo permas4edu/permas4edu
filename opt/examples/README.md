@@ -53,3 +53,5 @@
 026 - [MULTIMODAL ROTOR-DYNAMIC OPTIMIZATION BASED ON TRANSFER MATRIX METHOD FOR DIFFERENT ROTOR STRUCTURES](http://dx.doi.org/10.1115/GT2025-152092)
 
 027 - [Combined shape and sizing optimization of truss structures](https://doi.org/10.1007/s00466-002-0343-x)
+
+028 - [Combined Size and Shape Optimization of Truss Structures Using the Heap-Based Optimizer (HBO) Algorithm](https://doi.org/10.1007/s13369-024-09372-0)
