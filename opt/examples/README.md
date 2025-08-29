@@ -57,3 +57,5 @@
 028 - [Combined Size and Shape Optimization of Truss Structures Using the Heap-Based Optimizer (HBO) Algorithm](https://doi.org/10.1007/s13369-024-09372-0)
 
 029 - [Structural Modification and Active Vibration Control by the Receptance Method Review and Tutorial](http://dx.doi.org/10.2139/ssrn.5369645)
+
+030 -  [Eigenstructure assignment in undamped vibrating systems: A convex-constrained modification method based on receptances](http://dx.doi.org/10.1016/j.ymssp.2011.09.010)
