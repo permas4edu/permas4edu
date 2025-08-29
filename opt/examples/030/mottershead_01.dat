@@ -1,0 +1,116 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+   $SITUATION NAME = STEP_1
+      DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+   $END SITUATION
+
+   $STRUCTURE
+
+        $NSET NAME = GROUND
+           100 200 300 400 500
+ 
+        $NODE NSET = ALL_NODES
+          100  0.0  0.0  0.0
+          101  1.0  0.0  0.0
+          102  2.0  0.0  0.0
+          103  3.0  0.0  0.0
+          104  4.0  0.0  0.0
+          105  5.0  0.0  0.0
+          200  1.5  0.0  0.0
+          300  2.5  0.0  0.0
+          400  3.5  0.0  0.0
+          500  4.5  0.0  0.0
+          
+        $ELEMENT TYPE = MASS3 ESET = M1
+            1  101
+        $ELEMENT TYPE = MASS3 ESET = M2
+            2  102
+        $ELEMENT TYPE = MASS3 ESET = M3
+            3  103
+        $ELEMENT TYPE = MASS3 ESET = M4
+            4  104
+        $ELEMENT TYPE = MASS3 ESET = M5
+            5  105
+ 
+        $ELEMENT TYPE = SPRING1 ESET = KG1
+            6  100 101
+        $ELEMENT TYPE = SPRING1 ESET = KG2
+            7  200 102
+        $ELEMENT TYPE = SPRING1 ESET = KG3
+            8  300 103
+        $ELEMENT TYPE = SPRING1 ESET = KG4
+            9  400 104
+        $ELEMENT TYPE = SPRING1 ESET = KG5
+           10  500 105
+
+        $ELEMENT TYPE = SPRING1 ESET = K12
+           11  101 102
+        $ELEMENT TYPE = SPRING1 ESET = K23
+           12  102 103
+        $ELEMENT TYPE = SPRING1 ESET = K34
+           13  103 104
+        $ELEMENT TYPE = SPRING1 ESET = K45
+           14  104 105
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+       $GEODAT MASS CONT = MASS
+           GD_M1  1.73
+           GD_M2  5.12
+           GD_M3  8.21
+           GD_M4  2.61
+           GD_M5  1.34
+
+       $GEODAT SPRING CONT = STIFF
+           GD_K12  7.36E4
+           GD_K23  6.82E4
+           GD_K34  7.35E4
+           GD_K45  8.21E4
+! 
+!           GD_KG1   4.83E5
+!           GD_KG2   4.83E5
+!           GD_KG3   4.83E5
+!           GD_KG4   4.83E5
+!           GD_KG5   4.83E5
+
+           GD_KG1   9.89E4
+           GD_KG2   9.89E4
+           GD_KG3   9.89E4
+           GD_KG4   9.89E4
+           GD_KG5   9.89E4
+ 
+       $ELPROP
+           M1  GEODAT = GD_M1
+           M2  GEODAT = GD_M2
+           M3  GEODAT = GD_M3
+           M4  GEODAT = GD_M4
+           M5  GEODAT = GD_M5
+
+!
+           K12  GEODAT = GD_K12
+           K23  GEODAT = GD_K23
+           K34  GEODAT = GD_K34
+           K45  GEODAT = GD_K45
+
+           KG1  GEODAT = GD_KG1
+           KG2  GEODAT = GD_KG2
+           KG3  GEODAT = GD_KG3
+           KG4  GEODAT = GD_KG4 
+           KG5  GEODAT = GD_KG5
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 2,3
+           ALL_NODES
+
+        $SUPPRESS DOFS = 1
+           GROUND
+
+    $END CONSTRAINTS  
+ 
+$EXIT COMPONENT
+$FIN

@@ -1,0 +1,134 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: KG1
+                2          2: KG2
+                3          3: KG3
+                4          4: KG4
+                5          5: KG5
+      $DELEMENT TYPE = DMASS
+                6          6: M1
+                7          7: M2
+                8          8: M3
+                9          9: M4
+               10         10: M5
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SPRING  NAME = GD_KG1  DEID = 1
+      STIFF          1:          1
+      $DVGPAR SPRING  NAME = GD_KG2  DEID = 2
+      STIFF          1:          2
+      $DVGPAR SPRING  NAME = GD_KG3  DEID = 3
+      STIFF          1:          3
+      $DVGPAR SPRING  NAME = GD_KG4  DEID = 4
+      STIFF          1:          4
+      $DVGPAR SPRING  NAME = GD_KG5  DEID = 5
+      STIFF          1:          5
+      $DVGPAR MASS  NAME = GD_M1  DEID = 6
+      MASS          1:          6
+      $DVGPAR MASS  NAME = GD_M2  DEID = 7
+      MASS          1:          7
+      $DVGPAR MASS  NAME = GD_M3  DEID = 8
+      MASS          1:          8
+      $DVGPAR MASS  NAME = GD_M4  DEID = 9
+      MASS          1:          9
+      $DVGPAR MASS  NAME = GD_M5  DEID = 10
+      MASS          1:         10
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  9.890000E+04  4.830000E+05
+                2  9.890000E+04  4.830000E+05
+                3  9.890000E+04  4.830000E+05
+                4  9.890000E+04  4.830000E+05
+                5  9.890000E+04  4.830000E+05
+                6  1.730000E+00  3.730000E+00
+                7  5.120000E+00  7.120000E+00
+                8  8.210000E+00  1.021000E+01
+                9  2.610000E+00  4.610000E+00
+               10  1.340000E+00  3.340000E+00
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3  DATTYPE = REAL
+      F_3A         :  3.900000E+01      NO
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3  DATTYPE = REAL
+      F_3          :  3.900000E+01      NO
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 4  DATTYPE = REAL
+      F_4          :  5.500000E+01      NO
+!
+      $DCFUNCTION CSTID = LSTSQ FUNCTION = 1 EQUALITY = YES
+         1 DCONSTRAINT : F_3
+         2 PARAM       : 3.900000E+01     
+         3 DCONSTRAINT : F_4
+         4 PARAM       : 5.500000E+01
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+         F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+         F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+         F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 4
+         F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 5
+         F_5
+
+      $RESEXT FUNCTION
+         OMEGA_1 : F_1 1 : 2
+         OMEGA_2 : F_2 1 : 2
+         OMEGA_3 : F_3 1 : 2
+         OMEGA_4 : F_4 1 : 2
+         OMEGA_5 : F_5 1 : 2
+
+      $RESEXT ITEM
+          F_1 : F_1 1
+          F_2 : F_2 1
+          F_3 : F_3 1
+          F_4 : F_4 1
+          F_5 : F_5 1
+
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1
+      F(X1,X2,X3,X4) = (X1-X2)^2 + (X3-X4)^2
+
+    $FUNCTION FORMULA FID = 2
+      F(X) = 2*PI*X
+ 
+$EXIT FUNCTION  
+!------------------------------------
+$FIN
