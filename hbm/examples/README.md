@@ -111,3 +111,5 @@
 055 - [On Large Amplitude Vibrations of the Softening Duffing Oscillator at Low Excitation Frequencies—Some Fundamental Considerations](https://doi.org/10.3390/app142311411)
 
 056 - [Local Sensitivity Analysis of Steady-State Response of Rotors with Rub-Impact to Parameters of Rubbing Interfaces](https://doi.org/10.3390/app11031307)
+
+057 -  [Identification and influence of cubic nonlinear damping of vertical track nonlinear energy sinks](https://doi.org/10.1016/j.ymssp.2025.113164)
