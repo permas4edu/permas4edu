@@ -59,3 +59,5 @@
 029 - [Structural Modification and Active Vibration Control by the Receptance Method Review and Tutorial](http://dx.doi.org/10.2139/ssrn.5369645)
 
 030 -  [Eigenstructure assignment in undamped vibrating systems: A convex-constrained modification method based on receptances](http://dx.doi.org/10.1016/j.ymssp.2011.09.010)
+
+031 - [A parametric study on the longitudinal stiffeners of web panels](https://doi.org/10.1016/j.tws.2008.02.004)
