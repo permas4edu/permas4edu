@@ -1,0 +1,49 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = alinia_model.dat
+    READ PERMAS FILE = alinia.dat
+    READ PERMAS FILE = alinia_opt.dat
+RETURN
+
+TASK LOOPS = 41 
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXEC
+    ACT SIT = STEP_2
+    BUCKLING ANALYSIS MODES = 3 SIGN = POSITIVE
+EXPORT
+    ITEM CLEAR
+    CURRENT COLUMNS = 1
+    ITEM MODL NEWCOOR
+    ITEM DISP
+    GO PERMAS BINARY FILE = 'buckling_%.3(tloop)'
+EXEC
+    ACT SIT = OPT 
+    OPTIM TOLOBJ = 1.E-4 TOLDV = 1.E-3 DSMETHOD = NONE  METHOD = SQP
+EXPORT
+    ITEM CLEAR
+    ITEM COOR MOD
+    GO PERMAS BINARY FILE = 'coor_mod_%.3(tloop)'
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    ITEM XYDATA TYPE = DHIS
+    GO PERMAS BINARY FILE = 'alinia_xy_%.3(tloop)'
+TASK END
+EXPORT
+    ITEM CLEAR  
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = monitoring
+    GO PERMAS BINARY FILE = monitoring
+EXPORT
+    ACT SIT = STEP_2
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = buckling_opt
+USER
+    CALL TOOL6 P1 = 'pyINTES alinia_opt.py monitoring_xdhis.csv monitoring_srhis.csv'
+RETURN
+STOP
