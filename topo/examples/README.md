@@ -73,3 +73,5 @@
 036 - [Structural topology optimization based on an immersed FEM Level‑Set method](https://doi.org/10.1007/s00158-025-04083-y)
 
 037 - [Topology optimization of eigenvalues for elastic structures by topological derivatives and time domain response](http://dx.doi.org/10.1299/mej.25-00129)
+
+038 -  [A 499-line MATLAB implementation for frictional contact topology optimization](https://doi.org/10.1007/s00158-025-04081-0)
