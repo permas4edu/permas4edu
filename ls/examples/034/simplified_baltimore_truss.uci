@@ -1,0 +1,18 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = simplified_baltimore_truss.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN STRESS RES
+    GEN EL STRESS
+EXPORT
+    ITEM MODL
+    ITEM STRESS RES! VEC
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
