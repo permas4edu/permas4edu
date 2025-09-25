@@ -66,3 +66,5 @@
 032 - NAFEMS Benchmark Example LE10
 
 033 - NAFEMS Benchmark Example LE11
+
+034 - Baltimore Truss structures
