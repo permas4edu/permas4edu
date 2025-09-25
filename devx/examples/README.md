@@ -69,3 +69,5 @@
 0034 - [ROTORDYNAMICS OPTIMIZATION USING DIFFERENT POPULATION-BASED ALGORITHMS WITH TRANSFER MATRIX METHOD](http://dx.doi.org/10.1115/GT2025-152090)
 
 0035 - [Balancing of rotating machines based on the Kriging surrogate approach](https://doi.org/10.1177/09544062251352620)
+
+0036 - [Adjusting complex rotor models response magnitudes at resonances using damping variables](https://virtual.oxfordabstracts.com/event/4971/submission/2)
