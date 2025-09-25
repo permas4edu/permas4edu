@@ -25,4 +25,7 @@ EXPORT
     GO SPREADSHEET FILE = campbell
     GO PERMAS BINARY FILE = campbell   
 TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES overhung.py campbell_rsfrq.csv'
+RETURN
 STOP
