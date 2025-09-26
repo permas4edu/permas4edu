@@ -74,4 +74,6 @@
 
 037 - [Topology optimization of eigenvalues for elastic structures by topological derivatives and time domain response](http://dx.doi.org/10.1299/mej.25-00129)
 
-038 -  [A 499-line MATLAB implementation for frictional contact topology optimization](https://doi.org/10.1007/s00158-025-04081-0)
+038 - [A 499-line MATLAB implementation for frictional contact topology optimization](https://doi.org/10.1007/s00158-025-04081-0)
+
+039 - [Human‑augmented topology optimization design with multi‑framework intervention](https://doi.org/10.1007/s00366-024-02102-y)
