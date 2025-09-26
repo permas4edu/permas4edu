@@ -1,0 +1,31 @@
+SET MODETRACKING = LASTITER
+
+NEW
+
+INPUT
+    READ PERMAS FILE = two_dof_mass_spring.dat
+    READ PERMAS FILE = two_dof_mass_spring_sampling.dat
+    READ PERMAS FILE = two_dof_mass_spring_sampling_shape.dat
+RETURN
+
+TASK LOOPS = 21
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 2
+EXPORT
+    ITEM MODL NEWCOOR
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO PERMAS BINARY FILE = sampling
+    GO SPREADSHEET FILE = sampling
+USER  
+    CALL TOOL6 P1 = 'pyINTES two_dof_mass_spring_shape.py sampling_xdhis.csv sampling_srhis.csv'
+RETURN
+STOP
