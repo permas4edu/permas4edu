@@ -64,4 +64,4 @@
 
 031 - [A singular value decomposition component mode synthesis method for built-up structures](https://doi.org/10.1016/j.tws.2025.113826)
 
-032 - 
+032 - [A novel approach to surrogate modelling of modal properties: Mode-shape-adapted input parameter domain cutting](https://doi.org/10.1016/j.ymssp.2025.113381)
