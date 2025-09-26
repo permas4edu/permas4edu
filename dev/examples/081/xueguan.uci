@@ -1,0 +1,16 @@
+NEW
+
+INPUT
+   READ PERMAS FILE = xueguan.dat
+   READ PERMAS FILE = xueguan_add.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 4
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+TASK END
+STOP
