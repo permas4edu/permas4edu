@@ -160,4 +160,4 @@
 
 080 -  [Modal Analysis of a High-Speed Train Gearbox Housing Using Smoothed Finite Element Method](https://doi.org/10.1142/S0219876223500378)
 
-081 - [A novel geometric nonlinear reduced order modeling method using multi‑fidelity surrogate for real‑time structural analysis](https://doi.org/10.1007 s00158-023-03689-4)
+081 - [A novel geometric nonlinear reduced order modeling method using multi‑fidelity surrogate for real‑time structural analysis](https://doi.org/10.1007s00158-023-03689-4)
