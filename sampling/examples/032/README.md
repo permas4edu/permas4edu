@@ -5,3 +5,5 @@ The example is adapted from [A novel approach to surrogate modelling of modal pr
 ![mode_01a.gif](mode_01a.gif "First mode k1=k2=1.0")
 
 ![mode_02a.gif](mode_02a.gif "Second mode k1=k2=1.0")
+
+![Veering](Sampling_veering.png)
