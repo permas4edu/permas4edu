@@ -113,3 +113,5 @@
 056 - [Local Sensitivity Analysis of Steady-State Response of Rotors with Rub-Impact to Parameters of Rubbing Interfaces](https://doi.org/10.3390/app11031307)
 
 057 -  [Identification and influence of cubic nonlinear damping of vertical track nonlinear energy sinks](https://doi.org/10.1016/j.ymssp.2025.113164)
+
+058 - [Localization and identification of structural nonlinearities using cascaded optimization and neural networks](https://doi.org/10.1016/j.ymssp.2017.03.030)
