@@ -14,7 +14,7 @@ Open index.html with your favourite browser to access the former examples from t
 
 ### Feedback 
 
-$$\textrm{\color{blue}{If permas4edu helped you please consider adding a star here on GitHub. This means a lot to the author.}}$$
+$$\textrm{\color{blue}{If permas4edu helped you, please consider adding a star here on GitHub. This means a lot to the author.}}$$
 
 ### Replication of results
 
