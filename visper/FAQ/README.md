@@ -119,6 +119,8 @@ def getColorOfElemGroup(eg):
   Under **Scale & layout**, choose a recommended scaling level e.g. 100% or 150%
 
   ![Appearance](appearance.png "Extras --> Customize --> General --> Appearance")
+
+  ![Global scale](global_scale.png)
  
 ### Fusion style
 
