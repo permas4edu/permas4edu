@@ -77,3 +77,5 @@
 038 - [A 499-line MATLAB implementation for frictional contact topology optimization](https://doi.org/10.1007/s00158-025-04081-0)
 
 039 - [Human‑augmented topology optimization design with multi‑framework intervention](https://doi.org/10.1007/s00366-024-02102-y)
+
+040 - [A level set-based structural topology optimization method with centre of mass control](https://doi.org/10.1051/smdo/2025025)
