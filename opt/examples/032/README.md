@@ -2,3 +2,4 @@ The example is adapted from [Omnidirectional multi-view high-speed-camera-based 
 
 Thanks to Krištof Čufar and Janko Slavič for sharing an .stl file of the airplane model and private communication. Their support is greatly appreciated.
 
+![Airplane](airplane_01.gif)
