@@ -1,0 +1,36 @@
+SET MODETRACKING = LASTITER
+
+NEW
+
+INPUT
+    READ PERMAS FILE = A380_decimated_tet10.dat ! finite element model
+    READ PERMAS FILE = A380_sizing.dat  ! optimization relevant data
+
+RETURN
+
+TASK LOOPS = 20
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC
+    ACT SIT = OPT
+    OPTIM METHOD = ACP
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS  ! design variable history
+    ITEM XYDATA TYPE = OHIS  ! objective function
+    ITEM XYDATA TYPE = CHIS  ! constraint history
+    ITEM XYDATA TYPE = RHIS  ! relative constraint history
+    
+    GO PERMAS BINARY FILE = 'opt_xy_%.3(tloop)'
+TASK END
+EXPORT 
+    ITEM CLEAR  
+    ITEM XYDATA TYPE = SRHIS
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = DHIS
+    GO PERMAS BINARY FILE = monitoring
+STOP

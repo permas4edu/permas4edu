@@ -1,0 +1,83 @@
+$ENTER COMPONENT  NAME = TET  DOFTYPE = DISP TEMP POTE MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      TET  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTET10
+                1          1          2          3: A380
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  2.700000E+03
+                2  7.000000E+10
+                3  3.000000E-01
+!
+      $DVMPAR  NAME = ALUMINUM  KIND = DIRECT  MODE = SHIFT
+      DENSITY 1 :  1.000000E+00 :          1
+      ELASTIC 1 :  1.000000E+00 :          2
+      ELASTIC 2 :  1.000000E+00 :          3
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT  ! lower and upper bounds
+                1  1.500000E+03  7.800000E+03   ! density
+                2  5.000000E+10  9.000000E+10   ! Young's modulus
+                3  2.500000E-01  3.500000E-01   ! Poisson ratio
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :  4.120000E+02      NO
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2  DATTYPE = REAL
+      F_2          :  NO  1.350000E+03     
+
+      $DCFUNCTION CSTID = LSTSQ FUNCTION = 1 EQUALITY = YES
+         1 DCONSTRAINT : F_1 : 1
+         2 PARAM       : 412.0    ! target fundamental frequency
+!
+      $DOBJECT CONSTRAINT = LSTSQ TARGET = MIN
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+        F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+        F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 4
+        F_4
+
+      $RESEXT ITEM 
+        F_1 : F_1  1
+        F_2 : F_2  1
+        F_3 : F_3  1
+        F_4 : F_4  1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 1
+       F(X1,X2) = 1+(X1-X2)^2/X2^2
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN
