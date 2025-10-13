@@ -71,3 +71,5 @@
 0035 - [Balancing of rotating machines based on the Kriging surrogate approach](https://doi.org/10.1177/09544062251352620)
 
 0036 - [Adjusting complex rotor models response magnitudes at resonances using damping variables](https://virtual.oxfordabstracts.com/event/4971/submission/2)
+
+0037 - [Automated modal identification of offshore wind turbine structure under mixed harmonic and random excitations](https://doi.org/10.1016/j.istruc.2025.109706)
