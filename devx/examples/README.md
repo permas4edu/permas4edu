@@ -73,3 +73,5 @@
 0036 - [Adjusting complex rotor models response magnitudes at resonances using damping variables](https://virtual.oxfordabstracts.com/event/4971/submission/2)
 
 0037 - [Automated modal identification of offshore wind turbine structure under mixed harmonic and random excitations](https://doi.org/10.1016/j.istruc.2025.109706)
+
+0038 - [A hybrid rotordynamic modeling method for a rotor system with flexible foundation and nonlinear support force: Numerical and experimental investigation](https://doi.org/10.1016/j.ymssp.2023.110975)
