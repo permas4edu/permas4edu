@@ -163,3 +163,5 @@
 081 - [A novel geometric nonlinear reduced order modeling method using multi‑fidelity surrogate for real‑time structural analysis](https://doi.org/10.1007s00158-023-03689-4)
 
 082 - [Dynamic stiffness – based free vibration study of moderately thick circular cylindrical shells](https://doi.org/10.1016/j.tws.2025.114020)
+
+083 - [Machine learning algorithm for rivet-squeezing force estimation based on the dynamic response of the joint](https://doi.org/10.1016/j.ymssp.2025.113478)
