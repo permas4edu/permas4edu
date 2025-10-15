@@ -4,3 +4,7 @@ The examples are adapted from [A new Single Sensor Based iFEM formulation for sh
 ### Wingbox model
 
 ![Wingbox](wingbox.png)
+
+### Stringer model
+
+![Stringer](stringer.png)
