@@ -1,0 +1,21 @@
+NEW
+
+INPUT
+    READ STEP FILE = ARB_mod.STEP
+    READ PERMAS FILE = ARB_mod_model.dat
+    READ PERMAS FILE = ARB_mod_coupling.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies_arb_mod.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_arb_mod
+TASK END
+STOP
