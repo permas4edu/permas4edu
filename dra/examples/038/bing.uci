@@ -1,0 +1,46 @@
+DEFAULT SET MASS = DIAGONAL
+
+NEW
+
+INPUT
+    READ PERMAS FILE = bing.dat
+RETURN
+
+TASK 
+EXEC 
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt 
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL COMPLEX SITUATION = STEP_2
+    ACT SIT = STEP_2
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+EXEC
+    ACT SIT = STEP_1
+    ACTIVE NSET = SENSORS
+    MODAL TIMEHISTORY SITUATION = STEP_3 &
+                      LOOPS     = 10000  &
+                      DELTAT    = 0.001  &
+                      TSTART    = 0.0    &
+                      OUTPUT    = ALL    &
+                      PRIMRES   = REDUCED&
+                      SOLV      = NEWMARK
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = SENSORS
+    XYDATA ITEM DISP RESULT = SENS DCOMP = 2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = SENS
+    GO PERMAS BINARY FILE = sensors
+    GO SPREADSHEET FILE = sensors
+TASK END
+STOP
