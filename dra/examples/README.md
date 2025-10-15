@@ -73,3 +73,5 @@
 036 - [An effective reduction method with Caughey damping for spurious oscillations in dynamic problems](https://doi.org/10.1007/s11012-025-02036-9)
 
 037 - [FE reduced-order model-informed neural operator for structural dynamic response prediction](https://doi.org/10.1016/j.neunet.2025.107437)
+
+038 - [Truncated Transfer Matrix-Based Regularization for Impact Force Localization and Reconstruction](https://doi.org/10.3390/s25185712)
