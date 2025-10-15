@@ -70,3 +70,5 @@
 034 - Baltimore Truss structures
 
 035 - [Towards interval analysis of large-scale uncertainty in spatially varied interval ﬁeld](https://doi.org/10.1016/j.apm.2025.116453)
+
+036 - [A new Single Sensor Based iFEM formulation for shape-sensing of thin-walled structures instrumented with single-sided sensor configurations: Formulation, numerical assessment, and experimental validation](https://doi.org/10.1016/j.ymssp.2025.112700)
