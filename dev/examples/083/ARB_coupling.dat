@@ -1,0 +1,56 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP TEMP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+             7177      10434      10433
+!
+      $MPC RIGID  DPDOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+                1 CENTER_A    : HOLE_A
+                2 CENTER_B    : HOLE_B
+!
+      $ELSYS RSYS
+       PIN           RSYS =          0  AXES =  1,  2
+!
+      $NSET NAME = CENTER_A
+            10433
+      $NSET NAME = CENTER_B
+            10434
+      $NSET NAME = HOLE_A
+                1          2          3          4         69         70         73         75        117        118        119        120        121        122
+              123        124        125        126        127        128        576        577        578        580        581        582        583        594
+              595        596        599        600        603        604        605        608        609        614        615        616       1984       1985
+             1986       1987       1988       1989       2011       2012       2013       2014       2015       2016       2024       2025       2026       2027
+             2028       2029       2041       2042       2043       2044       2045       2046
+      $NSET NAME = HOLE_B
+             5269       5270       5271       5272       5359       5360       5363       5364       5379       5380       5381       5382       5383       5384
+             5385       5386       5387       5388       5389       5390       6126       6127       6128       6131       6132       6133       6134       6141
+             6142       6143       6147       6148       6149       6150       6151       6154       6155       6225       6226       6227       8192       8193
+             8194       8195       8196       8197       8215       8216       8217       8218       8219       8220       8226       8227       8228       8229
+             8230       8231       8624       8625       8626       8627       8628       8629
+      $ESET NAME = PIN
+             7177
+!
+      $COOR
+            10433  0.000000E+00  0.000000E+00  1.500000E+00
+            10434  0.000000E+00  0.000000E+00 -1.500000E+00
+!
+      $PART  NAME = PIN
+       PIN
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_PIN                4
+         &        :  5.000000E+00
+!
+      $ELPROP
+       PIN           GEODAT = GD_PIN        MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
