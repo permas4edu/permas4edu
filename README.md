@@ -42,26 +42,26 @@ Launch PERMAS Control Center
 |Name| Description             |
 ---  | ----------------------- |  
 |[BA](ba/README.md)  | Buckling analysis       |  
-|CA  | Contact analysis        | 
-|DEV | Dynamic eigenvalue analysis |  
-|DEVX| Extended dynamic eigenvalue analysis |  
-|DRA | Dynamic response analysis |  
+|[CA](ca/README.md)  | Contact analysis        | 
+|[DEV](dev/README.md) | Dynamic eigenvalue analysis |  
+|[DEVX](devx/README.md)| Extended dynamic eigenvalue analysis |  
+|[DRA](dra/README.md) | Dynamic response analysis |  
 |DRX | Extended dynamic response analysis |
-|EMA | Experimental Modal Analysis |
+|[EMA](ema/README.md) | Experimental Modal Analysis |
 |EMD | Electro dynamics        |
 |EMS | Static electromagnetics |  
-|FS  | Fluid-Structure analysis|  
-|HBM | Harmonic Balance Method | 
-|HT  | Heat Transfer           |
-|LA  | Laminate analysis       |  
+|[FS](fs/README.md)  | Fluid-Structure analysis|  
+|[HBM](hbm/README.md) | Harmonic Balance Method | 
+|[HT](ht/README.md)  | Heat Transfer           |
+|[LA](la/README.md)  | Laminate analysis       |  
 |LIFE| Fatigue Analysis        |
-|LS  | Linear statics          | 
+|[LS](ls/README.md)  | Linear statics          | 
 |MBS | Interfacing with Multibody Systems |
 |NLD | Nonlinear dynamics |
-|NLS | Nonlinear analysis |
-|OPT | Optimization            |  
+|[NLS](nls/README.md) | Nonlinear analysis |
+|[OPT](opt/README.md) | Optimization            |  
 |RA  | Reliability analysis |
-|TOPO| Topology optimization   |  
+|[TOPO](topo/README.md)| Topology optimization   |  
 |coupl/emht | Electrodynamic thermal coupling |  
 |coupl/emls | Electrodynamic mechanical coupling |  
 |coupl/htls | Thermal mechanical coupling |  
