@@ -1,3 +1,7 @@
+***
+[⬅️](../027/README.md "Previous example")
+[➡️](../029/README.md "Next example")
+***
 The example is adapted from [Unified vibration modeling of shell and plate structures with resonators](https://doi.org/10.1016/j.ijmecsci.2025.109921)
 
 ### L-shaped plate
