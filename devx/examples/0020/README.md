@@ -1,3 +1,8 @@
+***
+[⬅️](../0019/README.md "Previous example")
+[➡️](../0021/README.md "Next example")
+***
+
 The example is adapted from [Nonlinear vibration analysis of rotor systems with hydrodynamic journal bearings using harmonic balance method](https://doi.org/10.1016/j.ijnonlinmec.2024.104992)
 
 Thanks to Gil-Yong Lee for private communication. His support is greatly appreciated.
