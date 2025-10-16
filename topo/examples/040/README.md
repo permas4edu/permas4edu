@@ -1,6 +1,6 @@
 ***
 [⬅️](../039/README.md "Previous example")
-[➡️](../041/README.md "Next example")
+[➡️](../README.md "Go up one directory level")
 ***
 
 The examples are adapted from [A level set-based structural topology optimization method with centre of mass control](https://doi.org/10.1051/smdo/2025025)
