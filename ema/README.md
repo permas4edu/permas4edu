@@ -1,3 +1,4 @@
+
 ### Experimental Modal Analysis
 
 #### Supported datasets
@@ -11,3 +12,7 @@
 | 2412    | Element definitions |
 
 [The Universal File Formats for Modal Analysis Testing](https://www.ceas3.uc.edu/sdrluff/)
+
+***
+[Examples](examples/README.md)
+***
