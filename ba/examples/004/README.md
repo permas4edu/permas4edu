@@ -1,3 +1,8 @@
+***
+[⬅️](../003/README.md "Previous example")
+[➡️](../005/README.md "Next example")
+***
+
 The example are adapted from [Computational simplifications and observations on buckling modes of polygonal ring frames under symmetric compressive joint loads](https://doi.org/10.1016/j.istruc.2024.105904)
 
 Thanks to Chisanga Kaluba for sharing underlying finite element models. His support is greatly appreciated.
