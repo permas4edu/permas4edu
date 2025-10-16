@@ -41,7 +41,7 @@ Launch PERMAS Control Center
 
 |Name| Description             |
 ---  | ----------------------- |  
-|BA  | Buckling analysis       |  
+|[BA](ba/README.md)  | Buckling analysis       |  
 |CA  | Contact analysis        | 
 |DEV | Dynamic eigenvalue analysis |  
 |DEVX| Extended dynamic eigenvalue analysis |  
