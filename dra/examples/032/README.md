@@ -1,3 +1,8 @@
+***
+[⬅️](../031/README.md "Previous example")
+[➡️](../033/README.md "Next example")
+***
+
 The example is adapted from  [Forced vibration analysis of isogeometric Reissner-Mindlin shells using modal superposition methods](https://doi.org/10.1016/j.tws.2025.113360).
 
 ### Simply supported square plate
