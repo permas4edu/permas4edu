@@ -1,3 +1,8 @@
+***
+[⬅️](../009/README.md "Previous example")
+[➡️](../011/README.md "Next example")
+***
+
 The example is adapted from [UNCERTAINTY QUANTIFICATION OF BUCKLING PROPERTIES FOR IMPERFECT SPHERICAL SHELL SUBJECTED TO EXTERNAL PRESSURE](http://dx.doi.org/10.55579/jaec.202591.477)
 
 ![Hemisphere](hemisphere.png)
