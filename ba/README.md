@@ -2,6 +2,6 @@
 
 ***
 
-[Examples](examples/Readme.md)
+[Examples](examples/README.md)
 
 ***
