@@ -1,5 +1,9 @@
 ### Optimization
 
+***
+[Examples](examples/README.md)
+***
+
 ### Available design constraints
 
 | DCONSTRAINT | Type | 
