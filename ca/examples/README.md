@@ -1,3 +1,8 @@
+***
+[⬅️](../README.md "Go up one directory level")
+[➡️](../examples/001/README.md "First example")
+***
+
 ## Examples
 
 001 - [Validation Case: Hertzian Contact Between Two Spheres](https://www.simscale.com/docs/validation-cases/hertzian-contact-between-two-spheres/)
