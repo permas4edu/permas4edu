@@ -1,5 +1,9 @@
 ## Dynamic response analyses
 
+***
+[Examples](examples/README.md)
+***
+
 ### Time domain
 
 $$ M \ddot{u} + C \dot{u} + K u = f(t) $$
