@@ -1,6 +1,6 @@
 ***
 [⬅️](../README.md "Go up one directory level")
-[➡️](/examples/001/README.md "First example")
+[➡️](/dev/examples/001/README.md "First example")
 ***
 
 ### Modal analysis
