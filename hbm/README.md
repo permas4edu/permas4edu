@@ -10,3 +10,7 @@ $$ f_{ext}(t) = f_0 + \sum\limits_{i=1}^r f_c^{(k)} \cos k\Omega t + f_s^{(k)} \
 #### Ansatz 
 
 $$ u(t) = u_0 + \sum\limits_{i=1}^r u_c^{(k)} \cos k\Omega t + u_s^{(k)} \sin k\Omega t $$
+
+***
+[Examples](examples/README.md)
+***
