@@ -1,3 +1,8 @@
+***
+[⬅️](../017/README.md "Previous example")
+[➡️](../019/README.md "Next example")
+***
+
 The example illustrates FEMU of a beam. The measurements were carried out by Dmitri Tcherniak. Many thanks for providing the data.
 Two accelerometers are attached to the beam. The error sum of squares of the first three natural frequencies is to be minimised using parametric optimisation.
 
