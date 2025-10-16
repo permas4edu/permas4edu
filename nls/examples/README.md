@@ -1,3 +1,8 @@
+***
+[⬅️](../README.md "Go up one directory level")
+[➡️](../examples/001/README.md "First example")
+***
+
 ## Examples
 
 001 - [Shallow Angled Beam Structure](https://github.com/KratosMultiphysics/Examples/tree/master/structural_mechanics/validation/beam_shallow_angled_structure)
