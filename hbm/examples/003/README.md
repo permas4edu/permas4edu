@@ -1,3 +1,8 @@
+***
+[⬅️](../002/README.md "Previous example")
+[➡️](../004/README.md "Next example")
+***
+
 The example is taken from [A Python Implementation of a Robust Multi-harmonic Balance with Numerical Continuation and Automatic Differentiation for Structural Dynamics](https://doi.org/10.1115/1.4062424)
 
 $$\begin{bmatrix} 1 & 0 \\ 
