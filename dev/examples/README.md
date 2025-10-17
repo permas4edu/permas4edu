@@ -164,4 +164,4 @@
 
 [082](082/README.md) - [Dynamic stiffness – based free vibration study of moderately thick circular cylindrical shells](https://doi.org/10.1016/j.tws.2025.114020)
 
-083](020/README.md) - [Machine learning algorithm for rivet-squeezing force estimation based on the dynamic response of the joint](https://doi.org/10.1016/j.ymssp.2025.113478)
+[083](083/README.md) - [Machine learning algorithm for rivet-squeezing force estimation based on the dynamic response of the joint](https://doi.org/10.1016/j.ymssp.2025.113478)
