@@ -70,3 +70,6 @@
 [031](031/README.md) - [A singular value decomposition component mode synthesis method for built-up structures](https://doi.org/10.1016/j.tws.2025.113826)
 
 [032](032/README.md) - [A novel approach to surrogate modelling of modal properties: Mode-shape-adapted input parameter domain cutting](https://doi.org/10.1016/j.ymssp.2025.113381)
+
+[033](033/README.md) - [Compliant Support Fixture problem](https://www.linkedin.com/posts/lonny-thompson_compliant-support-torsion-challenge-part-activity-7384913594288885761-TnUe?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
+
