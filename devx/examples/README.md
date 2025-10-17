@@ -79,4 +79,4 @@
 
 [0037](0037/README.md) - [Automated modal identification of offshore wind turbine structure under mixed harmonic and random excitations](https://doi.org/10.1016/j.istruc.2025.109706)
 
-0038](0038/README.md) - [A hybrid rotordynamic modeling method for a rotor system with flexible foundation and nonlinear support force: Numerical and experimental investigation](https://doi.org/10.1016/j.ymssp.2023.110975)
+[0038](0038/README.md) - [A hybrid rotordynamic modeling method for a rotor system with flexible foundation and nonlinear support force: Numerical and experimental investigation](https://doi.org/10.1016/j.ymssp.2023.110975)
