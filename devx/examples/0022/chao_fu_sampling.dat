@@ -1,0 +1,59 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2 STEP_3 STEP_4
+      DFLT_COMP  SYSTEM = S_STEP_1  RESULTS = R_SAMPLING
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K2
+      $DELEMENT TYPE = DDAMP
+                2          2: C2
+      $DELEMENT TYPE = DBEAM
+                3          3: SHAFT
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                3  2.100000E+05
+!
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 1
+      STIFF          1:          1
+      $DVGPAR DAMPER  NAME = GD_C2  DEID = 2
+      DAMP          1:          2
+!
+      $DVMPAR  NAME = MAT_01  KIND = DIRECT  MODE = SHIFT
+      ELASTIC 1 :  1.000000E+00 :          3
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_SAMPLING
+!
+      $RSLITEM WEIGHT  TYPE = GLOBAL SITUATION = STEP_2
+      WGT
+!
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 2
+        F_2
+!
+      $VPARVAL  TYPE = DESVAR
+                1  9.000000E+02  9.500000E+02  1.000000E+03  1.050000E+03  1.100000E+03
+                2  1.800000E-01  1.900000E-01  2.000000E-01  2.100000E-01  2.200000E-01
+                3  189000.0      199500.0      210000.0      220500.0      231000.0
+!
+      $RESEXT  ITEM
+      WGT : WGT          1
+!
+      $RESEXT ITEM
+       F_1 : F_1 1
+       F_2 : F_2 1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN

@@ -1,0 +1,195 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1 LOADING = L_STEP_1
+   $END SITUATION
+!
+!  Normal modes
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+!  Complex modes
+!
+   $SITUATION  NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2 RESULTS = R_STEP_3
+   $END SITUATION
+!
+!  Modal frequency (Unbalance)
+!
+   $SITUATION  NAME = STEP_4 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2 RESULTS = R_STEP_4 LOADING = L_STEP_4
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ESET NAME = ROTOR
+        SHAFT DISC 
+!
+      $ESET NAME = BEARING
+         K1 K2 
+!
+      $ELEMENT TYPE = SPRING1
+               64          4        104
+               65          4        204
+               66         52        152
+               67         52        252
+
+      $ELEMENT TYPE = DAMP1
+               68          4        104
+               69          4        204
+               70         52        152
+               71         52        252
+
+      $ELEMENT TYPE = MASS6
+               72         64
+!
+      $ESET NAME = DISC
+               72
+
+      $NSET NAME = DISC RULE = ESET
+         DISC
+
+      $ESET NAME = K1
+               64         65
+      $ESET NAME = K2
+               66         67
+      $ESET NAME = C1
+               68         69
+      $ESET NAME = C2
+               70         71
+!
+      $PART  NAME = K1
+       K1
+      $PART  NAME = K2
+       K2
+
+      $PART  NAME = C1
+       C1
+      $PART  NAME = C2
+       C2
+
+      $PART  NAME = DISC
+       DISC
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS  DOFS = 3,6  DOFTYPE = DISP
+       SHAFT
+!
+   $END CONSTRAINTS
+
+   $LOADING NAME = L_STEP_1
+
+       $INERTIA ROTATION LPAT = 1
+         ROTOR  0.0 0.0 0.0 0.0 0.0 100.0 10.
+ 
+   $END LOADING
+
+   $LOADING NAME = L_STEP_4
+!
+!      Unbalance: m = 20 kg ; e = 8.E-5 m
+!
+       $CONLOAD LPAT = 1
+          DISC 1: 0.0016
+       $CONLOAD LPAT = 2
+          DISC 2: 0.0016
+
+       $FREQLOAD 
+          LPAT = 1 TYPE = COSINE AMPLITUDE = 100  
+          LPAT = 2 TYPE = SINE   AMPLITUDE = 100
+!
+   $END LOADING
+!------
+   $SYSTEM NAME = S_STEP_2
+
+       $INSERT VARIANT
+          S_STEP_1
+
+       $ELSTATE LOAD
+          SITUATION = STEP_1 LPAT = 1
+
+       $ADDMATRIX
+          GEOSTIFF
+          CONVSTIFF
+          GYRO
+
+   $END SYSTEM
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELSYS RSYS
+        SHAFT RSYS = 0
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_SHAFT              4 :  3.000000E+01
+
+      $GEODAT SPRING    CONT = STIFF
+       GD_K1         1.000000E+05
+       GD_K2         1.000000E+03
+
+      $GEODAT DAMPER CONT = DAMP
+       GD_C1  0.2
+       GD_C2  0.2
+
+      $GEODAT MASS      CONT = MASS
+       GD_DISC       2.000000E-02  2.000000E-02  2.000000E-02  3.125000E+02  3.125000E+02  6.250000E+02
+!
+      $ELPROP
+       DISC          GEODAT = GD_DISC
+!
+       K1            GEODAT = GD_K1
+       K2            GEODAT = GD_K2
+!
+       C1            GEODAT = GD_C1
+       C2            GEODAT = GD_C2
+!
+       SHAFT         GEODAT = GD_SHAFT      MATERIAL = MAT_01
+!
+   $END SYSTEM
+
+   $RESULTS NAME = R_STEP_3
+
+       $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+         0.0 2100.0 10.0
+
+   $END RESULTS
+!------
+   $RESULTS NAME = R_STEP_4
+
+       $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+         0.0 2500.0 10.0
+
+       $FREQUENCY PRIMARY = ROTSPEED 
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION 
+
+    $FUNCTION FORMULA FID = 100 DESCRIPTION = 'Unbalance'
+       F(X) = (2*PI*X)^2
+
+$EXIT FUNCTION
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E-09
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+05  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
