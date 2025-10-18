@@ -8,6 +8,9 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
       $NSET NAME = RESULTS RULE = ALL
 !
+      $NSET NAME = N1
+        1
+!
       $NSET NAME = N2
         2
 !
@@ -99,7 +102,12 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
       $RSYS CART  FORM = ZX
                 1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+01
-
+!
+      $NSET NAME = INNER RULE = RANGE
+          4   18
+!
+      $NSET NAME = GROUND
+        100
 !
    $END STRUCTURE
 !------
@@ -137,8 +145,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        N3           4:  -4.000000E+02
 !
       $CONLOAD  LPAT = 1  DOFTYPE = DISP
-!       LINE1        4:  -1.000000E+02
-        LINE1        4:  -94.11764705882354
+!
+       N1 4   : -50.0
+       N2 4   : -50.0
+      INNER 4 : -100.0
 !
    $END LOADING
 !------
