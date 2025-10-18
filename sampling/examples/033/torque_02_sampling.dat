@@ -21,7 +21,11 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
    $RESULTS
 !
       $RSLITEM DISP  TYPE = SET  SITUATION = STEP_1  LPAT = 1
-      TWIST        : N3             4
+      TWIST1        : N1             4
+      TWIST2        : N2             4
+      TWIST3        : N3             4
+      $RSLITEM REAC TYPE = SET SITUATION = STEP_1 LPAT = 1
+      R_TORQUE : GROUND 4
       $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1  LPAT = 1
       CMPL
 !
@@ -29,7 +33,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                 1  2.500000E+04  5.000000E+04  1.000000E+05  1.000000E+12
 !
       $RESEXT  ITEM
-      TWIST : TWIST          1
+      R_TORQUE : R_TORQUE    1 
+      TWIST1 : TWIST1        1
+      TWIST2 : TWIST2        1
+      TWIST3 : TWIST3        1
       CMPL  : CMPL           1
 !
    $END RESULTS

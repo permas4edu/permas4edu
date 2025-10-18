@@ -3,8 +3,9 @@ import glob
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
+mpl.rcParams['savefig.directory']=os.getcwd()
 import matplotlib.pyplot as plt
-
+import mplcursors
 
 csvs = glob.glob('angle_*_angle.csv')
 fig = plt.figure('Twist angle')
@@ -14,8 +15,9 @@ k = [2.500000E+04, 5.000000E+04, 1.000000E+05, 1.000000E+12]
 for i, csv in enumerate(csvs):
     df = pd.read_csv(csv, delimiter = ';')
 
-    ax.plot(df['Coor_X'], np.abs(df['LPAT_1_phiu']),label=r'$k_%i=%e$' %(i+1,k[i]))
+    ax.plot(df['Coor_X'], np.abs(df['LPAT_1_phiu']),'-o',label=r'$k_%i=%e$' %(i+1,k[i]))
 
+mplcursors.cursor(ax,multiple=True)
 ax.grid()
 ax.set_xlabel(r'$x$ [m]')
 ax.set_ylabel(r'$\Phi$ [rad]')
