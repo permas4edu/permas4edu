@@ -1,0 +1,47 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SPRING  NAME = GD_K  DEID = 1
+      STIFF          4:          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM DISP  TYPE = SET  SITUATION = STEP_1  LPAT = 1
+      TWIST1        : N1             4
+      TWIST2        : N2             4
+      $RSLITEM REAC TYPE = SET SITUATION = STEP_1 LPAT = 1
+      T_A      : GROUND 4
+      T_B      : N3     4
+
+      $RSLITEM COMPLIANCE TYPE = GLOBAL SITUATION = STEP_1  LPAT = 1
+      CMPL
+!
+      $VPARVAL  TYPE = DESVAR
+                1  2.500000E+04  5.000000E+04  1.000000E+05  1.000000E+12
+!
+      $RESEXT  ITEM
+      T_A    : T_A           1 
+      T_B    : T_B           1 
+      TWIST1 : TWIST1        1
+      TWIST2 : TWIST2        1
+      CMPL   : CMPL          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
