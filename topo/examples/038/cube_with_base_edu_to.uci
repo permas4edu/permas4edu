@@ -1,0 +1,35 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = cube_with_base_edu.dat
+    READ PERMAS FILE = cube_with_base_edu_rbm.dat
+    READ PERMAS FILE = cube_with_base_edu_to.dat
+RETURN
+
+EXEC
+    ACT CONFIG = TET
+
+TASK LOOPS = 100
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM CLEAR
+    CURRENT TIME = 1.0
+    ITEM DISP
+    ITEM CONTACT FORCE
+    GO PERMAS BINARY FILE = 'statics_%.3(tloop)'
+EXEC
+    ACT SIT = TOPO
+    TOPO METHOD = ACP
+EXPORT
+    ITEM CLEAR
+    ITEM EFRATIO
+    GO PERMAS BINARY FILE = 'efratio_%.3(tloop)'
+    ITEM CLEAR
+    ITEM XYDATA TYPE = OHIS
+    ITEM XYDATA TYPE = CHIS
+    ITEM XYDATA TYPE = RHIS
+    GO PERMAS BINARY FILE = 'to_xy_%.3(tloop)'   
+TASK END
+STOP

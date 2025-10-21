@@ -1,0 +1,44 @@
+$ENTER COMPONENT  NAME = TET  DOFTYPE = DISP  MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      TET  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : SHL_1_SOL_1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       1.000000E+00
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+!
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  TIME = 1.0  DATTYPE = REAL
+      CMPL         :  0.000000E+00      NO
+
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      VOLFRAC      :          1      NO        8.000000E-02
+!
+      $DOBJECT  CONSTRAINT = CMPL
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
