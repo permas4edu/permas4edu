@@ -33,7 +33,7 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       CMPL         :  0.000000E+00      NO
 !
       $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
-      FILL         :          1      NO        3.000000E-01
+      FILL         :          1      NO        2.500000E-01
 !
       $DOBJECT  CONSTRAINT = CMPL
 !
