@@ -1,3 +1,8 @@
+***
+[⬅️](../README.md "Go up one directory level")
+[➡️](../examples/001/README.md "First example")
+***
+
 ## Examples
 
 [001](001/README.md) - [Natural frequency assignment of a pipeline through structural modification in layout optimization of elastic supports](https://doi.org/10.1016/j.jsv.2023.117702)
