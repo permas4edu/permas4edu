@@ -5,7 +5,7 @@
 
 ## Examples
 
-001 - [A comparative study on multi- and variable-coefficient harmonic balance methods for quasi-periodic solutions](https://doi.org/10.1016/j.ymssp.2022.109929)
+[001](001/README.md) - [A comparative study on multi- and variable-coefficient harmonic balance methods for quasi-periodic solutions](https://doi.org/10.1016/j.ymssp.2022.109929)
 
 002 - [A Python Implementation of a Robust Multi-harmonic Balance with Numerical Continuation and Automatic Differentiation for Structural Dynamics](https://doi.org/10.1115/1.4062424)
 
@@ -120,3 +120,5 @@
 057 -  [Identification and influence of cubic nonlinear damping of vertical track nonlinear energy sinks](https://doi.org/10.1016/j.ymssp.2025.113164)
 
 058 - [Localization and identification of structural nonlinearities using cascaded optimization and neural networks](https://doi.org/10.1016/j.ymssp.2017.03.030)
+
+059 - [Unilateral vibration transmission in mechanical systems with bilinear coupling](https://doi.org/10.1016/j.ijnonlinmec.2025.105272)
