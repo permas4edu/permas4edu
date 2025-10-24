@@ -1,6 +1,6 @@
 ***
 [⬅️](../README.md "Go up one directory level")
-[➡️](../0001/README.md "First example")
+[➡️](0001/README.md "First example")
 ***
 
 ## Examples
