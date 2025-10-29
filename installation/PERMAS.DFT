@@ -1,0 +1,44 @@
+!------------------------------------------------------------------------------
+!  PERMAS V20.00 DEFAULTS FILE for M (D64) memory model - Education Edition
+!         word size:              32 bit
+!         arithmetic precision:   64 bit
+!
+!  Site dependent system defaults file.
+!  Alternative locations are user's home directory or the current
+!  working directory.
+!
+!  Uncomment and change the lines for your needs.
+!
+!  To change settings for specific projects the commands may also be
+!  included in the STARTUP section of the UCI file.
+!
+!  For help please use your INTES EDU support forum account at
+!         https://www.intes.de/forum
+!
+!  PERMAS is a trademark of
+!
+!  INTES Ingenieurgesellschaft fuer technische Software mbH
+!  Breitwiesenstr. 28,  D-70565 Stuttgart,  Germany
+!
+!  Copyright  1988-2024  INTES GmbH
+!------------------------------------------------------------------------------
+!
+!  Default location and sizes for database files
+! DEFINE DMS DIR  = /large/scratch/disk/   ! one disk
+!
+!  Delete database at the end of run
+!SET DATABASE = DELETE
+!
+!  Set default postprocessor (for automatic export of rigid body modes)
+! DEFAULT SET POSTPROC  =  PERMAS     ! for VisPER
+!
+!  Switch off output of postprocessing model
+!DEFAULT SET MODEL  = OFF
+!
+!  end of system defaults file
+!----------------------------------------------------------------------
+DEFAULT SET POSTPROC=PERMAS
+DEFAULT SET MODE=binary
+DEFAULT SET MODEL=OFF
+SET DATABASE=DELETE
+DEFINE DMS DIR=D:\\
