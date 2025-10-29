@@ -1,5 +1,5 @@
 ***
-[⬅️](../011/README.md "Previous example")
+[⬅️](../001/README.md "Previous example")
 [➡️](../003/README.md "Next example")
 ***
 
