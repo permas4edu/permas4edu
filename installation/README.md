@@ -31,6 +31,10 @@ Select the license file that you received via email.
 
 ### Solver settings
 
+Ensure that you have write permissions in the scratch directory!
+The settings are stored in the configuration file PERMAS.DFT. For Windows users, the file can be found by default at C:\Program Files\INTES\EDU\PermVis\M9v20\etc.
+A local copy can be located in the home directory or in the current working directory. If there is a copy in the working directory, it will be used as the default.
+
 ![solver_settings](solver_settings.png)
 
 ### pyINTES License Agreement
