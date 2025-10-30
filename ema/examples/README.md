@@ -30,3 +30,5 @@
 [012](012/README.md) - [Effects of similarity measures and assignment methods on mode pairing for the application of timber plates](https://www.researchgate.net/publication/393077775_Effects_of_similarity_measures_and_assignment_methods_on_mode_pairing_for_the_application_of_timber_plates)
 
 [013](013/README.md) - [Determining Vibration Characteristics and FE Model Updating of Friction-Welded Beams](https://doi.org/10.3390/machines13080653)
+
+[014](014/README.md) - [Finite Element Model Updating of Axisymmetric Structures](https://doi.org/10.3390/app152111407)
