@@ -1,0 +1,100 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSHAPE
+                1: PIPE : N1
+      $DELEMENT TYPE = DQUAD4
+                2          2          3: PIPE
+!
+      $DSVNODE
+                1 N1          :          1
+!
+      $DESYMM  TYPE = AXI
+                1  AXIS =  3
+!
+      $NSET NAME = N1
+                1
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+                1  0.000000E+00
+                3  7.800000E-09
+!
+      $DVGPAR SHELL  NAME = GD_PIPE  DEID = 2  NODES = ALL
+      THICK          1:          2
+!
+      $DVCOOR  KIND = DIRECT
+       N1           1 :  1.000000E+00 :          1
+!
+      $DVMPAR  NAME = DC_01_STEEL  KIND = DIRECT  MODE = SHIFT
+      DENSITY 1 :  1.000000E+00 :          3
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1 -2.000000E+00  2.000000E+00
+                2  1.000000E+00  2.000000E+00
+                3  7.000000E-09  8.000000E-09
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        3.916000E-03
+
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :  2.600000E+02      NO
+!
+      $DCFUNCTION CSTID = LSTSQ FUNCTION = 1 EQUALITY = YES 
+        1  DCONSTRAINT : F_1 : 1
+        2  PARAM       : 260.0  
+!
+      $DOBJECT CONSTRAINT = LSTSQ TARGET = MIN
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+        F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+        F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 4
+        F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 5
+        F_5
+
+      $RESEXT ITEM
+        F_1 : F_1  1
+        F_2 : F_2  1
+        F_3 : F_3  1
+        F_4 : F_4  1
+        F_5 : F_5  1
+ 
+      
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1
+       F(X1,X2) = 1+(X2-X1)^2/X2^2
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN

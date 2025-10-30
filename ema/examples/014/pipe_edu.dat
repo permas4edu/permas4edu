@@ -22476,6 +22476,13 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !------
    $CONSTRAINTS  NAME = C_STEP_1
 !
+        $RIGMODE GLOBAL
+           1  1,2,3
+        $RIGMODE
+           3  2,3
+        $RIGMODE
+           5  2
+!
    $END CONSTRAINTS
 !------
 $EXIT COMPONENT
