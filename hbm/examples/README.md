@@ -122,3 +122,5 @@
 [058](058/README.md) - [Localization and identification of structural nonlinearities using cascaded optimization and neural networks](https://doi.org/10.1016/j.ymssp.2017.03.030)
 
 [059](059/README.md) - [Unilateral vibration transmission in mechanical systems with bilinear coupling](https://doi.org/10.1016/j.ijnonlinmec.2025.105272)
+
+[060](060/README.md) - [Perturbation Function Iteration Method: A New Framework for Solving Periodic Solutions of Non-linear and Non-smooth Systems](https://doi.org/10.48550/arXiv.2510.23071)
