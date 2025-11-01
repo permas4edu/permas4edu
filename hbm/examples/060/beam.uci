@@ -1,0 +1,52 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = beam.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_0
+    VIBRATION ANALYSIS MODES = 10
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    MODAL COMPLEX SITUATION = STEP_1
+    ACT SIT = STEP_1
+PRINT
+    PORT RES REPLACE FILE = complex_frequencies.txt
+    DATA OBJECT CVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = complex_modes
+TASK END
+STOP
+
+TASK
+EXEC
+    ACT SIT = STEP_2
+    DIRECT HARMONIC BALANCE FFTSIZE = 8192 &
+                            ACCURACY = 4.0 &
+                            NOFHARMONICS = 7 &
+                            MODE = FOLLOWPATH &
+                            DIRECTION = ASCENDING &
+                            STARTFREQ = 0.0 &
+                            RESULTS = ALL 
+SELECT  
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = HBM DCOMP = 2
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = HBM
+    GO PERMAS BINARY FILE = hbm
+    GO SPREADSHEET 
+TASK END
+STOP
+  
+                            
