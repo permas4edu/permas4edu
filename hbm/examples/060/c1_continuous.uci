@@ -1,0 +1,29 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = c1_continuous.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT HARMONIC BALANCE FFTSIZE      = 1024       &
+                            ACCURACY     = 4.0        &
+                            NOFHARMONICS = 7          &
+                            MODE         = FOLLOWPATH & 
+                            DIRECTION    = ASCENDING  &
+                            STARTFREQ    = 0.0        &
+                            RESULTS      = ALL
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = HBM DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = HBM
+    GO SPREADSHEET FILE = hbm
+    GO PERMAS BINARY FILE = hbm
+RETURN
+TASK END
+STOP
+ 
+                           
