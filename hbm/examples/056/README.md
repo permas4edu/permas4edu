@@ -13,6 +13,8 @@ The example is adapted from [Local Sensitivity Analysis of Steady-State Response
 
 ## Gap model
 
+![Gap function](gap.png "Gap function")
+
 ![Gap](HBM_gap.png)
 
 ![Gap hysteresis](Hysteresis_gap.png)
