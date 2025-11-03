@@ -79,7 +79,11 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !     Caution: C = alpha K + beta M  is used in PERMAS
 !
       $COMPDAMP
-            ALPHA = 5.23E-4  BETA = 0.362
+!
+!         Damping ratio xi = 0.020
+!         Standard approach
+!
+          ALPHA = 2.798142e-03 BETA = 6.785633e-02
 !
       $GEODAT BEAM      CONT = SECTTYPE SECTDIM SECTDIM
        GD_BEAM               5 :  2.000000E-02  2.000000E-01  :  2.000000E-02  2.000000E-01
