@@ -1,0 +1,186 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BEAM2
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          7          8
+                7          8          9
+                8          9         10
+                9         10         11
+               10         11         12
+               16         13         19
+               26          1         19
+               27         19          2
+               28          2         20
+               29         20          3
+               30          3         21
+               31         21          4
+               32          4         22
+               33         22          5
+               34          5         23
+               35         23          6
+               36          6         12
+               37         12         23
+               38         23         11
+               39         11         22
+               40         22         10
+               41         10         21
+               42         21          9
+               43          9         20
+               44         20          8
+               45          8         19
+               46         19          7
+               47         19         20
+               48         20         21
+               49         21         22
+               50         22         23
+               51          1          8
+               52          8          2
+               54          9          3
+               56         10          4
+               58         11          5
+               60          8          3
+               61          3         10
+               62         10          5
+               63          5         12
+!
+      $RSYS CART  FORM = ZX
+                1          1 :          6 :          7
+                2          1 :          7 :          6
+                3          1 :          8 :         13
+                4          8 :          3 :         20
+                5          1 :         19 :          6
+                6          2 :         19 :          1
+                7          7 :         19 :         12
+                8          8 :         19 :          7
+!
+      $NSET NAME = CLAMPED
+                1          7         13
+      $NSET NAME = LOAD
+                6         12
+      $ESET NAME = DIAG_01
+               51         61         63
+      $ESET NAME = DIAG_02
+               60         62
+      $ESET NAME = DIAG_03
+               26         28         30         32         34
+      $ESET NAME = DIAG_04
+               27         29         31         33         35
+      $ESET NAME = DIAG_05
+               38         40         42         44         46
+      $ESET NAME = DIAG_06
+               37         39         41         43         45
+      $ESET NAME = X
+                1          2          3          4          5          6          7          8          9         10         16         47         48         49
+               50
+      $ESET NAME = Y
+               36         52         54         56         58
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  2.000000E+00  0.000000E+00  0.000000E+00
+                3  4.000000E+00  0.000000E+00  0.000000E+00
+                4  6.000000E+00  0.000000E+00  0.000000E+00
+                5  8.000000E+00  0.000000E+00  0.000000E+00
+                6  1.000000E+01  0.000000E+00  0.000000E+00
+                7  0.000000E+00  1.000000E+00  0.000000E+00
+                8  2.000000E+00  1.000000E+00  0.000000E+00
+                9  4.000000E+00  1.000000E+00  0.000000E+00
+               10  6.000000E+00  1.000000E+00  0.000000E+00
+               11  8.000000E+00  1.000000E+00  0.000000E+00
+               12  1.000000E+01  1.000000E+00  0.000000E+00
+               13  0.000000E+00  5.000000E-01  8.660254E-01
+               19  1.000000E+00  5.000000E-01  8.660254E-01
+               20  3.000000E+00  5.000000E-01  8.660254E-01
+               21  5.000000E+00  5.000000E-01  8.660254E-01
+               22  7.000000E+00  5.000000E-01  8.660254E-01
+               23  9.000000E+00  5.000000E-01  8.660254E-01
+!
+      $PART  NAME = X
+       X
+      $PART  NAME = Y
+       Y
+      $PART  NAME = DIAG_01
+       DIAG_01
+      $PART  NAME = DIAG_02
+       DIAG_02
+      $PART  NAME = DIAG_03
+       DIAG_03
+      $PART  NAME = DIAG_04
+       DIAG_04
+      $PART  NAME = DIAG_05
+       DIAG_05
+      $PART  NAME = DIAG_06
+       DIAG_06
+!
+   $END STRUCTURE
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_PIPE               2
+         &        :  1.130000E-01  1.130000E-02
+         &        :  1.130000E-01  1.130000E-02
+!
+      $ELSYS RSYS
+       DIAG_01       RSYS =          3  AXES =  1,  2
+       DIAG_02       RSYS =          4  AXES =  1,  2
+       DIAG_03       RSYS =          5  AXES =  1,  2
+       DIAG_04       RSYS =          6  AXES =  1,  2
+       DIAG_05       RSYS =          7  AXES =  1,  2
+       DIAG_06       RSYS =          8  AXES =  1,  2
+       X             RSYS =          1  AXES =  1,  2
+       Y             RSYS =          2  AXES =  1,  2
+!
+      $ELPROP
+       DIAG_01       GEODAT = GD_PIPE       MATERIAL = STEEL
+       DIAG_02       GEODAT = GD_PIPE       MATERIAL = STEEL
+       DIAG_03       GEODAT = GD_PIPE       MATERIAL = STEEL
+       DIAG_04       GEODAT = GD_PIPE       MATERIAL = STEEL
+       DIAG_05       GEODAT = GD_PIPE       MATERIAL = STEEL
+       DIAG_06       GEODAT = GD_PIPE       MATERIAL = STEEL
+       X             GEODAT = GD_PIPE       MATERIAL = STEEL
+       Y             GEODAT = GD_PIPE       MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       LOAD         3: -2.500000E+04
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
