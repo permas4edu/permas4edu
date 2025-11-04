@@ -2,3 +2,4 @@ The example is adapted from [An Improved Strain Energy-Based Optimality Criteria
 
 Thanks to Agathoklis Giaralis for sharing the  corresponding SAP2000 model. His support is greatly appreciated.
 
+![Frame structure](agis_01.png)
