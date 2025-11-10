@@ -84,3 +84,5 @@
 [039](039/README.md) - [Human‑augmented topology optimization design with multi‑framework intervention](https://doi.org/10.1007/s00366-024-02102-y)
 
 [040](040/README.md) - [A level set-based structural topology optimization method with centre of mass control](https://doi.org/10.1051/smdo/2025025)
+
+[041](041/README.md) - [An Efficient Filter Implementation Method and Its Applications in Topology Optimization Utilizing k-d Tree Data Structure](https://doi.org/10.3390/computation13110262)
