@@ -1,6 +1,6 @@
 ***
 [⬅️](../082/README.md "Previous example")
-[➡️](../084/README.md "Go up one directory level")
+[➡️](../084/README.md "Next example")
 ***
 
 The examples are adapted from [Machine learning algorithm for rivet-squeezing force estimation based on the dynamic response of the joint](https://doi.org/10.1016/j.ymssp.2025.113478)
