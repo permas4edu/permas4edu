@@ -1,0 +1,867 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1          5
+                2          5          9
+                3          9         13
+                4         13         17
+                5         17         21
+                6          2          6
+                7          6         10
+                8         10         14
+                9         14         18
+               10         18         22
+               11          3          7
+               12          7         11
+               13         11         15
+               14         15         19
+               15         19         23
+               16          4          8
+               17          8         12
+               18         12         16
+               19         16         20
+               20         20         24
+               21          1         25
+               22          2         25
+               23          5         25
+               24          6         25
+               25          2         26
+               26          3         26
+               27          6         26
+               28          7         26
+               29          3         27
+               30          4         27
+               31          7         27
+               32          8         27
+               33          4         28
+               34          1         28
+               35          8         28
+               36          5         28
+               37          5         29
+               38          6         29
+               39          9         29
+               40         10         29
+               41          6         30
+               42          7         30
+               43         10         30
+               44         11         30
+               45          7         31
+               46          8         31
+               47         11         31
+               48         12         31
+               49          8         32
+               50          5         32
+               51         12         32
+               52          9         32
+               53          9         33
+               54         10         33
+               55         13         33
+               56         14         33
+               57         10         34
+               58         11         34
+               59         14         34
+               60         15         34
+               61         11         35
+               62         12         35
+               63         15         35
+               64         16         35
+               65         12         36
+               66          9         36
+               67         16         36
+               68         13         36
+               69         13         37
+               70         14         37
+               71         17         37
+               72         18         37
+               73         14         38
+               74         15         38
+               75         18         38
+               76         19         38
+               77         15         39
+               78         16         39
+               79         19         39
+               80         20         39
+               81         16         40
+               82         13         40
+               83         20         40
+               84         17         40
+               85         17         41
+               86         18         41
+               87         21         41
+               88         22         41
+               89         18         42
+               90         19         42
+               91         22         42
+               92         23         42
+               93         19         43
+               94         20         43
+               95         23         43
+               96         24         43
+               97         20         44
+               98         17         44
+               99         24         44
+              100         21         44
+              101         21         45
+              102         21         46
+              103         22         45
+              104         22         46
+              105         23         45
+              106         23         46
+              107         24         45
+              108         24         46
+              109         45         46
+              110         46         47
+              111         47         48
+              112         48         49
+              113         49         50
+              114         50         51
+              115         51         52
+              116         52         53
+              117         53         54
+              118         54         55
+              119         55         56
+              120         56         57
+              121         57         58
+              122         58         59
+              123         59         60
+              124         60         61
+              125         61         62
+              126         62         63
+              127         63         64
+              128         64         65
+              129         65         66
+              130         66         67
+              131         67         68
+              132         68         69
+              133         69         70
+              134         70         71
+              135         71         72
+              136         72         73
+              137         73         74
+              138         74         75
+              139         75         76
+      $ELEMENT TYPE = MASS3
+              140         46
+      $ELEMENT TYPE = MASS6
+              141         76
+!
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'COLUMN_01'
+                1          1 :         21 :          2
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'COLUMN_02'
+                2          2 :         22 :          3
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'COLUMN_03'
+                3          3 :         23 :          4
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'COLUMN_04'
+                4          4 :         24 :          1
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_01'
+              101          1 :          6 :          4
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_02'
+              102          2 :          5 :          1
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_03'
+              103          5 :         10 :          8
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_04'
+              104          6 :          9 :          7
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_05'
+              105          9 :         14 :         10
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_06'
+              106         10 :         13 :          7
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_07'
+              107         13 :         18 :         12
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_08'
+              108         14 :         17 :         13
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_09'
+              109         17 :         22 :         18
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_10'
+              110         18 :         21 :         17
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_11'
+              111          2 :          7 :          3
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_12'
+              112          3 :          6 :          2
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_13'
+              113          6 :         11 :          7
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_14'
+              114          7 :         10 :          6
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_15'
+              115         10 :         15 :         11
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_16'
+              116         11 :         14 :         10
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_17'
+              117         14 :         19 :         15
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_18'
+              118         15 :         18 :         14
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_19'
+              119         18 :         23 :         19
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_20'
+              120         19 :         22 :         18
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_21'
+              121          3 :          8 :          4
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_22'
+              122          4 :          7 :          3
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_23'
+              123          7 :         12 :          8
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_24'
+              124          8 :         11 :          7
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_25'
+              125         11 :         16 :         12
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_26'
+              126         12 :         15 :         11
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_27'
+              127         15 :         20 :         16
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_28'
+              128         16 :         19 :         15
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_29'
+              129         19 :         24 :         20
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_30'
+              130         20 :         23 :         19
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_31'
+              131          4 :          5 :          1
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_32'
+              132          1 :          8 :          4
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_33'
+              133          8 :          9 :          5
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_34'
+              134          5 :         12 :          8
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_35'
+              135         12 :         13 :          9
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_36'
+              136          9 :         16 :         12
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_37'
+              137         16 :         17 :         13
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_38'
+              138         13 :         20 :         16
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_39'
+              139         20 :         21 :         17
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_40'
+              140         17 :         24 :         20
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_41'
+              141         45 :         21 :         22
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_42'
+              142         45 :         22 :         21
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_43'
+              143         45 :         23 :         22
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_44'
+              144         45 :         24 :         23
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_45'
+              145         21 :         23 :         22
+      $RSYS CART  FORM = ZX  DESCRIPTION = 'BEAM_46'
+              146         22 :         24 :         23
+!
+      $NSET NAME = GROUND
+                1          2          3          4
+      $ESET NAME = BEAM_01
+               21         24
+      $ESET NAME = BEAM_02
+               22         23
+      $ESET NAME = BEAM_03
+               37         40
+      $ESET NAME = BEAM_04
+               38         39
+      $ESET NAME = BEAM_05
+               53         56
+      $ESET NAME = BEAM_06
+               54         55
+      $ESET NAME = BEAM_07
+               69         72
+      $ESET NAME = BEAM_08
+               70         71
+      $ESET NAME = BEAM_09
+               85         88
+      $ESET NAME = BEAM_10
+               86         87
+      $ESET NAME = BEAM_11
+               25         28
+      $ESET NAME = BEAM_12
+               26         27
+      $ESET NAME = BEAM_13
+               41         44
+      $ESET NAME = BEAM_14
+               42         43
+      $ESET NAME = BEAM_15
+               57         60
+      $ESET NAME = BEAM_16
+               58         59
+      $ESET NAME = BEAM_17
+               73         76
+      $ESET NAME = BEAM_18
+               74         75
+      $ESET NAME = BEAM_19
+               89         92
+      $ESET NAME = BEAM_20
+               90         91
+      $ESET NAME = BEAM_21
+               29         32
+      $ESET NAME = BEAM_22
+               30         31
+      $ESET NAME = BEAM_23
+               45         48
+      $ESET NAME = BEAM_24
+               46         47
+      $ESET NAME = BEAM_25
+               61         64
+      $ESET NAME = BEAM_26
+               62         63
+      $ESET NAME = BEAM_27
+               77         80
+      $ESET NAME = BEAM_28
+               78         79
+      $ESET NAME = BEAM_29
+               93         96
+      $ESET NAME = BEAM_30
+               94         95
+      $ESET NAME = BEAM_31
+               33         36
+      $ESET NAME = BEAM_32
+               34         35
+      $ESET NAME = BEAM_33
+               49         52
+      $ESET NAME = BEAM_34
+               50         51
+      $ESET NAME = BEAM_35
+               65         68
+      $ESET NAME = BEAM_36
+               66         67
+      $ESET NAME = BEAM_37
+               81         84
+      $ESET NAME = BEAM_38
+               82         83
+      $ESET NAME = BEAM_39
+               97        100
+      $ESET NAME = BEAM_40
+               98         99
+      $ESET NAME = BEAM_41
+              101
+      $ESET NAME = BEAM_42
+              103
+      $ESET NAME = BEAM_43
+              105
+      $ESET NAME = BEAM_44
+              107
+      $ESET NAME = BEAM_45
+              102        106
+      $ESET NAME = BEAM_46
+              104        108
+      $ESET NAME = COLUMN_01
+                1          2          3          4          5
+      $ESET NAME = COLUMN_02
+                6          7          8          9         10
+      $ESET NAME = COLUMN_03
+               11         12         13         14         15
+      $ESET NAME = COLUMN_04
+               16         17         18         19         20
+      $ESET NAME = MASS_N46
+              140
+      $ESET NAME = MASS_N76
+              141
+      $ESET NAME = Z
+              109        110        111        112        113        114        115        116        117        118        119        120        121        122
+              123        124        125        126        127        128        129        130        131        132        133        134        135        136
+              137        138        139
+!
+      $COOR
+                1  1.397773E+01  1.397773E+01  0.000000E+00
+                2 -1.397773E+01  1.397773E+01  0.000000E+00
+                3 -1.397773E+01 -1.397773E+01  0.000000E+00
+                4  1.397773E+01 -1.397773E+01  0.000000E+00
+                5  1.227961E+01  1.227961E+01  1.511709E+01
+                6 -1.227961E+01  1.227961E+01  1.511709E+01
+                7 -1.227961E+01 -1.227961E+01  1.511709E+01
+                8  1.227961E+01 -1.227961E+01  1.511709E+01
+                9  1.078779E+01  1.078779E+01  2.839764E+01
+               10 -1.078779E+01  1.078779E+01  2.839764E+01
+               11 -1.078779E+01 -1.078779E+01  2.839764E+01
+               12  1.078779E+01 -1.078779E+01  2.839764E+01
+               13  9.477206E+00  9.477206E+00  4.006478E+01
+               14 -9.477206E+00  9.477206E+00  4.006478E+01
+               15 -9.477206E+00 -9.477206E+00  4.006478E+01
+               16  9.477206E+00 -9.477206E+00  4.006478E+01
+               17  8.325843E+00  8.325843E+00  5.031449E+01
+               18 -8.325843E+00  8.325843E+00  5.031449E+01
+               19 -8.325843E+00 -8.325843E+00  5.031449E+01
+               20  8.325843E+00 -8.325843E+00  5.031449E+01
+               21  7.314356E+00  7.314356E+00  5.931900E+01
+               22 -7.314356E+00  7.314356E+00  5.931900E+01
+               23 -7.314356E+00 -7.314356E+00  5.931900E+01
+               24  7.314356E+00 -7.314356E+00  5.931900E+01
+               25  0.000000E+00  1.307376E+01  8.047374E+00
+               26 -1.307376E+01  0.000000E+00  8.047374E+00
+               27  0.000000E+00 -1.307376E+01  8.047374E+00
+               28  1.307376E+01  0.000000E+00  8.047374E+00
+               29  0.000000E+00  1.148546E+01  2.218681E+01
+               30 -1.148546E+01  0.000000E+00  2.218681E+01
+               31  0.000000E+00 -1.148546E+01  2.218681E+01
+               32  1.148546E+01  0.000000E+00  2.218681E+01
+               33  0.000000E+00  1.009012E+01  3.460848E+01
+               34 -1.009012E+01  0.000000E+00  3.460848E+01
+               35  0.000000E+00 -1.009012E+01  3.460848E+01
+               36  1.009012E+01  0.000000E+00  3.460848E+01
+               37  0.000000E+00  8.864294E+00  4.552107E+01
+               38 -8.864294E+00  0.000000E+00  4.552107E+01
+               39  0.000000E+00 -8.864294E+00  4.552107E+01
+               40  8.864294E+00  0.000000E+00  4.552107E+01
+               41  0.000000E+00  7.787392E+00  5.510792E+01
+               42 -7.787392E+00  0.000000E+00  5.510792E+01
+               43  0.000000E+00 -7.787392E+00  5.510792E+01
+               44  7.787392E+00  0.000000E+00  5.510792E+01
+               45  0.000000E+00  0.000000E+00  5.431900E+01
+               46  0.000000E+00  0.000000E+00  5.931900E+01
+               47  0.000000E+00  0.000000E+00  6.328567E+01
+               48  0.000000E+00  0.000000E+00  6.725233E+01
+               49  0.000000E+00  0.000000E+00  7.121900E+01
+               50  0.000000E+00  0.000000E+00  7.518567E+01
+               51  0.000000E+00  0.000000E+00  7.915233E+01
+               52  0.000000E+00  0.000000E+00  8.311900E+01
+               53  0.000000E+00  0.000000E+00  8.708567E+01
+               54  0.000000E+00  0.000000E+00  9.105233E+01
+               55  0.000000E+00  0.000000E+00  9.501900E+01
+               56  0.000000E+00  0.000000E+00  9.898567E+01
+               57  0.000000E+00  0.000000E+00  1.029523E+02
+               58  0.000000E+00  0.000000E+00  1.069190E+02
+               59  0.000000E+00  0.000000E+00  1.108857E+02
+               60  0.000000E+00  0.000000E+00  1.148523E+02
+               61  0.000000E+00  0.000000E+00  1.188190E+02
+               62  0.000000E+00  0.000000E+00  1.227857E+02
+               63  0.000000E+00  0.000000E+00  1.267523E+02
+               64  0.000000E+00  0.000000E+00  1.307190E+02
+               65  0.000000E+00  0.000000E+00  1.346857E+02
+               66  0.000000E+00  0.000000E+00  1.386523E+02
+               67  0.000000E+00  0.000000E+00  1.426190E+02
+               68  0.000000E+00  0.000000E+00  1.465857E+02
+               69  0.000000E+00  0.000000E+00  1.505523E+02
+               70  0.000000E+00  0.000000E+00  1.545190E+02
+               71  0.000000E+00  0.000000E+00  1.584857E+02
+               72  0.000000E+00  0.000000E+00  1.624523E+02
+               73  0.000000E+00  0.000000E+00  1.664190E+02
+               74  0.000000E+00  0.000000E+00  1.703857E+02
+               75  0.000000E+00  0.000000E+00  1.743523E+02
+               76  0.000000E+00  0.000000E+00  1.783190E+02
+!
+      $PART  NAME = COLUMN_01
+       COLUMN_01
+      $PART  NAME = COLUMN_02
+       COLUMN_02
+      $PART  NAME = COLUMN_03
+       COLUMN_03
+      $PART  NAME = COLUMN_04
+       COLUMN_04
+      $PART  NAME = TOWER
+              109        110        111        112        113        114        115        116        117        118        119        120        121        122
+              123        124        125        126        127        128        129        130        131        132        133        134        135        136
+              137        138        139
+      $PART  NAME = BEAM_01
+       BEAM_01
+      $PART  NAME = BEAM_02
+       BEAM_02
+      $PART  NAME = BEAM_03
+       BEAM_03
+      $PART  NAME = BEAM_04
+       BEAM_04
+      $PART  NAME = BEAM_05
+       BEAM_05
+      $PART  NAME = BEAM_06
+       BEAM_06
+      $PART  NAME = BEAM_07
+       BEAM_07
+      $PART  NAME = BEAM_08
+       BEAM_08
+      $PART  NAME = BEAM_09
+       BEAM_09
+      $PART  NAME = BEAM_10
+       BEAM_10
+      $PART  NAME = BEAM_11
+       BEAM_11
+      $PART  NAME = BEAM_12
+       BEAM_12
+      $PART  NAME = BEAM_13
+       BEAM_13
+      $PART  NAME = BEAM_14
+       BEAM_14
+      $PART  NAME = BEAM_15
+       BEAM_15
+      $PART  NAME = BEAM_16
+       BEAM_16
+      $PART  NAME = BEAM_17
+       BEAM_17
+      $PART  NAME = BEAM_18
+       BEAM_18
+      $PART  NAME = BEAM_19
+       BEAM_19
+      $PART  NAME = BEAM_20
+       BEAM_20
+      $PART  NAME = BEAM_21
+       BEAM_21
+      $PART  NAME = BEAM_22
+       BEAM_22
+      $PART  NAME = BEAM_23
+       BEAM_23
+      $PART  NAME = BEAM_24
+       BEAM_24
+      $PART  NAME = BEAM_25
+       BEAM_25
+      $PART  NAME = BEAM_26
+       BEAM_26
+      $PART  NAME = BEAM_27
+       BEAM_27
+      $PART  NAME = BEAM_28
+       BEAM_28
+      $PART  NAME = BEAM_29
+       BEAM_29
+      $PART  NAME = BEAM_30
+       BEAM_30
+      $PART  NAME = BEAM_31
+       BEAM_31
+      $PART  NAME = BEAM_32
+       BEAM_32
+      $PART  NAME = BEAM_33
+       BEAM_33
+      $PART  NAME = BEAM_34
+       BEAM_34
+      $PART  NAME = BEAM_35
+       BEAM_35
+      $PART  NAME = BEAM_36
+       BEAM_36
+      $PART  NAME = BEAM_37
+       BEAM_37
+      $PART  NAME = BEAM_38
+       BEAM_38
+      $PART  NAME = BEAM_39
+       BEAM_39
+      $PART  NAME = BEAM_40
+       BEAM_40
+      $PART  NAME = BEAM_41
+       BEAM_41
+      $PART  NAME = BEAM_42
+       BEAM_42
+      $PART  NAME = BEAM_43
+       BEAM_43
+      $PART  NAME = BEAM_44
+       BEAM_44
+      $PART  NAME = BEAM_45
+       BEAM_45
+      $PART  NAME = BEAM_46
+       BEAM_46
+      $PART  NAME = MASS_N46
+       MASS_N46
+      $PART  NAME = MASS_N76
+       MASS_N76
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_01                 2
+         &        :  2.552153E+00  3.190191E-02
+       GD_02                 2
+         &        :  9.842548E-01  4.287749E-02
+       GD_03                 2
+         &        :  4.844700E-01  1.005200E-02
+       GD_04                 2
+         &        :  4.035400E-01  1.200500E-02
+       GD_05                 2
+         &        :  3.439300E-01  1.348800E-02
+       GD_06                 2
+         &        :  7.460200E-01  1.315000E-02
+       GD_07                 2
+         &        :  6.136700E-01  2.136700E-02
+       GD_08                 2
+         &        :  8.164516E+00  3.712903E-02
+       GD_09                 2
+         &        :  8.074194E+00  3.654839E-02
+       GD_10                 2
+         &        :  7.983871E+00  3.596774E-02
+       GD_11                 2
+         &        :  7.893548E+00  3.538710E-02
+       GD_12                 2
+         &        :  7.803226E+00  3.480645E-02
+       GD_13                 2
+         &        :  7.712903E+00  3.422581E-02
+       GD_14                 2
+         &        :  7.622581E+00  3.364516E-02
+       GD_15                 2
+         &        :  7.532258E+00  3.306451E-02
+       GD_16                 2
+         &        :  7.441936E+00  3.248387E-02
+       GD_17                 2
+         &        :  7.351613E+00  3.190323E-02
+       GD_18                 2
+         &        :  7.261291E+00  3.132258E-02
+       GD_19                 2
+         &        :  7.170968E+00  3.074194E-02
+       GD_20                 2
+         &        :  7.080645E+00  3.016129E-02
+       GD_21                 2
+         &        :  6.990323E+00  2.958065E-02
+       GD_22                 2
+         &        :  6.900000E+00  2.900000E-02
+       GD_23                 2
+         &        :  6.809678E+00  2.841935E-02
+       GD_24                 2
+         &        :  6.719355E+00  2.783871E-02
+       GD_25                 2
+         &        :  6.629032E+00  2.725806E-02
+       GD_26                 2
+         &        :  6.538710E+00  2.667742E-02
+       GD_27                 2
+         &        :  6.448387E+00  2.609677E-02
+       GD_28                 2
+         &        :  6.358065E+00  2.551613E-02
+       GD_29                 2
+         &        :  6.267742E+00  2.493548E-02
+       GD_30                 2
+         &        :  6.177419E+00  2.435484E-02
+       GD_31                 2
+         &        :  6.087097E+00  2.377419E-02
+       GD_32                 2
+         &        :  5.996774E+00  2.319355E-02
+       GD_33                 2
+         &        :  5.906452E+00  2.261290E-02
+       GD_34                 2
+         &        :  5.816129E+00  2.203226E-02
+       GD_35                 2
+         &        :  5.725806E+00  2.145161E-02
+       GD_36                 2
+         &        :  5.635484E+00  2.087097E-02
+       GD_37                 2
+         &        :  5.545161E+00  2.029032E-02
+      $GEODAT MASS      CONT = MASS
+       GD_MASS_N46   3.359788E+05
+       GD_MASS_N76   6.739980E+05  6.739980E+05  6.739980E+05  1.564756E+08  9.743164E+07  9.743164E+07
+!
+      $ELSYS RSYS
+       BEAM_01       RSYS =        101  AXES =  1,  2
+       BEAM_02       RSYS =        102  AXES =  1,  2
+       BEAM_03       RSYS =        103  AXES =  1,  2
+       BEAM_04       RSYS =        104  AXES =  1,  2
+       BEAM_05       RSYS =        105  AXES =  1,  2
+       BEAM_06       RSYS =        106  AXES =  1,  2
+       BEAM_07       RSYS =        107  AXES =  1,  2
+       BEAM_08       RSYS =        108  AXES =  1,  2
+       BEAM_09       RSYS =        109  AXES =  1,  2
+       BEAM_10       RSYS =        110  AXES =  1,  2
+       BEAM_11       RSYS =        111  AXES =  1,  2
+       BEAM_12       RSYS =        112  AXES =  1,  2
+       BEAM_13       RSYS =        113  AXES =  1,  2
+       BEAM_14       RSYS =        114  AXES =  1,  2
+       BEAM_15       RSYS =        115  AXES =  1,  2
+       BEAM_16       RSYS =        116  AXES =  1,  2
+       BEAM_17       RSYS =        117  AXES =  1,  2
+       BEAM_18       RSYS =        118  AXES =  1,  2
+       BEAM_19       RSYS =        119  AXES =  1,  2
+       BEAM_20       RSYS =        120  AXES =  1,  2
+       BEAM_21       RSYS =        121  AXES =  1,  2
+       BEAM_22       RSYS =        122  AXES =  1,  2
+       BEAM_23       RSYS =        123  AXES =  1,  2
+       BEAM_24       RSYS =        124  AXES =  1,  2
+       BEAM_25       RSYS =        125  AXES =  1,  2
+       BEAM_26       RSYS =        126  AXES =  1,  2
+       BEAM_27       RSYS =        127  AXES =  1,  2
+       BEAM_28       RSYS =        128  AXES =  1,  2
+       BEAM_29       RSYS =        129  AXES =  1,  2
+       BEAM_30       RSYS =        130  AXES =  1,  2
+       BEAM_31       RSYS =        131  AXES =  1,  2
+       BEAM_32       RSYS =        132  AXES =  1,  2
+       BEAM_33       RSYS =        133  AXES =  1,  2
+       BEAM_34       RSYS =        134  AXES =  1,  2
+       BEAM_35       RSYS =        135  AXES =  1,  2
+       BEAM_36       RSYS =        136  AXES =  1,  2
+       BEAM_37       RSYS =        137  AXES =  1,  2
+       BEAM_38       RSYS =        138  AXES =  1,  2
+       BEAM_39       RSYS =        139  AXES =  1,  2
+       BEAM_40       RSYS =        140  AXES =  1,  2
+       BEAM_41       RSYS =        141  AXES =  1,  2
+       BEAM_42       RSYS =        142  AXES =  1,  2
+       BEAM_43       RSYS =        143  AXES =  1,  2
+       BEAM_44       RSYS =        144  AXES =  1,  2
+       BEAM_45       RSYS =        145  AXES =  1,  2
+       BEAM_46       RSYS =        146  AXES =  1,  2
+       COLUMN_01     RSYS =          1  AXES =  1,  2
+       COLUMN_02     RSYS =          2  AXES =  1,  2
+       COLUMN_03     RSYS =          3  AXES =  1,  2
+       COLUMN_04     RSYS =          4  AXES =  1,  2
+       Z             RSYS =          0  AXES =  1,  2
+!
+      $ELPROP
+                1    GEODAT = GD_02         MATERIAL = MAT_01
+                2    GEODAT = GD_02         MATERIAL = MAT_01
+                3    GEODAT = GD_02         MATERIAL = MAT_01
+                4    GEODAT = GD_02         MATERIAL = MAT_01
+                5    GEODAT = GD_02         MATERIAL = MAT_01
+                6    GEODAT = GD_02         MATERIAL = MAT_01
+                7    GEODAT = GD_02         MATERIAL = MAT_01
+                8    GEODAT = GD_02         MATERIAL = MAT_01
+                9    GEODAT = GD_02         MATERIAL = MAT_01
+               10    GEODAT = GD_02         MATERIAL = MAT_01
+               11    GEODAT = GD_02         MATERIAL = MAT_01
+               12    GEODAT = GD_02         MATERIAL = MAT_01
+               13    GEODAT = GD_02         MATERIAL = MAT_01
+               14    GEODAT = GD_02         MATERIAL = MAT_01
+               15    GEODAT = GD_02         MATERIAL = MAT_01
+               16    GEODAT = GD_02         MATERIAL = MAT_01
+               17    GEODAT = GD_02         MATERIAL = MAT_01
+               18    GEODAT = GD_02         MATERIAL = MAT_01
+               19    GEODAT = GD_02         MATERIAL = MAT_01
+               20    GEODAT = GD_02         MATERIAL = MAT_01
+               21    GEODAT = GD_03         MATERIAL = MAT_01
+               22    GEODAT = GD_03         MATERIAL = MAT_01
+               23    GEODAT = GD_03         MATERIAL = MAT_01
+               24    GEODAT = GD_03         MATERIAL = MAT_01
+               25    GEODAT = GD_03         MATERIAL = MAT_01
+               26    GEODAT = GD_03         MATERIAL = MAT_01
+               27    GEODAT = GD_03         MATERIAL = MAT_01
+               28    GEODAT = GD_03         MATERIAL = MAT_01
+               29    GEODAT = GD_03         MATERIAL = MAT_01
+               30    GEODAT = GD_03         MATERIAL = MAT_01
+               31    GEODAT = GD_03         MATERIAL = MAT_01
+               32    GEODAT = GD_03         MATERIAL = MAT_01
+               33    GEODAT = GD_03         MATERIAL = MAT_01
+               34    GEODAT = GD_03         MATERIAL = MAT_01
+               35    GEODAT = GD_03         MATERIAL = MAT_01
+               36    GEODAT = GD_03         MATERIAL = MAT_01
+               37    GEODAT = GD_04         MATERIAL = MAT_01
+               38    GEODAT = GD_04         MATERIAL = MAT_01
+               39    GEODAT = GD_04         MATERIAL = MAT_01
+               40    GEODAT = GD_04         MATERIAL = MAT_01
+               41    GEODAT = GD_04         MATERIAL = MAT_01
+               42    GEODAT = GD_04         MATERIAL = MAT_01
+               43    GEODAT = GD_04         MATERIAL = MAT_01
+               44    GEODAT = GD_04         MATERIAL = MAT_01
+               45    GEODAT = GD_04         MATERIAL = MAT_01
+               46    GEODAT = GD_04         MATERIAL = MAT_01
+               47    GEODAT = GD_04         MATERIAL = MAT_01
+               48    GEODAT = GD_04         MATERIAL = MAT_01
+               49    GEODAT = GD_04         MATERIAL = MAT_01
+               50    GEODAT = GD_04         MATERIAL = MAT_01
+               51    GEODAT = GD_04         MATERIAL = MAT_01
+               52    GEODAT = GD_04         MATERIAL = MAT_01
+               53    GEODAT = GD_05         MATERIAL = MAT_01
+               54    GEODAT = GD_05         MATERIAL = MAT_01
+               55    GEODAT = GD_05         MATERIAL = MAT_01
+               56    GEODAT = GD_05         MATERIAL = MAT_01
+               57    GEODAT = GD_05         MATERIAL = MAT_01
+               58    GEODAT = GD_05         MATERIAL = MAT_01
+               59    GEODAT = GD_05         MATERIAL = MAT_01
+               60    GEODAT = GD_05         MATERIAL = MAT_01
+               61    GEODAT = GD_05         MATERIAL = MAT_01
+               62    GEODAT = GD_05         MATERIAL = MAT_01
+               63    GEODAT = GD_05         MATERIAL = MAT_01
+               64    GEODAT = GD_05         MATERIAL = MAT_01
+               65    GEODAT = GD_05         MATERIAL = MAT_01
+               66    GEODAT = GD_05         MATERIAL = MAT_01
+               67    GEODAT = GD_05         MATERIAL = MAT_01
+               68    GEODAT = GD_05         MATERIAL = MAT_01
+               69    GEODAT = GD_06         MATERIAL = MAT_01
+               70    GEODAT = GD_06         MATERIAL = MAT_01
+               71    GEODAT = GD_06         MATERIAL = MAT_01
+               72    GEODAT = GD_06         MATERIAL = MAT_01
+               73    GEODAT = GD_06         MATERIAL = MAT_01
+               74    GEODAT = GD_06         MATERIAL = MAT_01
+               75    GEODAT = GD_06         MATERIAL = MAT_01
+               76    GEODAT = GD_06         MATERIAL = MAT_01
+               77    GEODAT = GD_06         MATERIAL = MAT_01
+               78    GEODAT = GD_06         MATERIAL = MAT_01
+               79    GEODAT = GD_06         MATERIAL = MAT_01
+               80    GEODAT = GD_06         MATERIAL = MAT_01
+               81    GEODAT = GD_06         MATERIAL = MAT_01
+               82    GEODAT = GD_06         MATERIAL = MAT_01
+               83    GEODAT = GD_06         MATERIAL = MAT_01
+               84    GEODAT = GD_06         MATERIAL = MAT_01
+               85    GEODAT = GD_07         MATERIAL = MAT_01
+               86    GEODAT = GD_07         MATERIAL = MAT_01
+               87    GEODAT = GD_07         MATERIAL = MAT_01
+               88    GEODAT = GD_07         MATERIAL = MAT_01
+               89    GEODAT = GD_07         MATERIAL = MAT_01
+               90    GEODAT = GD_07         MATERIAL = MAT_01
+               91    GEODAT = GD_07         MATERIAL = MAT_01
+               92    GEODAT = GD_07         MATERIAL = MAT_01
+               93    GEODAT = GD_07         MATERIAL = MAT_01
+               94    GEODAT = GD_07         MATERIAL = MAT_01
+               95    GEODAT = GD_07         MATERIAL = MAT_01
+               96    GEODAT = GD_07         MATERIAL = MAT_01
+               97    GEODAT = GD_07         MATERIAL = MAT_01
+               98    GEODAT = GD_07         MATERIAL = MAT_01
+               99    GEODAT = GD_07         MATERIAL = MAT_01
+              100    GEODAT = GD_07         MATERIAL = MAT_01
+              101    GEODAT = GD_01         MATERIAL = MAT_02
+              102    GEODAT = GD_01         MATERIAL = MAT_02
+              103    GEODAT = GD_01         MATERIAL = MAT_02
+              104    GEODAT = GD_01         MATERIAL = MAT_02
+              105    GEODAT = GD_01         MATERIAL = MAT_02
+              106    GEODAT = GD_01         MATERIAL = MAT_02
+              107    GEODAT = GD_01         MATERIAL = MAT_02
+              108    GEODAT = GD_01         MATERIAL = MAT_02
+              109    GEODAT = GD_01         MATERIAL = MAT_02
+              110    GEODAT = GD_08         MATERIAL = MAT_01
+              111    GEODAT = GD_09         MATERIAL = MAT_01
+              112    GEODAT = GD_10         MATERIAL = MAT_01
+              113    GEODAT = GD_11         MATERIAL = MAT_01
+              114    GEODAT = GD_12         MATERIAL = MAT_01
+              115    GEODAT = GD_13         MATERIAL = MAT_01
+              116    GEODAT = GD_14         MATERIAL = MAT_01
+              117    GEODAT = GD_15         MATERIAL = MAT_01
+              118    GEODAT = GD_16         MATERIAL = MAT_01
+              119    GEODAT = GD_17         MATERIAL = MAT_01
+              120    GEODAT = GD_18         MATERIAL = MAT_01
+              121    GEODAT = GD_19         MATERIAL = MAT_01
+              122    GEODAT = GD_20         MATERIAL = MAT_01
+              123    GEODAT = GD_21         MATERIAL = MAT_01
+              124    GEODAT = GD_22         MATERIAL = MAT_01
+              125    GEODAT = GD_23         MATERIAL = MAT_01
+              126    GEODAT = GD_24         MATERIAL = MAT_01
+              127    GEODAT = GD_25         MATERIAL = MAT_01
+              128    GEODAT = GD_26         MATERIAL = MAT_01
+              129    GEODAT = GD_27         MATERIAL = MAT_01
+              130    GEODAT = GD_28         MATERIAL = MAT_01
+              131    GEODAT = GD_29         MATERIAL = MAT_01
+              132    GEODAT = GD_30         MATERIAL = MAT_01
+              133    GEODAT = GD_31         MATERIAL = MAT_01
+              134    GEODAT = GD_32         MATERIAL = MAT_01
+              135    GEODAT = GD_33         MATERIAL = MAT_01
+              136    GEODAT = GD_34         MATERIAL = MAT_01
+              137    GEODAT = GD_35         MATERIAL = MAT_01
+              138    GEODAT = GD_36         MATERIAL = MAT_01
+              139    GEODAT = GD_37         MATERIAL = MAT_01
+       MASS_N46      GEODAT = GD_MASS_N46
+       MASS_N76      GEODAT = GD_MASS_N76
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+   $END MATERIAL
+!------
+   $MATERIAL  NAME = MAT_02  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+17  0.000000E+00
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        1.000000E-12
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
