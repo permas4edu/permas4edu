@@ -170,3 +170,5 @@
 [082](082/README.md) - [Dynamic stiffness – based free vibration study of moderately thick circular cylindrical shells](https://doi.org/10.1016/j.tws.2025.114020)
 
 [083](083/README.md) - [Machine learning algorithm for rivet-squeezing force estimation based on the dynamic response of the joint](https://doi.org/10.1016/j.ymssp.2025.113478)
+
+[084](084/README.md) - [Importance of the soil–structure interaction in the optimisation of the jacket designs of offshore wind turbines](https://doi.org/10.1016/j.oceaneng.2024.117802)
