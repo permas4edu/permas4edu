@@ -7,3 +7,12 @@ The example is adapted from [Importance of the soil–structure interaction in t
 
 Thanks to Román Quevedo Reina for sharing information about the underlying finite element model of the jacket structure. His support is greatly appreciated.
 
+![Jacket structure](jacket_structure.png)
+
+![Normal mode 01](normal_mode_01.gif)
+
+![Normal mode 01](normal_mode_02.gif)
+
+![Normal mode 01](normal_mode_03.gif)
+
+![Normal mode 01](normal_mode_04.gif)
