@@ -86,3 +86,5 @@
 [040](040/README.md) - [A level set-based structural topology optimization method with centre of mass control](https://doi.org/10.1051/smdo/2025025)
 
 [041](041/README.md) - [An Efficient Filter Implementation Method and Its Applications in Topology Optimization Utilizing k-d Tree Data Structure](https://doi.org/10.3390/computation13110262)
+
+[042](042/README.md) - [Topology Optimization of Undamped Plates for the Maximization of the Fundamental Frequency](https://www.researchgate.net/publication/397973751_Topology_Optimization_of_Undamped_Plates_for_the_Maximization_of_the_Fundamental_Frequency)
