@@ -1,0 +1,28 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+             6401       3441
+!
+      $ESET NAME = M
+             6401
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $ELPROP
+       M GEODAT = GD_M
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          3.120000E+05
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
