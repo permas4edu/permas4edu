@@ -1,0 +1,76 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : PLATE
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       5.000000E-01
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = ALL  DATTYPE = REAL
+      F_1          :  1.000000E-01      NO
+!
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      VOLFRAC      :          1      NO        5.000000E-01
+!
+      $DOBJECT  CONSTRAINT = F_1  TARGET = MAX
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+!
+      $DSVFILT  TYPE = TOPO
+                1  5.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+        F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+        F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 4
+        F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 5
+        F_5
+
+      $RESEXT FUNCTION
+        OMEGA_1 : F_1 1 : 1
+        OMEGA_2 : F_2 1 : 1
+        OMEGA_3 : F_3 1 : 1
+        OMEGA_4 : F_4 1 : 1
+        OMEGA_5 : F_5 1 : 1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+      $FUNCTION FORMULA FID = 1
+         F(X) = 2*PI*X
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN
