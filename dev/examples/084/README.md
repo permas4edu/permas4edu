@@ -1,6 +1,6 @@
 ***
 [⬅️](../083/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../085/README.md "Next example")
 ***
 
 The example is adapted from [Importance of the soil–structure interaction in the optimisation of the jacket designs of offshore wind turbines](https://doi.org/10.1016/j.oceaneng.2024.117802)
