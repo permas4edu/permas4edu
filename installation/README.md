@@ -17,6 +17,9 @@ Before you start the installation process, make sure that the following files ar
 A new bugfix release is available, i.e. 
 ![bugfix](bugfix_release_20_00_333.png "First Bugfix release")
 
+Final bugfix release, i.e.
+![final_bugfix](bugfix_release_20_00_390.png "Final Bugfix release")
+
 Double-click on the Base Installer to start the installation.
 
 ### License Agreement
