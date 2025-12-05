@@ -295,9 +295,9 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
    $LOADING NAME = L_STEP_4
 
        $CONLOAD LPAT = 1
-          21 2: 1.E-4 
+          15 2: 1.E-4 
        $CONLOAD LPAT = 2
-          21 3: 1.E-4 
+          15 3: 1.E-4 
 
        $FREQLOAD
           LPAT = 1 TYPE = COSINE AMPLITUDE = 1
