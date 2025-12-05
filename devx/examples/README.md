@@ -81,4 +81,6 @@
 
 [0038](0038/README.md) - [A hybrid rotordynamic modeling method for a rotor system with flexible foundation and nonlinear support force: Numerical and experimental investigation](https://doi.org/10.1016/j.ymssp.2023.110975)
 
+[0039](0039/README.md) - [Interval uncertainty quantification and design optimization of rotor system based on Legendre polynomial chaos-Kriging hybrid surrogate model](https://doi.org/10.1016/j.apm.2025.116676)
+
 [0040](0040/README.md) - [Rotordynamic Analysis of a 5-Kilonewton Thrust Gas Turbine by Considering Bearing Dynamics](https://doi.org/10.2514/1.B34104)
