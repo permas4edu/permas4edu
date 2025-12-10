@@ -78,6 +78,6 @@
 
 [036](036/README.md) - [A new Single Sensor Based iFEM formulation for shape-sensing of thin-walled structures instrumented with single-sided sensor configurations: Formulation, numerical assessment, and experimental validation](https://doi.org/10.1016/j.ymssp.2025.112700)
 
-[037](037/README.md) - 
+[037](037/README.md) - [An Improved Strain Energy-Based Optimality Criteria Method for Weight-Optimal Sizing of Hyperstatic Structures under Frequency, Buckling, or Displacement Constraints](https://doi.org/10.1142/S0219455427500593)
 
 [038](038/README.md) - [Some regards on using physics‑informed neural networks for solving two‑dimensional elasticity problems](https://doi.org/10.1007/s40430-025-06047-1)
