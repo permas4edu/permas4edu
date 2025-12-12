@@ -1,0 +1,86 @@
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+!#                                         Result file written by VisPER Education Edition Build 20.00.390-Rev.51446
+!#                                                               Distributed by INTES Stuttgart
+!#                                                                  Date: 12-Dec-25 09:13:57
+!#..............................................................................................................................................................
+!#                                                                       P r o j e c t
+!#                                                                          wolniak
+!#..............................................................................................................................................................
+!#                                                                 Site: permas4edu gmail.com
+!#                                                       Host: NILS-MOBIL / Windows 11 Pro-AMD64-26100
+!#                                                                    Code: M9v20 (32 bpw)
+!#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K1
+                2          2: K2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SPRING  NAME = GD_K1  DEID = 1
+      STIFF          1:          1
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 2
+      STIFF          1:          2
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  1.000000E-02  2.000000E+00
+                2  1.000000E-02  2.000000E+00
+!
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1  DATTYPE = REAL
+      F_1          :  1.000000E-01      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2  DATTYPE = REAL
+      F_2          :  1.000000E-01      NO
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        2.000000E+00
+!
+      $DOBJECT  CONSTRAINT = LSTSQ
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+!
+      $DCFUNCTION  CSTID = LSTSQ  FUNCTION =          1  EQUALITY = YES  FVAL =  0.000000E+00
+                1  DCONSTRAINT : F_1
+                2  DCONSTRAINT : F_2
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 1
+        F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1  MODE = 2
+        F_2
+
+      $RESEXT FUNCTION
+        L_1 : F_1 1 : 2
+        L_2 : F_2 1 : 2
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+!------
+   $FUNCTION LIB  FID =          1  TYPE = SUMSQDIFF
+     1.000000E+00  5.000000E-01  7.62133E-02  5.000000E-01  2.87833E-01 
+!
+   $FUNCTION FORMULA FID = 2 DESCRIPTION = 'LAMBDA'
+     F(X)= (2*PI*X)^2
+!------
+$EXIT FUNCTION
+!------------------------------------
+$FIN
