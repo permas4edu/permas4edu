@@ -66,3 +66,7 @@
 [030](030/README.md) -  [Eigenstructure assignment in undamped vibrating systems: A convex-constrained modification method based on receptances](http://dx.doi.org/10.1016/j.ymssp.2011.09.010)
 
 [031](031/README.md) - [A parametric study on the longitudinal stiffeners of web panels](https://doi.org/10.1016/j.tws.2008.02.004)
+
+[032](032/README.md) - [Omnidirectional multi-view high-speed-camera-based full-field 3D modal identification](https://doi.org/10.1016/j.ymssp.2025.113415)
+
+[033](033/README.md) - [Uncertainty propagation via sample-based deterministic model updating for structural damage identification](https://doi.org/10.1177/14759217251387535)
