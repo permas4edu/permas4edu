@@ -1,0 +1,67 @@
+ NEW
+
+INPUT
+    READ PERMAS FILE = gas_turbine.dat
+    READ PERMAS FILE = gas_turbine_add.dat
+    READ PERMAS FILE = gas_turbine_sampling.dat
+RETURN
+
+TASK LOOPS = 729 ! 729 ! 3^6 combinations for 6 design variables and 3 values per design variable
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 20
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'normal_modes_%.3(tloop)'
+EXEC 
+    MODAL ROTATING SITUATION = STEP_3
+    ACT SIT = STEP_3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSFRQ 
+!    ITEM XYDATA TYPE = RSDRT ! Damping ratio
+    GO SPREADSHEET FILE = 'campbell_%.3(tloop)'
+EXEC
+ACT SIT = EXT
+!#if ($OSTYPE == linux) then
+    EXTSOL SCRIPT = 'gas_turbine.sh' SEVERITY = WARNING p1='campbell_%.3(tloop)_rsfrq.csv' p2='1' p3='%(tloop)'
+!#else if ($OSTYPE = linux-gnu) then
+    EXTSOL SCRIPT = 'gas_turbine.sh' SEVERITY = WARNING p1='campbell_%.3(tloop)_rsfrq.csv' p2='1' p3='%(tloop)'
+!   ! if not Linux, it must be Windows
+!#else
+    EXTSOL SCRIPT = 'gas_turbine.bat' SEVERITY = WARNING p1='campbell_%.3(tloop)_rsfrq.csv' p2='1' p3='%(tloop)'
+!#endif
+EXEC
+    ACTIVE NSET = SHAFT
+    ACTIVE ESET = BEARINGS
+    MODAL FREQUENCY SITUATION = STEP_4  &
+                    OUTPUT    = ALL     &
+                    PRIMRES   = REDUCED  
+    ACT SIT = STEP_4
+    GEN STRESS RESULTANTS
+SELECT
+    ACTIVE NSET = N15
+    XYDATA ITEM DISP RESULT = FRF DCOMP = 2,3
+    ACTIVE ESET = FRONT_BEARING
+    XYDATA ITEM STRESS RES RESULT = FB DCOMP = 2,3
+    ACTIVE ESET = REAR_BEARING
+    XYDATA ITEM STRESS RES RESULT = RB DCOMP = 2,3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = FRF
+    GO SPREADSHEET FILE = 'frf_%.3(tloop)'
+    GO PERMAS BINARY FILE = 'frf_%.3(tloop)'
+EXEC
+     ACT SIT = SAMPLING
+     SAMPLING ! METHOD = LHC NSAMPLES = 2
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO PERMAS BINARY FILE = sampling
+    GO SPREADSHEET FILE = sampling
+STOP

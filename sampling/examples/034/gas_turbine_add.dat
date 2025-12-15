@@ -1,0 +1,112 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = CONTROL6 ESET = FRONT_BEARING
+          28  2  23  123
+      $ELEMENT TYPE = CONTROL6 ESET = REAR_BEARING
+          29 13  24  124
+!
+      $ESET NAME = BEARINGS
+         FRONT_BEARING
+         REAR_BEARING
+!
+      $NSET NAME = GROUND
+               23         24
+!
+      $NSET NAME = DUMMY
+          123  124
+!
+      $COOR
+               23  4.000000E-02  0.000000E+00  0.000000E+00
+               24  7.000000E-01  0.000000E+00  0.000000E+00
+              123  4.000000E-02  0.000000E+00  0.000000E+00
+              124  7.000000E-01  0.000000E+00  0.000000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM NAME = S_STEP_1
+
+      $GEODAT CONTROLW CONT = STIFFKND STIFFLIN STIFFFUN DAMPKND DAMPLIN DAMPFUN VAR
+      GD_FRONT    0        ! diagonal matrix
+         &     :  0.0    1.37E+7   1.37E+7   0.0    0.0    0.0   ! [N/m]
+         &     :  0     2001     2001 !  ky, kz depending on FIDs 2001
+         &     :  0        ! diagonal matrix
+         &     :  0.0   39.30E+00   39.30E+00    0.0    0.0    0.0 ! [Ns/m]
+         &     :  0     2002     2002 !  dy, dz depending on FIDs 2002
+         &     :  0        4        0   ! VAR: frequency dependency (rotational speed in cycles per unit time)
+!
+      GD_REAR     0        ! diagonal matrix
+         &     :  0.0    2.94E+6   2.94E+6   0.0    0.0    0.0  ! [N/m]
+         &     :  0     3001     3001 !  ky, kz depending on FIDs 3001
+         &     :  0        ! diagonal matrix
+         &     :  0.0   9719.7E+00   9719.7E+00    0.0    0.0    0.0
+         &     :  0     3002     3002 !  dy, dz depending on FIDs 3002
+         &     :  0        4        0   ! VAR: frequency dependency (rotational speed in cycles per unit time)
+      $ELPROP
+         FRONT_BEARING GEODAT = GD_FRONT
+         REAR_BEARING  GEODAT = GD_REAR
+
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND DUMMY
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $INERTIA ROTATION  LPAT = 1
+       ROTOR  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+01  0.000000E+00  0.000000E+00  1.000000E+01
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+$FUNCTION TABLE  FID=2001  EXTRA=CONST DESCRIPTION = 'FRONT BEARING STIFFNESS'  
+!
+    1.37e7 :   0.00
+    1.37e7 :  83.33
+    1.37e7 : 167.67
+    1.37e7 : 250.00
+    1.37e7 : 333.33
+    1.37e7 : 416.67
+    1.37e7 : 500.00
+!
+$FUNCTION TABLE  FID=2002  EXTRA=CONST  DESCRIPTION = 'FRONT BEARING DAMPING'  
+!
+     39.3 :   0.00
+     33.4 :  83.33
+     19.4 : 167.67
+     13.5 : 250.00
+      9.3 : 333.33
+      7.0 : 416.67
+      5.1 : 500.00    
+! 
+$FUNCTION TABLE  FID=3001  EXTRA=CONST DESCRIPTION = 'REAR BEARING STIFFNESS'  
+!
+      2.94e6 :   0.00 
+      2.94e6 :  83.33
+      5.30e6 : 167.67
+      7.16e6 : 250.00
+      8.44e6 : 333.33
+     10.50e6 : 416.67
+     12.50e6 : 500.00 
+!  
+$FUNCTION TABLE  FID=3002  EXTRA=CONST DESCRIPTION = 'REAR BEARING DAMPING'  
+!
+     9719.7 :   0.00 
+     9719.7 :  83.33
+     7855.7 : 167.67
+     6055.9 : 250.00
+     4216.1 : 333.33
+     3352.2 : 416.67
+     2441.2 : 500.00 
+!
+$EXIT FUNCTION
+!------------------------------------
+$FIN

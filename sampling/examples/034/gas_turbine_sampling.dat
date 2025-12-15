@@ -1,0 +1,65 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2 STEP_3 STEP_4 EXT
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  RESULTS = R_SAMPLING
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DMASS
+                1          1: D1
+                2          2: D2
+                3          3: D3
+                4          4: D4
+                5          5: D5
+                6          6: D6
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR MASS  NAME = GD_D1  DEID = 1
+      CYLINDER          3:          1
+      $DVGPAR MASS  NAME = GD_D2  DEID = 2
+      CYLINDER          3:          2
+      $DVGPAR MASS  NAME = GD_D3  DEID = 3
+      CYLINDER          3:          3
+      $DVGPAR MASS  NAME = GD_D4  DEID = 4
+      CYLINDER          3:          4
+      $DVGPAR MASS  NAME = GD_D5  DEID = 5
+      CYLINDER          3:          5
+      $DVGPAR MASS  NAME = GD_D6  DEID = 6
+      CYLINDER          3:          6
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_SAMPLING
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3
+      F_3
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4
+      F_4
+!
+      $VPARVAL  TYPE = DESVAR
+                1  1.800000E-01  1.900000E-01  2.000000E-01
+                2  2.000000E-01  2.100000E-01  2.200000E-01
+                3  2.200000E-01  2.300000E-01  2.400000E-01
+                4  2.300000E-01  2.400000E-01  2.500000E-01
+                5  2.400000E-01  2.500000E-01  2.600000E-01
+                6  2.400000E-01  2.500000E-01  2.600000E-01
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+      F_3 : F_3          1
+      F_4 : F_4          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
