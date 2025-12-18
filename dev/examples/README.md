@@ -174,3 +174,5 @@
 [084](084/README.md) - [Importance of the soil–structure interaction in the optimisation of the jacket designs of offshore wind turbines](https://doi.org/10.1016/j.oceaneng.2024.117802)
 
 [085](085/README.md) - [Random Eigenvibrations of Internally Supported Plates by the Boundary Element Method](https://doi.org/10.32604/cmes.2025.071887)
+
+[086](086/README.md) - [An analytical calculation method for whole workspace position-dependent natural frequencies and mode shapes of machine tool](https://doi.org/10.1016/j.ymssp.2025.113650)
