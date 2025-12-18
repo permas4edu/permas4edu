@@ -124,3 +124,5 @@
 [059](059/README.md) - [Unilateral vibration transmission in mechanical systems with bilinear coupling](https://doi.org/10.1016/j.ijnonlinmec.2025.105272)
 
 [060](060/README.md) - [Perturbation Function Iteration Method: A New Framework for Solving Periodic Solutions of Non-linear and Non-smooth Systems](https://doi.org/10.48550/arXiv.2510.23071)
+
+[061](061/README.md) - [Nonlinear model calibration through bifurcation curves](https://doi.org/10.1016/j.ymssp.2025.113589)
