@@ -1,0 +1,317 @@
+$DEFVAR K_A  TYPE = REAL LIST = 1.7E6 1.1E6 1.2E6 1.3E6 1.4E6 1.8E6 2.3E6 1.7E6 2.5E6 2.1E6 2.2E6 1.7E6 2.6E6 2.1E6 2.5E6 2.2E6 
+$DEFVAR K_B  TYPE = REAL LIST = 1.9E6 1.8E6 1.3E6 2.1E6 1.3E6 2.1E6 1.9E6 1.4E6 1.9E6 2.1E6
+$DEFVAR K_AB TYPE = REAL LIST = 3.2E5 1.5E5 4.3E5 2.3E5
+
+$ENTER COMPONENT NAME = DFLT_COMP DOFTYPE = DISP MATH
+
+   $SITUATION NAME = STEP_1
+     DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+   $END SITUATION
+
+   $STRUCTURE
+
+        $NSET NAME = GROUND_A
+           100
+ 
+        $NODE NSET = A
+           100  0.0 0.0 0.0
+           101  1.0 0.0 0.0
+           102  2.0 0.0 0.0
+           103  3.0 0.0 0.0
+           104  4.0 0.0 0.0
+           105  5.0 0.0 0.0
+           106  6.0 0.0 0.0
+           107  7.0 0.0 0.0
+           108  8.0 0.0 0.0
+           109  9.0 0.0 0.0
+           110 10.0 0.0 0.0
+           111 11.0 0.0 0.0
+           112 12.0 0.0 0.0
+           113 13.0 0.0 0.0
+           114 14.0 0.0 0.0
+           115 15.0 0.0 0.0
+           116 16.0 0.0 0.0
+
+        $NODE NSET = B
+           201  0.5  0.0 0.0
+           202  1.5  0.0 0.0
+           203  2.5  0.0 0.0
+           204  3.5  0.0 0.0
+           205  4.5  0.0 0.0
+           206  5.5  0.0 0.0
+           207  6.5  0.0 0.0
+           208  7.5  0.0 0.0
+           209  8.5  0.0 0.0
+           210  9.5  0.0 0.0
+           211 10.5  0.0 0.0
+            
+       $ESETBIN NAME = SUM_K
+           K_A
+           K_B
+           K_AB
+
+       $ESETBIN NAME = SUM_M
+           M_A 
+           M_B
+  
+       $ELEMENT TYPE = MASS3 ESET = M_A
+           101 101
+           102 102
+           103 103
+           104 104
+           105 105
+           106 106
+           107 107
+           108 108
+           109 109
+           110 110
+           111 111
+           112 112
+           113 113
+           114 114
+           115 115
+           116 116
+
+       $ELEMENT TYPE = MASS3 ESET = M_B
+           201  201
+           202  202
+           203  203
+           204  204
+           205  205
+           206  206
+           207  207
+           208  208
+           209  209
+           210  210
+           211  211
+
+       $ELEMENT TYPE = SPRING1 ESET = K_AB_1
+           301  101  202
+       $ELEMENT TYPE = SPRING1 ESET = K_AB_2
+           302  102  203
+       $ELEMENT TYPE = SPRING1 ESET = K_AB_3
+           303  103  204
+       $ELEMENT TYPE = SPRING1 ESET = K_AB_4
+           304  104  205
+
+       $ELEMENT TYPE = SPRING1 ESET = K_B_1
+           212  201  202
+       $ELEMENT TYPE = SPRING1 ESET = K_B_2
+           213  202  203
+       $ELEMENT TYPE = SPRING1 ESET = K_B_3
+           214  203  204
+       $ELEMENT TYPE = SPRING1 ESET = K_B_4
+           215  204  205
+       $ELEMENT TYPE = SPRING1 ESET = K_B_5
+           216  205  206
+       $ELEMENT TYPE = SPRING1 ESET = K_B_6
+           217  206  207
+       $ELEMENT TYPE = SPRING1 ESET = K_B_7
+           218  207  208
+       $ELEMENT TYPE = SPRING1 ESET = K_B_8
+           219  208  209
+       $ELEMENT TYPE = SPRING1 ESET = K_B_9
+           220  209  210
+       $ELEMENT TYPE = SPRING1 ESET = K_B_10
+           221  210  211
+   
+       $ELEMENT TYPE = SPRING1 ESET = K_A_1
+           117  100  101
+       $ELEMENT TYPE = SPRING1 ESET = K_A_2
+           118  101  102
+       $ELEMENT TYPE = SPRING1 ESET = K_A_3
+           119  102  103
+       $ELEMENT TYPE = SPRING1 ESET = K_A_4
+           120  103  104
+       $ELEMENT TYPE = SPRING1 ESET = K_A_5
+           121  104  105
+       $ELEMENT TYPE = SPRING1 ESET = K_A_6
+           122  105  106
+       $ELEMENT TYPE = SPRING1 ESET = K_A_7
+           123  106  107
+       $ELEMENT TYPE = SPRING1 ESET = K_A_8
+           124  107  108
+       $ELEMENT TYPE = SPRING1 ESET = K_A_9
+           125  108  109
+       $ELEMENT TYPE = SPRING1 ESET = K_A_10
+           126  109  110
+       $ELEMENT TYPE = SPRING1 ESET = K_A_11
+           127  110  111
+       $ELEMENT TYPE = SPRING1 ESET = K_A_12
+           128  111  112
+       $ELEMENT TYPE = SPRING1 ESET = K_A_13
+           129  112  113
+       $ELEMENT TYPE = SPRING1 ESET = K_A_14
+           130  113  114
+       $ELEMENT TYPE = SPRING1 ESET = K_A_15
+           131  114  115
+       $ELEMENT TYPE = SPRING1 ESET = K_A_16
+           132  115  116
+!
+       $ESET NAME = K_AB
+          K_AB_1
+          K_AB_2
+          K_AB_3
+          K_AB_4
+!
+       $ESET NAME = K_A 
+           K_A_1
+           K_A_2
+           K_A_3
+           K_A_4
+           K_A_5
+           K_A_6
+           K_A_7
+           K_A_8
+           K_A_9
+           K_A_10
+           K_A_11
+           K_A_12
+           K_A_13
+           K_A_14
+           K_A_15
+           K_A_16
+!
+       $ESET NAME = K_B
+           K_B_1
+           K_B_2
+           K_B_3
+           K_B_4
+           K_B_5
+           K_B_6
+           K_B_7
+           K_B_8
+           K_B_9
+           K_B_10 
+! 
+       $PART NAME = A
+           M_A 
+           K_A_1
+           K_A_2
+           K_A_3
+           K_A_4
+           K_A_5
+           K_A_6
+           K_A_7
+           K_A_8
+           K_A_9
+           K_A_10
+           K_A_11
+           K_A_12
+           K_A_13
+           K_A_14
+           K_A_15
+           K_A_16
+
+         $PART NAME = B
+           M_B
+           K_B_1
+           K_B_2
+           K_B_3
+           K_B_4
+           K_B_5
+           K_B_6
+           K_B_7
+           K_B_8
+           K_B_9
+           K_B_10
+  
+         $PART NAME = AB
+           K_AB_1
+           K_AB_2
+           K_AB_3
+           K_AB_4
+
+     $END STRUCTURE
+
+     $SYSTEM NAME = S_STEP_1
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K_A_1   K_A(1)
+           GD_K_A_2   K_A(2)
+           GD_K_A_3   K_A(3)
+           GD_K_A_4   K_A(4)
+           GD_K_A_5   K_A(5)
+           GD_K_A_6   K_A(6)
+           GD_K_A_7   K_A(7)
+           GD_K_A_8   K_A(8)
+           GD_K_A_9   K_A(9)
+           GD_K_A_10  K_A(10)
+           GD_K_A_11  K_A(11)
+           GD_K_A_12  K_A(12)
+           GD_K_A_13  K_A(13)
+           GD_K_A_14  K_A(14)
+           GD_K_A_15  K_A(15)
+           GD_K_A_16  K_A(16)
+        $GEODAT SPRING CONT = STIFF
+            GD_K_B_1   K_B(1)
+            GD_K_B_2   K_B(2)
+            GD_K_B_3   K_B(3)
+            GD_K_B_4   K_B(4)
+            GD_K_B_5   K_B(5)
+            GD_K_B_6   K_B(6)
+            GD_K_B_7   K_B(7)
+            GD_K_B_8   K_B(8)
+            GD_K_B_9   K_B(9)
+            GD_K_B_10  K_B(10)
+         $GEODAT SPRING CONT = STIFF
+            GD_K_AB_1  K_AB(1)
+            GD_K_AB_2  K_AB(2)
+            GD_K_AB_3  K_AB(3)
+            GD_K_AB_4  K_AB(4)
+
+         $GEODAT MASS CONT = MASS
+           GD_M_A    2.0
+           GD_M_B    1.0
+
+         $ELPROP
+           K_A_1  GEODAT = GD_K_A_1
+           K_A_2  GEODAT = GD_K_A_2
+           K_A_3  GEODAT = GD_K_A_3
+           K_A_4  GEODAT = GD_K_A_4
+           K_A_5  GEODAT = GD_K_A_5
+           K_A_6  GEODAT = GD_K_A_6
+           K_A_7  GEODAT = GD_K_A_7
+           K_A_8  GEODAT = GD_K_A_8
+           K_A_9  GEODAT = GD_K_A_9
+           K_A_10 GEODAT = GD_K_A_10
+           K_A_11 GEODAT = GD_K_A_11
+           K_A_12 GEODAT = GD_K_A_12
+           K_A_13 GEODAT = GD_K_A_13
+           K_A_14 GEODAT = GD_K_A_14
+           K_A_15 GEODAT = GD_K_A_15
+           K_A_16 GEODAT = GD_K_A_16
+!
+           K_B_1   GEODAT = GD_K_B_1
+           K_B_2   GEODAT = GD_K_B_2
+           K_B_3   GEODAT = GD_K_B_3
+           K_B_4   GEODAT = GD_K_B_4
+           K_B_5   GEODAT = GD_K_B_5
+           K_B_6   GEODAT = GD_K_B_6
+           K_B_7   GEODAT = GD_K_B_7
+           K_B_8   GEODAT = GD_K_B_8
+           K_B_9   GEODAT = GD_K_B_9
+           K_B_10  GEODAT = GD_K_B_10
+!
+           K_AB_1  GEODAT = GD_K_AB_1
+           K_AB_2  GEODAT = GD_K_AB_2
+           K_AB_3  GEODAT = GD_K_AB_3
+           K_AB_4  GEODAT = GD_K_AB_4
+!         
+           M_A    GEODAT = GD_M_A
+           M_B    GEODAT = GD_M_B
+
+     $END SYSTEM
+
+     $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 2,3
+            A B
+
+        $SUPPRESS DOFS = 1
+            GROUND_A
+ 
+     $END CONSTRAINTS
+    
+$EXIT COMPONENT
+$FIN
