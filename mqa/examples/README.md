@@ -5,7 +5,7 @@
 
 ### Examples
 
-[001](001/README.md) - [A general mesh smoothing method for ﬁnite elements](https://doi.org/10.1016/j.ﬁnel.2019.01.010)
+[001](001/README.md) - [A general mesh smoothing method for ﬁnite elements](https://doi.org/10.1016/j.finel.2019.01.010)
 
 [002](002/README.md) - [Gauss divergence theorem for the calculation of the mass and area moment of inertia tensors](https://doi.org/10.1007/s00707-025-04419-1)
 
