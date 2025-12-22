@@ -10,4 +10,6 @@ Thanks to Haiko Brücher, Tim Kamper and Denis Beljan for sharing a correspondin
 The measurement data was recorded using the Impact Testing Module in the ArtemiS Suite. The extraction of modal parameters was also performed using the modal analysis solution of ArtemiS Suite.
 A [free trial licence](https://www.head-acoustics.com/modal-analysis) can be requested.
 
+![BARC](BARC.png "Box Assembly with Removable Component")
+
 ![MAC matrix](mac.png)
