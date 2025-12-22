@@ -14,4 +14,8 @@ Thanks to Berkay Vatansever for providing a structured mesh of the BARC.
 
 ![BARC](BARC.png "Box Assembly with Removable Component")
 
+![Mode 01](barc_01.gif)
+
+![Mode 02](barc_02.gif)
+
 ![MAC matrix](mac.png)
