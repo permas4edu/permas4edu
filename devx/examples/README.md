@@ -84,3 +84,5 @@
 [0039](0039/README.md) - [Interval uncertainty quantification and design optimization of rotor system based on Legendre polynomial chaos-Kriging hybrid surrogate model](https://doi.org/10.1016/j.apm.2025.116676)
 
 [0040](0040/README.md) - [Rotordynamic Analysis of a 5-Kilonewton Thrust Gas Turbine by Considering Bearing Dynamics](https://doi.org/10.2514/1.B34104)
+
+[0041](0041/README.md) - [The influence of unbalance identification position on the transient dynamic balancing of a single-disk rotor without trial weights](https://doi.org/10.1177/10775463251407650)
