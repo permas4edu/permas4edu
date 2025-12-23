@@ -90,3 +90,5 @@
 [042](042/README.md) - [Topology Optimization of Undamped Plates for the Maximization of the Fundamental Frequency](https://www.researchgate.net/publication/397973751_Topology_Optimization_of_Undamped_Plates_for_the_Maximization_of_the_Fundamental_Frequency)
 
 [043](043/README.md) -  [A Comparative Study of Numerical Methods for Topology Optimization: FEM, VEM, and SFEM on Unstructured Meshes](https://www.researchgate.net/publication/398334405_A_Comparative_Study_of_Numerical_Methods_for_Topology_Optimization_FEM_VEM_and_SFEM_on_Unstructured_Meshes)
+
+[044](044/README.md) - [Smooth geometry extraction from SIMP topology optimization: Signed distance function approach with volume preservation](https://doi.org/10.1016/j.advengsoft.2025.104071)
