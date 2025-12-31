@@ -80,3 +80,5 @@
 [037](037/README.md) - [FE reduced-order model-informed neural operator for structural dynamic response prediction](https://doi.org/10.1016/j.neunet.2025.107437)
 
 [038](038/README.md) - [Truncated Transfer Matrix-Based Regularization for Impact Force Localization and Reconstruction](https://doi.org/10.3390/s25185712)
+
+[039](039/README.md) -  [Toward Data-Driven Dynamic Substructuring in Frequency Domain](https://doi.org/10.2514/1.J065310)
