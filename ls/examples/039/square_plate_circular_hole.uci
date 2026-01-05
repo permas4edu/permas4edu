@@ -1,0 +1,17 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = square_plate_circular_hole.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS
+    GEN EL STRESS
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
