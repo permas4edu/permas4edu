@@ -81,3 +81,5 @@
 [037](037/README.md) - [An Improved Strain Energy-Based Optimality Criteria Method for Weight-Optimal Sizing of Hyperstatic Structures under Frequency, Buckling, or Displacement Constraints](https://doi.org/10.1142/S0219455427500593)
 
 [038](038/README.md) - [Some regards on using physics‑informed neural networks for solving two‑dimensional elasticity problems](https://doi.org/10.1007/s40430-025-06047-1)
+
+[039](039/README.md) - [Mesh-free energy element method for three-dimensional static analysis of structures with complex geometries](https://doi.org/10.1016/j.compstruc.2025.107889)
