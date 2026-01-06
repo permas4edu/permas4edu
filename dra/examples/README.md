@@ -82,3 +82,5 @@
 [038](038/README.md) - [Truncated Transfer Matrix-Based Regularization for Impact Force Localization and Reconstruction](https://doi.org/10.3390/s25185712)
 
 [039](039/README.md) -  [Toward Data-Driven Dynamic Substructuring in Frequency Domain](https://doi.org/10.2514/1.J065310)
+
+[040](040/README.md) - [Neural network-enriched RKPM for dynamics based on action minimization](https://doi.org/10.1016/j.cma.2025.118662)
