@@ -13,3 +13,7 @@ Thanks to Faizan Baqir for private communication.
 ### Cylinder example
 
 ![Cylinder](cylinder_example.png)
+
+### Gear 
+
+![Gear](gear.gif)
