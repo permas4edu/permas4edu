@@ -93,4 +93,6 @@
 
 [044](044/README.md) - [Smooth geometry extraction from SIMP topology optimization: Signed distance function approach with volume preservation](https://doi.org/10.1016/j.advengsoft.2025.104071)
 
-[45](045/README.md) - [Shape and topology optimization for contact applications](https://doi.org/10.1016/j.ijsolstr.2025.113825)
+[045](045/README.md) - [Shape and topology optimization for contact applications](https://doi.org/10.1016/j.ijsolstr.2025.113825)
+
+[046](046/README.md) - [Adaptive isogeometric topology optimization of shell structures based on truncated hierarchical B-splines](https://doi.org/10.1007/s11465-025-0865-z)
