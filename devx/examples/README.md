@@ -87,4 +87,4 @@
 
 [0041](0041/README.md) - [The influence of unbalance identification position on the transient dynamic balancing of a single-disk rotor without trial weights](https://doi.org/10.1177/10775463251407650)
 
-[0042](0042/README.md) - The example is adapted from [Forced vibration of multidisc Shaft with rotating unbalance](https://doi.org/10.3126/jiee.v8i1.77044)
+[0042](0042/README.md) - [Forced vibration of multidisc Shaft with rotating unbalance](https://doi.org/10.3126/jiee.v8i1.77044)
