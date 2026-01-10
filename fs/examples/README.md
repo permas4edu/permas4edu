@@ -12,3 +12,5 @@
 [003](003/README.md) - [Mutual-radiation efficiency estimation of vibration modes by finite element method and boundary element method software](http://dx.doi.org/10.1177/14613484211073274)
 
 [004](004/README.md) - [Free vibration analysis of a clamped cylindrical shell with internal and external fluid interaction](https://doi.org/10.1016/j.jfluidstructs.2024.104079)
+
+[005](005/README.md) - [Discontinuous isogeometric boundary elements for direct acoustic–structural coupling with Reissner–Mindlin shells](https://doi.org/10.1016/j.enganabound.2025.106629)
