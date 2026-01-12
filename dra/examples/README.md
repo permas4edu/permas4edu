@@ -84,3 +84,5 @@
 [039](039/README.md) -  [Toward Data-Driven Dynamic Substructuring in Frequency Domain](https://doi.org/10.2514/1.J065310)
 
 [040](040/README.md) - [Neural network-enriched RKPM for dynamics based on action minimization](https://doi.org/10.1016/j.cma.2025.118662)
+
+[042](042/README.md) - [Inconsistency Removal of Reduced Bases in Parametric Model Order Reduction by Matrix Interpolation Using Adaptive Sampling and Clustering](https://doi.org/10.1002/nme.70241)
