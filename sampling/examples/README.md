@@ -73,3 +73,4 @@
 
 [033](033/README.md) - [Compliant Support Fixture problem](https://www.linkedin.com/posts/lonny-thompson_compliant-support-torsion-challenge-part-activity-7384913594288885761-TnUe?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
 
+[035](035/README.md) - [Inconsistency Removal of Reduced Bases in Parametric Model Order Reduction by Matrix Interpolation Using Adaptive Sampling and Clustering](https://doi.org/10.1002/nme.70241)
