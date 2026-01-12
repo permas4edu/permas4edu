@@ -73,4 +73,6 @@
 
 [033](033/README.md) - [Compliant Support Fixture problem](https://www.linkedin.com/posts/lonny-thompson_compliant-support-torsion-challenge-part-activity-7384913594288885761-TnUe?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
 
+[034](034/README.md) . [Rotordynamic Analysis of a 5-Kilonewton Thrust Gas Turbine by Considering Bearing Dynamics](https://doi.org/10.2514/1.B34104)
+
 [035](035/README.md) - [Inconsistency Removal of Reduced Bases in Parametric Model Order Reduction by Matrix Interpolation Using Adaptive Sampling and Clustering](https://doi.org/10.1002/nme.70241)
