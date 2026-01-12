@@ -1,0 +1,47 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : BEAM
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       5.000000E-01
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+!
+      $DCONSTRAINT COMPLIANCE  TYPE = GLOBAL  SITUATION = STEP_1  LPAT = 1  DATTYPE = REAL
+      CMPL         :  0.000000E+00      NO
+
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      VOLFRAC      :          1      NO        1.500000E-01
+!
+      $DOBJECT  CONSTRAINT = CMPL
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+!
+      $DSVFILT  TYPE = TOPO
+                1  5.000000E+00
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
