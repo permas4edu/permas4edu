@@ -9,3 +9,8 @@ Thanks to Martin D. Ulriksen for private communication. His support is greatly a
 ![Truss  system](truss_system.png)
 
 ### Experimental example
+
+![Setup](setup.png)
+
+![Cross section](cross_section.png "The finite element model neglects radii for the sake of simplicity")
+
