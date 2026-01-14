@@ -12,3 +12,5 @@
 [003](003/README.md) - [Fast and Robust Hexahedral Mesh Optimization via Augmented Lagrangian, L-BFGS, and Line Search](https://doi.org/10.48550/arXiv.2410.11656)
 
 [004](004/README.md) - [Quadrilateral mesh generation based on foliation and meromorphic quadratic differential](https://doi.org/10.1016/j.cad.2025.103953)
+
+[005](005/README.md) - [An approach to hex-dominant meshing with high-quality hexahedral element distribution](https://doi.org/10.1007/s00366-025-02241-w)
