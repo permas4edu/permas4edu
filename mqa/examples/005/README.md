@@ -7,3 +7,5 @@ The example is adapted from [An approach to hex-dominant meshing with high-quali
 Thanks to Hao Chen and Shuming Gao for sharing some models in vtk format. Their support is greatly appreciated.
 
 ![Model](2022_HexMe_S07.png)
+
+![Cylinder](cylinder.png)
