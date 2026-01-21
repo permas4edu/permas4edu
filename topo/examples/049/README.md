@@ -7,3 +7,4 @@ The examples are adapted from [A dual physics-informed neural network for topolo
 
 ![efratio](efratio.gif)
 
+![efratio_01](efratio_01.gif)
