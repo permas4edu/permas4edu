@@ -100,3 +100,5 @@
 [047](047/README.md) - [A novel topology optimization with load path capacity constraints for minimizing the peak stress control](https://doi.org/10.1063/5.0281681)
 
 [048](048/README.md) - [A continuous topology optimization framework using an explicit binarization constraint](https://doi.org/10.1016/j.cma.2025.118724)
+
+[049](049/README.md) - [A dual physics-informed neural network for topology optimization](https://doi.org/10.1016/j.jcp.2026.114666)
