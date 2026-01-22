@@ -1,3 +1,8 @@
+***
+[⬅️](../035/README.md "Previous example")
+[➡️](../README.md "Go up one directory level")
+***
+
 The example is adapted from [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
 
 ### The Golden Oscillator
