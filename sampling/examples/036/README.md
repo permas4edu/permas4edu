@@ -13,6 +13,8 @@ $$ {\boldsymbol M}  = \begin{bmatrix} 1 & 0 \\
 $$ {\boldsymbol K}  = \begin{bmatrix} k+k_c & -k_c \\ 
 -k_c & k+k_c \end{bmatrix} $$
 
+$$  k = 1,  \quad k_c = \frac{1+\sqrt{5}}{4} $$
+
 $$f_1 = 0.1591549 $$ [Hz]
 
 $$f_2 = 0.2575181 $$ [Hz]
