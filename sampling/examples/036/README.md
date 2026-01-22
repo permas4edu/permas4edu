@@ -1,3 +1,5 @@
+The example is adapted from [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
+
 ### The Golden Oscillator
 
 $$ {\boldsymbol M}  = \begin{bmatrix} 1 & 0 \\ 
