@@ -76,3 +76,5 @@
 [034](034/README.md) . [Rotordynamic Analysis of a 5-Kilonewton Thrust Gas Turbine by Considering Bearing Dynamics](https://doi.org/10.2514/1.B34104)
 
 [035](035/README.md) - [Inconsistency Removal of Reduced Bases in Parametric Model Order Reduction by Matrix Interpolation Using Adaptive Sampling and Clustering](https://doi.org/10.1002/nme.70241)
+
+[036](036/README.md) - [The Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
