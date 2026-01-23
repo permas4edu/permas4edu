@@ -1,0 +1,42 @@
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import pandas as pd
+import mplcursors
+df1 = pd.read_csv('monitoring_xdhis.csv',delimiter=';')
+df2 = pd.read_csv('monitoring_srhis.csv',delimiter=';')
+df3 = pd.read_csv('monitoring_xohis.csv',delimiter=';')
+xmin = df1[df1.keys()[0]].min()
+xmax = df1[df1.keys()[0]].max()
+m,n=df1.shape
+
+fig = plt.figure('Optimization of the golden oscillator',figsize=(6,10))
+ax1 = fig.add_subplot(411)
+ax2 = fig.add_subplot(412,sharex=ax1)
+ax3 = fig.add_subplot(413,sharex=ax1)
+ax4 = fig.add_subplot(414,sharex=ax1)
+line, = ax1.plot(df1[df1.keys()[0]],df1['DV-1'],'o',label=r'$k_c$')
+ax1.plot(df1[df1.keys()[0]],df1['DV-1'])
+ax1.axhline((1+np.sqrt(5))/4,label=r'$\frac{1+\sqrt{5}}{4}$',c='g',alpha=0.3)
+ax2.plot(df2[df2.keys()[0]],df2['GOLDEN_RATIO'],lw=2,label=r'$\frac{f_2}{f_1}$')
+ax2.axhline((1+np.sqrt(5))/2,label=r'$\frac{1+\sqrt{5}}{2}$',c='g',alpha=0.3)
+ax3.plot(df2[df2.keys()[0]],df2['F_1'],label=r'$f_1$')
+ax3.plot(df2[df2.keys()[0]],df2['F_2'],label=r'$f_2$')
+ax4.plot(df3[df3.keys()[0]],df3['DCFU1'],label=r'$g(f_1,f_2)=1+\left[\frac{f_2}{f_1}-\frac{1+\sqrt{5}}{4}\right]^2$')
+ax1.legend(shadow=True).set_draggable(True)
+ax2.legend(shadow=True).set_draggable(True)
+ax3.legend(shadow=True).set_draggable(True)
+ax1.grid()
+ax2.grid()
+ax3.grid()
+ax4.grid()
+ax1.set_xlim(xmin,xmax)
+ax1.set_xticks(np.linspace(xmin,xmax,m))
+ax1.set_ylabel(r'Coupling stiffness $k_c$')
+ax2.set_ylabel('Ratio of natural frequencies')
+ax3.set_ylabel(r'Natural frequencies $f_i$')
+ax4.set_xlabel(r'Loop Number $i$')
+ax4.set_ylabel(r'Objective function $g$')
+mplcursors.cursor(line,multiple=True)
+plt.tight_layout()
+plt.show()
