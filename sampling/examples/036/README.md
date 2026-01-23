@@ -25,4 +25,8 @@ $$\frac{f_2}{f_1}= \frac{1+\sqrt{5}}{2}$$
 
 ![Second mode](golden_oscillator_02.gif)
 
+### Optimization problem
+
+![results](Optimization_of_the_golden_oscillator.png)
+
 
