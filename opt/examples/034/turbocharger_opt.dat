@@ -1,0 +1,255 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1 STEP_2 STEP_3 STEP_4
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DSVLINK SAME
+                3:         14  ! shaft diameter and inner diameter of impeller
+               11:         17  ! shaft diameter and inner diameter of turbine    
+!
+      $DELEMENT TYPE = DBEAM
+                1          1: LINE1
+                2          2: LINE2
+                3          3: LINE3
+                4          4: LINE4
+                5          5: LINE5
+                6          6: LINE6
+                7          7: LINE7
+                8          8: LINE8
+                9          9: LINE9
+               10         10: LINE10
+               11         11: LINE11
+               12         12: LINE12
+               13         13: LINE13
+      $DELEMENT TYPE = DMASS
+               14         14         15         16: M1
+               15         17         18         19: M2
+      $DELEMENT TYPE = DSPRING
+               16         20: K1
+               17         21: K2
+      $DELEMENT TYPE = DDAMP
+               18         22: C1
+               19         23: C2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+!     Shaft
+!
+      $DVGPAR BEAM  NAME = GD_LINE1  DEID = 1
+      SECTDIM          1:          1
+      $DVGPAR BEAM  NAME = GD_LINE2  DEID = 2
+      SECTDIM          1:          2
+      $DVGPAR BEAM  NAME = GD_LINE3  DEID = 3
+      SECTDIM          1:          3
+      $DVGPAR BEAM  NAME = GD_LINE4  DEID = 4
+      SECTDIM          1:          4
+      $DVGPAR BEAM  NAME = GD_LINE5  DEID = 5
+      SECTDIM          1:          5
+      $DVGPAR BEAM  NAME = GD_LINE6  DEID = 6
+      SECTDIM          1:          6
+      $DVGPAR BEAM  NAME = GD_LINE7  DEID = 7
+      SECTDIM          1:          7
+      $DVGPAR BEAM  NAME = GD_LINE8  DEID = 8
+      SECTDIM          1:          8
+      $DVGPAR BEAM  NAME = GD_LINE9  DEID = 9
+      SECTDIM          1:          9
+      $DVGPAR BEAM  NAME = GD_LINE10  DEID = 10
+      SECTDIM          1:         10
+      $DVGPAR BEAM  NAME = GD_LINE11  DEID = 11
+      SECTDIM          1:         11
+      $DVGPAR BEAM  NAME = GD_LINE12  DEID = 12
+      SECTDIM          1:         12
+      $DVGPAR BEAM  NAME = GD_LINE13  DEID = 13
+      SECTDIM          1:         13
+!
+!     Impeller
+!
+!      $DVGPAR MASS  NAME = GD_M1  DEID = 14
+      $DVGPAR MASS  NAME = GD_IMPELLER  DEID = 14
+      CYLINDER          2:         14   ! inner diameter
+      CYLINDER          3:         15   ! outer diameter
+      CYLINDER          4:         16   ! height
+!
+!     Turbine
+!
+!      $DVGPAR MASS  NAME = GD_M2  DEID = 15
+      $DVGPAR MASS  NAME = GD_TURBINE  DEID = 15
+      CYLINDER          2:         17   ! inner diameter
+      CYLINDER          3:         18   ! outer diameter
+      CYLINDER          4:         19
+!
+      $DVGPAR SPRING  NAME = GD_K1  DEID = 16
+      STIFF          1:         20   ! x-direction
+      STIFF          2:         20   ! y-direction
+!
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 17
+      STIFF          1:         21   ! x-direction
+      STIFF          2:         21   ! y-direction
+!
+!     Design variables viscous damper
+!
+      $DVGPAR DAMPER  NAME = GD_C1  DEID = 18
+      DAMP          1:         22    ! x-direction
+      DAMP          2:         22    ! y-direction
+!
+      $DVGPAR DAMPER  NAME = GD_C2  DEID = 19
+      DAMP          1:         23    ! x-direction
+      DAMP          2:         23    ! y-direction
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+!     Lower and upper bounds
+!
+      $DSVLIMIT
+!
+!               Shaft diameters 
+!
+                1  4.100000E-03  2.000000E-02
+                2  4.100000E-03  2.000000E-02
+                3  4.100000E-03  2.000000E-02
+                4  4.100000E-03  2.000000E-02
+                5  4.100000E-03  2.000000E-02
+                6  4.100000E-03  2.000000E-02
+                7  4.100000E-03  2.000000E-02
+                8  4.100000E-03  2.000000E-02
+                9  4.100000E-03  2.000000E-02
+               10  4.100000E-03  2.000000E-02
+               11  4.100000E-03  2.000000E-02
+               12  4.100000E-03  2.000000E-02
+               13  4.100000E-03  2.000000E-02
+!
+!              Impeller
+!
+!              14   ! inner diameter -->  dependent variable 
+               15  9.1E-3  0.05  ! outer diameter
+               16  0.001   0.01  ! height
+!
+!              Turbine     
+!
+!              17   ! inner diameter --> dependent variable
+               18  9.1E-3  0.05  ! outer diameter
+               19  0.001   0.01  ! height
+!
+!              Bearing 1  spring
+!
+               20  1.E5 1.E7
+!
+!              Bearing 2  sping
+!
+               21  1.E5 1.E7
+!
+!              Bearing 1 damper
+!
+               22  1.0 5.0
+!
+!              Bearing 2 damper
+!   
+               23  1.0 5.0
+!
+!     Modification limit
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+                7  1.000000E-01
+                8  1.000000E-01
+                9  1.000000E-01
+               10  1.000000E-01
+               11  1.000000E-01
+               12  1.000000E-01
+               13  1.000000E-01
+!               14  1.000000E-01
+               15  1.000000E-01
+               16  1.000000E-01
+!               17  1.000000E-01
+               18  1.000000E-01
+               19  1.000000E-01
+               20  1.000000E-01
+               21  1.000000E-01
+               22  1.000000E-01
+               23  1.000000E-01
+!
+      $DCONSTRAINT WEIGHT  TYPE = GLOBAL  SITUATION = STEP_1  DATTYPE = REAL
+      WGT          :      NO        0.000000E+00
+
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1  DATTYPE = REAL
+      F_1          :  260.0      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2  DATTYPE = REAL
+      F_2          :  260.0      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3  DATTYPE = REAL
+      F_3          :  260.0      NO
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4  DATTYPE = REAL
+      F_4          :  260.0      NO
+!
+      $DCONSTRAINT DISP TYPE = SET SITUATION = STEP_4 FREQUENCY = ALL DATTYPE = AMPLITUDE
+       UNBALANCE : SHAFT 1 0.0  NO
+!
+      $DOBJECT  CONSTRAINT = WGT UNBALANCE
+!
+!     outer diameter - inner diameter >= 0.005
+!
+      $DCFUNCTION CSTID = IMPELLER FUNCTION = 2 EQUALITY = NO LOWER = 0.005
+         1  DESVAR : 3 
+         2  DESVAR : 15
+      $DCFUNCTION CSTID = TURBINE FUNCTION = 2 EQUALITY = NO LOWER = 0.005
+         1  DESVAR : 11 
+         2  DESVAR : 18
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+!
+!     Natural frequencies
+!
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 1
+         F_1
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 2
+         F_2
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 3
+         F_3
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 4
+         F_4
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 5
+         F_5
+      $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_2 MODE = 6
+         F_6
+
+      $RESEXT ITEM
+         F_1 : F_1 1
+         F_2 : F_2 1
+         F_3 : F_3 1
+         F_4 : F_4 1
+         F_5 : F_5 1
+         F_6 : F_6 1
+!
+!     Entire mass of the turbocharger
+!
+      $RSLITEM WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+         WGT
+
+      $RESEXT ITEM
+         WGT : WGT 1
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 2
+      F(X1,X2) = X2-X1
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN
