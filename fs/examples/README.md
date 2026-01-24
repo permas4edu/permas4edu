@@ -14,3 +14,5 @@
 [004](004/README.md) - [Free vibration analysis of a clamped cylindrical shell with internal and external fluid interaction](https://doi.org/10.1016/j.jfluidstructs.2024.104079)
 
 [005](005/README.md) - [Discontinuous isogeometric boundary elements for direct acoustic–structural coupling with Reissner–Mindlin shells](https://doi.org/10.1016/j.enganabound.2025.106629)
+
+[006](006/README.md) - [Analysis of sound radiation from a vibrating clamped thin rectangular plate without baffle and in the rigid baffle using exact formulas](https://doi.org/10.1016/j.wavemoti.2026.103704)
