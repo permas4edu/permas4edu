@@ -88,3 +88,5 @@
 [0041](0041/README.md) - [The influence of unbalance identification position on the transient dynamic balancing of a single-disk rotor without trial weights](https://doi.org/10.1177/10775463251407650)
 
 [0042](0042/README.md) - [Forced vibration of multidisc Shaft with rotating unbalance](https://doi.org/10.3126/jiee.v8i1.77044)
+
+[0043](0043/README.md) - [A JAYA based algorithm for Design optimization of a turbocharger subject to vibration and stress concentration constraints](https://www.researchgate.net/publication/336612989_A_JAYA_based_algorithm_for_design_optimization_of_a_turbocharger_subject_to_vibration_and_stress_concentration_constraints)
