@@ -1,0 +1,88 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DSPRING
+                1          1: K_C1
+                2          2: K_C2
+
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SPRING  NAME = GD_K_C1  DEID = 1
+      STIFF          1:          1
+      $DVGPAR SPRING  NAME = GD_K_C2  DEID = 2
+      STIFF          1:          2
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+
+       $DSVMLIM
+          1 0.1
+          2 0.1
+        
+       $DSVLIMIT
+          1 0.01 4.0
+          2 0.01 4.0
+
+       $DCONSTRAINT WEIGHT TYPE = GLOBAL SITUATION = STEP_1
+            WGT : NO 3.0
+
+       $DCONSTRAINT FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 1
+            F_1 : 0.0 NO
+
+       $DCONSTRAINT FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 2
+            F_2 : 0.0 NO
+
+       $DCONSTRAINT FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = 3
+            F_3 : 0.0 NO
+
+       $DCFUNCTION CSTID = GOLDEN_RATIO FUNCTION = LSTSQ EQUALITY = YES
+            1 DCONSTRAINT : F_1 : 1
+            2 DCONSTRAINT : F_2 : 1
+            3 DCONSTRAINT : F_3 : 1
+
+       $DOBJECT CONSTRAINT = GOLDEN_RATIO TARGET = MIN
+  
+   $END MODIFICATION
+!------
+   $RESULTS
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 3
+      F_3
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+      F_3 : F_3          1
+
+!
+      $RESEXT FUNCTION 
+       GOLDEN_RATIO_01 : F_1 1 : F_2 1 : 3
+       GOLDEN_RATIO_02 : F_2 1 : F_3 1 : 3
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 3
+        F(X1,X2) = X2/X1
+
+    $FUNCTION FORMULA FID = LSTSQ 
+        F(X1,X2,X3) = 1+(X2/X1-(1+SQRT(5))/2)^2+(X3/X2-(1+SQRT(5))/2)^2
+
+$EXIT FUNCTION
+$FIN
