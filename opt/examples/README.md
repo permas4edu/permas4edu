@@ -70,3 +70,5 @@
 [032](032/README.md) - [Omnidirectional multi-view high-speed-camera-based full-field 3D modal identification](https://doi.org/10.1016/j.ymssp.2025.113415)
 
 [033](033/README.md) - [Uncertainty propagation via sample-based deterministic model updating for structural damage identification](https://doi.org/10.1177/14759217251387535)
+
+[035](035/README.md) - [The Extended Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
