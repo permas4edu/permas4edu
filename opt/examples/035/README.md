@@ -13,3 +13,4 @@ Find $$k_1, k_2$$ such that
 
 $$\frac{f_3}{f_2}=\frac{f_2}{f_1} = \frac{1+\sqrt{5}}{2}$$
 
+![extended](Optimization_of_the_extended_golden_oscillator_chain.png)
