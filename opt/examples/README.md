@@ -71,4 +71,6 @@
 
 [033](033/README.md) - [Uncertainty propagation via sample-based deterministic model updating for structural damage identification](https://doi.org/10.1177/14759217251387535)
 
+[034](034/README.md) - [An efficient hybrid differential evolution–Jaya algorithm for enhancing vibration behaviour in automotive turbocharger systems](https://doi.org/10.1080/0305215X.2023.2260992)
+
 [035](035/README.md) - [The Extended Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
