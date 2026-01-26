@@ -55,4 +55,7 @@ EXPORT
     ITEM XYDATA NAME = FRF_S
     GO PERMAS BINARY FILE = stress_resultants
 TASK END
+USER 
+    CALL TOOL6 P1 = 'pyINTES turbocharger.py'
+RETURN
 STOP
