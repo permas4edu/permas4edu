@@ -2,12 +2,12 @@
 
 $$ {\boldsymbol M}  = m \begin{bmatrix} 1 & 0  & 0 \\ 
 0 & 1 & 0 \\
-0 & 0 & 1 \end{bmatrix} $$
+0 & 0 & 1 \end{bmatrix}, \quad m=1 $$
 
 $$ {\boldsymbol K}  = \begin{bmatrix} k+k_1 & -k_1 & 0 \\ 
 -k_1 & k_1+k_2 & -k_2 \\
 0 & -k_2 & k+k_2
-\end{bmatrix} $$
+\end{bmatrix}, \quad k=1 $$
 
 Find $$k_1, k_2$$ such that 
 
