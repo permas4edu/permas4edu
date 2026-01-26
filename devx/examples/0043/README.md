@@ -8,3 +8,5 @@ The example is adapted from [A JAYA based algorithm for Design optimization of a
 Thanks to Dr. Ibrahim MLAOUHI for private communication. His support is greatly appreciated.
 
 ![Turbocharger](turbocharger.png)
+
+![Unbalance response](Unbalance_response.png)
