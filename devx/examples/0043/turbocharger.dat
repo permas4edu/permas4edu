@@ -18,7 +18,7 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
    $STRUCTURE
 !
-      $ELEMENT TYPE = BECOS
+      $ELEMENT TYPE = BECOS  ESET = SHAFT
                 1          1          2
                 2          2          3
                 3          3          4
@@ -32,15 +32,25 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                11         11         12
                12         12         13
                13         13         14
-      $ELEMENT TYPE = SPRING3 ESET = K
+!
+      $ELEMENT TYPE = SPRING3 ESET = K1
                14          7         15
+      $ELEMENT TYPE = SPRING3 ESET = K2
                15          9         16
-      $ELEMENT TYPE = DAMP3 ESET = C
+!
+      $ELEMENT TYPE = DAMP3 ESET = C1
                16          7         15
+      $ELEMENT TYPE = DAMP3 ESET = C2
                17          9         16
 !
       $NSET NAME = UNBALANCE
            2 4 11 13
+!
+      $NSET NAME = BEARINGS
+           7  9
+!
+      $ESET NAME = BEARINGS
+           K1  K2
 !
       $NSET NAME = N2
           2
@@ -72,8 +82,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
       $NSET NAME = GROUND
                15         16
-      $NSET NAME = SHAFT
-                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+!
+      $NSET NAME = SHAFT RULE = ESET
+        SHAFT
+!
       $ESET NAME = LINE1
                 1
       $ESET NAME = LINE2
@@ -100,8 +112,6 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                12
       $ESET NAME = LINE13
                13
-      $ESET NAME = SHAFT
-                1          2          3          4          5          6          7          8          9         10         11         12         13
 !
       $COOR
                 1  0.000000E+00  0.000000E+00  0.000000E+00
@@ -148,7 +158,9 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       $PART  NAME = LINE13
        LINE13
       $PART  NAME = K
-       K
+       K1 K2
+      $PART  NAME = C
+       C1 C2
 !
    $END STRUCTURE
 !------
@@ -236,47 +248,49 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        GD_LINE13             4
          &        :  8.000000E-03
 !
-!     Bearings
+!     Isotropic Bearings
 !
       $GEODAT SPRING    CONT = STIFF
-        GD_K          1.000000E+06  1.000000E+06
+        GD_K1          1.000000E+06  1.000000E+06
+        GD_K2          1.000000E+06  1.000000E+06
 
       $GEODAT DAMPER    CONT = DAMP
-       GD_C          3.000000E+00  3.000000E+00
+       GD_C1          3.000000E+00  3.000000E+00
+       GD_C2          3.000000E+00  3.000000E+00
 !
 !     Inertia properties of turbine and impeller m, I_d, I_p
 !
-      $GEODAT MASS CONT = MASS
-        GD_M1  1.3328E-2  1.3328E-2  1.3328E-2 1.2740E-6 1.2740E-6 2.1560E-6 ! Impeller
-        GD_M2  4.3414E-2  4.3414E-2  4.3414E-2 3.1360E-6 3.1360E-6 5.8800E-6 ! Turbine
+!      $GEODAT MASS CONT = MASS
+!        GD_M1  1.3328E-2  1.3328E-2  1.3328E-2 1.2740E-6 1.2740E-6 2.1560E-6 ! Impeller
+!        GD_M2  4.3414E-2  4.3414E-2  4.3414E-2 3.1360E-6 3.1360E-6 5.8800E-6 ! Turbine
 ! 
 !     Inertia properties of turbine and impeller \rho, d_i d_o t
 !     Advantage : Rendering in VisPER 
 !
-!     Check of outer diameter and height of rigid cylinders is still missing
-!
       $GEODAT MASS CONT = CYLINDER
-!                     rho     d_i          d_o                        t
-        GD_IMPELLER 7800.0  4.1E-3   0.03573944105688873   0.013284223283101427 
-        GD_TURBINE  7800.0  11.E-3   0.031024529725610015   0.007360439676728767
+!                     rho     d_i          d_o      t
+        GD_IMPELLER 7800.0   4.1E-3      35.7E-3   1.73E-3           
+        GD_TURBINE  7800.0  14.2E-3      29.7E-3   10.4E-3
 !
 !      Uncomment in case of correct geometric properties of the cylinders
 !
-!      $ELSYS RSYS
-!        M1  RSYS = 0 AXES = 3,1
-!        M2  RSYS = 0 AXES = 3,1
+      $ELSYS RSYS
+        M1  RSYS = 0 AXES = 3,1
+        M2  RSYS = 0 AXES = 3,1
 !
       $ELPROP
-       K             GEODAT = GD_K
-       C             GEODAT = GD_C
+       K1             GEODAT = GD_K1
+       K2             GEODAT = GD_K2
+       C1             GEODAT = GD_C1
+       C2             GEODAT = GD_C2
 !
-       M1            GEODAT = GD_M1
-       M2            GEODAT = GD_M2
+!       Explicit definition of m, I_p and I_d 
 !
-!       Check of outer diameter and height is still missing
+!       M1            GEODAT = GD_M1
+!       M2            GEODAT = GD_M2
 !
-!       M1            GEODAT = GD_IMPELLER
-!       M2            GEODAT = GD_TURBINE
+       M1            GEODAT = GD_IMPELLER
+       M2            GEODAT = GD_TURBINE
 ! 
        LINE1         GEODAT = GD_LINE1      MATERIAL = STEEL
        LINE10        GEODAT = GD_LINE10     MATERIAL = STEEL
