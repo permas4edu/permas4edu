@@ -4,9 +4,9 @@ $$ {\boldsymbol M}  = m \begin{bmatrix} 1 & 0  & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1 \end{bmatrix}, \quad m=1 $$
 
-$$ {\boldsymbol K}  = \begin{bmatrix} k+k_1 & -k_1 & 0 \\ 
--k_1 & k_1+k_2 & -k_2 \\
-0 & -k_2 & k+k_2
+$$ {\boldsymbol K}  = \begin{bmatrix} k+k_{c1} & -k_{c1} & 0 \\ 
+-k_{c1} & k_{c1}+k_{c2} & -k_{c2} \\
+0 & -k_{c2} & k+k_{c2}
 \end{bmatrix}, \quad k=1 $$
 
 Find $$k_1, k_2$$ such that 
