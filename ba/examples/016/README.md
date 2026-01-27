@@ -1,1 +1,6 @@
+***
+[⬅️](../015/README.md "Previous example")
+[➡️](../README.md "Go up one directory level")
+***
+
 The example is adapted from [EFFICIENT ALGORITHM OF THE BUCKLING LENGTHS METHOD IN ANALYSIS OF SPATIAL FRAME SYSTEMS FOR STABILITY](https://doi.org/10.22337/2587-9618-2025-21-4-41-55)
