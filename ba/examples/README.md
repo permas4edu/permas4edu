@@ -34,3 +34,5 @@
 [014](../examples/014/README.md) - [On a remarkable geometric-mechanical synergism based on a novel linear eigenvalue problem](https://doi.org/10.1007/s00707-021-03091-5)
 
 [015](../examples/015/README.md) - [Are the terms stiffening/softening structures mechanically unambiguous?](https://doi.org/10.1016/j.euromechsol.2022.104756)
+
+[016](../examples/016/README.md) - [EFFICIENT ALGORITHM OF THE BUCKLING LENGTHS METHOD IN ANALYSIS OF SPATIAL FRAME SYSTEMS FOR STABILITY](https://doi.org/10.22337/2587-9618-2025-21-4-41-55)
