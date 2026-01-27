@@ -27,7 +27,13 @@ EXPORT
     ITEM CLEAR
     ITEM XYDATA TYPE = RSFRQ
     GO PERMAS BINARY FILE = campbell
-    GO SPREADSHEET FILE = cambpell
+    GO SPREADSHEET FILE = campbell
+    ITEM CLEAR
+    ITEM XYDATA TYPE = RSDRT ! damping ratio
+    ITEM XYDATA TYPE = RSDMP ! damping coefficients
+    ITEM XYDATA TYPE = RSLRE ! real part of complex eigenvalues over rotational speed
+    ITEM XYDATA TYPE = RSLIM ! imaginary part of complex eigenvalues over rotational speed
+    GO PERMAS BINARY FILE = complex_xy
 EXEC
     MODAL FREQUENCY SITUATION = STEP_4
     ACT SIT = STEP_4
