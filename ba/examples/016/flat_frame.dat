@@ -1,0 +1,221 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                1          1         10
+                2         10         11
+                3         11          4
+                4          3         12
+                5         12         13
+                6         13          6
+                7          4         14
+                8         14         15
+                9         15          7
+               10          6         16
+               11         16         17
+               12         17          9
+               13          2         18
+               14         18         19
+               15         19          5
+               16          5         20
+               17         20         21
+               18         21          8
+               19          4         22
+               20         22         23
+               21         23         24
+               22         24         25
+               23         25         26
+               24         26          5
+               25          5         27
+               26         27         28
+               27         28         29
+               28         29         30
+               29         30         31
+               30         31          6
+               31          7         32
+               32         32         33
+               33         33         34
+               34         34         35
+               35         35         36
+               36         36          8
+               37          8         37
+               38         37         38
+               39         38         39
+               40         39         40
+               41         40         41
+               42         41          9
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+01
+                2  0.000000E+00  0.000000E+00  0.000000E+00 :  0.000000E+00  1.000000E+01  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+01
+!
+      $ELSYS RSYS
+       COLUMNS       RSYS =          2  AXES =  1,  2
+       FLOOR         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = CLAMPED
+                1          2          3
+      $NSET NAME = P1
+                4          6          7          9
+      $NSET NAME = P2
+                5          8
+      $NSET NAME = P5
+                4          7
+      $ESET NAME = COLUMNS
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18
+      $ESET NAME = FLOOR
+               19         20         21         22         23         24         25         26         27         28         29         30         31         32
+               33         34         35         36         37         38         39         40         41         42
+      $ESET NAME = LINE1
+                1          2          3
+      $ESET NAME = LINE2
+                4          5          6
+      $ESET NAME = LINE3
+                7          8          9
+      $ESET NAME = LINE4
+               10         11         12
+      $ESET NAME = LINE5
+               13         14         15
+      $ESET NAME = LINE6
+               16         17         18
+      $ESET NAME = LINE7
+               19         20         21         22         23         24
+      $ESET NAME = LINE8
+               25         26         27         28         29         30
+      $ESET NAME = LINE9
+               31         32         33         34         35         36
+      $ESET NAME = LINE10
+               37         38         39         40         41         42
+!
+      $COOR NSET = ALL_NODES
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  6.000000E+00  0.000000E+00  0.000000E+00
+                3  1.200000E+01  0.000000E+00  0.000000E+00
+                4  0.000000E+00  3.000000E+00  0.000000E+00
+                5  6.000000E+00  3.000000E+00  0.000000E+00
+                6  1.200000E+01  3.000000E+00  0.000000E+00
+                7  0.000000E+00  6.000000E+00  0.000000E+00
+                8  6.000000E+00  6.000000E+00  0.000000E+00
+                9  1.200000E+01  6.000000E+00  0.000000E+00
+               10  0.000000E+00  1.000000E+00  0.000000E+00
+               11  0.000000E+00  2.000000E+00  0.000000E+00
+               12  1.200000E+01  1.000000E+00  0.000000E+00
+               13  1.200000E+01  2.000000E+00  0.000000E+00
+               14  0.000000E+00  4.000000E+00  0.000000E+00
+               15  0.000000E+00  5.000000E+00  0.000000E+00
+               16  1.200000E+01  4.000000E+00  0.000000E+00
+               17  1.200000E+01  5.000000E+00  0.000000E+00
+               18  6.000000E+00  1.000000E+00  0.000000E+00
+               19  6.000000E+00  2.000000E+00  0.000000E+00
+               20  6.000000E+00  4.000000E+00  0.000000E+00
+               21  6.000000E+00  5.000000E+00  0.000000E+00
+               22  1.000000E+00  3.000000E+00  0.000000E+00
+               23  2.000000E+00  3.000000E+00  0.000000E+00
+               24  3.000000E+00  3.000000E+00  0.000000E+00
+               25  4.000000E+00  3.000000E+00  0.000000E+00
+               26  5.000000E+00  3.000000E+00  0.000000E+00
+               27  7.000000E+00  3.000000E+00  0.000000E+00
+               28  8.000000E+00  3.000000E+00  0.000000E+00
+               29  9.000000E+00  3.000000E+00  0.000000E+00
+               30  1.000000E+01  3.000000E+00  0.000000E+00
+               31  1.100000E+01  3.000000E+00  0.000000E+00
+               32  1.000000E+00  6.000000E+00  0.000000E+00
+               33  2.000000E+00  6.000000E+00  0.000000E+00
+               34  3.000000E+00  6.000000E+00  0.000000E+00
+               35  4.000000E+00  6.000000E+00  0.000000E+00
+               36  5.000000E+00  6.000000E+00  0.000000E+00
+               37  7.000000E+00  6.000000E+00  0.000000E+00
+               38  8.000000E+00  6.000000E+00  0.000000E+00
+               39  9.000000E+00  6.000000E+00  0.000000E+00
+               40  1.000000E+01  6.000000E+00  0.000000E+00
+               41  1.100000E+01  6.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = LINE9
+       LINE9
+      $PART  NAME = LINE10
+       LINE10
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = AREA     BEND
+       GD_COLUMN     2.369500E-02
+         &        :  4.871100E-04  4.871100E-04
+       GD_FLOOR      1.621000E-02
+         &        :  2.195900E-04  2.195900E-04
+!
+      $ELPROP
+       COLUMNS       GEODAT = GD_COLUMN     MATERIAL = STEEL
+       FLOOR         GEODAT = GD_FLOOR      MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,6  DOFTYPE = DISP
+       CLAMPED
+      $SUPPRESS  DOFS = 3,4,5  DOFTYPE = DISP
+       ALL_NODES
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       P1           2: -1.000000E+00
+       P2           2: -2.000000E+00
+       P5           1:  5.000000E+00  
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.059400E+11  3.000000E-01
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
