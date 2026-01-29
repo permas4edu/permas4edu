@@ -180,3 +180,7 @@
 [087](087/README.md) -  [An iterative dual Craig-Bampton method](https://doi.org/10.1016/j.ymssp.2025.113563)
 
 [088](088/README.md) - [Jacobi‑Ritz formulation for modal analysis of thick, anisotropic and non‑uniform electric motor stator assemblies considering axisymmetric vibration modes](https://doi.org/10.1007/s11012-025-02071-6)
+
+[089](089/README.md) -
+
+[090](090/README.md) -  [Semi-analytical solution of VABS-based Timoshenko Beam Model for free vibration of composite structures](https://doi.org/10.1016/j.ijsolstr.2026.113852)
