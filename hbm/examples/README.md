@@ -126,3 +126,5 @@
 [060](060/README.md) - [Perturbation Function Iteration Method: A New Framework for Solving Periodic Solutions of Non-linear and Non-smooth Systems](https://doi.org/10.48550/arXiv.2510.23071)
 
 [061](061/README.md) - [Nonlinear model calibration through bifurcation curves](https://doi.org/10.1016/j.ymssp.2025.113589)
+
+[062](062/README.md) - [A modified Newmark/Newton–Raphson method with automatic differentiation for general nonlinear dynamics analysis](https://doi.org/10.1007/s11071-025-12042-x)
