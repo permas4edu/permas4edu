@@ -184,3 +184,5 @@
 [089](089/README.md) - [Simultaneous multi-objective optimization of tri-directional graded material and porosity distributions for multi-patch structures using adaptive isogeometric analysis and Nitsche’s method](https://doi.org/10.1016/j.cma.2026.118758)
 
 [090](090/README.md) -  [Semi-analytical solution of VABS-based Timoshenko Beam Model for free vibration of composite structures](https://doi.org/10.1016/j.ijsolstr.2026.113852)
+
+[091](091/README.md) - [A finite element model updating method based on global optimization](https://doi.org/10.1016/j.ymssp.2020.107372)
