@@ -1,3 +1,8 @@
+***
+[⬅️](../034/README.md "Previous example")
+[➡️](../036/README.md "Next example")
+***
+
 ### The Extended Golden Oscillator
 
 $$ {\boldsymbol M}  = m \begin{bmatrix} 1 & 0  & 0 \\ 
