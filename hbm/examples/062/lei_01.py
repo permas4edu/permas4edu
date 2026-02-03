@@ -1,0 +1,26 @@
+import numpy as np
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+df1=pd.read_csv('u_u.csv',delimiter=';')
+df2=pd.read_csv('up_up.csv',delimiter=';')
+df3=pd.read_csv('direct_u_u.csv',delimiter=';')
+df4=pd.read_csv('direct_up_up.csv',delimiter=';')
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(16, 4))
+axes[0].plot(df1['Time'],df1['N101,u'],label=r'HBM $x$')
+axes[1].plot(df1['Time'],df2['N101,u'],label=r'HBM $\dot{x}$')
+axes[2].plot(df1['N101,u'],df2['N101,u'],label=r'HBM')
+axes[0].plot(df3['Time'],df3['N101,u'],label=r'Newmark $x$')
+axes[1].plot(df3['Time'],df4['N101,u'],label=r'Newmark $\dot{x}$')
+axes[2].plot(df3['N101,u'],df4['N101,u'],label=r'Newmark')
+axes[0].legend(shadow=True).set_draggable(True)
+axes[1].legend(shadow=True).set_draggable(True)
+axes[2].legend(shadow=True).set_draggable(True)
+axes[0].set_xlabel(r'Time $t$ [s]')
+axes[0].set_ylabel(r' $x$ [m]')
+axes[1].set_ylabel(r' $\dot{x}$ [m/s]')
+axes[1].set_xlabel(r'Time $t$ [s]')
+axes[2].set_xlabel(r'$x$ [m]')
+axes[2].set_ylabel(r'$\dot{x}$ [m/s]')
+plt.tight_layout()
+plt.show()
