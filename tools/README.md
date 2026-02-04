@@ -13,7 +13,7 @@
 
 For larger .dat files, we recommend using the emacs editor with an emacsGold extension. 
 You might want to associate the file extension .dat with the Windows Batch File C:\Program Files\INTES\EDU\bin\emacsGold.bat
-A configuration file .emacs_gold is needed in your %AppData% folder. 
+A configuration file .emacs_gold is needed in your %AppData% folder. The default for context help is the ‘Pause’ key.
 The following lines in .emacs_gold assign the context help function to the F1 key, for example:
 
 ```
