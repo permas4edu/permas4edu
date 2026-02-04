@@ -14,7 +14,12 @@
 For larger .dat files, we recommend using the emacs editor with an emacsGold extension. 
 You might want to associate the file extension .dat with the Windows Batch File C:\Program Files\INTES\EDU\bin\emacsGold.bat
 A configuration file .emacs_gold is needed in your %AppData% folder. 
+The following lines in .emacs_gold assign the context help function to the F1 key, for example:
 
+```
+(global-set-key [f1] (key-binding [help]))
+(define-key GOLD-map [f1] (key-binding [gold help]))
+```
 
 ### permasgraph
 #### Supported file formats
