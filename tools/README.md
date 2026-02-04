@@ -9,6 +9,13 @@
 
 ![intespad](/assets/intespad.png "intespad")
 
+### emacsgold
+
+For larger .dat files, we recommend using the emacs editor with an emacsGold extension. 
+You might want to associate the file extension .dat with the Windows Batch File C:\Program Files\INTES\EDU\bin\emacsGold.bat
+A configuration file .emacs_gold is needed in your %AppData% folder. 
+
+
 ### permasgraph
 #### Supported file formats
 
