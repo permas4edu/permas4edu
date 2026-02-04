@@ -22,6 +22,14 @@ The following lines in .emacs_gold assign the context help function to the F1 ke
 ```
 The key F5 can be used to jump to the first comment/warning/error message if you edit your .res .pro file with emacsGold.
 
+### PDF viewer
+
+* sumatra
+* acroread
+* foxit
+
+![pdf viewer](pdf_viewer.png)
+
 ### permasgraph
 #### Supported file formats
 
