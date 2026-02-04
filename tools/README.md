@@ -20,6 +20,7 @@ The following lines in .emacs_gold assign the context help function to the F1 ke
 (global-set-key [f1] (key-binding [help]))
 (define-key GOLD-map [f1] (key-binding [gold help]))
 ```
+The key F5 can be used to jump to the first comment/warning/error message if you edit your .res .pro file with emacsGold.
 
 ### permasgraph
 #### Supported file formats
