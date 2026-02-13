@@ -186,3 +186,5 @@
 [090](090/README.md) -  [Semi-analytical solution of VABS-based Timoshenko Beam Model for free vibration of composite structures](https://doi.org/10.1016/j.ijsolstr.2026.113852)
 
 [091](091/README.md) - [A finite element model updating method based on global optimization](https://doi.org/10.1016/j.ymssp.2020.107372)
+
+[092](092/README.md) -  [On the Axial-Bending-Torsional Vibration Coupling Effect Occurring in a Cantilever Beam with an Asymmetrically Attached Spatial Rigid Body](https://doi.org/10.1007/s42417-025-02302-w)
