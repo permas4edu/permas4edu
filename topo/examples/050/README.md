@@ -1,6 +1,6 @@
 ***
 [⬅️](../049/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../051/README.md "Next example")
 ***
 
 The example is adapted from [Explicit layout optimization of complex rib-reinforced thin-walled structures via computational conformal mapping (CCM)](https://doi.org/10.1016/j.cma.2022.115745)
