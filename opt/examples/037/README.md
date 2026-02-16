@@ -1,6 +1,6 @@
 ***
 [⬅️](../036/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../038/README.md "Next example")
 ***
 
 The example is adapted from [Regularization in Structural Model Updating in the Presence of Noisy Data](https://doi.org/10.1002/nme.70113)
