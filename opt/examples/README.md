@@ -74,3 +74,5 @@
 [034](034/README.md) - [An efficient hybrid differential evolution–Jaya algorithm for enhancing vibration behaviour in automotive turbocharger systems](https://doi.org/10.1080/0305215X.2023.2260992)
 
 [035](035/README.md) - [The Extended Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
+
+[036](036/README.md) - [A finite element model updating method based on global optimization](https://doi.org/10.1016/j.ymssp.2020.107372)
