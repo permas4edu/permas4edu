@@ -1,0 +1,164 @@
+$DEFVAR M TYPE = REAL LIST = 360.E+03  ! M_T = 10 M = 360.E4
+$DEFVAR K TYPE = REAL LIST = 650.E+06
+$DEFVAR C TYPE = REAL LIST = 6.2E+06
+$DEFVAR NID1 TYPE = INTEGER GEN = 100,1
+$DEFVAR NID2 TYPE = INTEGER GEN = 101,1
+$DEFVAR EIDM TYPE = INTEGER GEN = 1,1
+$DEFVAR EIDK TYPE = INTEGER GEN = 11,1
+$DEFVAR EIDC TYPE = INTEGER GEN = 21,1
+!  TMD1
+$DEFVAR M1 TYPE = REAL LIST = 24000.  ! mu \in [0.01,0.1]   \mu=(m1+m2)/M_T  
+$DEFVAR K1 TYPE = REAL LIST = 967996.0489343998  !     m \omega_i**2 = k   0.7 \omega_s <= \omega_i <= 2 \omega_s
+$DEFVAR C1 TYPE = REAL LIST = 6096.8063999999995        ! 0.01 <= \xi <= 0.3  c_i = 2\xi m_i \omega_i,  \omega_s = 6.35084E+00 rad/s  \xi=0.02
+! TMD2
+$DEFVAR M2 TYPE = REAL LIST = 12000.  ! m_2 <= 0.5 m_1
+$DEFVAR K2 TYPE = REAL LIST = 483998.0244671999 
+$DEFVAR C2 TYPE = REAL LIST =  3048.192
+
+$ENTER COMPONENT NAME = DFLT_COMP DOFTYPE = DISP MATH
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2 PARENT = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  LOADING = L_STEP_2  RESULTS = R_STEP_2
+    $END SITUATION
+
+    $STRUCTURE
+
+      $ESET NAME = TMD_1
+         M1 K1 C1
+!
+      $ESET NAME = TMD_2
+         M2 K2 C2
+!
+      $NSET NAME = MAIN RULE = RANGE 
+         101 110
+
+      $NSET NAME = FREE RULE = BOOLEAN 
+       ALL_NODES AND NOT GROUND
+ 
+      $NSET NAME = GROUND
+        100
+
+      $NODE NSET = ALL_NODES
+        100 0.0  0.0  0.0
+        101 0.0  1.0  0.0
+        102 0.0  2.0  0.0
+        103 0.0  3.0  0.0
+        104 0.0  4.0  0.0
+        105 0.0  5.0  0.0
+        106 0.0  6.0  0.0
+        107 0.0  7.0  0.0
+        108 0.0  8.0  0.0
+        109 0.0  9.0  0.0
+        110 0.0 10.0  0.0
+!
+        111 0.0 10.5  0.0
+        112 0.0  1.5  0.0
+
+      $ELEMENT TYPE = MASS3 ESET = M
+         $LOOP I = 1, 10
+            EIDM(I)  NID2(I)
+         $ENDLOOP
+
+      $ELEMENT TYPE = MASS3 ESET = M1
+          31  111
+      $ELEMENT TYPE = MASS3 ESET = M2
+          32  112
+
+      $ELEMENT TYPE = SPRING1 ESET = K1
+          33  110  111
+      $ELEMENT TYPE = SPRING1 ESET = K2
+          34  101  112
+
+      $ELEMENT TYPE = DAMP1 ESET = C1
+          35  110  111
+      $ELEMENT TYPE = DAMP1 ESET = C2
+          36  101  112
+
+
+      $ELEMENT TYPE = SPRING1 ESET = K
+         $LOOP I = 1, 10
+            EIDK(I) NID1(I) NID2(I)   
+         $ENDLOOP
+
+      $ELEMENT TYPE = DAMP1 ESET = C
+         $LOOP I = 1, 10
+            EIDC(I) NID1(I) NID2(I)   
+         $ENDLOOP
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+      $GEODAT MASS CONT = MASS
+        GD_M M(1)
+        GD_M1 M1(1)
+        GD_M2 M2(1)
+
+      $GEODAT SPRING CONT = STIFF
+        GD_K K(1)
+        GD_K1 K1(1)
+        GD_K2 K2(1)
+
+      $GEODAT DAMPER CONT = DAMP
+        GD_C  C(1)
+        GD_C1 C1(1)
+        GD_C2 C2(1)
+
+      $ELPROP
+        M GEODAT = GD_M 
+        M1 GEODAT = GD_M1 
+        M2 GEODAT = GD_M2 
+!
+        C GEODAT = GD_C 
+        C1 GEODAT = GD_C1 
+        C2 GEODAT = GD_C2
+!
+        K GEODAT = GD_K 
+        K1 GEODAT = GD_K1 
+        K2 GEODAT = GD_K2 
+
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1 
+
+        $SUPPRESS DOFS = 2
+          GROUND 
+        $SUPPRESS DOFS = 1,3
+          ALL_NODES
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_2
+
+        $CONLOAD LPAT = 1
+          $LOOP I = 1, 10
+            NID2(I) 2: M(1)
+          $ENDLOOP
+
+        $CONLOAD LPAT = 1
+          111  2 : M1(1)
+          112  2 : M2(1)
+ 
+
+       $FREQLOAD  DOFTYPE = DISP
+         LPAT = 1 TYPE = COSINE AMPLITUDE = ACCE
+
+       $FUNCTION FORMULA LABEL = ACCE
+        f(x) = 1.0/(2*PI*x)**2
+
+    $END LOADING
+ 
+    $RESULTS NAME = R_STEP_2
+
+       $FREQUENCY PRIMARY = EQUI
+          0.5  2.0  0.01
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$FIN
+

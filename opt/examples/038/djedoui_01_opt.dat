@@ -1,0 +1,105 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DMASS
+                1          1: M1
+                2          2: M2
+      $DELEMENT TYPE = DSPRING
+                3          3: K1
+                4          4: K2
+      $DELEMENT TYPE = DDAMP
+                5          5: C1
+                6          6: C2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR MASS  NAME = GD_M1  DEID = 1
+      MASS          1:          1
+      $DVGPAR MASS  NAME = GD_M2  DEID = 2
+      MASS          1:          2
+      $DVGPAR SPRING  NAME = GD_K1  DEID = 3
+      STIFF          1:          3
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 4
+      STIFF          1:          4
+      $DVGPAR DAMPER  NAME = GD_C1  DEID = 5
+      DAMP          1:          5
+      $DVGPAR DAMPER  NAME = GD_C2  DEID = 6
+      DAMP          1:          6
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  1.000000E+03  5.000000E+04
+                2  5.000000E+02  1.500000E+04
+                3  5.000000E+03  1.500000E+06
+                4  2.500000E+03  7.500000E+05
+                5  2.000000E+03  1.600000E+04
+                6  1.000000E+03  8.000000E+03
+!
+      $DCFUNCTION CSTID = MUE FUNCTION = 100 EQUALITY = NO LOWER = 0.01 UPPER = 0.1
+          1 DESVAR : 1 
+          2 DESVAR : 2
+
+      $FUNCTION FORMULA FID = 100 DESCRIPTION = 'Mass ratio'
+         F(X1,X2) = (X1+X2)/360.E+04
+
+      $DCFUNCTION CSTID = M1_M2 FUNCTION = 101 EQUALITY = NO LOWER = 0.0
+          1 DESVAR : 1 
+          2 DESVAR : 2
+
+      $FUNCTION FORMULA FID = 101 DESCRIPTION = '0.5*M_2 - M_1 >= 0'
+         F(X1,X2) = 0.5*X1-X2 
+
+      $DCFUNCTION CSTID = OMEGA_1 FUNCTION = 102 EQUALITY = NO LOWER = 4.445588 UPPER = 12.70168
+          1 DESVAR : 3 ! k_1
+          2 DESVAR : 1 ! m_1 
+
+      $DCFUNCTION CSTID = OMEGA_2 FUNCTION = 102 EQUALITY = NO LOWER = 4.445588 UPPER = 12.70168
+          1 DESVAR : 4 ! k_2
+          2 DESVAR : 2 ! m_2
+
+      $FUNCTION FORMULA FID = 102 DESCRIPTION = 'SQRT(K_i/M_i)'
+          F(X1,X2) = SQRT(X1/X2)
+!
+!
+      $DCFUNCTION CSTID = XI_1 FUNCTION = 103 EQUALITY = NO LOWER = 0.01 UPPER = 0.3
+          1 DESVAR : 1 !  m_1
+          2 DESVAR : 3 !  k_1
+          3 DESVAR : 5 !  c_1
+!
+      $DCFUNCTION CSTID = XI_2 FUNCTION = 103 EQUALITY = NO LOWER = 0.01 UPPER = 0.3
+          1 DESVAR : 2 !  m_2
+          2 DESVAR : 4 !  k_2
+          3 DESVAR : 6 !  c_2 
+
+      $FUNCTION FORMULA FID = 103 DESCRIPTION = 'xi = c_i/(2*m_i*omega_i)' 
+          F(X1,X2,X3) = X3/(2*X1*SQRT(X3/X1))
+!
+       
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_2  FREQUENCY = ALL  DATTYPE = AMPLITUDE
+      DISP         : MAIN           2      NO        0.000000E+00:        100
+!
+      $DOBJECT  CONSTRAINT = DISP
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+                3  1.000000E-01
+                4  1.000000E-01
+                5  1.000000E-01
+                6  1.000000E-01
+!
+   $END MODIFICATION
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
