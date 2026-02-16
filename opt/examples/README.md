@@ -76,3 +76,6 @@
 [035](035/README.md) - [The Extended Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
 
 [036](036/README.md) - [A finite element model updating method based on global optimization](https://doi.org/10.1016/j.ymssp.2020.107372)
+
+[037](037/README.md) - [Regularization in Structural Model Updating in the Presence of Noisy Data](https://doi.org/10.1002/nme.70113)
+
