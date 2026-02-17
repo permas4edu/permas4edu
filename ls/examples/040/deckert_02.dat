@@ -1,0 +1,143 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS  ESET = BEAM
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          6          7
+                7          7          8
+                8          8          9
+                9          9         10
+               10         10         11
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+01
+!
+      $LINE GEO  LNID = LOAD
+       SFLA2          1          2
+       SFLA2          2          3
+       SFLA2          3          4
+       SFLA2          4          5
+       SFLA2          5          6
+       SFLA2          6          7
+       SFLA2          7          8
+       SFLA2          8          9
+       SFLA2          9         10
+       SFLA2         10         11
+!
+      $COOR  NSET = ALL_NODES
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  4.000000E-01  0.000000E+00  0.000000E+00
+                3  8.000000E-01  0.000000E+00  0.000000E+00
+                4  1.200000E+00  0.000000E+00  0.000000E+00
+                5  1.600000E+00  0.000000E+00  0.000000E+00
+                6  2.000000E+00  0.000000E+00  0.000000E+00
+                7  2.400000E+00  0.000000E+00  0.000000E+00
+                8  2.800000E+00  0.000000E+00  0.000000E+00
+                9  3.200000E+00  0.000000E+00  0.000000E+00
+               10  3.600000E+00  0.000000E+00  0.000000E+00
+               11  4.000000E+00  0.000000E+00  0.000000E+00
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_0001               5
+         &        :  2.000000E-01  1.000000E-01
+         &        :  1.950000E-01  1.000000E-01
+       GD_0002               5
+         &        :  1.950000E-01  1.000000E-01
+         &        :  1.900000E-01  1.000000E-01
+       GD_0003               5
+         &        :  1.900000E-01  1.000000E-01
+         &        :  1.850000E-01  1.000000E-01
+       GD_0004               5
+         &        :  1.850000E-01  1.000000E-01
+         &        :  1.800000E-01  1.000000E-01
+       GD_0005               5
+         &        :  1.800000E-01  1.000000E-01
+         &        :  1.750000E-01  1.000000E-01
+       GD_0006               5
+         &        :  1.750000E-01  1.000000E-01
+         &        :  1.700000E-01  1.000000E-01
+       GD_0007               5
+         &        :  1.700000E-01  1.000000E-01
+         &        :  1.650000E-01  1.000000E-01
+       GD_0008               5
+         &        :  1.650000E-01  1.000000E-01
+         &        :  1.600000E-01  1.000000E-01
+       GD_0009               5
+         &        :  1.600000E-01  1.000000E-01
+         &        :  1.550000E-01  1.000000E-01
+       GD_0010               5
+         &        :  1.550000E-01  1.000000E-01
+         &        :  1.500000E-01  1.000000E-01
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $ELPROP
+                1    GEODAT = GD_0001       MATERIAL = MAT_01
+                2    GEODAT = GD_0002       MATERIAL = MAT_01
+                3    GEODAT = GD_0003       MATERIAL = MAT_01
+                4    GEODAT = GD_0004       MATERIAL = MAT_01
+                5    GEODAT = GD_0005       MATERIAL = MAT_01
+                6    GEODAT = GD_0006       MATERIAL = MAT_01
+                7    GEODAT = GD_0007       MATERIAL = MAT_01
+                8    GEODAT = GD_0008       MATERIAL = MAT_01
+                9    GEODAT = GD_0009       MATERIAL = MAT_01
+               10    GEODAT = GD_0010       MATERIAL = MAT_01
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,4,6  DOFTYPE = DISP
+       ALL_NODES
+      $SUPPRESS  DOFS = 3,5  DOFTYPE = DISP
+                1
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $DISLOAD LINE3D  LPAT = 1  NODES = ALL  DOFTYPE = DISP
+                1  0.000000E+00  0.000000E+00  1.000000E+04
+                2  0.000000E+00  0.000000E+00  1.000000E+04
+                3  0.000000E+00  0.000000E+00  1.000000E+04
+                4  0.000000E+00  0.000000E+00  1.000000E+04
+                5  0.000000E+00  0.000000E+00  1.000000E+04
+                6  0.000000E+00  0.000000E+00  1.000000E+04
+                7  0.000000E+00  0.000000E+00  1.000000E+04
+                8  0.000000E+00  0.000000E+00  1.000000E+04
+                9  0.000000E+00  0.000000E+00  1.000000E+04
+               10  0.000000E+00  0.000000E+00  1.000000E+04
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_01  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.100000E+11  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
