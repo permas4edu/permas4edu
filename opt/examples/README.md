@@ -80,3 +80,5 @@
 [037](037/README.md) - [Regularization in Structural Model Updating in the Presence of Noisy Data](https://doi.org/10.1002/nme.70113)
 
 [038](038/README.md) - [Optimization and performance evaluation of bi-tuned mass damper systems for seismic vibration mitigation](https://doi.org/10.1016/j.istruc.2026.111333)
+
+[039](039/README.md) - [Model updating of structures by combining reduced order modelling and deep reinforcement learning](https://doi.org/10.1016/j.ymssp.2026.114002)
