@@ -83,3 +83,5 @@
 [038](038/README.md) - [Some regards on using physics‑informed neural networks for solving two‑dimensional elasticity problems](https://doi.org/10.1007/s40430-025-06047-1)
 
 [039](039/README.md) - [Mesh-free energy element method for three-dimensional static analysis of structures with complex geometries](https://doi.org/10.1016/j.compstruc.2025.107889)
+
+[040](040/README.md) - [Exploring the Potential of Physics-Informed Neural Networks for the Structural Analysis of 2D Frame Structures](https://doi.org/10.3390/applmech6040084)
