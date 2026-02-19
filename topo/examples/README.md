@@ -106,3 +106,5 @@
 [050](050/README.md) - [Explicit layout optimization of complex rib-reinforced thin-walled structures via computational conformal mapping (CCM)](https://doi.org/10.1016/j.cma.2022.115745)
 
 [051](051/README.md) -  [A qualitative evaluation and structural analysis of multiple and additive load cases for two‑dimensional Multi‑Material Topology Optimisation in Grasshopper using the Generalised SIMP method](https://doi.org/10.1007/s44223-026-00113-x)
+
+[052](052/README.md) - [Contact and Geometric Nonlinearities Topology Optimization Constrained With Stress](https://doi.org/10.1002/nme.70077)
