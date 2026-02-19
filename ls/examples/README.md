@@ -85,3 +85,5 @@
 [039](039/README.md) - [Mesh-free energy element method for three-dimensional static analysis of structures with complex geometries](https://doi.org/10.1016/j.compstruc.2025.107889)
 
 [040](040/README.md) - [Exploring the Potential of Physics-Informed Neural Networks for the Structural Analysis of 2D Frame Structures](https://doi.org/10.3390/applmech6040084)
+
+[041](041/README.md) - [LinkedIn](https://www.linkedin.com/posts/lonny-thompson_finite-element-analysis-of-a-k-truss-bridge-activity-7430230176354959360-iVbF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
