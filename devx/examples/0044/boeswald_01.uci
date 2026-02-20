@@ -25,5 +25,24 @@ PRINT
 EXPORT
     ITEM MODL
     GO PERMAS BINARY FILE = complex_modes
+EXEC
+    MODAL TIMEHISTORY SITUATION = STEP_3  &
+                      LOOPS     = 480     &
+                      DELTAT    = 0.01    &
+                      TSTART    = 0.0     &
+                      OUTPUT    = ALL     &
+                      SOLV      = NEWMARK 
+     ACT SIT = STEP_3  ! activate child situation 
+SELECT
+     ACTIVE NSET = FREE
+     XYDATA ITEM DISP RESULT = RESP DCOMP = 2
+EXPORT
+     ITEM CLEAR
+     ITEM XYDATA NAME = RESP
+     GO PERMAS BINARY FILE = modal_resp
+     GO SPREADSHEET FILE = modal
 TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES boeswald_01.py modal_resp.csv'
+RETURN
 STOP
