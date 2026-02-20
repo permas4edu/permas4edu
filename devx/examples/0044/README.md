@@ -8,3 +8,5 @@ The example is adapted from the book [Modalanalyse in der Strukturdynamik](https
 ![1st normal mode](boeswald_01.gif "First normal mode")
 
 ![2nd normal mode](boeswald_02.gif "Second normal mode")
+
+![Modal response](Modal_response.png)
