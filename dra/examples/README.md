@@ -90,3 +90,5 @@
 [042](042/README.md) - [Inconsistency Removal of Reduced Bases in Parametric Model Order Reduction by Matrix Interpolation Using Adaptive Sampling and Clustering](https://doi.org/10.1002/nme.70241)
 
 [043](043/README.md) -  [Physics-informed neural operators for predicting structural intensity from laser Doppler vibrometry measurements of plates](https://doi.org/10.1016/j.ymssp.2026.114013)
+
+[044](044/README.md) - [Implicit Runge Kutta physics informed neural network for parameter identification of structural systems](https://doi.org/10.1016/j.compstruc.2026.108157)
