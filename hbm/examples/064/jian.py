@@ -31,23 +31,16 @@ cursor = mplcursors.cursor(line, multiple=True)
 
 @cursor.connect("add")
 def on_add(sel):
-    # Wir berechnen den ganzzahligen Index basierend auf der Auswahl
-    # sel.index ist bei Linien ein Float, daher runden wir.
     idx = int(round(sel.index))
     
-    # Wir holen die exakten Werte aus dem DataFrame df2
-    # So stellen wir sicher, dass die Anzeige 100% konsistent zu deinen Daten ist
     freq_val = df2.iloc[idx]['Frequency']
     amp_val = df2.iloc[idx]['H1-N101,u']
     
-    # Anstatt sel.target zu ändern (was den Fehler verursacht),
-    # passen wir nur den Text der Sprechblase an:
     sel.annotation.set_text(
         f'Index: {idx+1}\n'
         f'f: {freq_val:.3f} Hz\n'
         f'u_max: {amp_val:.3f}'
     )
-
 
 plt.tight_layout()
 plt.show()
