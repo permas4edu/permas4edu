@@ -92,3 +92,5 @@
 [0043](0043/README.md) - [A JAYA based algorithm for Design optimization of a turbocharger subject to vibration and stress concentration constraints](https://www.researchgate.net/publication/336612989_A_JAYA_based_algorithm_for_design_optimization_of_a_turbocharger_subject_to_vibration_and_stress_concentration_constraints)
 
 [0044](0044/README.md) - [Modalanalyse in der Strukturdynamik](https://doi.org/10.1007/978-3-658-49062-1)
+
+[0045](0045/README.md) - [Hybrid uncertainty quantification in rotor dynamics using nonparametric probability approach](https://doi.org/10.1016/j.apm.2026.116777)
