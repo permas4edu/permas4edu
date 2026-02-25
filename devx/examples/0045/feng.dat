@@ -1,0 +1,217 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2 
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_3 PARENT = STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_2  RESULTS = R_STEP_3
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ESET NAME = ROTOR
+        SHAFT
+        DISC_1  
+        DISC_2  
+!
+      $ELEMENT TYPE = BECOS ESET = SHAFT
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          6          7
+                7          7          8
+                8          8          9
+                9          9         10
+
+      $ELEMENT TYPE = MASS6 ESET = DISCS
+               10          4
+               11          7
+
+      $ELEMENT TYPE = SPRING3 ESET = K
+               12          2         11
+               13          9         12
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+02
+!
+      $ELSYS RSYS
+       SHAFT         RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = GROUND
+               11         12
+      $NSET NAME = SHAFT
+                1          2          3          4          5          6          7          8          9         10
+      $ESET NAME = DISC_1
+               10
+      $ESET NAME = DISC_2
+               11
+      $ESET NAME = K_1
+               12
+      $ESET NAME = K_2
+               13
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = LINE8
+                8
+      $ESET NAME = LINE9
+                9
+      $ESET NAME = SHAFT
+                1          2          3          4          5          6          7          8          9
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  3.200000E+01  0.000000E+00  0.000000E+00
+                3  9.700000E+01  0.000000E+00  0.000000E+00
+                4  1.540000E+02  0.000000E+00  0.000000E+00
+                5  2.020000E+02  0.000000E+00  0.000000E+00
+                6  2.350000E+02  0.000000E+00  0.000000E+00
+                7  2.750000E+02  0.000000E+00  0.000000E+00
+                8  3.320000E+02  0.000000E+00  0.000000E+00
+                9  3.970000E+02  0.000000E+00  0.000000E+00
+               10  4.290000E+02  0.000000E+00  0.000000E+00
+               11  3.200000E+01  0.000000E+00  0.000000E+00
+               12  3.970000E+02  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = LINE9
+       LINE9
+      $PART  NAME = DISC_1
+       DISC_1
+      $PART  NAME = DISC_2
+       DISC_2
+      $PART  NAME = K_1
+       K_1
+      $PART  NAME = K_2
+       K_2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM
+       GD_LINE1              4 :  1.000000E+01
+       GD_LINE2              4 :  1.000000E+01
+       GD_LINE3              4 :  1.000000E+01
+       GD_LINE4              4 :  1.000000E+01
+       GD_LINE5              4 :  1.000000E+01
+       GD_LINE6              4 :  1.000000E+01
+       GD_LINE7              4 :  1.000000E+01
+       GD_LINE8              4 :  1.000000E+01
+       GD_LINE9              4 :  1.000000E+01
+      $GEODAT MASS      CONT = CYLINDER
+       GD_DISC_1     7.800000E-09  1.000000E+01  3.900000E+01  7.696552E+01
+       GD_DISC_2     7.800000E-09  1.000000E+01  3.900000E+01  5.743696E+01
+      $GEODAT SPRING    CONT = STIFF
+       GD_K_1        0.000000E+00  1.780000E+06  1.780000E+06
+       GD_K_2        0.000000E+00  1.780000E+06  1.780000E+06
+!
+      $ELPROP
+       DISC_1        GEODAT = GD_DISC_1
+       DISC_2        GEODAT = GD_DISC_2
+       K_1           GEODAT = GD_K_1
+       K_2           GEODAT = GD_K_2
+       LINE1         GEODAT = GD_LINE1      MATERIAL = STEEL
+       LINE2         GEODAT = GD_LINE2      MATERIAL = STEEL
+       LINE3         GEODAT = GD_LINE3      MATERIAL = STEEL
+       LINE4         GEODAT = GD_LINE4      MATERIAL = STEEL
+       LINE5         GEODAT = GD_LINE5      MATERIAL = STEEL
+       LINE6         GEODAT = GD_LINE6      MATERIAL = STEEL
+       LINE7         GEODAT = GD_LINE7      MATERIAL = STEEL
+       LINE8         GEODAT = GD_LINE8      MATERIAL = STEEL
+       LINE9         GEODAT = GD_LINE9      MATERIAL = STEEL
+!
+   $END SYSTEM
+!------
+   $SYSTEM NAME = S_STEP_2
+
+       $INSERT VARIANT
+          S_STEP_1
+
+       $ELSTATE LOAD 
+          SITUATION = STEP_1  LPAT = 1
+
+       $ADDMATRIX
+          GEOSTIFF
+          CONVSTIFF 
+          GYRO
+ 
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       GROUND
+      $SUPPRESS  DOFS = 1,4  DOFTYPE = DISP
+       SHAFT
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+
+      $INERTIA ROTATION LPAT = 1
+         ROTOR  0.0 0.0 0.0  100.0 0.0 0.0 10.0
+
+   $END LOADING
+!------
+   $LOADING  NAME = L_STEP_4
+!
+   $END LOADING
+!------
+   $RESULTS NAME = R_STEP_3
+
+      $ROTSPEED PRIMARY = EQUI XTYPE = RPM
+          0.0  5000.0 10.
+
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+05  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.800000E-09
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
