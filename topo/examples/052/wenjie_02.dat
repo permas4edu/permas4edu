@@ -6,6 +6,12 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
 !
    $STRUCTURE
 !
+      $ESET NAME = ALL
+             L_BEAM BLOCK
+!
+      $ESET NAME = FROZEN
+             9279       9280       9359       9360       9439       9440       9519       9520       9599       9600
+!
       $ELEMENT TYPE = HEXE8
                 1          1        315       2530        316        667       6078      11323       5923
                 2        667       6078      11323       5923         13        666       6079        511

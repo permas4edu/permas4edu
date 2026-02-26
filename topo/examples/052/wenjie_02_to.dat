@@ -12,12 +12,6 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       $DERESTRAINT  TYPE = FREEZE
                 1 FROZEN        :  1.000000E+00
 !
-      $ESET NAME = ALL
-             L_BEAM BLOCK
-
-      $ESET NAME = FROZEN
-             9279       9280       9359       9360       9439       9440       9519       9520       9599       9600
-!
    $END STRUCTURE
 !------
    $SYSTEM  NAME = S_STEP_1
