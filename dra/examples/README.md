@@ -92,3 +92,5 @@
 [043](043/README.md) -  [Physics-informed neural operators for predicting structural intensity from laser Doppler vibrometry measurements of plates](https://doi.org/10.1016/j.ymssp.2026.114013)
 
 [044](044/README.md) - [Implicit Runge Kutta physics informed neural network for parameter identification of structural systems](https://doi.org/10.1016/j.compstruc.2026.108157)
+
+[045](045/README.md) - [Maximum response of SDOF systems under consecutive triangular pulses](https://doi.org/10.1016/j.jsv.2025.119631)
