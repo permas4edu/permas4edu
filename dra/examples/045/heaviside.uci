@@ -1,0 +1,24 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = heaviside.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT TIMEHISTORY  LOOPS  = 500 &
+                        DELTAT = 0.031415926535897934 &
+                        TSTART = 0.0 &
+                        OUTPUT = ALL &
+                        STORE  = ALL &
+                        SOLV   = NEWMARK
+SELECT
+    ACTIVE NSET = F
+    XYDATA ITEM DISP RESULT = RESP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = RESP 
+    GO SPREADSHEET FILE = transient
+TASK END
+STOP
