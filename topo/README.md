@@ -1,8 +1,10 @@
-### Topology Optimization
+## Topology Optimization
 
 ***
 [Examples](examples/README.md)
 ***
+
+### Available design constraints
 
 |   |  DCONSTRAINT TYPE|
 |---|---|
