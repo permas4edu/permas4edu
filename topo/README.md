@@ -10,6 +10,7 @@
 |   |  BUCKLING EIGENVALUE |
 |   |  CENTER OF GRAVITY |
 |   |  COMPLIANCE |
+|   |  DCFUNCTION |
 |   |  DCLINK |
 |   |  DISPLACEMENT |
 |   |  ELEMENT STRESS |
