@@ -1,0 +1,83 @@
+$DEFVAR F TYPE = NAME  GEN = F_,1,1 ! i-th natural frequency
+$DEFVAR MID TYPE = INTEGER GEN = 1,1 ! Mode ID
+$DEFVAR IND TYPE = INTEGER GEN = 1,1 ! Index
+
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = TOPO  CONNECTED = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DTOPO
+                1 DESET.1     : PORTAL
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DSVVAL
+       DESET.1       5.000000E-01
+!
+      $DVTPAR  DEID = 1  KIND = POWER  FILL = VAR
+        3.000000E+00
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+       DESET.1       1.000000E-02  1.000000E+00
+!
+      $LOOP I = 1, 10
+      $DCONSTRAINT FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = MID(I)  DATTYPE = REAL
+      F(I)          :  1.000000E-01      NO
+      $ENDLOOP
+
+      $DCFUNCTION CSTID = AGGREGATED FUNCTION = PNORM EQUALITY = YES
+        $LOOP I = 1, 10
+          IND(I) DCONSTRAINT : F(I) : 1
+        $ENDLOOP
+
+      $DCONSTRAINT FILL  TYPE = DELEMENT  DATTYPE = REAL
+      VOLFRAC      :          1      NO        5.000000E-01
+!
+      $DOBJECT  CONSTRAINT = AGGREGATED  TARGET = MAX
+!
+      $DSVMLIM
+       DESET.1       1.000000E-01
+!
+      $DSVFILT  TYPE = TOPO
+                1  6.600000E-02
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+     $LOOP I = 1, 10
+       $RSLITEM FREQ TYPE = GLOBAL SITUATION = STEP_1 MODE = MID(I)
+         F(I)
+     $ENDLOOP
+
+     $RESEXT ITEM
+       $LOOP I = 1, 10
+         F(I) : F(I) 1
+       $ENDLOOP
+
+   $END RESULTS
+
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER FUNCTION
+
+!    $FUNCTION LIB LABEL = PNORM TYPE = PNORM
+!       0.0 1.0 10 -10.0
+
+    $FUNCTION FORMULA LABEL = PNORM
+      F(X1,X2,X3,X4,X5,X6,X7,X8,X9,X10)= (X1^(-10)+X2^(-10)+X3^(-10)+X4^(-10)+X5^(-10)+X6^(-10)+X7^(-10)+X8^(-10)+X9^(-10)+X10^(-10))^(-1/10)
+
+$EXIT FUNCTION
+!------------------------------------
+$FIN
