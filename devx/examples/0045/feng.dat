@@ -38,6 +38,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                12          2         11
                13          9         12
 !
+      $ELEMENT TYPE = DAMP3 ESET = C
+               14          2         11
+               15          9         12
+!
       $RSYS CART  FORM = ZX
                 1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+02  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+02
 !
@@ -56,6 +60,10 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
                12
       $ESET NAME = K_2
                13
+      $ESET NAME = C_1
+               14
+      $ESET NAME = C_2
+               15
       $ESET NAME = LINE1
                 1
       $ESET NAME = LINE2
@@ -138,12 +146,17 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       $GEODAT SPRING    CONT = STIFF
        GD_K_1        0.000000E+00  1.780000E+06  1.780000E+06
        GD_K_2        0.000000E+00  1.780000E+06  1.780000E+06
+      $GEODAT DAMPER CONT = DAMP
+       GD_C_1        0.000000E+00  0.03E-3       0.03E-3
+       GD_C_2        0.000000E+00  0.03E-3       0.03E-3
 !
       $ELPROP
        DISC_1        GEODAT = GD_DISC_1
        DISC_2        GEODAT = GD_DISC_2
        K_1           GEODAT = GD_K_1
        K_2           GEODAT = GD_K_2
+       C_1           GEODAT = GD_C_1
+       C_2           GEODAT = GD_C_2
        LINE1         GEODAT = GD_LINE1      MATERIAL = STEEL
        LINE2         GEODAT = GD_LINE2      MATERIAL = STEEL
        LINE3         GEODAT = GD_LINE3      MATERIAL = STEEL
@@ -215,3 +228,4 @@ $ENTER MATERIAL
 $EXIT MATERIAL
 !------------------------------------
 $FIN
+
