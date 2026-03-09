@@ -11,4 +11,4 @@ The examples are adapted from a project report provided by Nedimcan Aytemür. Hi
 
 ### Reference Studxy
 
-![Reference study](reference_study.png)
+![Reference study](reference_study.png "Reference study")
