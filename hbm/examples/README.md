@@ -132,3 +132,5 @@
 [063](063/README.md) - [Space-time finite element path-following for periodic solutions in nonlinear vibration problems](https://doi.org/10.1016/j.cma.2026.118848)
 
 [064](064/README.md) - [Promoting sparsity in Bayesian learning through Laplace priors and evidential thresholding for equation discovery of nonlinear dynamical systems](https://doi.org/10.1016/j.jsv.2026.119713)
+
+[065](065/README.md) - NONLINEAR DYNAMIC ANALYSIS OF A 2-DOF DUFFING OSCILLATOR USING HARMONIC BALANCE AND SHOOTING METHODS
