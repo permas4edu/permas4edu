@@ -188,3 +188,5 @@
 [091](091/README.md) - [A finite element model updating method based on global optimization](https://doi.org/10.1016/j.ymssp.2020.107372)
 
 [092](092/README.md) -  [On the Axial-Bending-Torsional Vibration Coupling Effect Occurring in a Cantilever Beam with an Asymmetrically Attached Spatial Rigid Body](https://doi.org/10.1007/s42417-025-02302-w)
+
+[095](095/README.md) - [Higher-order transmissibility and its linear approximation for in-service crack identification in train wheelset axles](https://doi.org/10.1016/j.ymssp.2026.114089)
