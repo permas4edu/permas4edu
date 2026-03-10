@@ -189,4 +189,6 @@
 
 [092](092/README.md) -  [On the Axial-Bending-Torsional Vibration Coupling Effect Occurring in a Cantilever Beam with an Asymmetrically Attached Spatial Rigid Body](https://doi.org/10.1007/s42417-025-02302-w)
 
+[094](094/README.md) - [A higher-order solid finite element for multi-layered timber structures](https://doi.org/10.1016/j.ijmecsci.2026.111236)
+
 [095](095/README.md) - [Higher-order transmissibility and its linear approximation for in-service crack identification in train wheelset axles](https://doi.org/10.1016/j.ymssp.2026.114089)
