@@ -9,4 +9,4 @@ The example is adapted from [A novel hybrid spectral element-boundary element (S
 
 ### Circular plate
 
-![Circular plate](mode_04.gif)
+![Circular plate](mode_04.gif "4th mode")
