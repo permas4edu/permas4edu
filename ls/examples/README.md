@@ -87,3 +87,6 @@
 [040](040/README.md) - [Exploring the Potential of Physics-Informed Neural Networks for the Structural Analysis of 2D Frame Structures](https://doi.org/10.3390/applmech6040084)
 
 [041](041/README.md) - [LinkedIn](https://www.linkedin.com/posts/lonny-thompson_finite-element-analysis-of-a-k-truss-bridge-activity-7430230176354959360-iVbF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
+
+[042](042/README.md) - 
+[043](043/README.md) - [Geometry-Parameterized Stress Solution for the Rotating Conical Disk with Application to Rotor Design Optimization](https://doi.org/10.1142/S1758825126500249)
