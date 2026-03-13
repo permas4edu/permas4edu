@@ -88,5 +88,6 @@
 
 [041](041/README.md) - [LinkedIn](https://www.linkedin.com/posts/lonny-thompson_finite-element-analysis-of-a-k-truss-bridge-activity-7430230176354959360-iVbF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
 
-[042](042/README.md) - 
+[042](042/README.md) - [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7430957138967113728/)
+
 [043](043/README.md) - [Geometry-Parameterized Stress Solution for the Rotating Conical Disk with Application to Rotor Design Optimization](https://doi.org/10.1142/S1758825126500249)
