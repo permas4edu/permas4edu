@@ -1,0 +1,134 @@
+$DEFVAR M TYPE = REAL LIST = 1.0 1.0
+$DEFVAR C TYPE = REAL LIST = 1.0 10. 100.
+$DEFVAR K TYPE = REAL LIST = 10. 10.
+$DEFVAR K_C TYPE = REAL LIST = 1.0
+$DEFVAR ALPHA TYPE = REAL LIST = 10.0 10.0
+$DEFVAR BETA TYPE = REAL LIST = 10.0 10.0
+$DEFVAR DELTA_2 TYPE = REAL LIST = 1.0
+
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1  LOADING = L_STEP_1  RESULTS = R_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+       $NSET NAME = F_1
+          101
+       $NSET NAME = F_2
+          102
+ 
+       $NSET NAME = GROUND
+          100
+
+       $NSET NAME = FREE RULE = BOOLEAN
+          ALL_NODES AND NOT GROUND
+
+  
+       $NODE NSET = ALL_NODES
+          100  0.0  0.0  0.0
+          101  1.0  0.0  0.0
+          102  2.0  0.0  0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M_1 
+            1  101
+       $ELEMENT TYPE = MASS3 ESET = M_2 
+            2  102
+
+       $ELEMENT TYPE = DAMP1 ESET = C
+            3  100  101
+            4  100  102
+  
+       $ELEMENT TYPE = SPRING1 ESET = K_1
+            5  100  101
+       $ELEMENT TYPE = SPRING1 ESET = K_2
+            6  100  102
+       $ELEMENT TYPE = SPRING1 ESET = K_C
+            7  101  102
+
+       $ELEMENT TYPE = NLSTIFF ESET = NL_K_1
+            8   100 101  
+       $ELEMENT TYPE = NLSTIFF ESET = NL_K_2
+            9   100 102  
+
+       $ELEMENT TYPE = NLSTIFF ESET = NL_K_C
+           10   101 102
+
+    $END STRUCTURE
+ 
+    $SYSTEM NAME = S_STEP_1
+
+       $GEODAT MASS CONT = MASS
+          GD_M1  M(1)
+          GD_M2  M(2)
+
+       $GEODAT DAMPER CONT = DAMP
+          GD_C   C(1)
+
+       $GEODAT SPRING CONT = STIFF
+          GD_K1  K(1)
+          GD_K2  K(2)
+          GD_KC  K_C(1)
+
+       $GEODAT SPRING CONT = FUNCTION
+          GD_NL_K_1  1
+          GD_NL_K_2  2
+          GD_NL_K_C  3
+ 
+       $ELPROP 
+          M_1    GEODAT = GD_M1
+          M_2    GEODAT = GD_M2
+          C      GEODAT = GD_C
+          K_1    GEODAT = GD_K1
+          K_2    GEODAT = GD_K2
+          K_C    GEODAT = GD_KC
+          NL_K_1 GEODAT = GD_NL_K_1
+          NL_K_2 GEODAT = GD_NL_K_2
+          NL_K_C GEODAT = GD_NL_K_C
+
+    $END SYSTEM
+ 
+    $CONSTRAINTS NAME = C_STEP_1
+
+        $SUPPRESS DOFS = 2,3
+           ALL_NODES
+
+        $SUPPRESS DOFS = 1
+           GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+
+         $CONLOAD LPAT = 1
+           F_1 1: 10.0
+         $CONLOAD LPAT = 2
+           F_2 1:  5.0
+
+         $FREQLOAD 
+           LPAT = 1  TYPE = COSINE
+           LPAT = 2  TYPE = COSINE
+ 
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+        $FREQUENCY PRIMARY = EQUI
+           0.0 3.0 0.02
+
+    $END RESULTS
+ 
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1
+       F(X) = BETA(1)*X^2 + ALPHA(1)*X^3
+    $FUNCTION FORMULA FID = 2
+       F(X) = BETA(2)*X^2 + ALPHA(2)*X^3
+    $FUNCTION FORMULA FID = 3 
+       F(X) = DELTA_2(1)*X^3
+
+$EXIT FUNCTION
+$FIN
+
