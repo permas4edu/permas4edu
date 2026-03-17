@@ -7,3 +7,7 @@ The example is adapted from [System identification via validation and adaptation
 
 $$m \ddot{x} + b \dot{x} + b_{nl} x^2 \dot{x} + k x + k_{nl} x^3 = 0$$
 $$x(0) = 0, \quad \dot{x}(0) = 5 \text{ m/s}$$
+
+![STFT 5 m/s](stft_5.png "5 m/s")
+
+![STFT 8 m/s](stft_8.png "8 m/s")
