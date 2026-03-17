@@ -94,3 +94,5 @@
 [044](044/README.md) - [Implicit Runge Kutta physics informed neural network for parameter identification of structural systems](https://doi.org/10.1016/j.compstruc.2026.108157)
 
 [045](045/README.md) - [Maximum response of SDOF systems under consecutive triangular pulses](https://doi.org/10.1016/j.jsv.2025.119631)
+
+[046](046/README.md) - [System identification via validation and adaptation (SIVA) for model identification of nonlinear vibrating structures](https://doi.org/10.1007/s11071-025-12185-x)
