@@ -1,0 +1,33 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = lopez.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1 
+    DIRECT TIMEHISTORY LOOPS = 10000   &
+                       DELTAT = 1.E-4 &
+                       TSTART = 0.0   &
+                       OUTPUT = ALL   &
+                       STORE  = ALL   &
+                       SOLV   = NEWMARK 
+SELECT
+    ACTIVE NSET = FREE
+    XYDATA ITEM DISP RESULT = U  DCOMP = 1
+    XYDATA ITEM VELO RESULT = UP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DISP NAME = U
+    GO SPREADSHEET FILE = u
+    GO PERMAS BINARY FILE = u
+    ITEM CLEAR
+    ITEM XYDATA TYPE = VELO NAME = UP
+    GO SPREADSHEET FILE = up
+    GO PERMAS BINARY FILE = up
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES lopez.py'
+RETURN
+STOP
