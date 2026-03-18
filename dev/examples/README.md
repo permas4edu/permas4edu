@@ -194,3 +194,5 @@
 [094](094/README.md) - [A higher-order solid finite element for multi-layered timber structures](https://doi.org/10.1016/j.ijmecsci.2026.111236)
 
 [095](095/README.md) - [Higher-order transmissibility and its linear approximation for in-service crack identification in train wheelset axles](https://doi.org/10.1016/j.ymssp.2026.114089)
+
+[096](096/README.md) -  [Semi-Analytical Modeling and Free Vibration Analysis of Joined Conical–Cylindrical Shells with Axially Stepped Thickness](https://doi.org/10.3390/vibration9010013)
