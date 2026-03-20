@@ -1,0 +1,12 @@
+$ENTER COMPONENT  NAME = EMA  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = MP
+                1          2          3          4          5          6          7          8          9
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
