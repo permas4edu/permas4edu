@@ -34,3 +34,5 @@
 [014](014/README.md) - [Finite Element Model Updating of Axisymmetric Structures](https://doi.org/10.3390/app152111407)
 
 [015](015/README.md) - [Making modal analysis easy and more reliable – Challenging AI-based algorithms with the BARC example](https://doi.org/10.13052/97887-438-0152-8_6)
+
+[016](016/README.md) - [Mode-resolved, reconfigurable particle damping for printed circuit boards vibration control](https://doi.org/10.1016/j.ymssp.2026.113995)
