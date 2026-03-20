@@ -1,6 +1,6 @@
 ***
 [⬅️](../014/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../016/README.md "Next example")
 ***
 
 The example is adapted from [Making modal analysis easy and more reliable – Challenging AI-based algorithms with the BARC example](https://doi.org/10.13052/97887-438-0152-8_6).
