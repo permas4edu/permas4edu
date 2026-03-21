@@ -1,6 +1,6 @@
 ***
-[⬅️](../044/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[⬅️](../045/README.md "Previous example")
+[➡️](../047/README.md "Next example")
 ***
 
 The example is adapted from [System identification via validation and adaptation (SIVA) for model identification of nonlinear vibrating structures](https://doi.org/10.1007/s11071-025-12185-x)
