@@ -11,3 +11,7 @@ Thanks to Kai Yang and Li-Qun Chen for sharing a finite element model and the re
 ![mode 01](mode_01.gif)
 
 ![ema 01](ema_01.gif)
+
+![mode 04](mode_04.gif)
+
+![ema 04](ema_04.gif)
