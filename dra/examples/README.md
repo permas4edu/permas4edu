@@ -96,3 +96,5 @@
 [045](045/README.md) - [Maximum response of SDOF systems under consecutive triangular pulses](https://doi.org/10.1016/j.jsv.2025.119631)
 
 [046](046/README.md) - [System identification via validation and adaptation (SIVA) for model identification of nonlinear vibrating structures](https://doi.org/10.1007/s11071-025-12185-x)
+
+[047](047/README.md) - [A Two-step Discretization Framework Bridging Quasi-Periodic and Periodic Solutions in Nonlinear Dynamics](https://doi.org/10.1016/j.cnsns.2026.109939)
