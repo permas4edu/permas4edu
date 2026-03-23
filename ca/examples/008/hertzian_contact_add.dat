@@ -1,0 +1,41 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $LINE GEO  LNID = BLOCK
+       SFLA2         69          1
+       SFLA2         93          5
+       SFLA2         69         70
+       SFLA2         70         71
+       SFLA2         72         71
+       SFLA2         73         72
+       SFLA2         74         73
+       SFLA2         74         75
+       SFLA2         75         76
+       SFLA2         76         77
+       SFLA2         77         78
+       SFLA2         79         78
+       SFLA2         79         80
+       SFLA2         80         81
+       SFLA2         82         81
+       SFLA2         82         83
+       SFLA2         83         84
+       SFLA2         84         85
+       SFLA2         86         85
+       SFLA2         86         87
+       SFLA2         87         88
+       SFLA2         88         89
+       SFLA2         89         90
+       SFLA2         91         90
+       SFLA2         92         91
+       SFLA2         92         93
+!
+      $NSET NAME = CENTERLINE_BLOCK
+                1          5         69         70         71         72         73         74         75         76         77         78         79         80
+               81         82         83         84         85         86         87         88         89         90         91         92         93
+!
+   $END STRUCTURE
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
