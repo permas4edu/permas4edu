@@ -98,3 +98,5 @@
 [046](046/README.md) - [System identification via validation and adaptation (SIVA) for model identification of nonlinear vibrating structures](https://doi.org/10.1007/s11071-025-12185-x)
 
 [047](047/README.md) - [A Two-step Discretization Framework Bridging Quasi-Periodic and Periodic Solutions in Nonlinear Dynamics](https://doi.org/10.1016/j.cnsns.2026.109939)
+
+[048](048/README.md) - [Investigations about Frequency Response of Similar Plates with Different Damping Loss Factors](https://doi.org/10.1115/1.4071008)
