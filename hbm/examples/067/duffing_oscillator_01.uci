@@ -1,0 +1,31 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = duffing_oscillator_01.dat
+RETURN
+ 
+CLOOP LOOPS = 1, 4
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE      = 1024 &
+                                ACCURACY     = 5.0 &
+                                NOFHARMONICS = 7 &
+                                MODE         = FOLLOWPATH &
+                                DIRECTION    = ASCENDING  &
+                                STARTFREQ    = 0.0        &
+                                RESULTS      = ALL
+    SELECT 
+        ACTIVE NSET = FREE
+        XYDATA ITEM DISP RESULT = HBM   DCOMP = 1
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA TYPE = DISP NAME = HBM
+        GO PERMAS BINARY FILE = 'hbm_%(cloop)'
+    TASK END
+CLOOP END
+
+USER 
+    CALL TOOL6 P1 = 'pyINTES duffing_oscillator_01.py'
+RETURN
+STOP

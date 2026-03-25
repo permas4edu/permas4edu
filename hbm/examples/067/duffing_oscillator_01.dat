@@ -1,0 +1,107 @@
+$DEFVAR M TYPE = REAL LIST = 1.0
+$DEFVAR C TYPE = REAL LIST = 0.05
+$DEFVAR K TYPE = REAL LIST = 1.0
+$DEFVAR GAMMA TYPE = REAL LIST = -0.02 0.0 0.02 0.1
+$DEFVAR F TYPE = REAL LIST = 0.2
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,1,1
+$DEFVAR SYSVAR TYPE = NAME GEN = S_STEP_,1,1
+$DEFVAR FID TYPE = INTEGER GEN = 1,1
+
+$ENTER COMPONENT NAME = DFLT_COMP 
+
+   $LOOP I = 1, 4
+       $SITUATION NAME = SITNAME(I)
+           DFLT_COMP  SYSTEM = SYSVAR(I)  CONSTRAINTS = C_STEP_1  LOADING = L_STEP_1  RESULTS = R_STEP_1
+       $END SITUATION
+   $ENDLOOP
+
+   $STRUCTURE
+
+      $NSET NAME = GROUND
+          100
+
+      $NSET NAME = FREE
+          101
+
+      $NODE NSET = ALL_NODES
+        100  0.0  0.0  0.0
+        101  1.0  0.0  0.0
+
+      $ELEMENT TYPE = MASS3 ESET = M
+          1  101
+
+      $ELEMENT TYPE = DAMP1 ESET = C
+          2  100  101
+ 
+      $ELEMENT TYPE = SPRING1 ESET = K
+          3  100  101
+
+      $ELEMENT TYPE = NLSTIFF ESET = NL_K
+          4  100  101
+ 
+   $END STRUCTURE
+
+   $LOOP I = 1, 4
+       $SYSTEM NAME = SYSVAR(I)
+
+           $GEODAT MASS CONT = MASS 
+              GD_M  M(1)
+
+           $GEODAT SPRING CONT = STIFF
+              GD_K  K(1)
+
+           $GEODAT DAMPER CONT = DAMP
+              GD_C  C(1)
+
+           $GEODAT SPRING CONT = FUNCTION
+              GD_NL_K  FID(I)
+
+           $ELPROP
+              M     GEODAT = GD_M
+              C     GEODAT = GD_C
+              K     GEODAT = GD_K
+              NL_K  GEODAT = GD_NL_K
+   
+       $END SYSTEM
+
+   $ENDLOOP
+ 
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+      $SUPPRESS DOFS = 1
+          GROUND
+ 
+   $END CONSTRAINTS
+
+   $LOADING NAME = L_STEP_1
+  
+      $CONLOAD LPAT = 1
+          FREE  1: F(1)
+
+      $FREQLOAD
+          LPAT = 1 TYPE = COSINE
+
+   $END LOADING
+
+   $RESULTS NAME = R_STEP_1
+
+      $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+         0.0  1.8 0.01
+
+   $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION 
+
+    $LOOP I = 1, 4
+
+        $FUNCTION FORMULA LABEL = FID(I)
+           F(X) = GAMMA(I)*X^3
+
+    $ENDLOOP
+
+$EXIT FUNCTION
+$FIN
