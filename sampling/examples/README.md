@@ -78,3 +78,5 @@
 [035](035/README.md) - [Inconsistency Removal of Reduced Bases in Parametric Model Order Reduction by Matrix Interpolation Using Adaptive Sampling and Clustering](https://doi.org/10.1002/nme.70241)
 
 [036](036/README.md) - [The Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
+
+[037](037/README.md) - [Uncertainty Quantification Analysis of Dynamic Responses in Plate Structures Based on a Physics-Informed CVAE Model](https://doi.org/10.3390/app16031496)
