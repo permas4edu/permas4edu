@@ -1,0 +1,49 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1  RESULTS = R_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DQUAD4
+                1          1 2 3: PLATE
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR SHELL  NAME = GD_PLATE  DEID = 1  NODES = ALL
+      THICK          1:          1
+!
+      $DSVVAL
+          2   68.9E+03
+          3   2.75E-09
+!
+      $DVMPAR  NAME = MAT_PLATE  KIND = DIRECT  MODE = SHIFT
+      DENSITY 1 :  1.000000E+00 :          3
+      ELASTIC 1 :  1.000000E+00 :          2
+!
+   $END SYSTEM
+!------
+   $RESULTS  NAME = R_STEP_2
+!
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 1
+      F_1
+      $RSLITEM FREQ  TYPE = GLOBAL  SITUATION = STEP_1  MODE = 2
+      F_2
+!
+      $VPARVAL  TYPE = DESVAR
+                1  2.475000E+00  2.500000E+00  2.525000E+00  ! Plate thickness
+                2  65.45500E+03  68.90000E+03  72.34500E+03  ! Young's modulus
+                3  2.612000E-09  2.750000E-09  2.887500E-09  ! Density
+!
+      $RESEXT  ITEM
+      F_1 : F_1          1
+      F_2 : F_2          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
