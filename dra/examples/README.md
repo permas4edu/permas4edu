@@ -103,4 +103,6 @@
 
 [049](049/README.md) - [Differentiating damage effects in a structural component from the time response](https://doi.org/10.1016/j.ymssp.2010.04.007)
 
+[050](050/README.md) - [Explicit approximate frequency–amplitude relationships for conservative nonlinear oscillators](https://doi.org/10.1016/j.apm.2026.116851)
+
 [051](051/README.md) - [Vibration measurement with neuromorphic vision sensors](https://doi.org/10.1016/j.ymssp.2026.114102)
