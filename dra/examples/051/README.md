@@ -1,0 +1,1 @@
+The example is adapted from [Vibration measurement with neuromorphic vision sensors](https://doi.org/10.1016/j.ymssp.2026.114102)
