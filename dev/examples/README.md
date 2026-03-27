@@ -198,3 +198,5 @@
 [096](096/README.md) -  [Semi-Analytical Modeling and Free Vibration Analysis of Joined Conical–Cylindrical Shells with Axially Stepped Thickness](https://doi.org/10.3390/vibration9010013)
 
 [097](097/README.md) - [Sparse Bayesian Optimization with a Sequential Coordinate Search for Structural Finite Element Model Updating Using Uncertain Modal Data](https://doi.org/10.1016/j.swevo.2026.102360)
+
+[098](098/README.md) - [Graph-based surrogate modeling for structural eigenvalue problems with modal matching training](https://doi.org/10.1007/s00366-026-02310-8)
