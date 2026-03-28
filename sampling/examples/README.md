@@ -80,3 +80,5 @@
 [036](036/README.md) - [The Golden Oscillator](https://www.linkedin.com/feed/update/urn:li:activity:7419950293913673728/)
 
 [037](037/README.md) - [Uncertainty Quantification Analysis of Dynamic Responses in Plate Structures Based on a Physics-Informed CVAE Model](https://doi.org/10.3390/app16031496)
+
+[038](038/README.md) - [Frequency Model of Fixed-Ends Collinear System with Two Flexible Members and One Rigid Connector by Lumped-Parameter, Compliance-Based Matrix Method](https://doi.org/10.3390/vibration9010009)
