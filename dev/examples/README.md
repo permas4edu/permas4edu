@@ -200,3 +200,5 @@
 [097](097/README.md) - [Sparse Bayesian Optimization with a Sequential Coordinate Search for Structural Finite Element Model Updating Using Uncertain Modal Data](https://doi.org/10.1016/j.swevo.2026.102360)
 
 [098](098/README.md) - [Graph-based surrogate modeling for structural eigenvalue problems with modal matching training](https://doi.org/10.1007/s00366-026-02310-8)
+
+[099](099/README.md) - [Simulation-based method for probabilistic damage detection and quantification using modal measurements](https://doi.org/10.1016/j.istruc.2026.111527)
