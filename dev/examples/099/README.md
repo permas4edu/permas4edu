@@ -8,3 +8,7 @@ The examples are adapted from [Simulation-based method for probabilistic damage 
 ### Truss bridge
 
 ![truss bridge](truss_bridge.png)
+
+### Cantilever beam
+
+![15 element](15_element_cantilever_beam.png)
