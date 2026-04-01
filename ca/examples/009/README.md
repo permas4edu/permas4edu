@@ -7,3 +7,5 @@ The example is adapted from [Parameter unbounded Uzawa and penalty-splitted acce
 Thanks to Daria KOLIESNIKOVA and Isabelle RAMIÈRE for private communication and sharing the underlying finite element models. Their support is greatly appreciated.
 
 ![hemisphere](hemisphere_plane.png)
+
+![Contact](hemisphere_ca_s2n.gif "Surface to Node contact")
