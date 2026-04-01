@@ -1,0 +1,18 @@
+SET CAGEOUP = ON ! contact geometry update
+
+NEW
+
+INPUT
+    READ PERMAS FILE = 1sphere_plane.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+    GEN N P STRESS ! nodal point stress
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = statics
+TASK END
+STOP
