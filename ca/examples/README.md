@@ -20,3 +20,5 @@
 [007](007/README.md) - Snap fit
 
 [008](008/README.md) - [A versatile FEM framework with native GPU scalability via globally-applied AD](https://doi.org/10.48550/arXiv.2602.12365)
+
+[009](009/README.md) - [Parameter unbounded Uzawa and penalty-splitted accelerated algorithms for frictionless contact problems](https://doi.org/10.48550/arXiv.2603.12205)
