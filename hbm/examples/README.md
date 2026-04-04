@@ -136,3 +136,5 @@
 [065](065/README.md) - NONLINEAR DYNAMIC ANALYSIS OF A 2-DOF DUFFING OSCILLATOR USING HARMONIC BALANCE AND SHOOTING METHODS
 
 [066](066/README.md) -  [Stochastic response determination of nonlinear oscillators via operatorial dynamics: An approach based on stochastic averaging and adiabatic elimination](https://doi.org/10.1016/j.ijnonlinmec.2026.105354)
+
+[067](067/README.md) - [A Python Implementation of a Shooting Algorithm with Numerical Continuation and Automatic Differentiation for Autonomous and Non-Autonomous Systems in Structural Dynamics](https://doi.org/10.1115/1.4071461)
