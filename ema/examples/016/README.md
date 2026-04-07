@@ -1,6 +1,6 @@
 ***
 [⬅️](../015/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../017/README.md "Next example")
 ***
 
 The example is adapted from [Mode-resolved, reconfigurable particle damping for printed circuit boards vibration control](https://doi.org/10.1016/j.ymssp.2026.113995).
