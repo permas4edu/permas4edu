@@ -106,3 +106,5 @@
 [050](050/README.md) - [Explicit approximate frequency–amplitude relationships for conservative nonlinear oscillators](https://doi.org/10.1016/j.apm.2026.116851)
 
 [051](051/README.md) - [Vibration measurement with neuromorphic vision sensors](https://doi.org/10.1016/j.ymssp.2026.114102)
+
+[052](052/README.md) - [Exploiting POD-based model order reduction for damped structural dynamics without damped training data](https://doi.org/10.55592/cilamce2025.v5i.14071)
