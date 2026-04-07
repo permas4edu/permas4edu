@@ -11,3 +11,4 @@ The example is adapted from [Enhancing Structural Coupling: A Frequency-Based Me
 
 ### Square plate
 
+![square plate](square_plate.png)
