@@ -36,3 +36,5 @@
 [015](015/README.md) - [Making modal analysis easy and more reliable – Challenging AI-based algorithms with the BARC example](https://doi.org/10.13052/97887-438-0152-8_6)
 
 [016](016/README.md) - [Mode-resolved, reconfigurable particle damping for printed circuit boards vibration control](https://doi.org/10.1016/j.ymssp.2026.113995)
+
+[017](017/README.md) - [Enhancing Structural Coupling: A Frequency-Based Methodology for Optimal Interface Expansion](https://doi.org/10.1016/j.jsv.2026.119782)
