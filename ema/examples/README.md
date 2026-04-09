@@ -38,3 +38,6 @@
 [016](016/README.md) - [Mode-resolved, reconfigurable particle damping for printed circuit boards vibration control](https://doi.org/10.1016/j.ymssp.2026.113995)
 
 [017](017/README.md) - [Enhancing Structural Coupling: A Frequency-Based Methodology for Optimal Interface Expansion](https://doi.org/10.1016/j.jsv.2026.119782)
+
+[018](018/README.md) - [Near-to-node modal identification using multiple related response models](https://doi.org/10.1016/j.measurement.2020.108793)
+
