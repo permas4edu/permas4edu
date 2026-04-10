@@ -110,3 +110,5 @@
 [052](052/README.md) - [Contact and Geometric Nonlinearities Topology Optimization Constrained With Stress](https://doi.org/10.1002/nme.70077)
 
 [053](053/README.md) - [Structural optimization considering smallest magnitude eigenvalues: a smooth approximation](https://doi.org/10.1007/s40430-016-0583-x)
+
+[055](055/README.md) - [Topology optimization of a 3D part virtually printed by FDM](https://doi.org/10.5604/01.3001.0016.0289)
