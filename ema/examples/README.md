@@ -41,3 +41,5 @@
 
 [018](018/README.md) - [Near-to-node modal identification using multiple related response models](https://doi.org/10.1016/j.measurement.2020.108793)
 
+[019](019/README.md) -  [Modal FEA-EMA CrossMAC analysis of a Bell UH-1H helicopter tail rotor blade using FEA software and open source algorithms](https://doi.org/10.59400/sv3923)
+
