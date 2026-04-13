@@ -15,3 +15,5 @@ The example is adapted from [Damping ratio measurements of multi-degree-of-freed
 ![Free vibration](free_vibration.png)
 
 ### Forced vibration
+
+![Forced vibration](forced_vibration.png)
