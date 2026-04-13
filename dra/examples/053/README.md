@@ -4,7 +4,7 @@
 ***
 The example is adapted from [Damping ratio measurements of multi-degree-of-freedom systems](https://doi.org/10.59400/sv3752)
 
-![mode 01](mode_01.gif)
+![mode 01](mode_01.gif "First Normal mode")
 
-![mode 02](mode_02.gif)
+![mode 02](mode_02.gif "Second normal mode")
 
