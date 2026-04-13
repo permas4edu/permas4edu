@@ -61,9 +61,10 @@ def plot_comprehensive_analysis():
     plt.title('Figure 1: Free Vibration (Analytical vs CSV)')
     plt.xlabel('Time (t)')
     plt.ylabel('Amplitude')
+    plt.xlim(0.,10.)
     plt.legend(loc='upper right', fontsize='small', ncol=2)
     plt.grid(True, linestyle='--', alpha=0.6)
-    mplcursors.cursor(hover=True)
+    mplcursors.cursor(multiple=True)
 
     # 5. Plotting Figure 2: Forced Response
     print("Generating Figure 2 (Forced Response)...")
@@ -76,6 +77,7 @@ def plot_comprehensive_analysis():
     plt.title('Figure 2: Forced Response (Analytical vs CSV)')
     plt.xlabel('Time (t)')
     plt.ylabel('Amplitude')
+    plt.xlim(0.,10.)
     plt.legend(loc='upper right', fontsize='small', ncol=2)
     plt.grid(True, linestyle='--', alpha=0.6)
     mplcursors.cursor(multiple=True)
