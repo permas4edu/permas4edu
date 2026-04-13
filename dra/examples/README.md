@@ -108,3 +108,6 @@
 [051](051/README.md) - [Vibration measurement with neuromorphic vision sensors](https://doi.org/10.1016/j.ymssp.2026.114102)
 
 [052](052/README.md) - [Exploiting POD-based model order reduction for damped structural dynamics without damped training data](https://doi.org/10.55592/cilamce2025.v5i.14071)
+
+[053](053/README.md) - [Damping ratio measurements of multi-degree-of-freedom systems](https://doi.org/10.59400/sv3752)
+
