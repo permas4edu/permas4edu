@@ -6,3 +6,5 @@ The example is adapted from [Modal FEA-EMA CrossMAC analysis of a Bell UH-1H hel
 Thanks to Daniel Winarski and Marc Lamparelli for providing the finite element model in MECWAY format and private communication. Their support is greatly appreciated.
 
 ![Mode 4](mode_04.gif)
+
+![Mac matrix](mac.png)
