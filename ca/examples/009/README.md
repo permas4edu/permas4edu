@@ -1,6 +1,6 @@
 ***
 [⬅️](../008/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../010/README.md "Next example")
 ***
 
 The example is adapted from [Parameter unbounded Uzawa and penalty-splitted accelerated algorithms for frictionless contact problems](https://doi.org/10.48550/arXiv.2603.12205).
