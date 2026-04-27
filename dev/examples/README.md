@@ -204,3 +204,7 @@
 [099](099/README.md) - [Simulation-based method for probabilistic damage detection and quantification using modal measurements](https://doi.org/10.1016/j.istruc.2026.111527)
 
 [100](100/README.md) - [Advanced Modal Analysis Technique for Structures with Non-Uniform Mass Distribution](https://doi.org/10.24193/subbeng.2025.2)
+
+[101](101/README.md) -  [LinkedIn](https://www.linkedin.com/posts/nils-wagner-02546612_permas-visper-gep-share-7444017267169902593-PTS9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
+
+[102](102/README.md) - [Assessment of the Number of Mode Shapes Required in the Modal Strain Energy Methodology for Structural Damage Detection](https://doi.org/10.1007/s42417-026-02438-3)
