@@ -43,3 +43,4 @@
 
 [019](019/README.md) -  [Modal FEA-EMA CrossMAC analysis of a Bell UH-1H helicopter tail rotor blade using FEA software and open source algorithms](https://doi.org/10.59400/sv3923)
 
+[020](020/README.md) - [Enhancing structural coupling: A frequency-based methodology for optimal interface expansion](https://doi.org/10.1016/j.jsv.2026.119782)
