@@ -114,3 +114,5 @@
 [054](054/README.md) - [Interactive structural topology optimization via skeleton control](https://doi.org/10.1016/j.cagd.2026.102538)
 
 [055](055/README.md) - [Topology optimization of a 3D part virtually printed by FDM](https://doi.org/10.5604/01.3001.0016.0289)
+
+[056](056/README.md) - [Body-fitted mesh approach for structural topology optimization considering stress constraints](https://doi.org/10.55592/cilamce2025.v5i.14120)
