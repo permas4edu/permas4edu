@@ -116,3 +116,5 @@
 [055](055/README.md) - [Topology optimization of a 3D part virtually printed by FDM](https://doi.org/10.5604/01.3001.0016.0289)
 
 [056](056/README.md) - [Body-fitted mesh approach for structural topology optimization considering stress constraints](https://doi.org/10.55592/cilamce2025.v5i.14120)
+
+[057](057/README.md) - [Sequential topology optimization: SIMP initialization for level-set boundary refinement](https://doi.org/10.48550/arXiv.2605.04735)
