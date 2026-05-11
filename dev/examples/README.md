@@ -208,3 +208,5 @@
 [101](101/README.md) -  [LinkedIn](https://www.linkedin.com/posts/nils-wagner-02546612_permas-visper-gep-share-7444017267169902593-PTS9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKPHp0BbZDYvs6O4FWW34in8GbmY8ZMl7Q)
 
 [102](102/README.md) - [Assessment of the Number of Mode Shapes Required in the Modal Strain Energy Methodology for Structural Damage Detection](https://doi.org/10.1007/s42417-026-02438-3)
+
+[103](103/README.md) - [Bay-Fi: Approximate Bayesian main Frequency Identification for extremely undersampled signals](https://doi.org/10.1016/j.ymssp.2026.114339)
