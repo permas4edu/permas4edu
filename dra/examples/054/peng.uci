@@ -1,0 +1,44 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = peng.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 20
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACTIVE NSET = SENSORS
+    MODAL TIMEHISTORY SITUATION = STEP_2 &
+                      LOOPS     = 1000 &
+                      DELTAT    = 0.0009765625 &  ! T=1/1024
+                      RESPONSE  = TOTAL &
+                      OUTPUT    = ALL &
+                      PRIMRES   = REDUCED &
+                      SOLV      = NEWMARK 
+    ACT SIT = STEP_2 
+SELECT
+    ACTIVE NSET = SENSORS
+    XYDATA ITEM DISP RESULT = U   DCOMP = 3
+    XYDATA ITEM VELO RESULT = UP  DCOMP = 3
+    XYDATA ITEM ACCE RESULT = UPP DCOMP = 3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DISP NAME = U
+    GO SPREADSHEET FILE = displacments
+    ITEM CLEAR
+    ITEM XYDATA TYPE = VELO NAME = UP
+    GO SPREADSHEET FILE = velocities
+    ITEM CLEAR
+    ITEM XYDATA TYPE = ACCE NAME = UPP
+    GO SPREADSHEET FILE = accelerations
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES peng.py accelerations_upp.csv'
+RETURN
+STOP
+ 
