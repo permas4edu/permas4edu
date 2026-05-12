@@ -96,3 +96,5 @@
 [0045](0045/README.md) - [Hybrid uncertainty quantification in rotor dynamics using nonparametric probability approach](https://doi.org/10.1016/j.apm.2026.116777)
 
 [0046](0046/README.md) - [A formulation for rotor-foundation interaction via dynamic substructuring and virtual point transformation](https://doi.org/10.1016/j.ymssp.2026.113879)
+
+[0047](0047/README.md) - [A direct model updating method for damped gyroscopic systems with preserved physical connectivity](https://doi.org/10.1177/10775463261424862)
