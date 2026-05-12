@@ -98,3 +98,5 @@
 [0046](0046/README.md) - [A formulation for rotor-foundation interaction via dynamic substructuring and virtual point transformation](https://doi.org/10.1016/j.ymssp.2026.113879)
 
 [0047](0047/README.md) - [A direct model updating method for damped gyroscopic systems with preserved physical connectivity](https://doi.org/10.1177/10775463261424862)
+
+[0048](0048/README.md) - [DYNAMIC ANALYSIS AND FORCED RESPONSE OF A ROTOR-BEARING SYSTEM USING THE FINITE ELEMENT METHOD](https://doi.org/10.31130/ud-jst.2025.23(10B).636E)
