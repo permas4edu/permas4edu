@@ -1,0 +1,185 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+   $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+   $END SITUATION
+!
+   $SITUATION NAME = STEP_2  PARENT = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  LOADING = L_STEP_2  RESULTS = R_STEP_2
+   $END SITUATION
+
+   $STRUCTURE
+
+        $NODE NSET = ALL_NODES 
+           100  0.0  0.0  0.0
+           101  0.0  0.0  0.0
+           102  0.0  0.0  0.0
+           103  0.0  0.0  0.0
+           104  0.0  0.0  0.0
+           105  0.0  0.0  0.0
+           106  0.0  0.0  0.0
+           107  0.0  0.0  0.0
+           108  0.0  0.0  0.0
+           109  0.0  0.0  0.0
+           110  0.0  0.0  0.0
+ 
+       $ELEMENT TYPE = MASS3 ESET = M_1
+             1  101
+       $ELEMENT TYPE = MASS3 ESET = M_2
+             2  102
+       $ELEMENT TYPE = MASS3 ESET = M_3
+             3  103
+       $ELEMENT TYPE = MASS3 ESET = M_4
+             4  104
+       $ELEMENT TYPE = MASS3 ESET = M_5
+             5  105
+       $ELEMENT TYPE = MASS3 ESET = M_1
+             6  106
+       $ELEMENT TYPE = MASS3 ESET = M_2
+             7  107
+       $ELEMENT TYPE = MASS3 ESET = M_3
+             8  108
+       $ELEMENT TYPE = MASS3 ESET = M_4
+             9  109
+       $ELEMENT TYPE = MASS3 ESET = M_5
+            10  110
+
+       $ELEMENT TYPE = SPRING1 ESET = K_0
+            11  100 101
+       $ELEMENT TYPE = SPRING1 ESET = K_1
+            12  101 102
+       $ELEMENT TYPE = SPRING1 ESET = K_2
+            13  102 103
+       $ELEMENT TYPE = SPRING1 ESET = K_3
+            14  103 104
+       $ELEMENT TYPE = SPRING1 ESET = K_4
+            15  104 105
+       $ELEMENT TYPE = SPRING1 ESET = K_C
+            16  105 106
+       $ELEMENT TYPE = SPRING1 ESET = K_1
+            17  106 107
+       $ELEMENT TYPE = SPRING1 ESET = K_2
+            18  107 108
+       $ELEMENT TYPE = SPRING1 ESET = K_3
+            19  108 109
+       $ELEMENT TYPE = SPRING1 ESET = K_4
+            20  109 110
+
+       $ELEMENT TYPE = DAMP1 ESET = C_0
+            21  100 101
+       $ELEMENT TYPE = DAMP1 ESET = C_1
+            22  101 102
+       $ELEMENT TYPE = DAMP1 ESET = C_2
+            23  102 103
+       $ELEMENT TYPE = DAMP1 ESET = C_3
+            24  103 104
+       $ELEMENT TYPE = DAMP1 ESET = C_4
+            25  104 105
+       $ELEMENT TYPE = DAMP1 ESET = C_C
+            26  105 106
+       $ELEMENT TYPE = DAMP1 ESET = C_1
+            27  106 107
+       $ELEMENT TYPE = DAMP1 ESET = C_2
+            28  107 108
+       $ELEMENT TYPE = DAMP1 ESET = C_3
+            29  108 109
+       $ELEMENT TYPE = DAMP1 ESET = C_4
+            30  109 110
+  
+       $NSET NAME = F
+          102
+
+       $NSET NAME = RESPONSE
+          105  110
+  
+       $NSET NAME = GROUND
+          100
+ 
+   $END STRUCTURE
+
+   $SYSTEM NAME = S_STEP_1
+
+      $ELPROP
+          M_1  GEODAT = GD_M1
+          M_2  GEODAT = GD_M2
+          M_3  GEODAT = GD_M3
+          M_4  GEODAT = GD_M4
+          M_5  GEODAT = GD_M5
+          K_0  GEODAT = GD_K0
+          K_1  GEODAT = GD_K1
+          K_2  GEODAT = GD_K2
+          K_3  GEODAT = GD_K3
+          K_4  GEODAT = GD_K4
+          C_0  GEODAT = GD_C0
+          C_1  GEODAT = GD_C1
+          C_2  GEODAT = GD_C2
+          C_3  GEODAT = GD_C3
+          C_4  GEODAT = GD_C4
+!
+          K_C  GEODAT = GD_KC 
+          C_C  GEODAT = GD_CC
+
+      $GEODAT MASS CONT = MASS
+          GD_M1 10.0
+          GD_M2 10.0
+          GD_M3 10.0
+          GD_M4 10.0
+          GD_M5 10.0
+
+      $GEODAT SPRING CONT = STIFF
+          GD_K0  1.E3
+          GD_K1  1.E3
+          GD_K2  1.E3
+          GD_K3  1.E3
+          GD_K4  1.E3
+          GD_K5  1.E3
+          GD_KC  1.E3
+
+      $GEODAT DAMPER CONT = DAMP
+          GD_C0  1.0
+          GD_C1  1.0
+          GD_C2  1.0
+          GD_C3  1.0
+          GD_C4  1.0
+          GD_C5  1.0
+          GD_CC  2.0
+
+   $END SYSTEM
+
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+      $SUPPRESS DOFS = 1
+          GROUND
+
+   $END CONSTRAINTS
+
+   $LOADING NAME = L_STEP_2
+
+      $CONLOAD LPAT = 1
+          F 1: 1.0
+
+      $RANDLOAD KIND = AUTO DATTYPE = AP
+          LPAT = 1 FUNCTION = 1 
+
+   $END LOADING
+
+   $RESULTS NAME = R_STEP_2
+
+      $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+         0.0 11.0 0.1
+        
+      $FREQUENCY PRIMARY = EIGCLUS BOUNDS = 0., 10.0 CLUSTER = 3, 0.02 XTYPE = OMEGA
+
+   $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION 
+
+    $FUNCTION FORMULA FID = 1  DESCRIPTION = 'WHITE NOISE'
+       F(X) = 1.0  
+
+$EXIT FUNCTION
+$FIN
