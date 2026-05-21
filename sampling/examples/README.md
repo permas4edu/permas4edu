@@ -82,3 +82,5 @@
 [037](037/README.md) - [Uncertainty Quantification Analysis of Dynamic Responses in Plate Structures Based on a Physics-Informed CVAE Model](https://doi.org/10.3390/app16031496)
 
 [038](038/README.md) - [Frequency Model of Fixed-Ends Collinear System with Two Flexible Members and One Rigid Connector by Lumped-Parameter, Compliance-Based Matrix Method](https://doi.org/10.3390/vibration9010009)
+
+[039](039/README.md) - [SOLVING THE PARAMETRIC EIGENVALUE PROBLEM BY TAYLOR SERIES AND CHEBYSHEV EXPANSION](https://doi.org/10.1137/23M1551961)
