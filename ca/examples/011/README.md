@@ -1,1 +1,6 @@
+***
+[⬅️](../010/README.md "Previous example")
+[➡️](../README.md "Go up one directory level")
+***
+
 The example is adapted from [ALGEBRAIC MULTIGRID WITH FILTERING: AN EFFICIENT PRECONDITIONER FOR INTERIOR POINT METHODS IN LARGE-SCALE CONTACT MECHANICS OPTIMIZATION](https://doi.org/10.1137/25M1763159)
