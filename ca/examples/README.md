@@ -24,3 +24,5 @@
 [009](009/README.md) - [Parameter unbounded Uzawa and penalty-splitted accelerated algorithms for frictionless contact problems](https://doi.org/10.48550/arXiv.2603.12205)
 
 [010](010/README.md) - [A Robust and Adaptive Isogeometric Framework for Large Deformation Self-Contact Problems](https://doi.org/10.1002/nme.70328)
+
+[011](011/README.md) - [ALGEBRAIC MULTIGRID WITH FILTERING: AN EFFICIENT PRECONDITIONER FOR INTERIOR POINT METHODS IN LARGE-SCALE CONTACT MECHANICS OPTIMIZATION](https://doi.org/10.1137/25M1763159)
