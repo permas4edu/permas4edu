@@ -1,0 +1,158 @@
+$DEFVAR M1 TYPE = REAL LIST = 1.0 1.0 1.0 1.0
+$DEFVAR M2 TYPE = REAL LIST = 1.0 1.0 1.0 0.05
+!
+$DEFVAR C1 TYPE = REAL LIST = 0.05 0.08 0.008 0.015
+$DEFVAR C2 TYPE = REAL LIST = 0.005 0.02 0.001 0.015
+$DEFVAR C3 TYPE = REAL LIST = 0.05 0.05 0.008 0.0
+!
+$DEFVAR K1 TYPE = REAL LIST = 1.0 1.0 1.0 1.0
+$DEFVAR K2 TYPE = REAL LIST = 1.0 0.2 0.04 0.0454
+$DEFVAR K3 TYPE = REAL LIST = 1.0 0.8 1.0 0.0
+!
+$DEFVAR ALPHA1 TYPE = REAL LIST = 1.0 1.0 0.5 1.0
+$DEFVAR ALPHA2 TYPE = REAL LIST = 0.5 0.02 0.01 0.0042
+$DEFVAR ALPHA3 TYPE = REAL LIST = 1.0 2.0 0.5 0.0
+!
+$DEFVAR F1 TYPE = REAL LIST = 0.03 0.1 -0.005 0.2
+$DEFVAR F2 TYPE = REAL LIST = 0.03 -0.03 0.0052 0.0
+! 
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1 CONSTRAINTS = C_STEP_1 LOADING = L_STEP_1 RESULTS = R_STEP_1
+    $END SITUATION
+ 
+    $STRUCTURE
+
+        $NODE NSET = ALL_NODES
+           100  0.0  0.0  0.0
+           101  1.0  0.0  0.0
+           102  2.0  0.0  0.0
+           103  3.0  0.0  0.0
+
+        $ELEMENT TYPE = MASS3 ESET = M1
+             1  101
+        $ELEMENT TYPE = MASS3 ESET = M2
+             2  102
+ 
+        $ELEMENT TYPE = DAMP1 ESET = C1
+             3  100  101
+        $ELEMENT TYPE = DAMP1 ESET = C2
+             4  101  102
+        $ELEMENT TYPE = DAMP1 ESET = C3
+             5  102  103
+
+        $ELEMENT TYPE = SPRING1 ESET = K1
+             6  100  101
+        $ELEMENT TYPE = SPRING1 ESET = K2
+             7  101  102
+        $ELEMENT TYPE = SPRING1 ESET = K3
+             8  102  103
+ 
+        $ELEMENT TYPE = NLSTIFF ESET = NL_K1
+             9  100 101
+        $ELEMENT TYPE = NLSTIFF ESET = NL_K2
+            10  101 102
+        $ELEMENT TYPE = NLSTIFF ESET = NL_K3
+            11  102 103
+
+        $NSET NAME = GROUND
+            100  103
+ 
+        $NSET NAME = RESULTS
+            101  102
+ 
+        $PART NAME = M
+             M1  M2
+        $PART NAME = K
+             K1 K2 K3
+        $PART NAME = C
+             C1 C2 C3
+        $PART NAME = NL_K
+             NL_K1 NL_K2 NL_K3
+  
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+       $GEODAT MASS CONT = MASS
+          GD_M1  M1(2)
+          GD_M2  M2(2)
+
+       $GEODAT SPRING CONT = STIFF
+          GD_K1  K1(2)
+          GD_K2  K2(2)
+          GD_K3  K3(2)
+ 
+       $GEODAT DAMPER CONT = DAMP
+          GD_C1  C1(2)
+          GD_C2  C2(2)
+          GD_C3  C3(2)
+ 
+       $GEODAT SPRING CONT = FUNCTION
+          GD_NL_K1 1
+          GD_NL_K2 2
+          GD_NL_K3 3
+
+       $ELPROP 
+!
+          M1 GEODAT = GD_M1
+          M2 GEODAT = GD_M2
+!
+          K1 GEODAT = GD_K1
+          K2 GEODAT = GD_K2
+          K3 GEODAT = GD_K3
+!
+          C1 GEODAT = GD_C1
+          C2 GEODAT = GD_C2
+          C3 GEODAT = GD_C3
+!
+          NL_K1 GEODAT = GD_NL_K1
+          NL_K2 GEODAT = GD_NL_K2
+          NL_K3 GEODAT = GD_NL_K3
+! 
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3
+           ALL_NODES
+
+       $SUPPRESS DOFS = 1
+           GROUND
+
+    $END CONSTRAINTS
+
+    $LOADING NAME = L_STEP_1
+ 
+       $CONLOAD LPAT = 1
+          101 1: F1(2)
+       $CONLOAD LPAT = 2
+          102 1: F2(2)
+
+       $FREQLOAD
+          LPAT = 1 TYPE = COSINE
+          LPAT = 2 TYPE = COSINE
+ 
+    $END LOADING
+
+    $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+          0.0  1.3 0.01
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+   $FUNCTION FORMULA FID = 1
+      F(X) = ALPHA1(2)*X^3
+
+   $FUNCTION FORMULA FID = 2
+      F(X) = ALPHA2(2)*X^3
+
+   $FUNCTION FORMULA FID = 3
+      F(X) = ALPHA3(2)*X^3
+
+$EXIT FUNCTION
