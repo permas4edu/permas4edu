@@ -1,2 +1,2 @@
-*.dat linguist-language=INI
+*.dat linguist-language=Tcl
 *.uci linguist-language=INI
