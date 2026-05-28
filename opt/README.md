@@ -17,6 +17,7 @@
 | COG     | Center of gravity |
 | COMPLIANCE | Compliance |  
 | COORCHANGE | Coordinate change |  
+| DAMAGE | Fatigue damage >= V21 | 
 | DISP | Displacement |
 | EFFPLASTSTRN | Effective Plastic Strain |  
 | ELSTRESS | Element stress |
