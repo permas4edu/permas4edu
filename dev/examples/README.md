@@ -210,3 +210,5 @@
 [102](102/README.md) - [Assessment of the Number of Mode Shapes Required in the Modal Strain Energy Methodology for Structural Damage Detection](https://doi.org/10.1007/s42417-026-02438-3)
 
 [103](103/README.md) - [Bay-Fi: Approximate Bayesian main Frequency Identification for extremely undersampled signals](https://doi.org/10.1016/j.ymssp.2026.114339)
+
+[104](104/README.md) - [𝑂(𝑛) Local Eigenvalue Modification Procedure for real-time updating of structural digital twins with sub-millisecond-latency performance](https://doi.org/10.1016/j.ymssp.2026.114451)
