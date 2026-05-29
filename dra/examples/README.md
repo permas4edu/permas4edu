@@ -112,3 +112,5 @@
 [053](053/README.md) - [Damping ratio measurements of multi-degree-of-freedom systems](https://doi.org/10.59400/sv3752)
 
 [054](054/README.md) - [A domain-correction framework for structural response reconstruction with imperfect FEM and sparse measurements](https://doi.org/10.1016/j.ymssp.2026.114274)
+
+[055](055/README.md) - [Energy-based dual-phased dynamics identification for forced nonlinear vibrations](https://doi.org/10.1016/j.ymssp.2026.114420)
