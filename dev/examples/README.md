@@ -214,3 +214,5 @@
 [104](104/README.md) - [𝑂(𝑛) Local Eigenvalue Modification Procedure for real-time updating of structural digital twins with sub-millisecond-latency performance](https://doi.org/10.1016/j.ymssp.2026.114451)
 
 [105](105/README.md) - [Closed-Form Optimal Profiling for Maximizing the Longitudinal Fundamental Frequency of Rods under Area Constraints]( https://doi.org/10.1115/1.4071736)
+
+[106](106/README.md) - [Extended analytical strip method for free vibration analysis of rectangular thin plates with arbitrarily varying parameters along one edge](https://doi.org/10.1177/10775463261453834)
