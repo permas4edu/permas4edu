@@ -1,0 +1,95 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = SAMPLING  CONNECTED = STEP_1 STEP_2
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DDAMP
+                1          1: D_5
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR DAMPER  NAME = GD_D_5  DEID = 1
+      DAMP          1:          1
+!
+   $END SYSTEM
+!------
+   $RESULTS
+!
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      RE_01        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2
+      RE_02        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3
+      RE_03        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4
+      RE_04        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 5
+      RE_05        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 6
+      RE_06        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 7
+      RE_07        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 8
+      RE_08        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 9
+      RE_09        :   2
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 10
+      RE_10        :   2
+!
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 1
+      IM_01        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 2
+      IM_02        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 3
+      IM_03        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 4
+      IM_04        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 5
+      IM_05        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 6
+      IM_06        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 7
+      IM_07        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 8
+      IM_08        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 9
+      IM_09        :   3
+      $RSLITEM CFREQ  TYPE = GLOBAL  SITUATION = STEP_2  MODE = 10
+      IM_10        :   3
+!
+      $VPARVAL  TYPE = DESVAR  INPUT = EQUI
+                1  1.600000E+00  2.400000E+00  1.000000E-01
+!
+      $RESEXT  ITEM
+      RE_01 : RE_01          1
+      RE_02 : RE_02          1
+      RE_03 : RE_03          1
+      RE_04 : RE_04          1
+      RE_05 : RE_05          1
+      RE_06 : RE_06          1
+      RE_07 : RE_07          1
+      RE_08 : RE_08          1
+      RE_09 : RE_09          1
+      RE_10 : RE_10          1
+!
+      IM_01 : IM_01          1
+      IM_02 : IM_02          1
+      IM_03 : IM_03          1
+      IM_04 : IM_04          1
+      IM_05 : IM_05          1
+      IM_06 : IM_06          1
+      IM_07 : IM_07          1
+      IM_08 : IM_08          1
+      IM_09 : IM_09          1
+      IM_10 : IM_10          1
+!
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
