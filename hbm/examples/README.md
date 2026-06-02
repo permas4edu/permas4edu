@@ -142,3 +142,5 @@
 [068](068/README.md) - [Continuation-Enhanced Harmonic Balance Method for Nonlinear Dynamics in Rotating Machinery](https://doi.org/10.1155/vib/2429386)
 
 [069](069/README.md) - [Locating isolas in nonlinear oscillator systems using uncertainty quantification](https://doi.org/10.1098/rspa.2025.0939)
+
+[070](070/README.md) - [Explicit Error Bounds and Guaranteed Convergence of the Koopman–Hill Projection Stability Method for Linear Time-Periodic Dynamics](https://doi.org/10.1007/s00332-026-10287-3)
