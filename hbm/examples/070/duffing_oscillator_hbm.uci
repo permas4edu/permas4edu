@@ -1,0 +1,72 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = duffing_oscillator_hbm.dat
+RETURN
+
+EXEC
+CLOOP LOOPS = 1, 2
+    TASK
+    EXEC
+        ACT SIT = 'STEP_%(cloop)'
+        DIRECT HARMONIC BALANCE FFTSIZE = 1024 &
+                                ACCURACY = 5.0 &
+                                NOFHARMONICS = 7 &
+                                MODE = FOLLOWPATH &
+                                DIRECTION = ASCENDING &
+                                STARTFREQ = 0.0 &
+                                RESULTS = ALL        
+    SELECT 
+        ACTIVE NSET = FREE
+        XYDATA ITEM DISP RESULT = U   DCOMP = 1
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA TYPE = DISP NAME = U
+        GO PERMAS BINARY FILE = 'hbm_%(cloop)'
+        GO SPREADSHEET FILE = 'hbm_%(cloop)'
+    TASK END
+CLOOP END
+
+    TASK
+    EXEC
+        ACT SIT = STEP_3
+        DIRECT TIMEHISTORY LOOPS = 200 &
+                           DELTAT = 0.012566370614359173 &
+                           HBSIT = STEP_1 &
+                           HBFREQ = 7.957747E-01 
+    SELECT 
+        ACTIVE NSET = FREE
+        XYDATA ITEM DISP RESULT = U   DCOMP = 1 
+        XYDATA ITEM VELO RESULT = UP  DCOMP = 1 
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA TYPE = DISP NAME = U
+        GO SPREADSHEET FILE = back_transform_1
+        ITEM CLEAR
+        ITEM XYDATA TYPE = VELO NAME = UP
+        GO SPREADSHEET FILE = back_transform_1
+    TASK END
+
+    TASK
+    EXEC
+        ACT SIT = STEP_4
+        DIRECT TIMEHISTORY LOOPS = 200 &
+                           DELTAT = 0.20943951023931956 &
+                           HBSIT = STEP_2 &
+                           HBFREQ = 0.0477464 
+    SELECT 
+        ACTIVE NSET = FREE
+        XYDATA ITEM DISP RESULT = U   DCOMP = 1 
+        XYDATA ITEM VELO RESULT = UP  DCOMP = 1 
+    EXPORT
+        ITEM CLEAR
+        ITEM XYDATA TYPE = DISP NAME = U
+        GO SPREADSHEET FILE = back_transform_2       
+        ITEM XYDATA TYPE = VELO NAME = UP
+        GO SPREADSHEET FILE = back_transform_2 
+    TASK END
+
+USER
+    CALL TOOL6 P1 = 'pyINTES  duffing_oscillator_hbm.py'
+RETURN
+STOP
