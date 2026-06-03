@@ -147,6 +147,14 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
       $CONLOAD  LPAT = 4  DOFTYPE = DISP
        TIP          4:  8.100000E+04
 !
+!     All loads are applied simultaneously
+!
+      $COMBINE LOADS LPAT = 999
+         LPAT = 1 FACTOR = 1.0
+         LPAT = 2 FACTOR = 1.0
+         LPAT = 3 FACTOR = 1.0
+         LPAT = 4 FACTOR = 1.0
+!
    $END LOADING
 !------
 $EXIT COMPONENT
