@@ -1,0 +1,15 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = cantilever_tube.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    STATIC
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = static
+TASK END
+STOP
