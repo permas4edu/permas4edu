@@ -1,0 +1,94 @@
+$DEFVAR M TYPE = REAL LIST = 10.0 ! Mass m_u [kg]
+$DEFVAR K TYPE = REAL LIST = 1.0  ! spring stiffness k_u [N/m]
+$DEFVAR C TYPE = REAL LIST = 0.05 ! damping coefficient c_u [Ns/m]
+
+$ENTER COMPONENT NAME = DFLT_COMP 
+
+    $SITUATION NAME = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2  PARENT  = STEP_1
+        DFLT_COMP SYSTEM = S_STEP_1  
+    $END SITUATION
+
+    $STRUCTURE
+
+        $NSET NAME = GROUND
+            100  111
+ 
+        $NODE NSET = ALL_NODES
+            100   0.0  0.0  0.0
+            101   1.0  0.0  0.0
+            102   2.0  0.0  0.0
+            103   3.0  0.0  0.0
+            104   4.0  0.0  0.0
+            105   5.0  0.0  0.0
+            106   6.0  0.0  0.0
+            107   7.0  0.0  0.0
+            108   8.0  0.0  0.0
+            109   9.0  0.0  0.0
+            110  10.0  0.0  0.0
+            111  11.0  0.0  0.0
+           
+         $ELEMENT TYPE = MASS3 ESET = M
+              1   101
+              2   102
+              3   103
+              4   104
+              5   105
+              6   106
+              7   107
+              8   108
+              9   109
+             10   110
+ 
+          $ELEMENT TYPE = SPRING1 ESET = K
+             11   100  101
+             12   101  102
+             13   102  103
+             14   103  104
+             15   104  105
+             16   105  106
+             17   106  107
+             18   107  108
+             19   108  109
+             20   109  110
+             21   110  111
+
+          $ELEMENT TYPE = DAMP1 ESET = C
+             22   100  106
+             23   100  107
+             24   100  108
+             25   100  109
+
+    $END STRUCTURE
+ 
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3
+          ALL_NODES
+
+       $SUPPRESS DOFS = 1
+          100  111
+
+    $END CONSTRAINTS
+
+    $SYSTEM NAME = S_STEP_1
+
+       $GEODAT MASS CONT = MASS
+          GD_M  M(1)
+       $GEODAT SPRING CONT = STIFF
+          GD_K  K(1)
+       $GEODAT DAMPER CONT = DAMP
+          GD_C  C(1)
+
+       $ELPROP
+          M  GEODAT = GD_M
+          K  GEODAT = GD_K
+          C  GEODAT = GD_C
+ 
+    $END SYSTEM
+
+$EXIT COMPONENT
+$FIN
