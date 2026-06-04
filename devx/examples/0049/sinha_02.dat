@@ -1,0 +1,129 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2  PARENT = STEP_1
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = BECOS
+                3          1          7
+                4          7          2
+                5          2          8
+                6          8          9
+                7          9         10
+                8         10         11
+                9         11          3
+               10          3         12
+               11         12         13
+               12         13          4
+      $ELEMENT TYPE = DAMP1
+               13          2          5
+               14          3          6
+!
+      $RSYS CART  FORM = ZX
+                1  0.000000E+00  0.000000E+00  0.000000E+00 :  1.000000E+01  0.000000E+00  0.000000E+00 :  0.000000E+00  0.000000E+00 -1.000000E+01
+!
+      $ELSYS RSYS
+       BEAM          RSYS =          1  AXES =  1,  2
+!
+      $NSET NAME = BEAM RULE = ESET
+         BEAM
+!
+      $NSET NAME = CLAMPED
+                1
+      $NSET NAME = GROUND
+                5          6
+      $ESET NAME = BEAM
+                3          4          5          6          7          8          9         10         11         12
+      $ESET NAME = C_3
+               13
+      $ESET NAME = C_8
+               14
+      $ESET NAME = LINE1
+                3          4
+      $ESET NAME = LINE2
+                5          6          7          8          9
+      $ESET NAME = LINE3
+               10         11         12
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  4.000000E-01  0.000000E+00  0.000000E+00
+                3  1.400000E+00  0.000000E+00  0.000000E+00
+                4  2.000000E+00  0.000000E+00  0.000000E+00
+                5  4.000000E-01 -5.000000E-02  0.000000E+00
+                6  1.400000E+00 -5.000000E-02  0.000000E+00
+                7  2.000000E-01  0.000000E+00  0.000000E+00
+                8  6.000000E-01  0.000000E+00  0.000000E+00
+                9  8.000000E-01  0.000000E+00  0.000000E+00
+               10  1.000000E+00  0.000000E+00  0.000000E+00
+               11  1.200000E+00  0.000000E+00  0.000000E+00
+               12  1.600000E+00  0.000000E+00  0.000000E+00
+               13  1.800000E+00  0.000000E+00  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = C_3
+       C_3
+      $PART  NAME = C_8
+       C_8
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT DAMPER    CONT = DAMP
+       GD_C_3        4.500000E+01
+       GD_C_8        7.000000E+01
+      $GEODAT BEAM      CONT = SECTTYPE SECTDIM  SECTDIM
+       GD_BEAM               5
+         &        :  1.000000E-01  2.000000E-02
+         &        :  1.000000E-01  2.000000E-02
+!
+      $ELPROP
+       BEAM          GEODAT = GD_BEAM       MATERIAL = STEEL
+       C_3           GEODAT = GD_C_3
+       C_8           GEODAT = GD_C_8
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS DOFS = 1,3,4,5
+       BEAM  
+!
+      $SUPPRESS  DOFS = 1,2,3,4,5,6  DOFTYPE = DISP
+       CLAMPED      GROUND
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+   $END LOADING
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = STEEL  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  0.000000E+00
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
