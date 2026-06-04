@@ -100,3 +100,5 @@
 [0047](0047/README.md) - [A direct model updating method for damped gyroscopic systems with preserved physical connectivity](https://doi.org/10.1177/10775463261424862)
 
 [0048](0048/README.md) - [DYNAMIC ANALYSIS AND FORCED RESPONSE OF A ROTOR-BEARING SYSTEM USING THE FINITE ELEMENT METHOD](https://doi.org/10.31130/ud-jst.2025.23(10B).636E)
+
+[0049](0049/README.md) - [Mitigating Window-Induced Distortions in Modal Identification of Non-Proportionally Damped Systems using Sensitivity-Based Model Updating](https://doi.org/10.1007/s42417-026-02368-0)
