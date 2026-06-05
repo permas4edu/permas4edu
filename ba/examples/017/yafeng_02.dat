@@ -1,0 +1,412 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = STEP_1
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_1  LOADING = L_STEP_1
+   $END SITUATION
+!
+   $SITUATION  NAME = STEP_2
+      DFLT_COMP  CONSTRAINTS = C_STEP_1  SYSTEM = S_STEP_2
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $ELEMENT TYPE = FLA2
+                1          1          2
+                2          2          3
+                3          3          4
+                4          4          5
+                5          5          6
+                6          6          7
+                7          7          8
+                8          8          9
+                9          9         10
+               10         10         11
+               11         11         12
+               12         12         13
+               13         14         15
+               14         15         16
+               15         16         17
+               16         17         18
+               17         18         19
+               18         19         20
+               19         20         21
+               20         21         22
+               21         22         23
+               22         23         24
+               23         24         25
+               24         25         26
+               25          2         15
+               26          3         16
+               27          4         17
+               28          5         18
+               29          6         19
+               30          7         20
+               31          8         21
+               32          9         22
+               33         10         23
+               34         11         24
+               35         12         25
+               36         13         26
+               37          1         15
+               38         14          2
+               39          2         16
+               40         15          3
+               41          3         17
+               42         16          4
+               43          4         18
+               44         17          5
+               45          5         19
+               46         18          6
+               47          6         20
+               48         19          7
+               49          7         21
+               50         20          8
+               51          8         22
+               52         21          9
+               53          9         23
+               54         22         10
+               55         10         24
+               56         23         11
+               57         11         25
+               58         24         12
+               59         12         26
+               60         25         13
+!
+      $NSET NAME = ALL_NODES
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26
+      $NSET NAME = FIXED
+                1         14
+      $NSET NAME = P
+               13         26
+      $ESET NAME = LINE1
+                1
+      $ESET NAME = LINE2
+                2
+      $ESET NAME = LINE3
+                3
+      $ESET NAME = LINE4
+                4
+      $ESET NAME = LINE5
+                5
+      $ESET NAME = LINE6
+                6
+      $ESET NAME = LINE7
+                7
+      $ESET NAME = LINE8
+                8
+      $ESET NAME = LINE9
+                9
+      $ESET NAME = LINE10
+               10
+      $ESET NAME = LINE11
+               11
+      $ESET NAME = LINE12
+               12
+      $ESET NAME = LINE13
+               13
+      $ESET NAME = LINE14
+               14
+      $ESET NAME = LINE15
+               15
+      $ESET NAME = LINE16
+               16
+      $ESET NAME = LINE17
+               17
+      $ESET NAME = LINE18
+               18
+      $ESET NAME = LINE19
+               19
+      $ESET NAME = LINE20
+               20
+      $ESET NAME = LINE21
+               21
+      $ESET NAME = LINE22
+               22
+      $ESET NAME = LINE23
+               23
+      $ESET NAME = LINE24
+               24
+      $ESET NAME = LINE25
+               25
+      $ESET NAME = LINE26
+               26
+      $ESET NAME = LINE27
+               27
+      $ESET NAME = LINE28
+               28
+      $ESET NAME = LINE29
+               29
+      $ESET NAME = LINE30
+               30
+      $ESET NAME = LINE31
+               31
+      $ESET NAME = LINE32
+               32
+      $ESET NAME = LINE33
+               33
+      $ESET NAME = LINE34
+               34
+      $ESET NAME = LINE35
+               35
+      $ESET NAME = LINE36
+               36
+      $ESET NAME = LINE37
+               37
+      $ESET NAME = LINE38
+               38
+      $ESET NAME = LINE39
+               39
+      $ESET NAME = LINE40
+               40
+      $ESET NAME = LINE41
+               41
+      $ESET NAME = LINE42
+               42
+      $ESET NAME = LINE43
+               43
+      $ESET NAME = LINE44
+               44
+      $ESET NAME = LINE45
+               45
+      $ESET NAME = LINE46
+               46
+      $ESET NAME = LINE47
+               47
+      $ESET NAME = LINE48
+               48
+      $ESET NAME = LINE49
+               49
+      $ESET NAME = LINE50
+               50
+      $ESET NAME = LINE51
+               51
+      $ESET NAME = LINE52
+               52
+      $ESET NAME = LINE53
+               53
+      $ESET NAME = LINE54
+               54
+      $ESET NAME = LINE55
+               55
+      $ESET NAME = LINE56
+               56
+      $ESET NAME = LINE57
+               57
+      $ESET NAME = LINE58
+               58
+      $ESET NAME = LINE59
+               59
+      $ESET NAME = LINE60
+               60
+      $ESET NAME = TRUSS
+                1          2          3          4          5          6          7          8          9         10         11         12         13         14
+               15         16         17         18         19         20         21         22         23         24         25         26         27         28
+               29         30         31         32         33         34         35         36         37         38         39         40         41         42
+               43         44         45         46         47         48         49         50         51         52         53         54         55         56
+               57         58         59         60
+!
+      $COOR
+                1  0.000000E+00  0.000000E+00  0.000000E+00
+                2  2.500000E-01  0.000000E+00  0.000000E+00
+                3  5.000000E-01  0.000000E+00  0.000000E+00
+                4  7.500000E-01  0.000000E+00  0.000000E+00
+                5  1.000000E+00  0.000000E+00  0.000000E+00
+                6  1.250000E+00  0.000000E+00  0.000000E+00
+                7  1.500000E+00  0.000000E+00  0.000000E+00
+                8  1.750000E+00  0.000000E+00  0.000000E+00
+                9  2.000000E+00  0.000000E+00  0.000000E+00
+               10  2.250000E+00  0.000000E+00  0.000000E+00
+               11  2.500000E+00  0.000000E+00  0.000000E+00
+               12  2.750000E+00  0.000000E+00  0.000000E+00
+               13  3.000000E+00  0.000000E+00  0.000000E+00
+               14  0.000000E+00  5.000000E-01  0.000000E+00
+               15  2.500000E-01  5.000000E-01  0.000000E+00
+               16  5.000000E-01  5.000000E-01  0.000000E+00
+               17  7.500000E-01  5.000000E-01  0.000000E+00
+               18  1.000000E+00  5.000000E-01  0.000000E+00
+               19  1.250000E+00  5.000000E-01  0.000000E+00
+               20  1.500000E+00  5.000000E-01  0.000000E+00
+               21  1.750000E+00  5.000000E-01  0.000000E+00
+               22  2.000000E+00  5.000000E-01  0.000000E+00
+               23  2.250000E+00  5.000000E-01  0.000000E+00
+               24  2.500000E+00  5.000000E-01  0.000000E+00
+               25  2.750000E+00  5.000000E-01  0.000000E+00
+               26  3.000000E+00  5.000000E-01  0.000000E+00
+!
+      $PART  NAME = LINE1
+       LINE1
+      $PART  NAME = LINE2
+       LINE2
+      $PART  NAME = LINE3
+       LINE3
+      $PART  NAME = LINE4
+       LINE4
+      $PART  NAME = LINE5
+       LINE5
+      $PART  NAME = LINE6
+       LINE6
+      $PART  NAME = LINE7
+       LINE7
+      $PART  NAME = LINE8
+       LINE8
+      $PART  NAME = LINE9
+       LINE9
+      $PART  NAME = LINE10
+       LINE10
+      $PART  NAME = LINE11
+       LINE11
+      $PART  NAME = LINE12
+       LINE12
+      $PART  NAME = LINE13
+       LINE13
+      $PART  NAME = LINE14
+       LINE14
+      $PART  NAME = LINE15
+       LINE15
+      $PART  NAME = LINE16
+       LINE16
+      $PART  NAME = LINE17
+       LINE17
+      $PART  NAME = LINE18
+       LINE18
+      $PART  NAME = LINE19
+       LINE19
+      $PART  NAME = LINE20
+       LINE20
+      $PART  NAME = LINE21
+       LINE21
+      $PART  NAME = LINE22
+       LINE22
+      $PART  NAME = LINE23
+       LINE23
+      $PART  NAME = LINE24
+       LINE24
+      $PART  NAME = LINE25
+       LINE25
+      $PART  NAME = LINE26
+       LINE26
+      $PART  NAME = LINE27
+       LINE27
+      $PART  NAME = LINE28
+       LINE28
+      $PART  NAME = LINE29
+       LINE29
+      $PART  NAME = LINE30
+       LINE30
+      $PART  NAME = LINE31
+       LINE31
+      $PART  NAME = LINE32
+       LINE32
+      $PART  NAME = LINE33
+       LINE33
+      $PART  NAME = LINE34
+       LINE34
+      $PART  NAME = LINE35
+       LINE35
+      $PART  NAME = LINE36
+       LINE36
+      $PART  NAME = LINE37
+       LINE37
+      $PART  NAME = LINE38
+       LINE38
+      $PART  NAME = LINE39
+       LINE39
+      $PART  NAME = LINE40
+       LINE40
+      $PART  NAME = LINE41
+       LINE41
+      $PART  NAME = LINE42
+       LINE42
+      $PART  NAME = LINE43
+       LINE43
+      $PART  NAME = LINE44
+       LINE44
+      $PART  NAME = LINE45
+       LINE45
+      $PART  NAME = LINE46
+       LINE46
+      $PART  NAME = LINE47
+       LINE47
+      $PART  NAME = LINE48
+       LINE48
+      $PART  NAME = LINE49
+       LINE49
+      $PART  NAME = LINE50
+       LINE50
+      $PART  NAME = LINE51
+       LINE51
+      $PART  NAME = LINE52
+       LINE52
+      $PART  NAME = LINE53
+       LINE53
+      $PART  NAME = LINE54
+       LINE54
+      $PART  NAME = LINE55
+       LINE55
+      $PART  NAME = LINE56
+       LINE56
+      $PART  NAME = LINE57
+       LINE57
+      $PART  NAME = LINE58
+       LINE58
+      $PART  NAME = LINE59
+       LINE59
+      $PART  NAME = LINE60
+       LINE60
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_TRUSS      2.500000E-02
+!
+      $ELPROP
+       TRUSS         GEODAT = GD_TRUSS      MATERIAL = MAT_TRUSS
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 1,2  DOFTYPE = DISP
+       FIXED
+      $SUPPRESS  DOFS = 3  DOFTYPE = DISP
+       ALL_NODES
+!
+   $END CONSTRAINTS
+!------
+   $LOADING  NAME = L_STEP_1
+!
+      $CONLOAD  LPAT = 1  DOFTYPE = DISP
+       P             -1.000000E+08
+!
+   $END LOADING
+!------
+   $SYSTEM  NAME = S_STEP_2
+!
+      $ELSTATE LOAD  SOURCE = RESULTS
+      SITUATION = STEP_1  LPAT =          1
+!
+      $INSERT VARIANT
+      S_STEP_1  CLEAROLD = NO
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_TRUSS  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  0.000000E+00
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
