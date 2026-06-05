@@ -102,3 +102,5 @@
 [0048](0048/README.md) - [DYNAMIC ANALYSIS AND FORCED RESPONSE OF A ROTOR-BEARING SYSTEM USING THE FINITE ELEMENT METHOD](https://doi.org/10.31130/ud-jst.2025.23(10B).636E)
 
 [0049](0049/README.md) - [Mitigating Window-Induced Distortions in Modal Identification of Non-Proportionally Damped Systems using Sensitivity-Based Model Updating](https://doi.org/10.1007/s42417-026-02368-0)
+
+[0050](0050/README.md) -  [Transverse Vibration Characteristics of Aero-engine Casing-rotor System Based on Shaft-disc Hybrid Elements](https://doi.org/10.1007/s42417-026-02502-y)
