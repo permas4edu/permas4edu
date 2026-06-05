@@ -1,1 +1,3 @@
 The examples are adapted from [Automatic differentiation–enabled structural optimization involving generalized eigenvalue analysis: Free vibration and linearized buckling](https://doi.org/10.1016/j.tws.2026.115170)
+
+![Truss](truss_01.gif)
