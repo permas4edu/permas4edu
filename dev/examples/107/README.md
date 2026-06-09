@@ -1,6 +1,6 @@
 ***
 [⬅️](../106/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../108/README.md "Next example")
 ***
 
 The example is adapted from [DYNAMIC BEHAVIOR OF CIRCULAR AND ANNULAR PLATES: ANALYTICAL MODELING AND EXPERIMENTAL MODAL VALIDATION](https://doi.org/10.1016/j.tws.2026.115230)
