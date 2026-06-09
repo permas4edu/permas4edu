@@ -103,4 +103,6 @@
 
 [0049](0049/README.md) - [Mitigating Window-Induced Distortions in Modal Identification of Non-Proportionally Damped Systems using Sensitivity-Based Model Updating](https://doi.org/10.1007/s42417-026-02368-0)
 
-[0050](0050/README.md) -  [Transverse Vibration Characteristics of Aero-engine Casing-rotor System Based on Shaft-disc Hybrid Elements](https://doi.org/10.1007/s42417-026-02502-y)
+[0050](0050/README.md) - [Transverse Vibration Characteristics of Aero-engine Casing-rotor System Based on Shaft-disc Hybrid Elements](https://doi.org/10.1007/s42417-026-02502-y)
+
+[0051](0051/README.md) - [Operational Modal Analysis of Structural Vibrations Using Total Least-Squares Dynamic Mode Decomposition](https://doi.org/10.2139/ssrn.6885482)
