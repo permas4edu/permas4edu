@@ -7,5 +7,7 @@ The example is adapted from [Certified Eigenfrequency Bounds for Euler–Bernoul
 
 ### Case A
 
+![Case A](case_a_option_2.gif "Option 2")
+
 ### Case C
 ![Case C](case_c.gif "Case C")
