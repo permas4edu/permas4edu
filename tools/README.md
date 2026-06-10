@@ -65,6 +65,7 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | mplcursors | 0.5.1 | 0.5.3 | 0.7.1.   |
 | mpld3 | 0.5.7 | 0.5.10 |  0.5.12   |
 | mpmath | 1.2.1 | 1.3.0 |  1.4.1   |
+| narwhals | N/A | N/A | 2.22.0 |
 | numexpr | | 2.10.0 |  2.14.1 |
 | numpy  | 1.22.3  | 1.26.4 | 2.4.6   |
 | numpy-stl | 2.17.1 | 3.1.2 | 3.2.0   |
