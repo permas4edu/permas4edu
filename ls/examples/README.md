@@ -93,3 +93,5 @@
 [043](043/README.md) - [Geometry-Parameterized Stress Solution for the Rotating Conical Disk with Application to Rotor Design Optimization](https://doi.org/10.1142/S1758825126500249)
 
 [044](044/README.md) - [On the Performance and Convergence of PINNs for Problems in Linear Elasticity](https://doi.org/10.1002/pamm.70113)
+
+[045](045/README.md) - [A new solid-shell stabilization-free Virtual Element](https://doi.org/10.1016/j.finel.2026.104589)
