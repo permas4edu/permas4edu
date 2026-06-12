@@ -1,6 +1,6 @@
 ***
 [⬅️](../044/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../046/README.md "Next example")
 ***
 The example is adapted from [A new solid-shell stabilization-free Virtual Element](https://doi.org/10.1016/j.finel.2026.104589)
 
