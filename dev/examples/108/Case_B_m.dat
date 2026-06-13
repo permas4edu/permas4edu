@@ -1,0 +1,82 @@
+$ENTER COMPONENT  NAME = OPTION_1  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+               21          2
+!
+      $ESET NAME = M
+               21
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.000000E-01
+!
+      $ELPROP
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER COMPONENT  NAME = OPTION_2  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+               21          2
+!
+      $ESET NAME = M
+               21
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.000000E-01
+!
+      $ELPROP
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER COMPONENT  NAME = OPTION_3  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = MASS3
+               21          2
+!
+      $ESET NAME = M
+               21
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.000000E-01
+!
+      $ELPROP
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
