@@ -1,0 +1,143 @@
+$ENTER COMPONENT  NAME = OPTION_1  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NODE NSET = GROUND
+             102   1.0  0.0   0.0
+
+      $ELEMENT TYPE = SPRING6 ESET = K
+               22     2  102
+  
+      $ELEMENT TYPE = MASS6
+               21          2
+!
+      $ESET NAME = M
+               21
+!
+      $PART  NAME = K
+       K
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SPRING CONT = STIFF
+       GD_K          0.0 0.0 0.0  0.0 0.0  10.0
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.000000E-01  2.000000E-01  2.000000E-01 5.E-4 5.E-4  5.E-4
+
+!
+      $ELPROP
+       K             GEODAT = GD_K
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+         GROUND
+
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER COMPONENT  NAME = OPTION_2  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NODE NSET = GROUND
+             102   1.0  0.0   0.0
+!
+      $ELEMENT TYPE = SPRING6 ESET = K
+               22     2  102
+!
+      $ELEMENT TYPE = MASS6
+               21          2
+!
+      $ESET NAME = M
+               21
+!
+      $PART  NAME = K
+       K
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SPRING CONT = STIFF
+       GD_K          0.0 0.0 0.0  0.0 0.0  10.0
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.000000E-01  2.000000E-01  2.000000E-01 5.E-4 5.E-4  5.E-4
+!
+      $ELPROP
+       K             GEODAT = GD_K
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+         GROUND
+
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER COMPONENT  NAME = OPTION_3  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NODE NSET = GROUND
+             102   1.0  0.0   0.0
+!
+      $ELEMENT TYPE = SPRING6 ESET = K
+               22     2  102
+!
+      $ELEMENT TYPE = MASS6
+               21          2
+!
+      $ESET NAME = M
+               21
+!
+      $PART  NAME = K
+       K
+!
+      $PART  NAME = M
+       M
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT SPRING CONT = STIFF
+       GD_K          0.0 0.0 0.0  0.0 0.0  10.0
+!
+      $GEODAT MASS      CONT = MASS
+       GD_M          2.000000E-01  2.000000E-01  2.000000E-01 5.E-4 5.E-4  5.E-4
+!
+      $ELPROP
+       K             GEODAT = GD_K
+       M             GEODAT = GD_M
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1,2,3,4,5,6
+         GROUND
+
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
