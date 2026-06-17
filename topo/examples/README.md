@@ -120,3 +120,5 @@
 [057](057/README.md) - [Sequential topology optimization: SIMP initialization for level-set boundary refinement](https://doi.org/10.48550/arXiv.2605.04735)
 
 [058](058/README.md) -  [top2iges: A Portable MATLAB Code for Converting Topology Optimization Results into IGES Files with NURBS Representation](https://doi.org/10.1007/s10338-026-00778-x)
+
+[059](059/README.md) - [Explicit Reconstruction and Shape Optimization of Topology Optimization Results withMechanical Performance Preservation](https://doi.org/10.32604/cmes.2026.079578)
