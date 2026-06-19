@@ -97,3 +97,5 @@
 [045](045/README.md) - [A new solid-shell stabilization-free Virtual Element](https://doi.org/10.1016/j.finel.2026.104589)
 
 [046](046/README.md) - [Solid Mechanics Segregated Solver Acceleration With Jacobian-Free Newton-Krylov](https://doi.org/10.1002/nme.70368)
+
+[047](047/README.md) - [A Multi-AI-agent Framework Enabling End-to-end Finite Element Analysis for Solid Mechanics Problems](https://arxiv.org/abs/2606.00138)
