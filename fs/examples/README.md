@@ -18,3 +18,5 @@
 [006](006/README.md) - [Analysis of sound radiation from a vibrating clamped thin rectangular plate without baffle and in the rigid baffle using exact formulas](https://doi.org/10.1016/j.wavemoti.2026.103704)
 
 [007](007/README.md) - [A novel hybrid spectral element-boundary element (SEM-BEM) method for the hydroelastic vibration analysis of shells in contact with fluid](https://doi.org/10.1016/j.tws.2026.114802)
+
+[008](008/README.md) - [Surrogate-Based Uncertainty Quantification for Coupled Structural–Acoustic Problems](https://doi.org/10.3390/acoustics8020031)
