@@ -1,0 +1,30 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = qi.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    DIRECT TIMEHISTORY LOOPS =  1000 &
+                       DELTAT = 0.01 &
+                       TSTART = 0.0  &
+                       OUTPUT = ALL  &
+                       STORE  = ALL  &
+                       SOLV   = NEWMARK
+SELECT
+    ACTIVE NSET = P
+    XYDATA ITEM DISP RESULT = U   DCOMP = 1
+    XYDATA ITEM VELO RESULT = UP  DCOMP = 1
+    XYDATA ITEM ACCE RESULT = UPP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DISP NAME = U
+    ITEM XYDATA TYPE = VELO NAME = UP
+    ITEM XYDATA TYPE = ACCE NAME = UPP
+    GO PERMAS BINARY FILE = transient
+    GO SPREADSHEET FILE = transient
+TASK END
+STOP
+
