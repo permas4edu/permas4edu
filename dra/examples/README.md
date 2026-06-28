@@ -114,3 +114,5 @@
 [054](054/README.md) - [A domain-correction framework for structural response reconstruction with imperfect FEM and sparse measurements](https://doi.org/10.1016/j.ymssp.2026.114274)
 
 [055](055/README.md) - [Energy-based dual-phased dynamics identification for forced nonlinear vibrations](https://doi.org/10.1016/j.ymssp.2026.114420)
+
+[056](056/README.md) - [Physics-Informed Neural Networks for Structural Dynamic Response Analysis: Theoretical and Numerical Verification](https://doi.org/10.1142/S0219455426502949)
