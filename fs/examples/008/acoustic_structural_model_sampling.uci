@@ -1,0 +1,61 @@
+NEW
+
+USER 
+    CALL TOOL6 P1 = 'pyINTES distributions.py'
+RETURN
+
+INPUT
+    READ PERMAS FILE = acoustic_structural_model.dat
+    READ PERMAS FILE = acoustic_structural_model_sampling.dat
+RETURN
+
+TASK LOOPS = 3
+EXEC
+    ACT SIT = STEP_1
+    FSCOUPLED VIBRATION ANALYSIS FREQLIM = 2500.
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = 'fs_modes_%.3(tloop)'
+EXEC
+    ACTIVE NSET = G_2
+    MODAL FSCOUPLED FREQUENCY SITUATION = STEP_2 &
+                              RESTYPE = ALL &
+                              RESPONSE = TOTAL &
+                              OUTPUT = ALL &
+                              PRIMRES = REDUCED &
+                              SOLV = AUTO
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = G_2
+    XYDATA ITEM PRES RESULT = FRF 
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = FRF
+    GO PERMAS BINARY FILE = 'modal_frf_%.3(tloop)'
+    GO SPREADSHEET FILE = 'modal_frf_%.3(tloop)'
+EXEC
+    ACT SIT = STEP_3
+    DIRECT FSCOUPLED FREQUENCY OUTPUT = ALL &
+                               RESTYPE = ALL &
+                               METHOD = FC &
+                               SOLV = AUTO
+SELECT
+    ACTIVE NSET = G_2
+    XYDATA ITEM PRES RESULT = FRF 
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = FRF
+    GO PERMAS BINARY FILE = 'direct_frf_%.3(tloop)'  
+    GO SPREADSHEET FILE = 'direct_frf_%.3(tloop)' 
+EXEC
+    ACT SIT = SAMPLING
+    SAMPLING METHOD = LHC NSAMPLES = 3
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO PERMAS BINARY FILE = sampling
+    GO SPREADSHEET FILE = sampling
+RETURN
+STOP
