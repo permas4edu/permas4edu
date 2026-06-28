@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Set seed for reproducibility and define sample size
 np.random.seed(42)
-sample_size = 100
+sample_size = 250
 
 print("Generating the 4 random variables based on the updated structural parameters...")
 
@@ -21,7 +21,7 @@ sigma_2 = mu_2 * cov_2  # 3.5 GPa
 normal_2 = np.sort(np.random.normal(loc=mu_2, scale=sigma_2, size=sample_size))
 
 # 3. First Uniform Distribution (Thickness 1: mu = 2mm, COV = 2%)
-mu_3 = 2.0
+mu_3 = 2.0E-03
 cov_3 = 0.02
 sigma_3 = mu_3 * cov_3  # 0.04 mm
 a_3 = mu_3 - sigma_3 * np.sqrt(3)
@@ -29,7 +29,7 @@ b_3 = mu_3 + sigma_3 * np.sqrt(3)
 uniform_1 = np.sort(np.random.uniform(low=a_3, high=b_3, size=sample_size))
 
 # 4. Second Uniform Distribution (Thickness 2: mu = 4mm, COV = 2%)
-mu_4 = 4.0
+mu_4 = 4.0E-03
 cov_4 = 0.02
 sigma_4 = mu_4 * cov_4  # 0.08 mm
 a_4 = mu_4 - sigma_4 * np.sqrt(3)
@@ -58,15 +58,15 @@ axes[0, 1].grid(True, linestyle=':', alpha=0.6)
 
 # Plot 3: Uniform Distribution 2 (Thickness 1)
 axes[1, 0].hist(uniform_1, bins=50, density=True, color='#2ca02c', edgecolor='black', alpha=0.7)
-axes[1, 0].set_title(f'Uniform Distribution 2 ($a={a_3:.3f}, b={b_3:.3f}$ mm)')
-axes[1, 0].set_xlabel('Thickness 1 [mm]')
+axes[1, 0].set_title(f'Uniform Distribution 2 ($a={a_3:.3f}, b={b_3:.3f}$ m)')
+axes[1, 0].set_xlabel('Thickness 1 [m]')
 axes[1, 0].set_ylabel('Probability Density')
 axes[1, 0].grid(True, linestyle=':', alpha=0.6)
 
 # Plot 4: Uniform Distribution 3 (Thickness 2)
 axes[1, 1].hist(uniform_2, bins=50, density=True, color='#d62728', edgecolor='black', alpha=0.7)
-axes[1, 1].set_title(f'Uniform Distribution 3 ($a={a_4:.3f}, b={b_4:.3f}$ mm)')
-axes[1, 1].set_xlabel('Thickness 2 [mm]')
+axes[1, 1].set_title(f'Uniform Distribution 3 ($a={a_4:.3f}, b={b_4:.3f}$ m)')
+axes[1, 1].set_xlabel('Thickness 2 [m]')
 axes[1, 1].set_ylabel('Probability Density')
 axes[1, 1].grid(True, linestyle=':', alpha=0.6)
 
