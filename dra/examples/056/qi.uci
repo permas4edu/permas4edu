@@ -26,5 +26,8 @@ EXPORT
     GO PERMAS BINARY FILE = transient
     GO SPREADSHEET FILE = transient
 TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES qi.py'
+RETURN
 STOP
 
