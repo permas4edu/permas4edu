@@ -1,0 +1,53 @@
+NEW
+
+USER
+    CALL TOOL6 P1 = 'pyINTES distributions.py'
+RETURN
+
+INPUT
+    READ PERMAS FILE = acoustic_structural_model.dat
+RETURN
+
+TASK 
+EXEC
+    ACT SIT = STEP_1
+    FSCOUPLED VIBRATION ANALYSIS FREQLIM = 3000.
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = fs_modes
+EXEC
+    ACTIVE NSET = G_2
+    MODAL FSCOUPLED FREQUENCY SITUATION = STEP_2 &
+                              RESTYPE = ALL &
+                              RESPONSE = TOTAL &
+                              OUTPUT = ALL &
+                              PRIMRES = REDUCED &
+                              SOLV = AUTO
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = G_2
+    XYDATA ITEM PRES RESULT = FRF 
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = PRES NAME = FRF
+    GO PERMAS BINARY FILE = modal_frf
+    GO SPREADSHEET FILE = modal_frf
+EXEC
+    ACT SIT = STEP_3
+    DIRECT FSCOUPLED FREQUENCY OUTPUT = ALL &
+                               RESTYPE = ALL &
+                               METHOD = FC &
+                               SOLV = AUTO
+SELECT
+    ACTIVE NSET = G_2
+    XYDATA ITEM PRES RESULT = FRF 
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = PRES NAME = FRF
+    GO PERMAS BINARY FILE = direct_frf  
+    GO SPREADSHEET FILE = direct_frf 
+TASK END
+USER
+    CALL TOOL6 P1 = 'pyINTES acoustic_structural_model.py'
+RETURN
+STOP
