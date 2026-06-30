@@ -1,6 +1,6 @@
 ***
 [⬅️](../0049/README.md "Previous example")
-[➡️](../README.md "Go up one directory")
+[➡️](../0051/README.md "Next example")
 ***
 
 The example is adapted from [Transverse Vibration Characteristics of Aero-engine Casing-rotor System Based on Shaft-disc Hybrid Elements](https://doi.org/10.1007/s42417-026-02502-y)
