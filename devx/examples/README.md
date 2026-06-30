@@ -106,3 +106,5 @@
 [0050](0050/README.md) - [Transverse Vibration Characteristics of Aero-engine Casing-rotor System Based on Shaft-disc Hybrid Elements](https://doi.org/10.1007/s42417-026-02502-y)
 
 [0051](0051/README.md) - [Operational Modal Analysis of Structural Vibrations Using Total Least-Squares Dynamic Mode Decomposition](https://doi.org/10.2139/ssrn.6885482)
+
+[0052](0052/README.md) - [Transient Rotordynamic Modelling using Pseudo Spectral Method with Experimental Validatioon an Overhung Rotor](https://doi.org/10.1007/978-3-032-16528-2_29)
