@@ -26,3 +26,5 @@
 [010](010/README.md) - [A Robust and Adaptive Isogeometric Framework for Large Deformation Self-Contact Problems](https://doi.org/10.1002/nme.70328)
 
 [011](011/README.md) - [ALGEBRAIC MULTIGRID WITH FILTERING: AN EFFICIENT PRECONDITIONER FOR INTERIOR POINT METHODS IN LARGE-SCALE CONTACT MECHANICS OPTIMIZATION](https://doi.org/10.1137/25M1763159)
+
+[012](012/README.md) - [A solver-decoupled framework for cumulative interfacial motion tracking in discontinuous contact problems](https://doi.org/10.1016/j.euromechsol.2026.106216)
