@@ -108,3 +108,5 @@
 [0051](0051/README.md) - [Operational Modal Analysis of Structural Vibrations Using Total Least-Squares Dynamic Mode Decomposition](https://doi.org/10.2139/ssrn.6885482)
 
 [0052](0052/README.md) - [Transient Rotordynamic Modelling using Pseudo Spectral Method with Experimental Validatioon an Overhung Rotor](https://doi.org/10.1007/978-3-032-16528-2_29)
+
+[0054](0054/README.md) - [Bayesian Inference for Crack Identification in Rotating Shafts](https://doi.org/10.1016/j.euromechsol.2026.106239)
