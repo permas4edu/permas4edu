@@ -1,0 +1,31 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $ELEMENT TYPE = CA1ZERF3
+             4501          5
+             4502          6
+             4503          7
+             4504          8
+!
+      $ESET NAME = CAZERF
+             4501       4502       4503       4504
+!
+      $PART  NAME = CAZERF
+       CAZERF
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT ZEROFORC  CONT = STIFF
+       GD_CAZERF     1.000000E+01  1.000000E+01  1.000000E+01
+!
+      $ELPROP
+       CAZERF  GEODAT = GD_CAZERF 
+!
+   $END SYSTEM
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
