@@ -109,4 +109,6 @@
 
 [0052](0052/README.md) - [Transient Rotordynamic Modelling using Pseudo Spectral Method with Experimental Validatioon an Overhung Rotor](https://doi.org/10.1007/978-3-032-16528-2_29)
 
+[0053](0053/README.md) - [Statistical Validation of Rotor Computational Model](https://doi.org/10.1007/978-3-032-29033-5_36)
+
 [0054](0054/README.md) - [Bayesian Inference for Crack Identification in Rotating Shafts](https://doi.org/10.1016/j.euromechsol.2026.106239)
