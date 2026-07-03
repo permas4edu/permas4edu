@@ -6,4 +6,4 @@ The examples are adapted from [Efficient graph neural networks for predicting th
 
 ![10 bar truss](10_bar_truss.png)
 
-![47 bar truss](47_bar_truss.png)
+![47 bar truss](47bar_truss.png)
