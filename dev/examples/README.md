@@ -222,3 +222,5 @@
 [108](108/README.md) - [Certified Eigenfrequency Bounds for Euler–Bernoulli and Timoshenko Cantilever Beams with Tip Mass, Rotary Inertia, and a Rotational Spring](https://doi.org/10.1007/s42417-026-02507-7)
 
 [109](109/README.md) - [Experimental strain modal analysis for beam-like structure by using distributed fiber optics and its damage detection](https://iopscience.iop.org/article/10.1088/1361-6501/aa6c8c)
+
+[110](110/README.md) - [Structural symmetry and differentiability of multiple eigenvalues](https://doi.org/10.1016/j.compstruc.2026.108339)
