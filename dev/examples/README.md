@@ -224,3 +224,5 @@
 [109](109/README.md) - [Experimental strain modal analysis for beam-like structure by using distributed fiber optics and its damage detection](https://iopscience.iop.org/article/10.1088/1361-6501/aa6c8c)
 
 [110](110/README.md) - [Structural symmetry and differentiability of multiple eigenvalues](https://doi.org/10.1016/j.compstruc.2026.108339)
+
+[111](111/README.md) - [Empty soft-drink cans and mass-loaded rods: Analogous homework problems from acoustic and mechanical domains](https://doi.org/10.1121/10.0044232)
