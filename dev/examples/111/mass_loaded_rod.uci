@@ -1,0 +1,31 @@
+NEW
+
+INPUT
+    READ PERMAS FILE = mass_loaded_rod.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 20
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    TEXT = 'Consistent mass matrix'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_consistent
+EXEC
+    ACT SIT = STEP_2
+    VIBRATION ANALYSIS MODES = 20
+PRINT
+    PORT RES SWITCH TO FILE = natural_frequencies.txt
+    TEXT = 'Lumped mass matrix'
+    DATA OBJECT RVALTAB.DISP
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes_lumped
+TASK END
+STOP
