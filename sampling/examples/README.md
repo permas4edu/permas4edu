@@ -90,3 +90,5 @@
 [041](041/README.md) - [Bayesian model updating with controlled Gaussian process predictive uncertainty](https://doi.org/10.1007/s44379-026-00072-0)
 
 [042](042/README.md) - [Efficient and Accurate Computation of Arbitrary-Order Eigenpair Sensitivities Using Hypercomplex Automatic Differentiation](https://doi.org/10.1002/nme.70245)
+
+[043](043/README.md) - [Efficient graph neural networks for predicting the responses of truss structures](https://doi.org/10.1007/s00366-026-02365-7)
