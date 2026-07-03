@@ -11,3 +11,7 @@ The examples are adapted from [Structural symmetry and differentiability of mult
 ## Tetrahedral truss
 
 ![Tetrahedral truss](tetrahedral_truss.png)
+
+## Octahedral truss
+
+![Normal mode](mode_18.gif)
