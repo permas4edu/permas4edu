@@ -1,6 +1,6 @@
 ***
 [⬅️](../109/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../111/README.md "Next example")
 ***
 The examples are adapted from [Structural symmetry and differentiability of multiple eigenvalues](https://doi.org/10.1016/j.compstruc.2026.108339)
 
