@@ -1,0 +1,34 @@
+SET TLPLOT = ON
+
+NEW
+
+INPUT
+    READ PERMAS FILE = three_dimensional_structure.dat
+RETURN
+
+TASK 
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACTIVE NSET = A
+    MODAL TIMEHISTORY SITUATION = STEP_2  &
+                      LOOPS = 1000 &
+                      DELTAT = 0.004 &
+                      OUTPUT = ALL &
+                      PRIMRES = REDUCED &
+                      SOLV = NEWMARK
+    ACT SIT = STEP_2  
+SELECT
+    ACTIVE NSET = A
+    XYDATA ITEM DISP RESULT = U  DCOMP = 1
+    XYDATA ITEM VELO RESULT = UP DCOMP = 1
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA NAME = U
+    GO PERMAS BINARY FILE = modal_response             
+TASK END
+STOP
