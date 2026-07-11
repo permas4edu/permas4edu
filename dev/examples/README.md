@@ -226,3 +226,5 @@
 [110](110/README.md) - [Structural symmetry and differentiability of multiple eigenvalues](https://doi.org/10.1016/j.compstruc.2026.108339)
 
 [111](111/README.md) - [Empty soft-drink cans and mass-loaded rods: Analogous homework problems from acoustic and mechanical domains](https://doi.org/10.1121/10.0044232)
+
+[112](112/README.md) -  [Nonlinear dynamics near internal resonance in a beam-based resonator with spatially separated modal motions](https://doi.org/10.1016/j.ijnonlinmec.2026.105412)
