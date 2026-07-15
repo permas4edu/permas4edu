@@ -112,3 +112,5 @@
 [0053](0053/README.md) - [Statistical Validation of Rotor Computational Model](https://doi.org/10.1007/978-3-032-29033-5_36)
 
 [0054](0054/README.md) - [Bayesian Inference for Crack Identification in Rotating Shafts](https://doi.org/10.1016/j.euromechsol.2026.106239)
+
+[0055](0055/README.md) - [Partial Eigenvalue Assignment for Gyroscopic Second-Order Systems with Time Delay](https://doi.org/10.3390/math8081235)
