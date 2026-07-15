@@ -1,0 +1,68 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1 
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2  PARENT = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  RESULTS = R_STEP_2 
+    $END SITUATION
+
+    $STRUCTURE
+
+       $NODE NSET = ALL_NODES
+         101  1.0  0.0  0.0
+         102  2.0  0.0  0.0
+         103  3.0  0.0  0.0
+
+       $ELEMENT TYPE = MASS3 ESET = M
+           1  101
+           2  102
+           3  103
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+       $GEODAT MASS CONT = MASS
+           GD_M 1.E-18
+
+       $ELPROP
+           M GEODAT = GD_M
+ 
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $SUPPRESS DOFS = 2,3 
+          ALL_NODES
+
+       $MATRIX MASS FORMAT = DIAG
+         101, 1 : 1.0
+         102, 1 : 1.0
+         103, 1 : 1.0
+
+       $MATRIX GYRO FORMAT = SKEW
+         101,1 102,1 : -2.0
+         101,1 103,1 :  4.0
+         102,1 103,1 : -2.0
+
+        $MATRIX STIFF FORMAT = SYM
+         101,1 101,1 : 13.0
+         101,1 102,1 :  2.0
+         101,1 103,1 :  1.0
+         102,1 102,1 :  7.0
+         102,1 103,1 :  2.0
+         103,1 103,1 :  4.0
+
+    $END CONSTRAINTS
+
+    $RESULTS NAME = R_STEP_2
+
+      $ROTSPEED PRIMARY = LIST XTYPE = OMEGA
+          1.0
+
+    $END RESULTS
+
+$EXIT COMPONENT
+$FIN
