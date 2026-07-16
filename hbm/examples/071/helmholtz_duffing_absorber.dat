@@ -1,0 +1,99 @@
+$DEFVAR M_A TYPE = REAL LIST = 1.0
+$DEFVAR K_A TYPE = REAL LIST = 1.0  1.5  2.0
+$DEFVAR C_A TYPE = REAL LIST = 0.2
+$DEFVAR F   TYPE = REAL LIST = 0.1  0.5  1.0  1.5
+$DEFVAR SITNAME TYPE = NAME GEN = STEP_,1,1
+$DEFVAR LOADVAR TYPE = NAME GEN = L_STEP_,1,1
+$ENTER COMPONENT NAME = DFLT_COMP 
+
+    $LOOP I = 1, 4
+       $SITUATION NAME = SITNAME(I)
+          DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1 LOADING = LOADVAR(I) RESULTS = R_STEP_1
+       $END SITUATION
+    $ENDLOOP
+
+    $STRUCTURE
+ 
+        $NODE NSET = ALL_NODES 
+           100  0.0  0.0  0.0
+           101  1.0  0.0  0.0
+
+        $ELEMENT TYPE = MASS3 ESET = M
+             1  101
+
+        $ELEMENT TYPE = SPRING1 ESET = K
+             2  100  101
+
+        $ELEMENT TYPE = DAMP1 ESET = C
+             3  100  101
+
+        $ELEMENT TYPE = NLSTIFF ESET = K_NL
+             4  100  101
+
+        $NSET NAME = GROUND
+            100
+
+        $NSET NAME = F
+            101 
+    
+     $END STRUCTURE
+
+     $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+           GD_M  M_A(1)
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K K_A(1)
+
+        $GEODAT DAMPER CONT = DAMP
+           GD_C C_A(1)
+
+        $GEODAT SPRING CONT = FUNCTION
+           GD_K_NL  1
+  
+        $ELPROP
+           M    GEODAT = GD_M
+           K    GEODAT = GD_K
+           C    GEODAT = GD_C
+           K_NL GEODAT = GD_K_NL
+  
+     $END SYSTEM
+
+     $CONSTRAINTS NAME = C_STEP_1
+
+         $SUPPRESS DOFS = 2,3
+           ALL_NODES
+
+         $SUPPRESS DOFS = 1
+           GROUND
+
+     $END CONSTRAINTS
+
+     $LOOP I = 1, 4
+         $LOADING NAME = LOADVAR(I)
+ 
+             $CONLOAD LPAT = 1
+               F  1: F(I)
+ 
+             $FREQLOAD
+                LPAT = 1 TYPE = COSINE
+         $END LOADING
+
+      $ENDLOOP
+  
+    $RESULTS NAME = R_STEP_1
+
+       $FREQUENCY PRIMARY = EQUI XTYPE = OMEGA
+          0.0  4.0  0.05
+
+    $END RESULTS
+ 
+$EXIT COMPONENT
+$ENTER FUNCTION
+
+    $FUNCTION FORMULA FID = 1 DESCRIPTION = 'HELMHOLTZ-DUFFING'
+        F(X) = K_A(2)*X^2+K_A(3)*X^3
+
+$EXIT FUNCTION
+$FIN
