@@ -115,6 +115,8 @@
 
 [055](055/README.md) - [Energy-based dual-phased dynamics identification for forced nonlinear vibrations](https://doi.org/10.1016/j.ymssp.2026.114420)
 
+[059](059/README.md) - [A new method to identify closely spaced weakly nonlinear modes from ring-down data](https://doi.org/10.1016/j.ymssp.2026.114667)
+
 [056](056/README.md) - [Physics-Informed Neural Networks for Structural Dynamic Response Analysis: Theoretical and Numerical Verification](https://doi.org/10.1142/S0219455426502949)
 
 [057](057/README.md) - [Approximation of structural intensity from experimental structural response data using a hybrid method methodology, verification, and validation](https://doi.org/10.1016/j.ymssp.2026.114615)
