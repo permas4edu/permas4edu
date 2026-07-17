@@ -122,3 +122,5 @@
 [057](057/README.md) - [Approximation of structural intensity from experimental structural response data using a hybrid method methodology, verification, and validation](https://doi.org/10.1016/j.ymssp.2026.114615)
 
 [058](058/README.md) - [A Novel Newmark Family of Fourth-Order Accurate Algorithms with Complex Sub-Steps for Structural Dynamics](https://doi.org/10.3390/dynamics6030024)
+
+[059](059/README.md) - [A new method to identify closely spaced weakly nonlinear modes from ring-down data](https://doi.org/10.1016/j.ymssp.2026.114667)
