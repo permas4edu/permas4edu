@@ -124,3 +124,5 @@
 [058](058/README.md) - [A Novel Newmark Family of Fourth-Order Accurate Algorithms with Complex Sub-Steps for Structural Dynamics](https://doi.org/10.3390/dynamics6030024)
 
 [059](059/README.md) - [A new method to identify closely spaced weakly nonlinear modes from ring-down data](https://doi.org/10.1016/j.ymssp.2026.114667)
+
+[060](060/README.md) - [General multi-DOF systems equipped with a tuned mass damper: Perturbation analysis and reduced models](https://doi.org/10.1016/j.jsv.2026.119979)
