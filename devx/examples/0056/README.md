@@ -1,6 +1,6 @@
 ***
 [⬅️](../0055/README.md "Previous example")
-[➡️](../README.md "Go up one directory")
+[➡️](../0057/README.md "Next example")
 ***
 
 The example is adapted from [Local updating for gyroscopic systems via AVDF–iterative method](https://doi.org/10.1177/10775463261431750)
