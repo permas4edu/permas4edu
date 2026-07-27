@@ -1,4 +1,4 @@
-## Fluid Structure Interaction
+## Acoustic Structure Interaction
 
 ***
 [Examples](examples/README.md)
