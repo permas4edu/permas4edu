@@ -122,3 +122,5 @@
 [058](058/README.md) -  [top2iges: A Portable MATLAB Code for Converting Topology Optimization Results into IGES Files with NURBS Representation](https://doi.org/10.1007/s10338-026-00778-x)
 
 [059](059/README.md) - [Explicit Reconstruction and Shape Optimization of Topology Optimization Results withMechanical Performance Preservation](https://doi.org/10.32604/cmes.2026.079578)
+
+[060](060/README.md) - [Design tool for topology and particle damping optimization of additively manufactured parts](https://doi.org/10.1017/pds.2025.10142)
