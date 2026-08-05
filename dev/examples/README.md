@@ -234,3 +234,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 
 [114](114/README.md) - [A modified GRAM-SCHMIDT procedure for determining the mode shapes of a special compensator for fluid flow pulsations](https://doi.org/10.1007/s00707-026-04838-8)
 
+[115](115/README.md) - [Multiobjective optimal design of beam-based tuned mass dampers for coupled plate vibrations](https://doi.org/10.1007/s00707-026-04856-6)
+
