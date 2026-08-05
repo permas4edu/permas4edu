@@ -231,3 +231,6 @@
 
 [113](113/README.md) - [Experimental Identification and Numerical Validation of the Lateral 
 Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgate.net/publication/408634956_Experimental_Identification_and_Numerical_Validation_of_the_Lateral_Modal_Behaviour_of_a_Spur_Planetary_Geared_Rotor_System)
+
+[114](114/README.md) - [A modified GRAM-SCHMIDT procedure for determining the mode shapes of a special compensator for fluid flow pulsations](https://doi.org/10.1007/s00707-026-04838-8)
+
