@@ -85,21 +85,20 @@ $ENTER COMPONENT NAME = DFLT_COMP
     $LOADING NAME = L_STEP_2
 
         $CONLOAD LPAT = 1
-           102  1: 1.0
+           101  1: 1.0
 
         $TRANSLOAD
-           LPAT = 1 FUNCTION = TRUE
+           LPAT = 1 FUNCTION = EXCITATION
  
     $END LOADING
 
 $EXIT COMPONENT
+!
 $ENTER FUNCTION
 
-    $DEFVAR F TYPE = REAL LIST = 1.0
-
-    $FUNCTION FORMULA LABEL = TRUE
-        F(T) = SIN(2*PI*F(1)*T)
+    $FUNCTION TABLE LABEL = EXCITATION INTERPOLATE = SMOOTH ! SPLINE
+        $CSVINCLUDE CFORM = '$2 : $1' ROWS = 2 FILE = "force_on_second_mass_true_and_estimates.csv"
 
 $EXIT FUNCTION
-
+!
 $FIN
