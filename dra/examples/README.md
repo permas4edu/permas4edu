@@ -126,3 +126,5 @@
 [059](059/README.md) - [A new method to identify closely spaced weakly nonlinear modes from ring-down data](https://doi.org/10.1016/j.ymssp.2026.114667)
 
 [060](060/README.md) - [General multi-DOF systems equipped with a tuned mass damper: Perturbation analysis and reduced models](https://doi.org/10.1016/j.jsv.2026.119979)
+
+[062](062/README.md) - [Robust Force Reconstruction in Structural Dynamics: A Nonsmooth Adjoint Framework and Comparative Numerical Assessment](https://doi.org/10.1007/s42417-026-02651-0)
