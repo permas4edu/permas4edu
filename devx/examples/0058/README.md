@@ -1,1 +1,5 @@
+***
+[⬅️](../0057/README.md "Previous example")
+[➡️](../README.md "Go up one directory")
+***
 The examples are adapted from [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
