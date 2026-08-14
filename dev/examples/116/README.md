@@ -1,6 +1,6 @@
 ***
 [⬅️](../115/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../117/README.md "Next example")
 ***
 The example is adapted from [Theoretical modeling, assembly optimization, and vibration analysis of multi-plate structures](https://doi.org/10.1016/j.ijmecsci.2026.111815)
 
