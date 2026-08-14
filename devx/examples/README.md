@@ -116,3 +116,5 @@
 [0055](0055/README.md) - [Partial Eigenvalue Assignment for Gyroscopic Second-Order Systems with Time Delay](https://doi.org/10.3390/math8081235)
 
 [0056](0056/README.md) - [Local updating for gyroscopic systems via AVDF–iterative method](https://doi.org/10.1177/10775463261431750)
+
+{0058](0058/README.md) - [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
