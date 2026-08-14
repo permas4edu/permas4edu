@@ -5,3 +5,5 @@
 The examples are adapted from [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
 
 ## Rotor with two disks
+
+![Rotor with two disks](rotor_with_two_disks.png " The larger disk is laterally offset by 5 mm in the z-direction") 
