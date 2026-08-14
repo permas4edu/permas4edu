@@ -130,3 +130,5 @@
 [061](061/README.md) - [Continuous spatio-temporal surrogate of solid and fluid dynamics via Neural Differential Equations](https://doi.org/10.1016/j.ijmecsci.2026.111952)
 
 [062](062/README.md) - [Robust Force Reconstruction in Structural Dynamics: A Nonsmooth Adjoint Framework and Comparative Numerical Assessment](https://doi.org/10.1007/s42417-026-02651-0)
+
+[063](063/README.md) - [Stochastic response analysis of beam vibration systems considering  material and geometric parameter uncertainties](https://doi.org/10.1016/j.euromechsol.2026.106332)
