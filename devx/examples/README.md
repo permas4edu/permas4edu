@@ -117,4 +117,6 @@
 
 [0056](0056/README.md) - [Local updating for gyroscopic systems via AVDF–iterative method](https://doi.org/10.1177/10775463261431750)
 
-{0058](0058/README.md) - [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
+[0057](0057/README.md) -  [Modeling Rotor-Foundation Interaction: A Comparative Study of Coupling Strategies](https://doi.org/10.1007/978-3-032-29033-5_55)
+
+[0058](0058/README.md) - [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
