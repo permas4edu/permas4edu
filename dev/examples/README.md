@@ -237,3 +237,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [115](115/README.md) - [Multiobjective optimal design of beam-based tuned mass dampers for coupled plate vibrations](https://doi.org/10.1007/s00707-026-04856-6)
 
 [116](116/README.md) - [Theoretical modeling, assembly optimization, and vibration analysis of multi-plate structures](https://doi.org/10.1016/j.ijmecsci.2026.111815)
+
+[117](117/README.md) -  [Physics-guided broad learning (PhyBL) for model updating using incomplete modal data](https://doi.org/10.1016/j.ymssp.2026.114824)
