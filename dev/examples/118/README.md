@@ -7,3 +7,8 @@ The example is adapted from [Full-field full-stress-tensor identification of bas
 Thanks to  Janko Slavič, Jaša Šonc and Klemen Zaletelj for private communication and sharing data.
 Their support is greatly appreciated.
 
+![Mode 1](mode_01.gif)
+
+![Mode 2](mode_02.gif)
+
+![Mode 3](mode_03.gif)
