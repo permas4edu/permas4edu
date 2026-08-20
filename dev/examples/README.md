@@ -239,3 +239,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [116](116/README.md) - [Theoretical modeling, assembly optimization, and vibration analysis of multi-plate structures](https://doi.org/10.1016/j.ijmecsci.2026.111815)
 
 [117](117/README.md) -  [Physics-guided broad learning (PhyBL) for model updating using incomplete modal data](https://doi.org/10.1016/j.ymssp.2026.114824)
+
+[118](118/README.md) - [Full-field full-stress-tensor identification of base-excited structures](https://doi.org/10.1016/j.ymssp.2026.114786)
