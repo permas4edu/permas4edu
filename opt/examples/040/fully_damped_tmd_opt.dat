@@ -1,0 +1,74 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $SITUATION  NAME = OPT  CONNECTED = STEP_1 STEP_2 STEP_3
+      DFLT_COMP  SYSTEM = S_STEP_1
+   $END SITUATION
+!
+   $STRUCTURE
+!
+      $DELEMENT TYPE = DDAMP
+                1          1: C2
+      $DELEMENT TYPE = DSPRING
+                2          2: K2
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $DVGPAR DAMPER  NAME = GD_C2  DEID = 1
+      DAMP          1:          1
+      $DVGPAR SPRING  NAME = GD_K2  DEID = 2
+      STIFF          1:          2
+!
+   $END SYSTEM
+!------
+   $MODIFICATION
+!
+      $DSVLIMIT
+                1  0.000000E+00  2.000000E-01 ! C2
+                2  1.000000E-01  4.000000E+00 ! K2
+!
+!     *F* 101/1792 Data object EXFREQ.DISP not found bei falsch referenzierter Situation
+!
+!     $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_2  FREQUENCY = ALL  DATTYPE = AMPLITUDE
+      $DCONSTRAINT DISP  TYPE = SET  SITUATION = STEP_3  FREQUENCY = ALL  DATTYPE = AMPLITUDE
+      U1           : F              1      NO        0.000000E+00:        100
+!
+      $DOBJECT  CONSTRAINT = U1
+!
+      $DSVMLIM
+                1  1.000000E-01
+                2  1.000000E-01
+!
+   $END MODIFICATION
+!------
+   $RESULTS 
+
+      $RSLITEM CFREQ TYPE = GLOBAL SITUATION  = STEP_2 MODE = 1
+         RE_1 :2
+         IM_1 :3
+      $RSLITEM CFREQ TYPE = GLOBAL SITUATION  = STEP_2 MODE = 2
+         RE_2 :2
+         IM_2 :3
+      $RSLITEM CFREQ TYPE = GLOBAL SITUATION  = STEP_2 MODE = 3
+         RE_3 :2
+         IM_3 :3
+      $RSLITEM CFREQ TYPE = GLOBAL SITUATION  = STEP_2 MODE = 4
+         RE_4 :2
+         IM_4 :3
+    
+      $RESEXT ITEM 
+         RE_1 : RE_1 1
+         RE_2 : RE_2 1
+         RE_3 : RE_3 1
+         RE_4 : RE_4 1
+         IM_1 : IM_1 1
+         IM_2 : IM_2 1
+         IM_3 : IM_3 1
+         IM_4 : IM_4 1
+ 
+   $END RESULTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$FIN
