@@ -1,2 +1,1 @@
-The example is adapted from [Optimising classical and non-traditional tuned mass dampers topology in deterministic and random vibration environments](Optimising classical and non-traditional tuned mass dampers topology in
-deterministic and random vibration environments)
+The example is adapted from [Optimising classical and non-traditional tuned mass dampers topology in deterministic and random vibration environments](https://doi.org/10.1016/j.probengmech.2026.103989)
