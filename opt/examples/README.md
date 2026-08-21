@@ -82,3 +82,5 @@
 [038](038/README.md) - [Optimization and performance evaluation of bi-tuned mass damper systems for seismic vibration mitigation](https://doi.org/10.1016/j.istruc.2026.111333)
 
 [039](039/README.md) - [Model updating of structures by combining reduced order modelling and deep reinforcement learning](https://doi.org/10.1016/j.ymssp.2026.114002)
+
+[040](040/README.md) - [Optimising classical and non-traditional tuned mass dampers topology in deterministic and random vibration environments](https://doi.org/10.1016/j.probengmech.2026.103989)
