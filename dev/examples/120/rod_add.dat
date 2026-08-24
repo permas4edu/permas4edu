@@ -1,0 +1,48 @@
+$ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
+!------
+   $STRUCTURE
+!
+      $NSET NAME = CLAMPED
+                1
+!
+      $PART  NAME = ROD
+       ROD
+!
+   $END STRUCTURE
+!------
+   $SYSTEM  NAME = S_STEP_1
+!
+      $GEODAT FLANGE    CONT = SECTION    NODES = ALL
+       GD_ROD        1.000000E-02
+!
+      $ELPROP
+       ROD           GEODAT = GD_ROD        MATERIAL = MAT_ROD
+!
+   $END SYSTEM
+!------
+   $CONSTRAINTS  NAME = C_STEP_1
+!
+      $SUPPRESS  DOFS = 2,3  DOFTYPE = DISP
+       NODEDISP
+      $SUPPRESS  DOFS = 1  DOFTYPE = DISP
+       CLAMPED
+!
+   $END CONSTRAINTS
+!------
+$EXIT COMPONENT
+!------------------------------------
+$ENTER MATERIAL
+!------
+   $MATERIAL  NAME = MAT_ROD  TYPE = ISO
+!
+      $ELASTIC  GENERAL  INPUT = DATA
+        2.000000E+11  3.000000E-01
+!
+      $DENSITY  GENERAL  INPUT = DATA
+        7.850000E+03
+!
+   $END MATERIAL
+!------
+$EXIT MATERIAL
+!------------------------------------
+$FIN
