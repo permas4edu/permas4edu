@@ -84,7 +84,7 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | pytest | N/A| 8.3.2 |   9.1.1   |
 | python-docx | 0.8.11 | 1.1.2 | 1.2.0    |
 | python-pptx | 0.6.21 | 1.0.2  | 1.0.2   |
-| pyupgrade | N/A | N/A | |
+| pyupgrade | N/A | N/A | 3.21.2 |
 | pywt | 1.3.0 | 1.7.0  |  N/A   |
 | pyzstd | | 0.16.1 |  0.19.1   |
 | requests |  | 2.32.3  | 2.34.2     |
