@@ -243,3 +243,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [118](118/README.md) - [Full-field full-stress-tensor identification of base-excited structures](https://doi.org/10.1016/j.ymssp.2026.114786)
 
 [119](119/README.md) - [Improved diagonal and consistent mass matrices for Euler–Bernoulli beam finite element](https://doi.org/10.1016/j.finel.2026.104611)
+
+[120](120/README.md) - [Decomposition-Free Variational Quantum Eigensolvers for Natural Frequency Analysis in Structural Engineering](https://doi.org/10.1002/nme.70412)
