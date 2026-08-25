@@ -1,6 +1,6 @@
 ***
 [⬅️](../019/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../021/README.md "Next example")
 ***
 
 The example is adapted from [Enhancing structural coupling: A frequency-based methodology for optimal interface expansion](https://doi.org/10.1016/j.jsv.2026.119782).
