@@ -100,7 +100,7 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | tables | 3.6.1 | 3.10.1 | 3.11.1  |
 | tornado |  | | 6.5.8 |
 | vitables | 3.0.2 | N/A | N/A   |
-| wheel | | 0.44.0 |     |
+| wheel | | 0.44.0 | N/A    |
 | xlsxwriter | 3.0.3 | 3.2.0 |  3.2.9  |
 
 ### Log files from the installation
