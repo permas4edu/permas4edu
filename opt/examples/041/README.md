@@ -7,3 +7,7 @@ The example is adapted from [Comparative evaluation of optimization algorithms f
 ## Problem 2
 
 ![Coordinate modification](coor_mod.gif "Coordinate modification during optimization")
+
+## Problem 3
+
+![Coordinate modification](problem_03.gif)
