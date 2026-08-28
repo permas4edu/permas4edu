@@ -132,3 +132,5 @@
 [062](062/README.md) - [Robust Force Reconstruction in Structural Dynamics: A Nonsmooth Adjoint Framework and Comparative Numerical Assessment](https://doi.org/10.1007/s42417-026-02651-0)
 
 [063](063/README.md) - [Stochastic response analysis of beam vibration systems considering  material and geometric parameter uncertainties](https://doi.org/10.1016/j.euromechsol.2026.106332)
+
+[064](064/README.md) - [Time transient simulations via finite element network analysis: Theoretical formulation and numerical validation](https://doi.org/10.1016/j.mechrescom.2026.104790)
