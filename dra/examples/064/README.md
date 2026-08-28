@@ -9,3 +9,7 @@ Thanks to Fabio Semperlotti for private communication.
 ## Case - 1
 
 ![Response](response.png)
+
+## Case - 4
+
+![Spatially varying cross-section](beam_varying_cross_section.png)
