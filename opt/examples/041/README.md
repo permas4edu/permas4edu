@@ -13,3 +13,4 @@ The examples are adapted from [Comparative evaluation of optimization algorithms
 ![Coordinate modification](problem_03.gif)
 
 ## Problem 4
+![Coordinate modification](problem_04.gif)
