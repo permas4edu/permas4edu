@@ -1,0 +1,38 @@
+NEW
+
+USER
+    CALL TOOL6 P1 = 'pyINTES beam_varying_cross_section.py' ! --> varying_cross_section.dat
+INPUT
+    READ PERMAS FILE = beam_varying_cross_section.dat
+    READ PERMAS FILE = varying_cross_section.dat ! Python script
+    READ PERMAS FILE = beam_load.dat
+RETURN
+
+TASK
+EXEC
+    ACT SIT =  STEP_1
+    VIBRATION ANALYSIS MODES = 10
+EXPORT
+    ITEM MODL
+    GO PERMAS BINARY FILE = normal_modes
+EXEC
+    ACTIVE NSET = RESPONSE
+    MODAL TIMEHISTORY SITUATION = STEP_2 &
+                      LOOPS = 500 &
+                      DELTAT = 1.E-3 &
+                      TSTART = 0.0 &
+                      RESPONSE = TOTAL &
+                      OUTPUT = ALL &
+                      PRIMRES = REDUCED &  
+                      SOLV = NEWMARK ! HHT, TWOSTEP  
+    ACT SIT = STEP_2
+SELECT
+    ACTIVE NSET = RESPONSE
+    XYDATA ITEM DISP RESULT = W DCOMP = 3
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DISP NAME = W
+    GO PERMAS BINARY FILE = w
+    GO SPREADSHEET FILE = w
+TASK END
+STOP
