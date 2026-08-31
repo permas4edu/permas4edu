@@ -125,4 +125,6 @@
 
 [060](060/README.md) - [Design tool for topology and particle damping optimization of additively manufactured parts](https://doi.org/10.1017/pds.2025.10142)
 
-[061](061/README.md) -  [Topology optimization of thin-walled structures with directional straight stiffeners](https://doi.org/10.1016/j.apm.2022.09.027)
+[061](061/README.md) - [Topology optimization of thin-walled structures with directional straight stiffeners](https://doi.org/10.1016/j.apm.2022.09.027)
+
+[062](062/README.md) - [Topology optimization considering contact and stress constraints](https://doi.org/10.1016/j.compstruc.2026.108387)
