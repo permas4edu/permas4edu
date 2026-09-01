@@ -6,6 +6,8 @@ The examples are adapted from [Topology optimization considering contact and str
 
 ## L-Bracket with short vertical deformable contact support
 
+![efratio_without_topovar](efratio.gif "without TOPOVAR = NODAL")
+
 ## L-Bracket with longer vertical deformable contact support
 
 ![efratio](efratio_01.gif)
