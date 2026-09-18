@@ -1,0 +1,99 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $STRUCTURE
+
+        $ESET NAME = DESIGN
+          K1  K2
+
+        $NSET NAME = GROUND
+          100
+
+        $NODE NSET = ALL_NODES
+          100  0.0 0.0 0.0
+          101  1.0 0.0 0.0
+          102  2.0 0.0 0.0
+          103  3.0 0.0 0.0
+          104  4.0 0.0 0.0
+!
+        $ELEMENT TYPE = MASS3 ESET = M1
+            1  101
+        $ELEMENT TYPE = MASS3 ESET = M2
+            2  102
+        $ELEMENT TYPE = MASS3 ESET = M3
+            3  103
+        $ELEMENT TYPE = MASS3 ESET = M4
+            4  104
+!
+!       Springs to ground
+!
+        $ELEMENT TYPE = SPRING1 ESET = K1
+            5  100  101
+        $ELEMENT TYPE = SPRING1 ESET = K2
+            6  100  102
+        $ELEMENT TYPE = SPRING1 ESET = K3
+            7  100  103
+        $ELEMENT TYPE = SPRING1 ESET = K4
+            8  100  104
+!
+!       Coupling springs
+!
+        $ELEMENT TYPE = SPRING1 ESET = S1
+            9  101  103
+        $ELEMENT TYPE = SPRING1 ESET = S2
+           10  102  104
+        $ELEMENT TYPE = SPRING1 ESET = S3
+           11  101  104
+
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+           GD_M1  1.0
+           GD_M2  1.0
+           GD_M3  1.0
+           GD_M4  1.0
+
+        $GEODAT SPRING CONT = STIFF
+           GD_K1 0.10
+           GD_K2 0.75
+           GD_K3 2.2
+           GD_K4 3.2
+!
+           GD_S1 0.6
+           GD_S2 0.6
+           GD_S3 0.05
+              
+        $ELPROP
+           M1  GEODAT = GD_M1
+           M2  GEODAT = GD_M2
+           M3  GEODAT = GD_M3
+           M4  GEODAT = GD_M4
+!
+           K1  GEODAT = GD_K1 
+           K2  GEODAT = GD_K2 
+           K3  GEODAT = GD_K3 
+           K4  GEODAT = GD_K4
+!
+           S1  GEODAT = GD_S1 
+           S2  GEODAT = GD_S2 
+           S3  GEODAT = GD_S3
+ 
+    $END SYSTEM
+
+    $CONSTRAINTS NAME = C_STEP_1
+
+      $SUPPRESS DOFS = 1
+         GROUND
+
+      $SUPPRESS DOFS = 2,3
+         ALL_NODES
+
+    $END CONSTRAINTS
+ 
+$EXIT COMPONENT
+$FIN
