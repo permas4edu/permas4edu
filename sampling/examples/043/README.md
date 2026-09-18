@@ -1,6 +1,6 @@
 ***
 [⬅️](../042/README.md "Previous example")
-[➡️](../README.md "Go up one directory level")
+[➡️](../044/README.md "Next example")
 ***
 The examples are adapted from [Efficient graph neural networks for predicting the responses of truss structures](https://doi.org/10.1007/s00366-026-02365-7)
 
