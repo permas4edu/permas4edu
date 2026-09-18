@@ -120,3 +120,5 @@
 [0057](0057/README.md) -  [Modeling Rotor-Foundation Interaction: A Comparative Study of Coupling Strategies](https://doi.org/10.1007/978-3-032-29033-5_55)
 
 [0058](0058/README.md) - [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
+
+[0059](0059/README.md) - [Multimodal optimization of high-speed rotor: theory and experiment](https://doi.org/10.1515/mt-2026-0110)
