@@ -92,3 +92,5 @@
 [042](042/README.md) - [Efficient and Accurate Computation of Arbitrary-Order Eigenpair Sensitivities Using Hypercomplex Automatic Differentiation](https://doi.org/10.1002/nme.70245)
 
 [043](043/README.md) - [Efficient graph neural networks for predicting the responses of truss structures](https://doi.org/10.1007/s00366-026-02365-7)
+
+[044](044/README.md) - [On the Quantification of Eigenvalue Curve Veering: A Veering Index](https://doi.org/10.1115/1.4003189)
