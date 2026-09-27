@@ -122,3 +122,5 @@
 [0058](0058/README.md) - [Non-intrusive spectral submanifold model reduction for geometrically nonlinear rotating structures with Coriolis and centrifugal forces](https://doi.org/10.1016/j.taml.2026.100726)
 
 [0059](0059/README.md) - [Multimodal optimization of high-speed rotor: theory and experiment](https://doi.org/10.1515/mt-2026-0110)
+
+[0060](0060/README.md) - [Modal Analysis of Rotor System Using Line Body Elements in ANSYS Workbench](https://doi.org/10.38124/ijisrt/26aug219)
