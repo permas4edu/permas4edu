@@ -1,0 +1,19 @@
+NEW ! Initialize database
+
+INPUT
+    READ PERMAS FILE = unit_resonator.dat ! Model data
+RETURN
+
+TASK
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 10  ! Modal analysis computing the first ten elastic modes
+PRINT
+    PORT RES REPLACE FILE = natural_frequencies.txt
+    DATA OBJECT RVALTAB.DISP ! Table with natural frequencies
+    PORT RES RESET
+EXPORT
+    ITEM MODL
+    GO  PERMAS BINARY FILE = normal_modes
+TASK END
+STOP ! Terminate PERMAS run
