@@ -246,4 +246,4 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 
 [120](120/README.md) - [Decomposition-Free Variational Quantum Eigensolvers for Natural Frequency Analysis in Structural Engineering](https://doi.org/10.1002/nme.70412)
 
-[121](121(README.md) - [Strong–weak modal coupling in finite structures with antinode-concentrated resonators](https://doi.org/10.1016/j.ymssp.2026.114976)
+[121](121/README.md) - [Strong–weak modal coupling in finite structures with antinode-concentrated resonators](https://doi.org/10.1016/j.ymssp.2026.114976)
