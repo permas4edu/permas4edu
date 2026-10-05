@@ -13,8 +13,8 @@ In the future, new functions in PERMAS will be supported by the preprocessing ea
 You might want to create reports of your finite element models. A **startup.pm** is required to extend the VisPER GUI with two new icons that support export to Word and Excel.
 
 *  User-specific configuration file **startup.pm** which can be found under
-   + ~/.visper/20.0-EDU/startup.pm on Linux
-   + %APPDATA%/Intes/VisPER/20.0-EDU/startup.pm on Windows
+   + ~/.visper/21.0-EDU/startup.pm on Linux
+   + %APPDATA%/Intes/VisPER/21.0-EDU/startup.pm on Windows
    
 
 ```python
