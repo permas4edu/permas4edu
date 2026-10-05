@@ -32,12 +32,12 @@ Therefore, it is very important to ensure that the problem can be reproduced in 
 Since customized settings may change the behavior of VisPER significantly it is important to try to reproduce the observed problem under standard settings where the customized settings on different levels are ignored as much as possible. Otherwise the VisPER developer may not reproduce the described problem on his site. There are several ways to influence the application behavior:
 
 * Session-persistant user-specific settings are stored in
-  + ~/.visper/20.0-EDU/configrc on Linux
+  + ~/.visper/21.0-EDU/configrc on Linux
   + Registry under Computer\HKEY_CURRENT_USER\SOFTWARE\INTES\VisPER on Windows  
   Ignore session-persistant settings via VisPER command line option --no-configrc
 *  User-specific configuration file startup.pm which can be found under
-   + ~/.visper/20.0-EDU/startup.pm on Linux
-   + %APPDATA%/Intes/VisPER/20.0-EDU/startup.pm on Windows  
+   + ~/.visper/21.0-EDU/startup.pm on Linux
+   + %APPDATA%/Intes/VisPER/21.0-EDU/startup.pm on Windows  
   This file may not exist if the user did never provide it. It will not installed by default. But during the first start of a newer VisPER version the configuration files of an older VisPER version may be copied into the corresponding directory.  
   Ignore user-specific startup.pm via VisPER command line option --no-user-config  
 *  Site-specific configuration file which may be provided by the administrator and can be found under the installation path of VisPER under etc/visper.pm - the VisPER installation path may be retrieved by typing PmsIF.getVisperVersionDir() into VisPER -> Extras -> Console
