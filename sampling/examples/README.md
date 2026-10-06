@@ -94,3 +94,5 @@
 [043](043/README.md) - [Efficient graph neural networks for predicting the responses of truss structures](https://doi.org/10.1007/s00366-026-02365-7)
 
 [044](044/README.md) - [On the Quantification of Eigenvalue Curve Veering: A Veering Index](https://doi.org/10.1115/1.4003189)
+
+[045](045/README.md) - [Bayesian model updating via streamlined Bayesian active learning cubature](https://doi.org/10.1016/j.ymssp.2026.114995)
