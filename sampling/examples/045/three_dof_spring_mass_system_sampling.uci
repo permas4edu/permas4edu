@@ -1,0 +1,28 @@
+NEW
+
+USER
+    CALL TOOL6 P1 = 'pyINTES three_dof_spring_mass_system.py 300' ! -->  three_dof_spring_mass_system_add.dat
+RETURN
+
+INPUT
+    READ PERMAS FILE = three_dof_spring_mass_system.dat
+    READ PERMAS FILE = three_dof_spring_mass_system_add.dat
+    READ PERMAS FILE = three_dof_spring_mass_system_sampling.dat
+RETURN
+
+TASK LOOPS = 300
+EXEC
+    ACT SIT = STEP_1
+    VIBRATION ANALYSIS MODES = 3
+    ACT SIT = SAMPLING
+    SAMPLING METHOD = LHC NSAMPLES = 300
+TASK END
+EXPORT
+    ITEM CLEAR
+    ITEM XYDATA TYPE = DHIS
+    ITEM XYDATA TYPE = SRHIS
+    GO SPREADSHEET FILE = sampling
+USER
+    CALL TOOL6 P1 = 'pyINTES scatter_plot.py'
+RETURN
+STOP
