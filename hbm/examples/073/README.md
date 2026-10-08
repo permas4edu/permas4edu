@@ -16,3 +16,7 @@ Replacing $\vert{}\xi\vert{}$ in both terms yields:
 3rd Term: $-\frac{4}{30}k \left(\xi^2 + \epsilon\right)^{\frac{3}{4}} \xi$
 
 ![HBM](stylianos.png)
+
+## Stability 
+
+![HBM stability](stylianos_stability.png)
