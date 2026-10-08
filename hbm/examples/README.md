@@ -146,3 +146,5 @@
 [070](070/README.md) - [Explicit Error Bounds and Guaranteed Convergence of the Koopman–Hill Projection Stability Method for Linear Time-Periodic Dynamics](https://doi.org/10.1007/s00332-026-10287-3)
 
 [071](071/README.md) - [Nonlinear Dynamics and Vibration Suppression of a Helmholtz–Duffing Absorber](https://doi.org/10.1016/j.jsv.2026.120009)
+
+[073](073/README.md) - [Nonlinear Dynamics of Forced and Damped Oscillators with Hertzian Contact Interaction](https://doi.org/10.1007/s42417-026-02762-8)
