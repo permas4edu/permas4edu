@@ -147,6 +147,6 @@
 
 [071](071/README.md) - [Nonlinear Dynamics and Vibration Suppression of a Helmholtz–Duffing Absorber](https://doi.org/10.1016/j.jsv.2026.120009)
 
-[072/072/README.md) - [pyHB: an open-source automatic-differentiation-enhanced semi-analytical solver for nonlinear dynamics](https://doi.org/10.48550/arXiv.2607.17577)
+[072](072/README.md) - [pyHB: an open-source automatic-differentiation-enhanced semi-analytical solver for nonlinear dynamics](https://doi.org/10.48550/arXiv.2607.17577)
 
 [073](073/README.md) - [Nonlinear Dynamics of Forced and Damped Oscillators with Hertzian Contact Interaction](https://doi.org/10.1007/s42417-026-02762-8)
