@@ -134,3 +134,5 @@
 [063](063/README.md) - [Stochastic response analysis of beam vibration systems considering  material and geometric parameter uncertainties](https://doi.org/10.1016/j.euromechsol.2026.106332)
 
 [064](064/README.md) - [Time transient simulations via finite element network analysis: Theoretical formulation and numerical validation](https://doi.org/10.1016/j.mechrescom.2026.104790)
+
+[065](065/README.md) - [Real-Time Implicit Inverse Force Identification using Multi-Parameter Tikhonov Regularization to Attenuate Solution Error Propagation](https://doi.org/10.1007/s42417-026-02776-2)
