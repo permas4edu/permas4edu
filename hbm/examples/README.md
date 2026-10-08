@@ -150,3 +150,5 @@
 [072](072/README.md) - [pyHB: an open-source automatic-differentiation-enhanced semi-analytical solver for nonlinear dynamics](https://doi.org/10.48550/arXiv.2607.17577)
 
 [073](073/README.md) - [Nonlinear Dynamics of Forced and Damped Oscillators with Hertzian Contact Interaction](https://doi.org/10.1007/s42417-026-02762-8)
+
+[074](074/README.md) - [Detecting and identifying isolated conservative backbone curves in nonlinear mechanical systems via numerical continuation](https://doi.org/10.1007/s11071-026-12988-6)
