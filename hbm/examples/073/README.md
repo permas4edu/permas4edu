@@ -1,3 +1,8 @@
+***
+[⬅️](../072/README.md "Previous example")
+[➡️](../README.md "Go up one directory level")
+***
+
 The example is adapted from [Nonlinear Dynamics of Forced and Damped Oscillators with Hertzian Contact Interaction](https://doi.org/10.1007/s42417-026-02762-8)
 Thanks to Stylianos Vasileios Kontomaris for private communication.
 
@@ -9,3 +14,5 @@ at the origin: $\vert{}\xi\vert{} \approx \sqrt{\xi^2 + \epsilon}$
 Replacing $\vert{}\xi\vert{}$ in both terms yields:
 2nd Term: $\frac{4}{3}k \left(\xi^2 + \epsilon\right)^{\frac{1}{4}} \xi$
 3rd Term: $-\frac{4}{30}k \left(\xi^2 + \epsilon\right)^{\frac{3}{4}} \xi$
+
+![HBM](stylianos.png)
