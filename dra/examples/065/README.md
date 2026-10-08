@@ -3,3 +3,5 @@
 [➡️](../README.md "Go up one directory level")
 ***
 The example is adapted from [Real-Time Implicit Inverse Force Identification using Multi-Parameter Tikhonov Regularization to Attenuate Solution Error Propagation](https://doi.org/10.1007/s42417-026-02776-2)
+
+![12 bay structure](12_bay_structure.png)
