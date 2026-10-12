@@ -6,4 +6,4 @@ The example is adapted from [The patch tests for verification of machine learnin
 
 ![sheet](sheet.png "The model of one quarter of the sheet subjected to an end-displacement") 
 
-![complete sheet](complete_sheet.png)
+![complete sheet](complete_sheet.png "applied tractions and boundary conditions used for the solution of the complete sheet")
