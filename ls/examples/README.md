@@ -101,3 +101,5 @@
 [047](047/README.md) - [A Multi-AI-agent Framework Enabling End-to-end Finite Element Analysis for Solid Mechanics Problems](https://arxiv.org/abs/2606.00138)
 
 [048](048/README.md) - [Inverse spectral Chebyshev and compressed sensing framework for full-field reconstruction in computational mechanics](https://doi.org/10.1016/j.ymssp.2026.114766)
+
+[049](049/README.md) - [The patch tests for verification of machine learning procedures](https://doi.org/10.1016/j.compstruc.2026.108331)
