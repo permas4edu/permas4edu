@@ -28,3 +28,5 @@
 [011](011/README.md) - [ALGEBRAIC MULTIGRID WITH FILTERING: AN EFFICIENT PRECONDITIONER FOR INTERIOR POINT METHODS IN LARGE-SCALE CONTACT MECHANICS OPTIMIZATION](https://doi.org/10.1137/25M1763159)
 
 [012](012/README.md) - [A solver-decoupled framework for cumulative interfacial motion tracking in discontinuous contact problems](https://doi.org/10.1016/j.euromechsol.2026.106216)
+
+[013](013/README.md) - [A reference contact framework of signed distance fields for efficient frictional dynamic modeling and computation](https://doi.org/10.1016/j.cma.2026.119467)
