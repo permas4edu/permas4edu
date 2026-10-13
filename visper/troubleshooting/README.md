@@ -13,9 +13,9 @@ Platform: Linux 6.1.0-53-amd64, Machine: x86_64 nils.local
 ```
 ```
 C:\Program Files\INTES\EDU\bin>visperEDU.bat --vers
-VisPER-EDU 20.00.228-Rev.51177 (2024-10-25 10:22:35) / PERMAS (2024-10-24 10:40:43), win64
- Libs: Python 3.11.9, Qt 6.5.5, OpenSceneGraph 3.6.5, HDF5-1.14.4, sc.iViz-FW: 0.86, 250102124043
- Copyright 2005-2024 INTES GmbH <visper@intes.de> / Commit 66d85f8fa705cba3da40d3602f4fda489e485099
+VisPER-EDU 21.00.203-Rev.53470 (2026-10-02 10:16:49) / PERMAS (2026-10-01 10:40:23), win64
+ Libs: Python 3.13.13, Qt 6.8.7, OpenSceneGraph 3.6.5, HDF5-2.1.0, sc.iViz-FW: 0.90, 261013160850
+ Copyright 2005-2026 INTES GmbH <visper@intes.de> / Commit 59073f4698595fed95e2e48fd2e475dfa5841037
 ```
 
  * Ensure that the problem does not depend on your customized settings (see also below). If the problem arises only with your applied configuration we also need this information.
