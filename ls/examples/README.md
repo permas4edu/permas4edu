@@ -103,3 +103,5 @@
 [048](048/README.md) - [Inverse spectral Chebyshev and compressed sensing framework for full-field reconstruction in computational mechanics](https://doi.org/10.1016/j.ymssp.2026.114766)
 
 [049](049/README.md) - [The patch tests for verification of machine learning procedures](https://doi.org/10.1016/j.compstruc.2026.108331)
+
+[050](050/README.md) - [Even more design constraints for parameter-free shape optimization](https://doi.org/10.1007/s00158-026-04409-4)
