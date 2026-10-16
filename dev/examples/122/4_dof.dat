@@ -1,0 +1,122 @@
+$ENTER COMPONENT NAME = DFLT_COMP
+
+    $SITUATION NAME = STEP_1
+       DFLT_COMP SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SYSTEM
+
+    $STRUCTURE
+
+      $NODE NSET = ALL_NODES
+        1  0.0  0.0  0.0
+        2  1.0  0.0  0.0
+
+
+      $ELEMENT TYPE = MASS3 ESET = M
+          1  1
+          2  2
+  
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+          GD_M  1.0E-18
+
+        $ELPROP
+           M  GEODAT = GD_M
+   
+    $END SYSTEM
+  
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $MATRIX MASS FORMAT = DIAG
+          1,1   : 200.
+          1,2   : 100.
+          2,1   : 200.
+          2,2   : 100.
+
+       $MATRIX STIFF FORMAT = SYM
+          1,1  1,1 :  4000.0 
+          1,1  1,2 : -2000.0
+          1,2  1,2 :  2000.0
+          2,1  2,1 :  4000.0
+          2,1  2,2 : -2000.0
+          2,2  2,2 :  2000.0
+
+       $SUPPRESS DOFS = 3
+            ALL_NODES
+      
+    $END CONSTRAINTS
+
+$EXIT COMPONENT 
+
+$ENTER COMPONENT NAME = PERTURBED
+
+    $SITUATION NAME = STEP_1
+       PERTURBED SYSTEM = S_STEP_1  CONSTRAINTS = C_STEP_1
+    $END SITUATION
+
+    $SITUATION NAME = STEP_2  PARENT = STEP_1
+       PERTURBED SYSTEM = S_STEP_1 
+    $END SITUATION
+
+    $STRUCTURE
+
+      $NODE NSET = ALL_NODES
+        1  0.0  0.0  0.0
+        2  1.0  0.0  0.0
+
+
+      $ELEMENT TYPE = MASS3 ESET = M
+          1  1
+          2  2
+  
+    $END STRUCTURE
+
+    $SYSTEM NAME = S_STEP_1
+
+        $GEODAT MASS CONT = MASS
+          GD_M  1.0E-18
+
+        $ELPROP
+           M  GEODAT = GD_M
+   
+    $END SYSTEM
+  
+    $CONSTRAINTS NAME = C_STEP_1
+
+       $MATRIX MASS FORMAT = SYM
+          1,1  1,1 : 201.0
+          1,1  2,1 :   0.5
+          1,2  1,2 : 100.5
+          1,2  2,2 :   0.25
+          2,1  2,1 : 201.0
+          2,2  2,2 : 100.5
+
+       $MATRIX STIFF FORMAT = SYM
+          1,1  1,1 :  3978.0  !  4000.0 - 22.
+          1,1  1,2 : -1988.0  ! -2000.0 + 12.
+          1,1  2,1 :    10.0  !  
+          1,2  1,2 :  1968.0  !  2000.0 - 32.
+          1,2  2,2 :    20.0
+          2,1  2,1 :  3986.0  !  4000.0 - 14.0
+          2,1  2,2 : -1996.0  ! -2000.0 + 4.0 
+          2,2  2,2 :  1976.0  !  2000.0 - 24.0
+
+       $MATRIX DAMP FORMAT = SYM
+          1,1  1,1 :  100.0
+          1,1  1,2 :  -40.0
+          1,1  2,1 :  -20.0
+          1,2  1,2 :   40.0
+          2,1  2,1 :  140.0
+          2,1  2,2 :  -60.0
+          2,2  2,2 :   60.0
+
+       $SUPPRESS DOFS = 3
+            ALL_NODES
+      
+    $END CONSTRAINTS
+
+$EXIT COMPONENT 
+
+$FIN
