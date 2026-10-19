@@ -60,6 +60,9 @@ $$\textrm{\color{red}{The installation process is completed after approx. 20 min
 
 ![completed](installation_completed.png)
 
+### Log files from the installation
+Windows users may find a log file of the installation process in %AppData%\Local\Temp
+
 # Linux
 
 ### Registration
