@@ -85,4 +85,6 @@
 
 [040](040/README.md) - [Optimising classical and non-traditional tuned mass dampers topology in deterministic and random vibration environments](https://doi.org/10.1016/j.probengmech.2026.103989)
 
-[041](041/README.md) -  [Comparative evaluation of optimization algorithms for truss shape design](https://doi.org/10.1108/EC-08-2025-0946)
+[041](041/README.md) - [Comparative evaluation of optimization algorithms for truss shape design](https://doi.org/10.1108/EC-08-2025-0946)
+
+[042](042/README.md) - [Even more design constraints for parameter-free shape optimization](https://doi.org/10.1007/s00158-026-04409-4)
