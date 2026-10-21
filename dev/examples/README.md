@@ -251,3 +251,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [122](122/README.md) -  [ROTMAC and subspace MAC for the correlation of systems with complex modes: Theory and practical application](https://doi.org/10.1016/j.engstruct.2026.123907)
 
 [123](123/README.md) - [Symmetry characteristics of the vibration of hexagonal dihedral structural systems](https://doi.org/10.1016/j.jsv.2026.120195)
+
+[124](124/README.md) - [Decomposition of the degenerate subspace of C3v-symmetric structural configurations](https://doi.org/10.1016/j.engstruct.2024.118661)
