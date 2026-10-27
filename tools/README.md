@@ -48,13 +48,13 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | Module | Version V19 | Version V20 | Version V21 |
 |----    | ----    | ---- |  ---- |
 | bokeh | 2.4.2 | 3.5.2 | 3.10.0 |
-| conda | | 24.7.1 |  26.9.1 |
+| conda | | 24.7.1 |  26.9.4 |
 | contourpy |  | 1.2.1 | 1.4.0   |
 | cython | N/A | 3.0.11 | 3.3.0  |
 | derivative | N/A | 0.6.2 | 0.6.3   |
 | hdf5view | N/A | 0.1.1 |  0.2.7   |
 | h5py   | 3.6.0 | 3.11.0 | 3.16.0   |
-| imageio | 2.9.0 | 2.35.1 | 2.38.0  |
+| imageio | 2.9.0 | 2.35.1 | 2.38.1  |
 | jinja2 | | 3.1.4 | 3.1.6   |
 | joblib | | 1.4.2 | 1.6.0   |
 | json | | 2.0.9 | 2.0.9    |
@@ -64,16 +64,16 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | meshio | 5.3.4 | 5.3.5 |  5.3.5    |
 | mplcursors | 0.5.1 | 0.5.3 | 0.7.1   |
 | mpld3 | 0.5.7 | 0.5.10 |  0.5.12   |
-| mpmath | 1.2.1 | 1.3.0 |  1.3.0   |
-| narwhals | N/A | N/A | 2.27.0 |
+| mpmath | 1.2.1 | 1.3.0 |  1.4.1   |
+| narwhals | N/A | N/A | 2.27.1 |
 | numexpr | | 2.10.0 |  2.14.2 |
-| numpy  | 1.22.3  | 1.26.4 | 2.4.6   |
+| numpy  | 1.22.3  | 1.26.4 | 2.5.4   |
 | numpy-stl | 2.17.1 | 3.1.2 | 4.0.1   |
 | OCC | 7.4.1-dev | 7.8.1  |  7.9.0   |
 | openpyxl | 3.0.9 | 3.1.5 |  3.1.5   |
-| pandas | 1.4.2   | 2.2.2 |  3.0.6   |
-| PIL    | 9.0.1   | 10.4.0 |  12.3.0  |
-| pip    |     | 24.2 |   26.2.1   |
+| pandas | 1.4.2   | 2.2.2 |  3.1.0   |
+| PIL    | 9.0.1   | 10.4.0 |  13.0.0  |
+| pip    |     | 24.2 |   26.2.2   |
 | plotly | 5.6.0 |  5.23.0 | 7.1.0    |
 | psutil | | 6.0.0 |  7.2.2    |
 | pyDOE2 | 1.3.0 | N/A  |  N/A   |
@@ -87,7 +87,7 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | pyuff       |        |        | 2.5.8 |
 | pyupgrade | N/A | N/A | 3.21.2 |
 | pywt | 1.3.0 | 1.7.0  |  N/A   |
-| pyzstd | | 0.16.1 |  0.19.1   |
+| pyzstd | | 0.16.1 |  0.20.0   |
 | requests |  | 2.32.3  | 2.34.2     |
 | scikit-image | 0.19.2 | 0.24.0  | 0.26.0   |  
 | scikit-learn | 1.0.2 | 1.5.1 |  1.9.1   |
@@ -95,9 +95,9 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | seaborn | 0.11.2 |  0.13.2 |  0.13.2   |
 | setuptools | | 72.2.0 | 84.0.0   |
 | smt | 1.1.0 | 2.6.3 | 2.14.0   |
-| sphinx |  | 8.0.2 | 9.1.0   |
+| sphinx |  | 8.0.2 | 9.2.0   |
 | statsmodels | | 0.14.2 | 0.15.0   |
-| sympy | 1.10.1 | 1.13.2 | 1.13.1  |
+| sympy | 1.10.1 | 1.13.2 | 1.14.0  |
 | tables | 3.6.1 | 3.10.1 | 3.11.1  |
 | tornado |  | | 6.5.10 |
 | vitables | 3.0.2 | N/A | N/A   |
