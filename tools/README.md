@@ -93,7 +93,7 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 | scikit-learn | 1.0.2 | 1.5.1 |  1.9.1   |
 | scipy  | 1.7.3   |  1.14.1|  1.18.1   |
 | seaborn | 0.11.2 |  0.13.2 |  0.13.2   |
-| setuptools | | 72.2.0 | 84.0.0   |
+| setuptools | | 72.2.0 | 84.2.1   |
 | smt | 1.1.0 | 2.6.3 | 2.14.0   |
 | sphinx |  | 8.0.2 | 9.2.0   |
 | statsmodels | | 0.14.2 | 0.15.0   |
