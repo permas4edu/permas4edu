@@ -253,3 +253,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [123](123/README.md) - [Symmetry characteristics of the vibration of hexagonal dihedral structural systems](https://doi.org/10.1016/j.jsv.2026.120195)
 
 [124](124/README.md) - [Decomposition of the degenerate subspace of C3v-symmetric structural configurations](https://doi.org/10.1016/j.engstruct.2024.118661)
+
+[125](125/README.md) - [Knowledge transfer for structural damage detection through re-weighted adversarial domain adaptation](https://doi.org/10.1016/j.ymssp.2022.108991)
