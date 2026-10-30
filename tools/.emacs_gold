@@ -6,8 +6,8 @@
  '(display-time-mode t))
 ;(setq permas-doc-dir "/home/user/permas/doc/") ; Main directory for PERMAS doc files
 ;(setq default-document-type "intern")   ; Prefer internal documents
-(setq permas-doc-version "v20")           ; PERMAS-Docu-Version
-(setq permas-doc-dir "C:/Program Files/INTES/V20/onlineDocu/permas/")
+(setq permas-doc-version "v21")           ; PERMAS-Docu-Version
+(setq permas-doc-dir "C:/Program Files/INTES/V21/onlineDocu/permas/")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
