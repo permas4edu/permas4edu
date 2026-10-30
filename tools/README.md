@@ -25,8 +25,8 @@ The key F5 can be used to jump to the first comment/warning/error message if you
 ### PDF viewer
 
 * [sumatra](https://www.sumatrapdfreader.org/download-free-pdf-viewer "Download sumtra")
+* [foxit](https://www.foxit.com/pdf-reader/ "Download foxit")
 * acroread
-* foxit
 
 ![pdf viewer](pdf_viewer.png)
 
