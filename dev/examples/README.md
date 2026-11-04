@@ -257,3 +257,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [125](125/README.md) - [Knowledge transfer for structural damage detection through re-weighted adversarial domain adaptation](https://doi.org/10.1016/j.ymssp.2022.108991)
 
 [126](126/README.md) -  [Multi-setup Bayesian FFT modal identification with multiple modes leveraging on second order information](https://doi.org/10.1016/j.ymssp.2026.115020)
+
+[127](127/README.md) - [Eigensolution sensitivity revisited](https://doi.org/10.1007/s11012-026-02190-8)
