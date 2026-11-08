@@ -128,3 +128,5 @@
 [061](061/README.md) - [Topology optimization of thin-walled structures with directional straight stiffeners](https://doi.org/10.1016/j.apm.2022.09.027)
 
 [062](062/README.md) - [Topology optimization considering contact and stress constraints](https://doi.org/10.1016/j.compstruc.2026.108387)
+
+[063](063/README.md) - [Teaching Topology Optimization Through Polymer Material Extrusion Prototyping: A Transferable CAD‐CAE‐AM Framework With Numerical‐Experimental Validation](https://doi.org/10.1002/cae.70291)
