@@ -38,3 +38,5 @@
 [016](../examples/016/README.md) - [EFFICIENT ALGORITHM OF THE BUCKLING LENGTHS METHOD IN ANALYSIS OF SPATIAL FRAME SYSTEMS FOR STABILITY](https://doi.org/10.22337/2587-9618-2025-21-4-41-55)
 
 [017](../examples/017/README.md) - [Automatic differentiation–enabled structural optimization involving generalized eigenvalue analysis: Free vibration and linearized buckling](https://doi.org/10.1016/j.tws.2026.115170)
+
+[018](018/README.md) - [Local/Distortional/Global Buckling Mode Interaction on Thin Walled Lipped Channel Columns](https://doi.org/10.1590/S1679-78252014000800005)
