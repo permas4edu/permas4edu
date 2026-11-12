@@ -40,3 +40,5 @@
 [017](017/README.md) - [Automatic differentiation–enabled structural optimization involving generalized eigenvalue analysis: Free vibration and linearized buckling](https://doi.org/10.1016/j.tws.2026.115170)
 
 [018](018/README.md) - [Local/Distortional/Global Buckling Mode Interaction on Thin Walled Lipped Channel Columns](https://doi.org/10.1590/S1679-78252014000800005)
+
+[019](019/README.md) - [Effect of Euclidean and Geodesic Distance Models on Stochastic Buckling of Imperfect Cylindrical Shells](https://doi.org/10.32604/cmes.2026.088525)
