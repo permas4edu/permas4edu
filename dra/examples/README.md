@@ -138,3 +138,6 @@
 [065](065/README.md) - [Real-Time Implicit Inverse Force Identification using Multi-Parameter Tikhonov Regularization to Attenuate Solution Error Propagation](https://doi.org/10.1007/s42417-026-02776-2)
 
 [066](066/README.md) - [Sensor placement optimization for structural response reconstruction with measurement noise and model error](https://doi.org/10.1016/j.ymssp.2026.115172)
+
+[067](067/README.md) - [Sensor placement for sparse force reconstruction](https://doi.org/10.1016/j.ymssp.2025.113284)
+
