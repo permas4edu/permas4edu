@@ -136,3 +136,5 @@
 [064](064/README.md) - [Time transient simulations via finite element network analysis: Theoretical formulation and numerical validation](https://doi.org/10.1016/j.mechrescom.2026.104790)
 
 [065](065/README.md) - [Real-Time Implicit Inverse Force Identification using Multi-Parameter Tikhonov Regularization to Attenuate Solution Error Propagation](https://doi.org/10.1007/s42417-026-02776-2)
+
+[066](066/README.md) - [Sensor placement optimization for structural response reconstruction with measurement noise and model error](https://doi.org/10.1016/j.ymssp.2026.115172)
