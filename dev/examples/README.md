@@ -259,3 +259,5 @@ Modal Behaviour of a Spur Planetary Geared Rotor System](https://www.researchgat
 [126](126/README.md) -  [Multi-setup Bayesian FFT modal identification with multiple modes leveraging on second order information](https://doi.org/10.1016/j.ymssp.2026.115020)
 
 [127](127/README.md) - [Eigensolution sensitivity revisited](https://doi.org/10.1007/s11012-026-02190-8)
+
+[128](128/README.md) - [Analytical modal analysis of lumped stiffness-mass structures via a recursive static solution](https://doi.org/10.1098/rspa.2026.0701)
