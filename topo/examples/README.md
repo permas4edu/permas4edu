@@ -130,3 +130,6 @@
 [062](062/README.md) - [Topology optimization considering contact and stress constraints](https://doi.org/10.1016/j.compstruc.2026.108387)
 
 [063](063/README.md) - [Teaching Topology Optimization Through Polymer Material Extrusion Prototyping: A Transferable CAD‐CAE‐AM Framework With Numerical‐Experimental Validation](https://doi.org/10.1002/cae.70291)
+
+[064](064/README.md) - [Voronoi diagram-based volume decomposition and overhang control in topology optimization for multi-axis additive manufacturing](https://doi.org/10.1007/s00366-026-02438-7)
+
