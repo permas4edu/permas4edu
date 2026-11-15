@@ -20,3 +20,5 @@
 [007](007/README.md) - [A novel hybrid spectral element-boundary element (SEM-BEM) method for the hydroelastic vibration analysis of shells in contact with fluid](https://doi.org/10.1016/j.tws.2026.114802)
 
 [008](008/README.md) - [Surrogate-Based Uncertainty Quantification for Coupled Structural–Acoustic Problems](https://doi.org/10.3390/acoustics8020031)
+
+[009](009/README.md) -  [An efficient semi-analytical method for irregular vibro-acoustic systems with non-orthogonal coupling interfaces](https://doi.org/10.1016/j.tws.2026.115722)
