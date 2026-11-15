@@ -133,3 +133,4 @@
 
 [064](064/README.md) - [Voronoi diagram-based volume decomposition and overhang control in topology optimization for multi-axis additive manufacturing](https://doi.org/10.1007/s00366-026-02438-7)
 
+[065](065/README.md) -  [Data-driven multifidelity multiscale topology optimization via phasor-based evolutionary de-homogenization(https://doi.org/10.1016/j.engstruct.2026.124076)
