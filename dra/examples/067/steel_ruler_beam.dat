@@ -139,7 +139,7 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
        $LOADING  NAME = LOADVAR(I)
 !
             $CONLOAD LPAT = 1
-              NID(I) 1: 1.0
+              NID(I) 2: 1.0 ! Unit load at node i in y-direction
 
             $FREQLOAD
               LPAT = 1 TYPE = COSINE   
@@ -150,7 +150,7 @@ $ENTER COMPONENT  NAME = DFLT_COMP  DOFTYPE = DISP MATH
    $RESULTS NAME = R_FRF
 
       $FREQUENCY PRIMARY = LIST
-         65.0
+         65.0 ! excitation frequency
 
    $END RESULTS
 !------

@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 1. Find and read all matching CSV files in the directory
-csv_files = sorted(glob.glob("h_*_frf.csv"))
+csv_files = sorted(glob.glob("h_*_frf_u.csv"))
 
 if not csv_files:
     print("No matching CSV files found.")
