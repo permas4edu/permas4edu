@@ -143,4 +143,5 @@
 
 [068](068/README.md) - [A mechanistic analysis of transformers for dynamical systems](https://doi.org/10.1016/j.jcp.2026.115423)
 
+[069](069/README.md) - [Effect of boundary conditions on impact signal identification: Reconstruction and localization](https://doi.org/10.1051/meca/2026043)
 
