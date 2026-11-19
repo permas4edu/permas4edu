@@ -145,3 +145,4 @@
 
 [069](069/README.md) - [Effect of boundary conditions on impact signal identification: Reconstruction and localization](https://doi.org/10.1051/meca/2026043)
 
+[070](070/README.md) - [A probabilistic estimation of structural intensity in thin-plates using Gaussian process regression](https://popups.uliege.be/2684-6500/index.php?id=385)
