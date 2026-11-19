@@ -141,3 +141,6 @@
 
 [067](067/README.md) - [Sensor placement for sparse force reconstruction](https://doi.org/10.1016/j.ymssp.2025.113284)
 
+[068](068/README.md) - [A mechanistic analysis of transformers for dynamical systems](https://doi.org/10.1016/j.jcp.2026.115423)
+
+
