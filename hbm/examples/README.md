@@ -152,3 +152,5 @@
 [073](073/README.md) - [Nonlinear Dynamics of Forced and Damped Oscillators with Hertzian Contact Interaction](https://doi.org/10.1007/s42417-026-02762-8)
 
 [074](074/README.md) - [Detecting and identifying isolated conservative backbone curves in nonlinear mechanical systems via numerical continuation](https://doi.org/10.1007/s11071-026-12988-6)
+
+[075](075/README.md) -  [Continuation-Enhanced Harmonic Balance Method for Nonlinear Dynamics in Rotating Machinery](https://doi.org/10.1155/vib/2429386)
