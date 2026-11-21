@@ -147,4 +147,6 @@
 
 [070](070/README.md) - [A probabilistic estimation of structural intensity in thin-plates using Gaussian process regression](https://popups.uliege.be/2684-6500/index.php?id=385)
 
+[071](071/README.md) -  [Modal Identification Method of Offshore Wind Turbine Tower Based on SSI and FSDPC](https://doi.org/10.1155/vib/5660281)
+
 [072](072/README.md) -  [A pole-residue polynomial-chaos neural network for stochastic frequency response of MDOF systems](https://doi.org/10.1007/s00466-026-02877-5)
