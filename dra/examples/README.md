@@ -146,3 +146,5 @@
 [069](069/README.md) - [Effect of boundary conditions on impact signal identification: Reconstruction and localization](https://doi.org/10.1051/meca/2026043)
 
 [070](070/README.md) - [A probabilistic estimation of structural intensity in thin-plates using Gaussian process regression](https://popups.uliege.be/2684-6500/index.php?id=385)
+
+[072](072/README.md) -  [A pole-residue polynomial-chaos neural network for stochastic frequency response of MDOF systems](https://doi.org/10.1007/s00466-026-02877-5)
