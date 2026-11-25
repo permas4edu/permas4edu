@@ -153,4 +153,6 @@
 
 [074](074/README.md) - [Detecting and identifying isolated conservative backbone curves in nonlinear mechanical systems via numerical continuation](https://doi.org/10.1007/s11071-026-12988-6)
 
-[075](075/README.md) -  [Continuation-Enhanced Harmonic Balance Method for Nonlinear Dynamics in Rotating Machinery](https://doi.org/10.1155/vib/2429386)
+[075](075/README.md) - [Continuation-Enhanced Harmonic Balance Method for Nonlinear Dynamics in Rotating Machinery](https://doi.org/10.1155/vib/2429386)
+
+[076](076/README.md) - [Bridging nonlinear identification and industrial practice: NFR-ID with standard frequency-domain testing](https://doi.org/10.1007/s11071-026-13131-1)
