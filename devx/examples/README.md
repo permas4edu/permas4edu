@@ -124,3 +124,5 @@
 [0059](0059/README.md) - [Multimodal optimization of high-speed rotor: theory and experiment](https://doi.org/10.1515/mt-2026-0110)
 
 [0060](0060/README.md) - [Modal Analysis of Rotor System Using Line Body Elements in ANSYS Workbench](https://doi.org/10.38124/ijisrt/26aug219)
+
+[0061](0061/README.md) - [Improved Craig–Bampton Method Implemented into Durability Analysis of Flexible Multibody Systems](https://doi.org/10.3390/act12020065)
